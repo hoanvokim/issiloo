@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trang chủ | ISSILOO</title>
+    <link rel="shortcut icon" href="images/favicon.png">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
@@ -41,22 +42,47 @@
                     <div class="nav-menu-icon"><a href="#"><i></i></a></div>
                     <nav>
                         <ul class="menu">
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Du học<span class="ion ion-ios-arrow-down"></span></a>
+                            <li><a class="active" href="index.html">Trang chủ</a></li>
+                            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                            <li><a href="du-hoc.html">Du học<span class="ion ion-ios-arrow-down"></span></a>
                                 <ul class="dropmenu">
-                                    <li><a href="#">Du học Hàn Quốc <span class="ion ion-ios-arrow-down"></span></a>
+                                    <li><a href="du-hoc-han-quoc.html">Du học Hàn Quốc <span
+                                            class="ion ion-ios-arrow-down"></span></a>
                                         <ul class="submenu">
-                                            <li><a href="#">Du học KOGURYEO</a></li>
-                                            <li><a href="#">Du học BUSAN</a></li>
+                                            <li><a href="du-hoc-koguryeo.html">Du học KOGURYEO</a></li>
+                                            <li><a href="du-hoc-busan.html">Du học BUSAN</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="portfolio-3-column.html">Du học Úc</a></li>
+                                    <li><a href="du-hoc-uc.html">Du học Úc</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Trung tâm Hàn Ngữ</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
+                            <li>
+                                <a href="trung-tam-han-ngu.html">Trung tâm Hàn Ngữ<span
+                                        class="ion ion-ios-arrow-down"></span></a>
+                                <ul class="dropmenu">
+                                    <li><a href="chuong-trinh-dao-tao.html">Chương trình đào tạo</a></li>
+                                    <li><a href="thoi-khoa-bieu.html">Thời khoá biểu</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="tin-tuc.html">Tin tức<span
+                                    class="ion ion-ios-arrow-down"></span></a>
+                                <ul class="dropmenu">
+                                    <li><a href="tin-tuc.html">Sự kiện và tin tức</a></li>
+                                    <li><a href="goc-chia-se.html">Góc chia sẽ</a></li>
+                                    <li><a href="hoi-dap-du-hoc.html">Hỏi đáp du học</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="lien-he.html">Liên hệ</a></li>
+                            <li>
+                                <form action="" class="search-form">
+                                    <div class="form-group has-feedback">
+                                        <label for="search" class="sr-only">Search</label>
+                                        <input type="text" class="form-control" name="search" id="search"
+                                               placeholder="search">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </form>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -101,36 +127,28 @@
                 <div class="row service-layout">
                     <div class="col-md-4 col-sm-12">
                         <div>
-                            <h4 class="col-header">Du học Hàn Quốc</h4>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="ion ion-ios-crop"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="fa fa-envira"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content mar-20">
-                                <div class="icon-box"><i class="fa fa-low-vision"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
+                            <h4 class="col-header"><i class="fa fa-plane"></i> Du học Hàn Quốc</h4>
+                            <div class="widget-box">
+                                <ul class="list">
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Image rutrum nibh<br/>
+                                        <small>OCTOBER 7, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Video rutrum nibh<br/>
+                                        <small>OCTOBER 4, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                </ul>
                             </div>
                             <div class="pull-right"><a class="btn btn-default btn-xs">Xem thêm<i
                                     class="ion ion-ios-arrow-thin-right"></i></a></div>
@@ -138,36 +156,28 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <div>
-                            <h4 class="col-header">Học bổng du học</h4>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="fa fa-adjust"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="fa fa-glide-g"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content mar-20">
-                                <div class="icon-box"><i class="fa fa-asterisk"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
+                            <h4 class="col-header"><i class="fa fa-trophy"></i>Học bổng du học</h4>
+                            <div class="widget-box">
+                                <ul class="list">
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Image rutrum nibh<br/>
+                                        <small>OCTOBER 7, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Video rutrum nibh<br/>
+                                        <small>OCTOBER 4, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                </ul>
                             </div>
                             <div class="pull-right"><a class="btn btn-default btn-xs">Xem thêm<i
                                     class="ion ion-ios-arrow-thin-right"></i></a></div>
@@ -175,36 +185,28 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <div>
-                            <h4 class="col-header">Học tiếng hàn</h4>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="fa fa-cloud"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content">
-                                <div class="icon-box"><i class="fa fa-cogs"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-md-12 service-content mar-20">
-                                <div class="icon-box"><i class="fa fa-pie-chart"></i></div>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat. Praesent fringilla ex
-                                    at massa consectetur finibus
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
-                                </p>
+                            <h4 class="col-header"><i class="fa fa-leanpub"></i>Học tiếng hàn</h4>
+                            <div class="widget-box">
+                                <ul class="list">
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Image rutrum nibh<br/>
+                                        <small>OCTOBER 7, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> A post with Video rutrum nibh<br/>
+                                        <small>OCTOBER 4, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                    <li><a href="xem-chi-tiet.html"><img src="images/news.jpg" alt=""/> Nulla rutrum nibh in accumsan
+                                        venenatis<br/>
+                                        <small>OCTOBER 3, 2015</small>
+                                    </a></li>
+                                </ul>
                             </div>
                             <div class="pull-right"><a class="btn btn-default btn-xs">Xem thêm<i
                                     class="ion ion-ios-arrow-thin-right"></i></a></div>
