@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.1.10-MariaDB)
 # Database: issiloo
-# Generation Time: 2016-04-25 09:41:14 +0000
+# Generation Time: 2016-04-25 10:33:58 +0000
 # ************************************************************
 
 
@@ -29,9 +29,10 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) DEFAULT NULL,
   `slug` varchar(250) DEFAULT NULL,
-  `sort_index` int(11) DEFAULT NULL,
   `en_name` varchar(500) DEFAULT NULL,
   `vi_name` varchar(500) DEFAULT NULL,
+  `is_menu` tinyint(1) NOT NULL DEFAULT '0',
+  `sort_index` int(11) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -42,24 +43,28 @@ CREATE TABLE `category` (
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 
-INSERT INTO `category` (`id`, `parent_id`, `slug`, `sort_index`, `en_name`, `vi_name`, `created_date`, `updated_date`)
+INSERT INTO `category` (`id`, `parent_id`, `slug`, `en_name`, `vi_name`, `is_menu`, `sort_index`, `created_date`, `updated_date`)
 VALUES
-	(1,NULL,'gioi-thieu',0,'Introduce','Giới thiệu','2016-04-25 16:17:30','2016-04-25 16:19:56'),
-	(2,1,'gioi-thieu',0,'Introduce','Giới thiệu','2016-04-25 16:18:52','2016-04-25 16:19:52'),
-	(3,1,'linh-vuc-hoat-dong',1,'We are working on','Lĩnh vực hoạt động','2016-04-25 16:19:35','2016-04-25 16:19:48'),
-	(4,1,'tam-nhin-su-menh',2,'Mission & Vision','Tầm nhìn và Sứ mệnh','2016-04-25 16:21:26',NULL),
-	(5,1,'nhan-vien-issiloo',3,'Our employees','Nhân viên tại ISSILOO','2016-04-25 16:22:26',NULL),
-	(6,1,'hanh-trinh-issiloo',4,'An advanture','Hành trình ISSILOO','2016-04-25 16:23:06',NULL),
-	(7,NULL,'tin-tuc',0,'News & Events','Tin tức và Sự kiện','2016-04-25 16:23:54',NULL),
-	(8,NULL,'chia-se-hinh-anh-video',0,'Sharing','Chia sẻ','2016-04-25 16:24:52',NULL),
-	(9,NULL,'hanh-trang-du-hoc',0,'Tips for study abroad','Hành trang du học','2016-04-25 16:27:52',NULL),
-	(10,NULL,'du-hoc',0,'Study abroad','Du học','2016-04-25 16:28:56',NULL),
-	(11,10,'du-hoc-han-quoc',0,'Study in Korea','Du học Hàn Quốc','2016-04-25 16:36:25',NULL),
-	(12,11,'du-hoc-tai-truong-cao-dang-koguryeo',0,'Study at Koguryeo','Du học tại Koguryeo','2016-04-25 16:38:31',NULL),
-	(13,NULL,'hoc-tieng-han',0,'Learning korean','Học tiếng hàn','2016-04-25 16:39:10',NULL),
-	(14,NULL,'trung-tam-han-ngu',0,'Korean center','Trung tâm Hàn ngữ','2016-04-25 16:39:47',NULL),
-	(15,14,'chuong-trinh-dao-tao',0,'Programmers','Chương trình đào tạo','2016-04-25 16:40:16',NULL),
-	(16,14,'thoi-khoa-bieu',1,'Schedule','Thời khoá biểu','2016-04-25 16:40:42',NULL);
+	(1,NULL,'gioi-thieu','Introduce','Giới thiệu',1,1,'2016-04-25 16:17:30','2016-04-25 17:32:21'),
+	(2,1,'gioi-thieu','Introduce','Giới thiệu',0,0,'2016-04-25 16:18:52','2016-04-25 16:19:52'),
+	(3,1,'linh-vuc-hoat-dong','We are working on','Lĩnh vực hoạt động',0,1,'2016-04-25 16:19:35','2016-04-25 16:19:48'),
+	(4,1,'tam-nhin-su-menh','Mission & Vision','Tầm nhìn và Sứ mệnh',0,2,'2016-04-25 16:21:26',NULL),
+	(5,1,'nhan-vien-issiloo','Our employees','Nhân viên tại ISSILOO',0,3,'2016-04-25 16:22:26',NULL),
+	(6,1,'hanh-trinh-issiloo','An advanture','Hành trình ISSILOO',0,4,'2016-04-25 16:23:06',NULL),
+	(7,18,'tin-tuc','News & Events','Tin tức và Sự kiện',1,0,'2016-04-25 16:23:54','2016-04-25 17:29:44'),
+	(8,18,'chia-se-hinh-anh-video','Sharing','Góc chia sẻ',1,1,'2016-04-25 16:24:52','2016-04-25 17:33:12'),
+	(9,NULL,'hanh-trang-du-hoc','Tips for study abroad','Hành trang du học',0,0,'2016-04-25 16:27:52',NULL),
+	(10,NULL,'du-hoc','Study abroad','Du học',1,2,'2016-04-25 16:28:56','2016-04-25 17:32:33'),
+	(11,10,'du-hoc-han-quoc','Study in Korea','Du học Hàn Quốc',1,0,'2016-04-25 16:36:25','2016-04-25 17:30:17'),
+	(12,11,'du-hoc-tai-truong-cao-dang-koguryeo','Study at Koguryeo','Du học tại Koguryeo',1,0,'2016-04-25 16:38:31','2016-04-25 17:30:30'),
+	(13,NULL,'hoc-tieng-han','Learning korean','Học tiếng hàn',0,0,'2016-04-25 16:39:10',NULL),
+	(14,NULL,'trung-tam-han-ngu','Korean center','Trung tâm Hàn ngữ',1,3,'2016-04-25 16:39:47','2016-04-25 17:32:43'),
+	(15,14,'chuong-trinh-dao-tao','Programmers','Chương trình đào tạo',1,0,'2016-04-25 16:40:16','2016-04-25 17:30:31'),
+	(16,14,'thoi-khoa-bieu','Schedule','Thời khoá biểu',1,1,'2016-04-25 16:40:42','2016-04-25 17:30:33'),
+	(17,NULL,'trang-chu','Homepage','Trang chủ',1,0,'2016-04-25 17:28:53','2016-04-25 17:29:05'),
+	(18,NULL,'tin-tuc','News','Tin tức',1,4,'2016-04-25 17:29:38','2016-04-25 17:32:53'),
+	(19,18,'hoi-dap-du-hoc','FAQs','Hỏi đáp',1,2,'2016-04-25 17:31:06','2016-04-25 17:33:06'),
+	(20,NULL,'lien-he','Contact us','Liên hệ',1,5,'2016-04-25 17:32:06','2016-04-25 17:33:01');
 
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
