@@ -8,8 +8,8 @@ class Home_controller extends CI_Controller
     {
         parent::__construct();
         $this->lang->load('message', 'vietnamese');
-        $this->load->model('Category_model');
         $_SESSION["activeLanguage"] = "vi";
+        $this->load->model('Category_model');
     }
 
     public function index()
