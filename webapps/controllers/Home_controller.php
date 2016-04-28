@@ -14,7 +14,9 @@ class Home_controller extends CI_Controller
 
     public function index()
     {
-        //$this->Category_model->getMainMenu();
-        $this->load->view("pages/home");
+        $strMenu = '';
+        $this->Category_model->getMainMenu(null,$strMenu);
+        $data['menustr'] = $strMenu;
+        $this->load->view("pages/home",$data);
     }
 }
