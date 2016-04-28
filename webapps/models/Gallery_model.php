@@ -9,5 +9,14 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Gallery_Model extends CI_Model
 {
+     public function getGalleryByUniverity($uniId){
+         $sql = "select img_src from universityimages, gallery where universityimages.university_id = $uniId and gallery.id = universityimages.image_id";
+         return $this->db->query($sql)->result_array();
+     }
 
+     public function getGalleryByNews(){
+         $temp = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";
+         $sql = "select img_src,$temp as title from newsgallery, gallery where newsgallery.images_id=gallery.id limit 0,10";
+         return $this->db->query($sql)->result_array();
+     }
 }

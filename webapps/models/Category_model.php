@@ -79,4 +79,11 @@ class Category_Model extends CI_Model
         }
         return false;
     }
+
+    public function getName($id){
+        $temp = $this->name_field;
+        $sql = "select $temp from category where id=$id";
+        $row = $this->db->query($sql)->row();
+        return $row->$temp;
+    }
 }

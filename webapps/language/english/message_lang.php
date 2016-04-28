@@ -13,10 +13,15 @@ $lang['ISSI_ADDRESS_CITY'] = 'Q.Phú Nhuận, Tp.HCM';
 
 
 //general
-$lang['READ_MORE'] = 'Read more';
+$lang['READ_DETAIL'] = 'Read more';
 $lang['CONTACT_WITH_US'] = 'Contact with us';
 $lang['WORKING_TIME'] = 'Working time';
 $lang['MONDAY_FRIDAY'] = 'Monday – Friday';
 $lang['MORNING_EVENING'] = '8:00 am - 5:30 pm';
+$lang['READ_MORE'] = 'Read more';
+$lang['UNIVERSITY_INFO'] = 'Universities infomation';
+$lang['LASTEST_NEWS'] = 'Tin tức nổi bật';
+$lang['POST_DATE'] = 'Posted by';
+$lang['READ_MORE_NEWS'] = 'Read more';
 
 ?>

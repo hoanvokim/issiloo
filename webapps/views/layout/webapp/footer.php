@@ -8,7 +8,7 @@
                     <h5><a href="#"><img src="<?php echo base_url(); ?>webresources/images/logo-line-white.png" alt="ISSILOO"
                                                   class="footer-logo"/></a></h5>
                     <p><?php echo $this->lang->line('ISSI_INTRO'); ?></p>
-                    <p><a href="about-us.html"> <?php echo $this->lang->line('READ_MORE'); ?> <i class="ion ion-ios-arrow-thin-right"></i></a></p>
+                    <p><a href="about-us.html"> <?php echo $this->lang->line('READ_DETAIL'); ?> <i class="ion ion-ios-arrow-thin-right"></i></a></p>
 
                 </div>
 

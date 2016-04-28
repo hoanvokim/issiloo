@@ -9,5 +9,8 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Slider_Model extends CI_Model
 {
-
+      public function getAll(){
+          $sql = "select * from slider";
+          return $this->db->query($sql)->result_array();
+      }
 }
