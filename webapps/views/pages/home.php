@@ -212,7 +212,7 @@
         <!-- inner container end -->
 
         <div class="feature-container mar-60">
-            <h3 class="col-header-color" style="margin-bottom: -1px;">Chia sẽ hình ảnh và video</h3>
+            <h3 class="col-header-color" style="margin-bottom: -1px;">Chia sẽ hình ảnh và video.</h3>
             <div class="feature-box-container feature-slider">
 
                 <?php for($i=0;$i<count($video_image);$i++){ ?>
