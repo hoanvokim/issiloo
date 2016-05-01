@@ -51,3 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //default controllers
 $route['default_controller'] = 'home_controller/index';
+
+//admin
+$route['admin'] = 'dm/admin_controller/index';

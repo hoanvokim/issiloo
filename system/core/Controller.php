@@ -77,7 +77,6 @@ class CI_Controller {
 
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
-		$this->load->library('utilities');
 		log_message('info', 'Controller Class Initialized');
 	}
 
@@ -94,14 +93,4 @@ class CI_Controller {
 		return self::$instance;
 	}
 
-    public function is_login()
-    {
-        $user = $this->session->userdata('logged_in');
-        return isset($user);
-    }
-
-    public function load_login_view(){
-        $data['title'] = 'Login';
-        $this->load->view('pages/security/login', $data);
-    }
 }
