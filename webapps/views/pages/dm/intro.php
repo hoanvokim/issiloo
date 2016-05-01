@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> <?php echo $title ?></title>
+    <title> HomePage | ISSILOO</title>
     <?php $this->load->view('layout/dm/header'); ?>
 </head>
 
@@ -30,7 +30,7 @@
             <div id="page-content">
                 <div class="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/index'); ?>
+                    <?php $this->load->view('components/dm/intro'); ?>
                 </div>
             </div>
             <!--===================================================-->

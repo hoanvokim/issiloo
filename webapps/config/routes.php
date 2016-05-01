@@ -54,3 +54,14 @@ $route['default_controller'] = 'home_controller/index';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
+$route['manage_intro'] = 'dm/intro_controller/index';
+$route['manage_news'] = 'dm/news_controller/index';
+$route['manage_sharing'] = 'dm/sharing_controller/index';
+$route['manage_faq'] = 'dm/faq_controller/index';
+$route['manage_tag'] = 'dm/tag_controller/index';
+$route['manage_study'] = 'dm/study_controller/index';
+$route['add_category'] = 'dm/category_controller/index';
+$route['add_news'] = 'dm/news_controller/index';
+$route['add_university'] = 'dm/university_controller/index';
+$route['add_program'] = 'dm/program_controller/index';
+$route['add_schedule'] = 'dm/schedule_controller/index';
