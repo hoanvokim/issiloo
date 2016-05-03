@@ -25,7 +25,8 @@ class List_news_controller extends CI_Controller{
         $data['menustr'] = $strMenu;
 
         $category_id = $this->Category_model->getIdFromSlug($slug);
-        $data['category_title'] = $this->Category_model->getName($category_id);
+        $data['banner_title'] = $this->Category_model->getName($category_id);
+        $data['title_header'] = $data['banner_title'];
 
         $aMenu = array();
         $aMenu[] = $category_id;
@@ -33,7 +34,7 @@ class List_news_controller extends CI_Controller{
         $data['aMenu'] = $aMenu;
 
         $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu);
-        $data['relatednews'] = $this->News_model->getRelatedNews($category_id);
+        $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
         $this->load->view("pages/webapp/list_news",$data);
     }

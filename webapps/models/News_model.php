@@ -21,6 +21,18 @@ class News_Model extends CI_Model
         $this->load->model("Category_model");
     }
 
+    public function getIdFromSlug($slug){
+        $sql = "select id from news where slug='$slug' limit 0,1";
+        $result = $this->db->query($sql)->result_array();
+        return $result[0]['id'];
+    }
+
+    public function getNewsById($id){
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where id = $id";
+        $result = $this->db->query($sql)->result_array();
+        return $result[0];
+    }
+
      public function getNewsByCatId($catId){
          $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id = $catId";
          return $this->db->query($sql)->result_array();
@@ -41,7 +53,7 @@ class News_Model extends CI_Model
          return $this->db->query($sql)->result_array();
      }
 
-     public function getRelatedNews($category_id){
+     public function getRelatedNewsByCatId($category_id){
          $arr = array();
          $cnt = 0;
          $aSubMenu = array();
@@ -56,4 +68,14 @@ class News_Model extends CI_Model
          }
          return $arr;
      }
+
+    public function getRelatedNewsById($news_id){
+        $sql = "select category_id from news where id=$news_id";
+        $result = $this->db->query($sql)->result_array();
+        $category_id = $result[0]['category_id'];
+
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
+        $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,3";
+        return $this->db->query($sql)->result_array();
+    }
 }

@@ -19,13 +19,7 @@
             </div>
         </div>
         <!-- slider container end -->
-        <div>
-            <?php
-                echo "<pre>";
-                print_r($allMenu);
-                echo "</pre>";
-            ?>
-        </div>
+
         <!-- inner container start -->
         <div class="inner-container">
             <div class="container">
@@ -38,14 +32,7 @@
 
                                     <?php for($i=0;$i<4;$i++){ ?>
                                         <li><a href="xem-chi-tiet.html"><img src="<?php echo $adhhq[$i]['img_src']; ?>" alt=""/>
-                                                <?php
-                                                    if(strcasecmp($_SESSION["activeLanguage"], "en") == 0){
-                                                        echo $adhhq[$i]['en_title'];
-                                                    }else{
-                                                        echo $adhhq[$i]['vi_title'];
-                                                    }
-
-                                                ?><br/>
+                                                <?php echo $adhhq[$i]['title'] ?><br/>
                                                 <small><?php echo date_format(new DateTime($adhhq[$i]['created_date']),"F d, Y"); ?></small>
                                             </a></li>
                                     <?php } ?>
@@ -67,14 +54,7 @@
 
                                     <?php for($i=0;$i<4;$i++){ ?>
                                         <li><a href="xem-chi-tiet.html"><img src="<?php echo $ahbdh[$i]['img_src']; ?>" alt=""/>
-                                                <?php
-                                                if(strcasecmp($_SESSION["activeLanguage"], "en") == 0){
-                                                    echo $ahbdh[$i]['en_title'];
-                                                }else{
-                                                    echo $ahbdh[$i]['vi_title'];
-                                                }
-
-                                                ?><br/>
+                                                <?php echo $ahbdh[$i]['title']; ?><br/>
                                                 <small><?php echo date_format(new DateTime($ahbdh[$i]['created_date']),"F d, Y"); ?></small>
                                             </a></li>
                                     <?php } ?>
@@ -95,14 +75,7 @@
 
                                     <?php for($i=0;$i<4;$i++){ ?>
                                         <li><a href="xem-chi-tiet.html"><img src="<?php echo $ahth[$i]['img_src']; ?>" alt=""/>
-                                                <?php
-                                                if(strcasecmp($_SESSION["activeLanguage"], "en") == 0){
-                                                    echo $ahth[$i]['en_title'];
-                                                }else{
-                                                    echo $ahth[$i]['vi_title'];
-                                                }
-
-                                                ?><br/>
+                                                <?php echo $ahth[$i]['title']; ?><br/>
                                                 <small><?php echo date_format(new DateTime($ahth[$i]['created_date']),"F d, Y"); ?></small>
                                             </a></li>
                                     <?php } ?>

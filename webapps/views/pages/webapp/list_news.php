@@ -18,18 +18,18 @@
                                 <div class="col-md-12 grid-item">
                                     <div class="blog-item">
                                         <div class="entry-media">
-                                            <a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?><?php echo $news['img_src']; ?>"
-                                                                             alt=""/></a>
+                                            <img src="<?php echo base_url(); ?><?php echo $news['img_src']; ?>"
+                                                                             alt=""/>
                                         </div>
                                         <div class="entry-content">
-                                            <span class="entry-date"><a href="xem-chi-tiet.html"><?php echo date_format(new DateTime($news['created_date']),"d.m.Y"); ?></a></span>
-                                            <h5><a href="xem-chi-tiet.html"><?php echo $news['title']; ?></a></h5>
+                                            <span class="entry-date"><a href="#"><?php echo date_format(new DateTime($news['created_date']),"d.m.Y"); ?></a></span>
+                                            <h5><a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><?php echo $news['title']; ?></a></h5>
                                             <p><?php echo $news['summary']; ?></p>
                                             <div class="entry-meta">
                                                 <span class="entry-comment"><a
-                                                        href="xem-chi-tiet.html">12 Comments</a></span>
+                                                        href="#">12 Comments</a></span>
                                             </div>
-                                            <a href="xem-chi-tiet.html" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
+                                            <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
 
                             <?php $cnt = count($item['related_news']) >= 4 ? 4:count($item['related_news']);  ?>
                             <?php for($i=0;$i<$cnt;$i++){ ?>
-                                <li><a href="#"><img src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>" alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
+                                <li><a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>" alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
                                         <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']),"F d, Y");?></small>
                                     </a></li>
                             <?php } ?>
