@@ -64,6 +64,11 @@ class Home_controller extends CI_Controller
         //get video and images.
         $data['video_image'] = $this->Gallery_model->getGalleryByNews();
 
+        $allMenu = array();
+        $allMenu[] = 10;//du-hoc
+        $this->Category_model->getDirectSubMenu(10,$allMenu);
+        $data['allMenu'] = $allMenu;
+
         $this->load->view("pages/home",$data);
     }
 }

@@ -28,7 +28,7 @@ class Category_Model extends CI_Model
         if(count($arr_result)>0){
 
             foreach($arr_result as $item){
-                $url = base_url().$item['slug'];
+                $url = base_url()."cat/".$item['slug'];
                 $strMenu = $strMenu . "<li><a href='$url'>".$item[$temp_name];
                 if($this->hasSubMenu($item['id'])){
                     $strMenu = $strMenu . '<span class="ion ion-ios-arrow-down"></span>';
@@ -48,6 +48,27 @@ class Category_Model extends CI_Model
                 }else{
                     $strMenu = $strMenu . "</li>";
                 }
+            }
+        }
+    }
+
+    public function getAllSubMenu($parent_id,&$aMenu){
+        $sql = "select id from category where is_menu=1 and parent_id = $parent_id";
+        $arr_result = $this->db->query($sql)->result_array();
+        if(count($arr_result)>0){
+            foreach($arr_result as $item){
+                $aMenu[] = $item['id'];
+                $this->getAllSubMenu($item['id'],$aMenu);
+            }
+        }
+    }
+
+    public function getDirectSubMenu($parent_id, &$aMenu){
+        $sql = "select id from category where is_menu=1 and parent_id = $parent_id";
+        $arr_result = $this->db->query($sql)->result_array();
+        if(count($arr_result)>0){
+            foreach($arr_result as $item){
+                $aMenu[] = $item['id'];
             }
         }
     }
@@ -85,5 +106,11 @@ class Category_Model extends CI_Model
         $sql = "select $temp from category where id=$id";
         $row = $this->db->query($sql)->row();
         return $row->$temp;
+    }
+
+    public function getIdFromSlug($slug){
+        $sql = "select id from category where is_menu=1 and slug='$slug' limit 0,1";
+        $result = $this->db->query($sql)->result_array();
+        return $result[0]['id'];
     }
 }

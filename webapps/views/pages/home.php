@@ -19,7 +19,13 @@
             </div>
         </div>
         <!-- slider container end -->
-
+        <div>
+            <?php
+                echo "<pre>";
+                print_r($allMenu);
+                echo "</pre>";
+            ?>
+        </div>
         <!-- inner container start -->
         <div class="inner-container">
             <div class="container">
@@ -179,7 +185,7 @@
                     <div class="col-sm-6">
                         <a href="#"><h4><strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                         <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>: <i><?php echo date_format(new DateTime($last_news[0]['created_date']),"d/m/Y"); ?></i></h6>
-                        <p><?php echo substr($last_news[0]['content'],0,450).' ... '; ?> <a href="#"
+                        <p><?php echo $last_news[0]['summary']; ?> <a href="#"
                                                                                             data-toggle="tooltip"
                                                                                             data-placement="bottom"
                                                                                             data-original-title="Xem chi tiết"
@@ -195,7 +201,7 @@
                             <div class="service-box">
                                 <a href="#"><h4><strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
                                 <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>: <i><?php echo date_format(new DateTime($last_news[$i]['created_date']),"d/m/Y"); ?></i></h6>
-                                <p><?php echo substr($last_news[$i]['content'],0,300). ' ... '; ?>
+                                <p><?php echo $last_news[$i]['summary']; ?>
                                     <a href="#" data-toggle="tooltip" data-placement="bottom"
                                        data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
                                             class="ion ion-ios-arrow-thin-right"></i></a>

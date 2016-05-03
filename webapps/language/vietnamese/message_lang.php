@@ -2,6 +2,8 @@
 
 //main menu
 $lang['MENU_HOME'] = 'Trang chủ';
+$lang['MENU_INTRODUCE'] = 'Giới thiệu';
+$lang['MENU_CONTACT'] = 'Liên hệ';
 
 
 //issi
@@ -23,5 +25,14 @@ $lang['UNIVERSITY_INFO'] = 'Thông tin các trường đại học';
 $lang['LASTEST_NEWS'] = 'Tin tức nổi bật';
 $lang['POST_DATE'] = 'Đăng ngày';
 $lang['READ_MORE_NEWS'] = 'Xem thêm tin tức';
+
+//consult register
+$lang['REGISTER_CONSULT'] = 'Đăng Ký Tư Vấn';
+$lang['NAME'] = 'Tên';
+$lang['EMAIL'] = 'Email';
+$lang['PHONE'] = 'Điện thoại';
+$lang['TITLE'] = 'Tiêu đề';
+$lang['CONTENT'] = 'Nội dung';
+$lang['SEND'] = 'Gửi';
 
 ?>
