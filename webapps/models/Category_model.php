@@ -11,9 +11,64 @@ class Category_Model extends CI_Model
 {
     public $name_field = "vi_name";
 
+//    Fundamental functions
+
     public function __construct()
     {
         $this->name_field = $_SESSION["activeLanguage"] == "vi" ? "vi_name" : "en_name";
+    }
+
+    public function findAll()
+    {
+        return $this->db->get("category")->result_array();
+    }
+
+    public function findByParent($parent)
+    {
+        $this->db->select('*');
+        $this->db->from('category');
+        $this->db->where('parent_id =', $parent);
+        return $this->db->get()->result_array();
+    }
+
+    public function insert($vi_name)
+    {
+        $children = $this->findByParent(1);
+        $sortIndex = sizeof($children);
+        $data = array(
+            'vi_name' => $vi_name,
+            'parent_id' => 1,
+            'sort_index' => $sortIndex
+        );
+
+        $this->db->insert('category', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function update($catId, $vi_name)
+    {
+        $data = array(
+            'vi_name' => $vi_name
+        );
+        $this->db->where('id', $catId);
+        $this->db->update('category', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('category');
+    }
+
+//    Utilities
+
+    public function findStudyAbroadRoot()
+    {
+        $this->db->select('*');
+        $this->db->from('category');
+        $this->db->where('id = 10');
+        return $this->db->get()->result_array();
     }
 
     public function getMainMenu($parent_id = null, &$strMenu)
@@ -29,10 +84,10 @@ class Category_Model extends CI_Model
         $arr_result = $this->db->query($sql)->result_array();
         if (count($arr_result) > 0) {
 
-            foreach($arr_result as $item){
-                $url = base_url()."cat/".$item['slug'];
-                $strMenu = $strMenu . "<li><a href='$url'>".$item[$temp_name];
-                if($this->hasSubMenu($item['id'])){
+            foreach ($arr_result as $item) {
+                $url = base_url() . "cat/" . $item['slug'];
+                $strMenu = $strMenu . "<li><a href='$url'>" . $item[$temp_name];
+                if ($this->hasSubMenu($item['id'])) {
                     $strMenu = $strMenu . '<span class="ion ion-ios-arrow-down"></span>';
                 }
                 $strMenu = $strMenu . "</a>";
@@ -52,35 +107,29 @@ class Category_Model extends CI_Model
                 }
             }
         }
-    } 
-    
-    public function getAllSubMenu($parent_id,&$aMenu){
-    $sql = "select id from category where is_menu=1 and parent_id = $parent_id";
-    $arr_result = $this->db->query($sql)->result_array();
-    if(count($arr_result)>0){
-        foreach($arr_result as $item){
-            $aMenu[] = $item['id'];
-            $this->getAllSubMenu($item['id'],$aMenu);
-        }
     }
-}
 
-    public function getDirectSubMenu($parent_id, &$aMenu){
+    public function getAllSubMenu($parent_id, &$aMenu)
+    {
         $sql = "select id from category where is_menu=1 and parent_id = $parent_id";
         $arr_result = $this->db->query($sql)->result_array();
-        if(count($arr_result)>0){
-            foreach($arr_result as $item){
+        if (count($arr_result) > 0) {
+            foreach ($arr_result as $item) {
                 $aMenu[] = $item['id'];
+                $this->getAllSubMenu($item['id'], $aMenu);
             }
         }
     }
 
-    public function findByParent($parent)
+    public function getDirectSubMenu($parent_id, &$aMenu)
     {
-        $this->db->select('*');
-        $this->db->from('category');
-        $this->db->where('parent_id =', $parent);
-        return $this->db->get()->result_array();
+        $sql = "select id from category where is_menu=1 and parent_id = $parent_id";
+        $arr_result = $this->db->query($sql)->result_array();
+        if (count($arr_result) > 0) {
+            foreach ($arr_result as $item) {
+                $aMenu[] = $item['id'];
+            }
+        }
     }
 
 
@@ -123,38 +172,8 @@ class Category_Model extends CI_Model
         return $row->$temp;
     }
 
-
-    public function insert($vi_name)
+    public function getIdFromSlug($slug)
     {
-        $children = $this->findByParent(1);
-        $sortIndex = sizeof($children);
-        $data = array(
-            'vi_name' => $vi_name,
-            'parent_id' => 1,
-            'sort_index' => $sortIndex
-        );
-
-        $this->db->insert('category', $data);
-        $insert_id = $this->db->insert_id();
-        return $insert_id;
-    }
-
-    public function update($catId, $vi_name)
-    {
-        $data = array(
-            'vi_name' => $vi_name
-        );
-        $this->db->where('id', $catId);
-        $this->db->update('category', $data);
-    }
-
-    public function delete($id)
-    {
-        $this->db->where('id', $id);
-        $this->db->delete('category');
-    }
-
-    public function getIdFromSlug($slug){
         $sql = "select id from category where is_menu=1 and slug='$slug' limit 0,1";
         $result = $this->db->query($sql)->result_array();
         return $result[0]['id'];

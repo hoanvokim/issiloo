@@ -52,9 +52,9 @@
                         <li class="list-divider"></li>
                         <li class="list-header">Du Học</li>
                         <li>
-                            <a href="<?php echo site_url('manage_study'); ?>">
+                            <a href="<?php echo site_url('manage_study_category'); ?>">
                                 <i class="fa fa-spinner"></i>
-                                <span class="menu-title">Xem tất cả</span>
+                                <span class="menu-title">Xem tất cả Category</span>
                             </a>
                         </li>
                         <li>
