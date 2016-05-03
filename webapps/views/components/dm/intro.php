@@ -1,1 +1,41 @@
-<span>Intro</span>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title pull-left">Tất cả các Tabs hiện tại</h3>
+        <a href="<?php echo base_url() . "intro-manager/create " ?>" class="btn btn-success pull-right btn-top-right">Thêm 1 tab mới</a>
+    </div>
+    <div class="panel-body">
+        <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th width="5%">TabID</th>
+                <th width="10%">Tên tab</th>
+                <th width="40%">Nội dung</th>
+                <th width="15%">Ngày thêm</th>
+                <th width="15%">Ngày cập nhật</th>
+                <th width="15%">Tác vụ</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($intros as $intro) { ?>
+                <tr>
+                    <td><?php echo $intro['catId']; ?></td>
+                    <td><?php echo $intro['viCatName']; ?></td>
+                    <td>
+                        <?php echo $intro['viNewsContent']; ?>
+                    </td>
+                    <td><?php echo $intro['catCreatedDate']; ?></td>
+                    <td><?php echo $intro['catUpdatedDate']; ?></td>
+                    <td class=" demo-jasmine-btn">
+                        <a href="<?php echo base_url() . "intro-manager/update/" . $intro['catId']; ?>"
+                           class="btn btn-default">Sửa</a>
+                        <a href="<?php echo base_url() . "intro-manager/delete/" . $intro['catId']; ?>"
+                           class="btn btn-danger">Xoá</a>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+        <a href="<?php echo base_url() . "intro-manager/create " ?>" class="btn btn-success pull-right">Thêm 1 tab
+            mới</a>
+    </div>
+</div>

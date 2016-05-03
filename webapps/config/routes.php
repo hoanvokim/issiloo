@@ -56,7 +56,6 @@ $route['news/(:any)'] = 'webapp/detail_controller/index/$1';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
-$route['manage_intro'] = 'dm/intro_controller/index';
 $route['manage_news'] = 'dm/news_controller/index';
 $route['manage_sharing'] = 'dm/sharing_controller/index';
 $route['manage_faq'] = 'dm/faq_controller/index';
@@ -67,3 +66,11 @@ $route['add_news'] = 'dm/news_controller/index';
 $route['add_university'] = 'dm/university_controller/index';
 $route['add_program'] = 'dm/program_controller/index';
 $route['add_schedule'] = 'dm/schedule_controller/index';
+$route['manage_intro'] = 'dm/intro_controller/index';
+$route['intro-manager/create'] = 'dm/intro_controller/create';
+$route['intro-manager/update/:num'] = 'dm/intro_controller/update';
+$route['intro-manager/delete/:num'] = 'dm/intro_controller/delete';
+$route['intro-manager-create-submit'] = 'dm/intro_controller/create_add';
+$route['intro-manager/create_cancel'] = 'dm/intro_controller/create_cancel';
+$route['intro-manager-update-submit'] = 'dm/intro_controller/update_add';
+$route['intro-manager/update_cancel'] = 'dm/intro_controller/update_cancel';

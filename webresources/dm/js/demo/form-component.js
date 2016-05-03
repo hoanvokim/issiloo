@@ -447,9 +447,10 @@ $(document).ready(function() {
 	// Require Summernote
 	// http://hackerwins.github.io/summernote/
 	// =================================================================
-	$('#demo-summernote').summernote({height: 250});
-
-
+	// $('#demo-summernote').summernote({height: 250});
+	$(document).ready(function() {
+		$('#summernote').summernote();
+	});
 
 
 

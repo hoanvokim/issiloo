@@ -9,21 +9,12 @@
 <body>
 <div id="container" class="effect mainnav-lg navbar-fixed mainnav-fixed">
 
-    <?php $this->load->view('layout/dm/header_bar'); ?>
     <div class="boxed">
 
         <!--CONTENT CONTAINER-->
         <!--===================================================-->
         <section id="content-container">
-            <header class="pageheader">
-                <h3><i class="fa fa-home"></i> Dashboard </h3>
-                <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
-                    <ol class="breadcrumb">
-                        <li><a href="#"> Home </a></li>
-                        <li class="active"> Dashboard</li>
-                    </ol>
-                </div>
-            </header>
+            <?php $this->load->view('layout/dm/breadcrumb'); ?>
 
             <!--Page content-->
             <!--===================================================-->
@@ -49,6 +40,7 @@
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
+<?php $this->load->view('layout/dm/footer'); ?>
 
 </body>
 </html>

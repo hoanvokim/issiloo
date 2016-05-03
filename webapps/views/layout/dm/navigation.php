@@ -19,6 +19,7 @@
                             </a>
                         </li>
                         <li>
+
                             <a href="<?php echo site_url('manage_intro'); ?>">
                                 <i class="fa fa-info-circle"></i>
                                 <span class="menu-title">Giới thiệu</span>

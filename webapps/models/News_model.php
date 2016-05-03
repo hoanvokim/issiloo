@@ -1,12 +1,12 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
  * Created by IntelliJ IDEA.
  * User: hoanvo
  * Date: 4/25/16
  * Time: 5:34 PM
  */
-
 class News_Model extends CI_Model
 {
 
@@ -14,7 +14,8 @@ class News_Model extends CI_Model
     public $content = "vi_content";
     public $summary = "vi_summary";
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->title = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";
         $this->content = $_SESSION["activeLanguage"] == "vi" ? "vi_content" : "en_content";
         $this->summary = $_SESSION["activeLanguage"] == "vi" ? "vi_summary" : "en_summary";
@@ -78,4 +79,61 @@ class News_Model extends CI_Model
         $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,3";
         return $this->db->query($sql)->result_array();
     }
+
+
+
+    public function getIntroduces($catId)
+    {
+        $sql = " select category.id as catId, 
+                 news.id as newsId,
+                 category.en_name as enCatName,
+                 category.vi_name as viCatName, 
+                 news.en_content as enNewsContent, 
+                 news.vi_content as viNewsContent, 
+                 category.created_date as catCreatedDate, 
+                 category.updated_date as catUpdatedDate 
+                 from news INNER JOIN category ON news.category_id=category.id 
+                 where news.category_id in (select id from category where category.parent_id = $catId) 
+                 order by category.id desc;";
+        return $this->db->query($sql)->result_array();
+    }
+    public function getCurrentIntroduce($catId)
+    {
+        $sql = " select category.id as catId, 
+                 news.id as newsId,
+                 category.en_name as enCatName,
+                 category.vi_name as viCatName, 
+                 news.en_content as enNewsContent, 
+                 news.vi_content as viNewsContent, 
+                 category.created_date as catCreatedDate, 
+                 category.updated_date as catUpdatedDate 
+                 from news INNER JOIN category ON news.category_id=category.id 
+                 where news.category_id = $catId 
+                 order by category.id desc;";
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function insert($catId, $vi_content)
+    {
+        $data = array(
+            'category_id' => $catId,
+            'vi_content' => $vi_content
+        );
+
+        $this->db->insert('news', $data);
+        $insert_id = $this->db->insert_id();
+        return  $insert_id;
+    }
+
+
+    public function update($catId, $vi_content)
+    {
+        $data = array(
+            'vi_content' => $vi_content
+        );
+        $this->db->where('category_id', $catId);
+        $this->db->update('news', $data);
+    }
+
 }
+

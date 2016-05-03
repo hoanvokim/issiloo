@@ -8,6 +8,7 @@
 
 <body>
 <div id="container" class="effect mainnav-lg navbar-fixed mainnav-fixed">
+
     <div class="boxed">
 
         <!--CONTENT CONTAINER-->
@@ -20,7 +21,7 @@
             <div id="page-content">
                 <div class="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/intro'); ?>
+                    <?php $this->load->view('components/dm/intro_create'); ?>
                 </div>
             </div>
             <!--===================================================-->
