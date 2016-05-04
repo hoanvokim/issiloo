@@ -31,6 +31,14 @@ class Category_Model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function findById($catId)
+    {
+        $this->db->select('*');
+        $this->db->from('category');
+        $this->db->where('id =', $catId);
+        return $this->db->get()->result_array();
+    }
+
     public function insert($vi_name)
     {
         $children = $this->findByParent(1);
@@ -46,7 +54,32 @@ class Category_Model extends CI_Model
         return $insert_id;
     }
 
+    public function insertWithParent($vi_name, $parentId)
+    {
+        $children = $this->findByParent($parentId);
+        $sortIndex = sizeof($children);
+        $data = array(
+            'vi_name' => $vi_name,
+            'parent_id' => $parentId,
+            'sort_index' => $sortIndex,
+            'is_menu' => 1
+        );
+
+        $this->db->insert('category', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
     public function update($catId, $vi_name)
+    {
+        $data = array(
+            'vi_name' => $vi_name
+        );
+        $this->db->where('id', $catId);
+        $this->db->update('category', $data);
+    }
+
+    public function updateWithParent($catId, $vi_name)
     {
         $data = array(
             'vi_name' => $vi_name

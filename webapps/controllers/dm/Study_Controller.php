@@ -41,14 +41,14 @@ class Study_controller extends CI_Controller
             $categories = $this->loadSub($categories, $category);
         }
         $data['categories'] = $categories;
-        $data['title'] = 'Xem tất cả Category';
+        $data['title'] = 'Xem tất cả phân nhóm';
         $this->load->view('pages/dm/study_view_all', $data);
     }
 
     public function loadSub($categories, $currentCategory)
     {
         $subCategories = $this->Category_model->findByParent($currentCategory['id']);
-        if(count($subCategories) > 0) {
+        if (count($subCategories) > 0) {
             foreach ($subCategories as $category) {
                 array_push($categories, array(
                     'id' => $category['id'],
@@ -62,5 +62,98 @@ class Study_controller extends CI_Controller
             }
         }
         return $categories;
+    }
+
+    public function create_category()
+    {
+        $this->load->model('Category_model');
+        $data['categories'] = $this->Category_model->findStudyAbroadRoot();
+        $categories = array();
+        foreach ($data['categories'] as $category) {
+            array_push($categories, array(
+                'id' => $category['id'],
+                'vi_name' => $category['vi_name']
+            ));
+            $categories = $this->loadSub($categories, $category);
+        }
+        $data['categories'] = $categories;
+        $data['title'] = 'Thêm 1 phân nhóm mới';
+        $this->load->view('pages/dm/study_create_category', $data);
+    }
+
+    public function create_category_add()
+    {
+        $this->load->model('Category_model');
+        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('parentCatId'));
+        redirect('manage-study-category', 'refresh');
+
+    }
+
+    public function create_category_cancel()
+    {
+        redirect('manage-study-category', 'refresh');
+    }
+
+    public function update_category()
+    {
+        $this->load->model('Category_model');
+
+        //getCurrent
+        $currentCategory = $this->Category_model->findById($this->uri->segment(3));
+        $data['currentCategory'] = $currentCategory;
+
+        //getParent
+        foreach ($data['currentCategory'] as $category) {
+            $parentCategory = $this->Category_model->findById($category['parent_id']);
+            $data['parentCategory'] = $parentCategory;
+        }
+
+        $data['catId'] = $this->uri->segment(3);
+        $data['title'] = 'Thêm 1 phân nhóm mới';
+        $this->load->view('pages/dm/study_update_category', $data);
+    }
+
+    public function update_category_add()
+    {
+        $this->load->model('Category_model');
+        $this->Category_model->updateWithParent($this->input->post('catId'), $this->input->post('viCatName'));
+        redirect('manage-study-category', 'refresh');
+    }
+
+    public function update_category_cancel()
+    {
+        redirect('manage-study-category', 'refresh');
+    }
+
+    public function delete_category()
+    {
+        $this->load->model('Category_model');
+        $this->Category_model->delete($this->uri->segment(3));
+        redirect('manage-study-category', 'refresh');
+    }
+
+    public function add_child()
+    {
+        $this->load->model('Category_model');
+        //getCurrent
+        $currentCategory = $this->Category_model->findById($this->uri->segment(3));
+        $data['currentCategory'] = $currentCategory;
+
+        //getParent
+        foreach ($data['currentCategory'] as $category) {
+            $parentCategory = $this->Category_model->findById($category['parent_id']);
+            $data['parentCategory'] = $parentCategory;
+        }
+
+        $data['catId'] = $this->uri->segment(3);
+        $data['title'] = 'Thêm 1 phân nhóm mới';
+        $this->load->view('pages/dm/study_add_child', $data);
+    }
+
+    public function add_child_category()
+    {
+        $this->load->model('Category_model');
+        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('catId'));
+        redirect('manage-study-category', 'refresh');
     }
 }

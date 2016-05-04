@@ -7,10 +7,7 @@
                 <div class="nav-menu-icon"><a href="#"><i></i></a></div>
                 <nav>
                     <ul class="menu">
-                        <li><a class="active" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('MENU_HOME'); ?></a></li>
-                        <li><a href="#"><?php echo $this->lang->line('MENU_INTRODUCE'); ?></a></li>
                         <?php echo $menustr; ?>
-                        <li><a href="#"><?php echo $this->lang->line('MENU_CONTACT'); ?></a></li>
                         <li>
                             <form action="" class="search-form">
                                 <div class="form-group has-feedback">

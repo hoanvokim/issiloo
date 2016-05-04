@@ -56,23 +56,32 @@ $route['news/(:any)'] = 'webapp/detail_controller/index/$1';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
-$route['manage_news'] = 'dm/news_controller/index';
-$route['manage_sharing'] = 'dm/sharing_controller/index';
-$route['manage_faq'] = 'dm/faq_controller/index';
-$route['manage_tag'] = 'dm/tag_controller/index';
-$route['add_category'] = 'dm/category_controller/index';
-$route['add_news'] = 'dm/news_controller/index';
-$route['add_university'] = 'dm/university_controller/index';
-$route['add_program'] = 'dm/program_controller/index';
-$route['add_schedule'] = 'dm/schedule_controller/index';
+$route['manage-news'] = 'dm/news_controller/index';
+$route['manage-sharing'] = 'dm/sharing_controller/index';
+$route['manage-faq'] = 'dm/faq_controller/index';
+$route['manage-tag'] = 'dm/tag_controller/index';
+$route['add-category'] = 'dm/category_controller/index';
+$route['add-news'] = 'dm/news_controller/index';
+$route['add-university'] = 'dm/university_controller/index';
+$route['add-program'] = 'dm/program_controller/index';
+$route['add-schedule'] = 'dm/schedule_controller/index';
 
-$route['manage_intro'] = 'dm/intro_controller/index';
+$route['manage-intro'] = 'dm/intro_controller/index';
 $route['intro-manager/create'] = 'dm/intro_controller/create';
 $route['intro-manager/update/:num'] = 'dm/intro_controller/update';
 $route['intro-manager/delete/:num'] = 'dm/intro_controller/delete';
 $route['intro-manager-create-submit'] = 'dm/intro_controller/create_add';
-$route['intro-manager/create_cancel'] = 'dm/intro_controller/create_cancel';
+$route['intro-manager/create-cancel'] = 'dm/intro_controller/create_cancel';
 $route['intro-manager-update-submit'] = 'dm/intro_controller/update_add';
-$route['intro-manager/update_cancel'] = 'dm/intro_controller/update_cancel';
+$route['intro-manager/update-cancel'] = 'dm/intro_controller/update_cancel';
 
-$route['manage_study_category'] = 'dm/study_controller/view_all';
+$route['manage-study-category'] = 'dm/study_controller/view_all';
+$route['study-manager/create-category'] = 'dm/study_controller/create_category';
+$route['study-manager/update-category/:num'] = 'dm/study_controller/update_category';
+$route['study-manager/delete-category/:num'] = 'dm/study_controller/delete_category';
+$route['study-manager/add-child/:num'] = 'dm/study_controller/add_child';
+$route['study-manager-create-category-submit'] = 'dm/study_controller/create_category_add';
+$route['study-manager/create-category-cancel'] = 'dm/study_controller/create_category_cancel';
+$route['study-manager-update-category-submit'] = 'dm/study_controller/update_category_add';
+$route['study-manager/update-category-cancel'] = 'dm/study_controller/update_category_cancel';
+$route['study-manager-add-child-category-submit'] = 'dm/study_controller/add_child_category';
