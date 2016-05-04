@@ -23,7 +23,7 @@
                     <td><?php echo $category['id']; ?></td>
                     <td><i><?php echo $category['parent_id']; ?></i></td>
                     <td><?php echo $category['vi_name']; ?><a
-                            href="<?php echo base_url() . "study-manager/add-news/" . $category['id']; ?>"
+                            href="<?php echo base_url() . "news-manager/add-news/" . $category['id']; ?>"
                             class="btn btn-mint btn-xs pull-right"><i class="fa fa-pencil-square" data-toggle="tooltip" data-placement="bottom"
                                                                       data-original-title="Xem chi tiết"></i></a></td>
                     <td><?php echo $category['created_date']; ?></td>

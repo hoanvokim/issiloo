@@ -13,10 +13,17 @@ class News_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
     }
 
-    public function index()
+    public function add_news()
     {
     }
+
+    public function add_news_into_category()
+    {
+        $this->load->model('Category_model');
+        $data['title'] = 'Viết bài';
+        $this->load->view('pages/dm/news_add_into_category', $data);
+    }
+
 }

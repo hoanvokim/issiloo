@@ -61,7 +61,6 @@ $route['manage-sharing'] = 'dm/sharing_controller/index';
 $route['manage-faq'] = 'dm/faq_controller/index';
 $route['manage-tag'] = 'dm/tag_controller/index';
 $route['add-category'] = 'dm/category_controller/index';
-$route['add-news'] = 'dm/news_controller/index';
 $route['add-university'] = 'dm/university_controller/index';
 $route['add-program'] = 'dm/program_controller/index';
 $route['add-schedule'] = 'dm/schedule_controller/index';
@@ -85,3 +84,6 @@ $route['study-manager/create-category-cancel'] = 'dm/study_controller/create_cat
 $route['study-manager-update-category-submit'] = 'dm/study_controller/update_category_add';
 $route['study-manager/update-category-cancel'] = 'dm/study_controller/update_category_cancel';
 $route['study-manager-add-child-category-submit'] = 'dm/study_controller/add_child_category';
+
+$route['news-manager/add-news'] = 'dm/news_controller/add_news';
+$route['news-manager/add-news/:num'] = 'dm/news_controller/add_news_into_category';

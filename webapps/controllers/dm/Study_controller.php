@@ -16,8 +16,6 @@ class Study_controller extends CI_Controller
         if (empty($_SESSION["activeLanguage"])) {
             $_SESSION["activeLanguage"] = "vi";
         }
-
-
     }
 
     public function view_all()
