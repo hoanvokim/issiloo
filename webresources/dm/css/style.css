@@ -203,7 +203,7 @@ p {
 
 @media (min-width: 992px) {
     #page-content {
-        padding: 20px 25px 0
+        padding: 0px 30px 0
     }
 
     #page-title {
@@ -721,7 +721,7 @@ p {
 
 #mainnav {
     height: 100%;
-    background-color: #000000
+    background-color: #292929
 }
 
 #mainnav > *:not(.popover) .nano-pane {
@@ -1135,7 +1135,7 @@ p {
     }
 
     #container.mainnav-full .brand-title, #container.mainnav-full .navbar-brand {
-        color: #000000
+        color: #292929
     }
 
     #container.mainnav-full #navbar .navbar-content {

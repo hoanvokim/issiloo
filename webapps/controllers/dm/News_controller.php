@@ -17,6 +17,9 @@ class News_controller extends CI_Controller
 
     public function add_news()
     {
+        $this->load->model('Category_model');
+        $data['title'] = 'Viết bài';
+        $this->load->view('pages/dm/news_add', $data);
     }
 
     public function add_news_into_category()

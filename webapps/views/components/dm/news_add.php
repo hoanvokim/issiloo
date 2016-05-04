@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">SEO</h3>

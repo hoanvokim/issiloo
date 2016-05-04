@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('add-news'); ?>">
+                            <a href="<?php echo site_url('news-manager/add-news'); ?>">
                                 <i class="fa fa-plus-circle"></i>
                                 <span class="menu-title">Viết bài mới</span>
                             </a>

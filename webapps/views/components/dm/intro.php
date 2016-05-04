@@ -25,7 +25,7 @@
                     </td>
                     <td><?php echo $intro['catCreatedDate']; ?></td>
                     <td><?php echo $intro['catUpdatedDate']; ?></td>
-                    <td class=" demo-jasmine-btn">
+                    <td>
                         <a href="<?php echo base_url() . "intro-manager/update/" . $intro['catId']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
                         <a href="<?php echo base_url() . "intro-manager/delete/" . $intro['catId']; ?>"
