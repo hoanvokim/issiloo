@@ -24,27 +24,31 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm: </label>
-                        <strong>Du lịch</strong>
+                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
+                        <select class="form-control selectpicker" name="catId">
+                            <?php foreach ($categories as $category) { ?>
+                                <option value="<?php echo $category['id'] ?>"><?php echo $category['vi_name'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Upload hình ảnh</label>
-                        <form id="demo-dropzone" action="#" class="dropzone">
+                        <div id="demo-dropzone" action="#" class="dropzone">
                             <div class="dz-default dz-message">
-                                <div class="dz-icon icon-wrap icon-circle icon-wrap-md"><i class="fa fa-cloud-upload fa-2x"></i></div>
+                                <div class="dz-icon icon-wrap icon-circle icon-wrap-md"> <i class="fa fa-cloud-upload fa-2x"></i> </div>
                                 <div>
                                     <p class="dz-text">Drop files to upload</p>
                                     <p class="text-muted">or click to pick manually</p>
                                 </div>
                             </div>
                             <div class="fallback">
-                                <input name="file" type="file" multiple/>
+                                <input name="file" type="file" multiple />
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">SEO</h3>
@@ -104,6 +108,35 @@
             minHeight: 400
         });
     });
+
+    // DROPZONE.JS
+    // =================================================================
+    // Require Dropzone
+    // http://www.dropzonejs.com/
+    // =================================================================
+    Dropzone.options.demoDropzone = { // The camelized version of the ID of the form element
+        // The configuration we've talked about above
+        autoProcessQueue: false,
+        //uploadMultiple: true,
+        //parallelUploads: 25,
+        //maxFiles: 25,
+
+        // The setting up of the dropzone
+        init: function() {
+            var myDropzone = this;
+            //  Here's the change from enyo's tutorial...
+            //  $("#submit-all").click(function (e) {
+            //  e.preventDefault();
+            //  e.stopPropagation();
+            //  myDropzone.processQueue();
+            //
+            //}
+            //    );
+
+        }
+
+    }
+
 
     var postForm = function () {
         $('textarea[name="viContent"]').html($('#summernote').code());

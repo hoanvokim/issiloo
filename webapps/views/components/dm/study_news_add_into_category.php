@@ -24,8 +24,12 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm: </label>
-                        <strong>Du lịch</strong>
+                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
+                        <select class="form-control selectpicker" name="catId">
+                            <?php foreach ($categories as $category) { ?>
+                                <option value="<?php echo $category['id'] ?>"><?php echo $category['vi_name'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Upload hình ảnh</label>
@@ -44,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">SEO</h3>
