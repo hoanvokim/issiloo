@@ -32,8 +32,6 @@ class Detail_controller extends CI_Controller{
         $data['news_sidebar'] = $this->News_model->getRelatedNewsById($news_id);
         $data['tagnews'] = $this->Tag_model->getTagByNewsId($news_id);
 
-
-
         $this->load->view('pages/webapp/detail_news',$data);
     }
 

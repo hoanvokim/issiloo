@@ -44,19 +44,27 @@
                        
                         </div>
 
-                        <!--<div class="row">
+                        <div class="row">
                             <div class="col-sm-12 text-center">
                                 <ul class="pagination">
-                                    <li><a href="#"><i class="ion ion-android-arrow-back"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#"><i class="ion ion-android-arrow-forward"></i></a></li>
+
+                                    <?php if($total_page>10){ ?>
+                                        <li><a href="#"><i class="ion ion-android-arrow-back"></i></a></li>
+                                    <?php } ?>
+
+                                    <?php for($i=1;$i<=$total_page;$i++){ ?>
+
+                                        <li><a href="<?php echo base_url()."cat/".$slug."/$i"; ?>"><?php echo $i; ?></a></li>
+
+                                    <?php } ?>
+
+                                    <?php if($total_page>10){ ?>
+                                        <li><a href="#"><i class="ion ion-android-arrow-forward"></i></a></li>
+                                    <?php } ?>
+
                                 </ul>
                             </div>
-                        </div>-->
+                        </div>
 
 
                     </div>

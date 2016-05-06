@@ -44,14 +44,26 @@ class News_Model extends CI_Model
          return $this->db->query($sql)->result_array();
      }
 
-     public function getNewsByCatCollection($aCat){
+     public function getNewsByCatCollection($aCat,$cur_page,$limit){
+         $start = ($cur_page-1)*$limit;
          $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id in (";
          $cnt = count($aCat);
          for($i=0;$i<$cnt-1;$i++){
             $sql = $sql . $aCat[$i] . ",";
          }
-         $sql = $sql . $aCat[$cnt-1] . ")";
+         $sql = $sql . $aCat[$cnt-1] . ") limit $start,$limit";
          return $this->db->query($sql)->result_array();
+     }
+
+     public function getToTalRowByCatCollection($aCat){
+         $sql = "select count(*) as total_row from news where category_id in(";
+         $cnt = count($aCat);
+         for($i=0;$i<$cnt-1;$i++){
+             $sql = $sql . $aCat[$i] . ",";
+         }
+         $sql = $sql . $aCat[$cnt-1] . ")";
+         $rs = $this->db->query($sql)->result_array();
+         return $rs[0]['total_row'];
      }
 
      public function getRelatedNewsByCatId($category_id){
@@ -80,6 +92,18 @@ class News_Model extends CI_Model
         return $this->db->query($sql)->result_array();
     }
 
+    public function getTotalRowByTagId($tag_id){
+        $sql = "select count(*) as total_row from news, tagnews where tag_id = $tag_id and news_id = news.id";
+        $rs = $this->db->query($sql)->result_array();
+        return $rs[0]['total_row'];
+    }
+
+    public function getNewsByTagId($tag_id,$cur_page,$limit){
+        $start = ($cur_page-1)*$limit;
+        $sql = "select news.id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news, tagnews where tagnews.tag_id = $tag_id and tagnews.news_id = news.id limit $start,$limit";
+        return $this->db->query($sql)->result_array();
+
+    }
 
 
     public function getIntroduces($catId)

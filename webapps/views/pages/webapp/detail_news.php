@@ -87,7 +87,7 @@
                     <h4>Tags</h4>
                     <div class="tag-box">
                         <?php foreach($tagnews as $item){ ?>
-                            <a href="#"><?php echo $item['tag_name']; ?></a>
+                            <a href="<?php echo base_url(); ?>tag/<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></a>
                         <?php } ?>
                     </div>
                 </div>

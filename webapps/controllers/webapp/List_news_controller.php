@@ -15,9 +15,11 @@ class List_news_controller extends CI_Controller{
         //load models for home page.
         $this->load->model('Category_model');
         $this->load->model('News_model');
+        $this->load->model('Tag_model');
+        $this->load->library('pageutility');
     }
 
-    public function index($slug){
+    public function index($slug,$curpage = null){
 
         //get main menu
         $strMenu = '';
@@ -33,10 +35,33 @@ class List_news_controller extends CI_Controller{
         $this->Category_model->getAllSubMenu($category_id,$aMenu);
         $data['aMenu'] = $aMenu;
 
-        $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu);
+        //limit = 10
+        $this->pageutility->setData($this->News_model->getToTalRowByCatCollection($aMenu),10);
+        $data['total_page'] = $this->pageutility->total_page;
+        $data['slug'] = $slug;
+        $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu,$curpage,$this->pageutility->limit);
         $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
         $this->load->view("pages/webapp/list_news",$data);
+    }
+
+    public function tag($tag_id,$curpage = null){
+        //get main menu
+        $strMenu = '';
+        $this->Category_model->getMainMenu(null,$strMenu);
+        $data['menustr'] = $strMenu;
+
+        $data['title_header'] = $this->Tag_model->getNameById($tag_id);
+
+        //limit = 10
+        $this->pageutility->setData($this->News_model->getTotalRowByTagId($tag_id),10);
+        $data['total_page'] = $this->pageutility->total_page;
+        $data['tag_id'] = $tag_id;
+        $data['anews'] =  $this->News_model->getNewsByTagId($tag_id,$curpage,$this->pageutility->limit);
+
+        $data['tag_name'] =  $data['title_header'];
+
+        $this->load->view("pages/webapp/list_news_tag",$data);
     }
 
 }
