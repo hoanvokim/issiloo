@@ -36,13 +36,19 @@ class List_news_controller extends CI_Controller{
         $data['aMenu'] = $aMenu;
 
         //limit = 10
-        $this->pageutility->setData($this->News_model->getToTalRowByCatCollection($aMenu),10);
+        $this->pageutility->setData($this->News_model->getToTalRowByCatCollection($aMenu),2);
         $data['total_page'] = $this->pageutility->total_page;
         $data['slug'] = $slug;
         $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu,$curpage,$this->pageutility->limit);
         $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
-        $this->load->view("pages/webapp/list_news",$data);
+        $category_info = $this->Category_model->getInfoFromId($category_id);
+
+        if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+            $this->load->view('pages/webapp/share_corner',$data);
+        }else{
+            $this->load->view("pages/webapp/list_news",$data);
+        }
     }
 
     public function tag($tag_id,$curpage = null){

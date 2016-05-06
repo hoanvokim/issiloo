@@ -17,7 +17,8 @@ class PageUtility{
         if($total_row > $limiter){
             $this->limit = $limiter;
             $temp = $total_row%$this->limit;
-            $this->total_page = $temp == 0 ? $temp : ($temp + 1);
+            $total = intval($total_row/$this->limit);
+            $this->total_page = $temp == 0 ? $total : ($total + 1);
         }
     }
 

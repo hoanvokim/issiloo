@@ -211,4 +211,11 @@ class Category_Model extends CI_Model
         $result = $this->db->query($sql)->result_array();
         return $result[0]['id'];
     }
+
+    public function getInfoFromId($category_id){
+        $sql = "select * from category where id=$category_id";
+        $rs = $this->db->query($sql)->result_array();
+        return $rs[0];
+    }
+
 }
