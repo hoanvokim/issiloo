@@ -438,7 +438,8 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', '9a618248b64db62d15b300a07b00580b');
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

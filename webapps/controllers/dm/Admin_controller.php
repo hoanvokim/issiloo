@@ -44,7 +44,7 @@ class Admin_controller extends CI_Controller
     {
         $this->session->unset_userdata('authenticated_user');
         session_destroy();
-        redirect('administration', 'refresh');
+        redirect('admin', 'refresh');
     }
 
     function check_database($password)
