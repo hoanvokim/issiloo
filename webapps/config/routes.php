@@ -59,6 +59,9 @@ $route['news/(:any)'] = 'webapp/detail_controller/index/$1';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
+$route['logout'] = 'dm/admin_controller/logout';
+$route['login'] = 'dm/admin_controller/login_submit';
+
 $route['manage-news'] = 'dm/news_controller/index';
 $route['manage-sharing'] = 'dm/sharing_controller/index';
 $route['manage-faq'] = 'dm/faq_controller/index';
