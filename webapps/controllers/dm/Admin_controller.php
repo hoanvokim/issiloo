@@ -13,10 +13,15 @@ class Admin_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('user_model', '', TRUE);
     }
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Xem tổng quan';
         $this->load->view('pages/dm/index', $data);
     }

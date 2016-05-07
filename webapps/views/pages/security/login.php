@@ -4,36 +4,56 @@
     <meta charset="UTF-8">
     <title><?php echo $title ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link href="<?php echo base_url(); ?>webresources/dashboard/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url(); ?>webresources/dashboard/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url(); ?>webresources/dashboard/css/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url(); ?>webresources/dm/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url(); ?>webresources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?php echo base_url(); ?>webresources/dm/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jasmine.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="bg-black">
-<div class="form-box" id="login-box">
-    <div class="header">Sign In</div>
-    <?php echo form_open('verifylogin'); ?>
-    <div class="body bg-gray">
-        <div class="form-group">
-            <input type="text" id="username" name="username" class="form-control" placeholder="User ID" autofocus/>
-        </div>
-        <div class="form-group">
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
-        </div>
-        <div class="form-group">
-            <input type="checkbox" name="remember_me"/> Remember me
-        </div>
-    </div>
-    <div class="footer">
-        <button type="submit" class="btn bg-olive btn-block">Sign me in</button>
-    </div>
-    </form>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/dashboard/js/bootstrap.min.js" type="text/javascript"></script>
+<body>
+<div id="container" class="cls-container">
 
+    <!-- LOGIN FORM -->
+    <!--===================================================-->
+    <div class="lock-wrapper">
+        <div class="panel lock-box">
+            <div class="center"><img alt="" src="<?php echo base_url(); ?>webresources/dm/img/user.png" class="img-circle"/></div>
+            <h4> Hello User !</h4>
+
+            <p class="text-center">Please login to Access your Account</p>
+
+            <div class="row">
+                <form action="verifylogin" class="form-inline" role="form">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <div class="text-left">
+                            <label for="signupInputUserName" class="text-muted">Username</label>
+                            <input id="signupInputUserName" placeholder="Enter Username" class="form-control" required/>
+                        </div>
+                        <div class="text-left">
+                            <label for="signupInputPassword" class="text-muted">Password</label>
+                            <input id="signupInputPassword" type="password" placeholder="Password"
+                                   class="form-control lock-input" required/>
+                        </div>
+                        <div class="pull-left pad-btm">
+                            <label class="form-checkbox form-icon form-text">
+                                <input type="checkbox"> Remember Me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="<?php echo base_url(); ?>webresources/dm/js/jquery-2.1.1.min.js"></script>
+<script src="<?php echo base_url(); ?>webresources/dm/js/bootstrap.min.js"></script>
 </body>
 </html>
