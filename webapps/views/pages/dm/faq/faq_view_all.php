@@ -42,5 +42,6 @@
 <!-- END OF CONTAINER -->
 
 <?php $this->load->view('layout/dm/footer'); ?>
+<?php $this->load->view('components/dm/faq/faq_scripts'); ?>
 </body>
 </html>
