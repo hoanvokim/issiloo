@@ -29,8 +29,8 @@
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-validator/bootstrapValidator.min.css"
       rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/chosen/chosen.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/noUiSlider/jquery.nouislider.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/noUiSlider/jquery.nouislider.pips.min.css" rel="stylesheet">
+<!--<link href="--><?php //echo base_url(); ?><!--webresources/plugins/noUiSlider/jquery.nouislider.min.css" rel="stylesheet">-->
+<!--<link href="--><?php //echo base_url(); ?><!--webresources/plugins/noUiSlider/jquery.nouislider.pips.min.css" rel="stylesheet">-->
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css"
       rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/dropzone/dropzone.css" rel="stylesheet">
