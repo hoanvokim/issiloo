@@ -36,10 +36,12 @@
 
     <?php $this->load->view('layout/dm/footer_bar'); ?>
 
+
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
 
 <?php $this->load->view('layout/dm/footer'); ?>
+<?php $this->load->view('pages/dm/study/study-scripts'); ?>
 </body>
 </html>
