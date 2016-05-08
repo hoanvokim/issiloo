@@ -18,5 +18,11 @@ class Faq_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
+        $data['title'] = 'Mục hỏi đáp';
+        $this->load->view('pages/dm/faq/faq_view_all', $data);
     }
 }
