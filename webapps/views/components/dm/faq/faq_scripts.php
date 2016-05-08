@@ -22,4 +22,11 @@
             }
         });
     }
+    function create_faq_answer(){
+        $('#save_faq_form')[0].reset(); // reset form on modals
+        $('.form-group').removeClass('has-error'); // clear error class
+        $('.help-block').empty(); // clear error string
+        $('#faq_modal_form').modal('show'); // show bootstrap modal
+        $('.modal-title').text('Create answer'); // Set Title to Bootstrap modal title
+    }
 </script>
