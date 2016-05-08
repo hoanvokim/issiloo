@@ -4,6 +4,8 @@
 <script src="<?php echo base_url(); ?>webresources/dm/vendors/jquery/jquery-2.1.4.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/vendors/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/summernote/summernote.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/scripts.js"></script>
 <!--<script src="--><?php //echo base_url(); ?><!--webresources/dm/js/demo/homepage-2.js"></script>-->
