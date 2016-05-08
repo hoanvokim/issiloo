@@ -35,9 +35,8 @@ class Faq_controller extends CI_Controller
             $this->load_login_view();
             return;
         }
-
-        $input_search_value = $this->post->input('inputSearchValue');
-        $data = $this->faq_model->faq_search($input_search_value);
-        echo json_encode($data);
+        $searchValue = $this->input->post('inputSearchValue');
+        $data['faqs'] = $this->faq_model->faq_search($searchValue);
+        $this->load->view('components/dm/faq/faq_results', $data);
     }
 }

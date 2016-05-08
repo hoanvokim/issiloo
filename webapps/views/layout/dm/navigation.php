@@ -89,6 +89,11 @@
                                 <span class="menu-title">Thời khoá biểu</span>
                             </a>
                         </li>
+                        <li class="list-divider"></li>
+                        <li class="list-header">Settings</li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>logout"> <i class="fa fa-sign-out fa-fw"></i> Logout </a>
+                        </li>
                     </ul>
                 </div>
             </div>

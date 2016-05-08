@@ -18,14 +18,9 @@
 <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jasmine.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jquery-steps.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/tag-it/jquery.tagit.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/summernote/summernote.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/jvectormap/jquery-jvectormap.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/switchery/switchery.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>webresources/plugins/jquery-ricksaw-chart/css/rickshaw.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/datatables/media/css/dataTables.bootstrap.css"
       rel="stylesheet">
-<link
-    href="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css"
+<link href="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css"
     rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-datepicker/bootstrap-datepicker.css"
@@ -44,10 +39,3 @@
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 
 <link href="<?php echo base_url(); ?>webresources/plugins/pace/pace.min.css" rel="stylesheet">
-<script src="<?php echo base_url(); ?>webresources/plugins/pace/pace.min.js"></script>
-
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>

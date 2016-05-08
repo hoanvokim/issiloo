@@ -8,7 +8,6 @@
 
 <body>
 <div id="container" class="effect mainnav-lg navbar-fixed mainnav-fixed">
-    <?php $this->load->view('layout/dm/header_bar'); ?>
     <div class="boxed">
 
         <!--CONTENT CONTAINER-->

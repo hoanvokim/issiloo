@@ -1,7 +1,8 @@
 <!--JAVASCRIPT-->
 <!--=================================================-->
-
-<script src="<?php echo base_url(); ?>webresources/dm/js/jquery-2.1.1.min.js"></script>
+<script src="<?php echo base_url(); ?>webresources/plugins/pace/pace.min.js"></script>
+<script src="<?php echo base_url(); ?>webresources/dm/vendors/jquery/jquery-2.1.4.min.js"></script>
+<script src="<?php echo base_url(); ?>webresources/dm/vendors/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/scripts.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/homepage-2.js"></script>
@@ -11,26 +12,8 @@
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/tables-datatables.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/form-component.js"></script>
 
-<script src="<?php echo base_url(); ?>webresources/plugins/summernote/summernote.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/parsley/parsley.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/fast-click/fastclick.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/switchery/switchery.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jquery-count-to/jquery.count-to.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.resize.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.orderBars.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.spline.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.time.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/moment-range/moment-range.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/flot-charts/jquery.flot.tooltip.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jvectormap/jquery-jvectormap.min.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
 <script

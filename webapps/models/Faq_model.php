@@ -20,7 +20,8 @@ class Faq_Model extends CI_Model
 
     public function faq_search($value)
     {
-        $sql = "SELECT * FROM faq WHERE vi_question = ? OR vi_answer = ?";
+        $value='%'.$value.'%';
+        $sql = "SELECT * FROM faq WHERE vi_question like ? OR vi_answer like ?";
         $query = $this->db->query($sql, array($value, $value));
         return $query->result();
     }

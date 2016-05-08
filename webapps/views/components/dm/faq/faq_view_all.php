@@ -5,11 +5,11 @@
             <div class="well">
                 <form action="#" id="dm_faq_search_form">
                     <div class="input-group">
-                        <input type="text" name="inputSearchValue" class="form-control" placeholder="Search...">
+                        <input type="text" name="inputSearchValue" id="inputSearchValue" class="form-control" placeholder="Search...">
 
                         <div class="input-group-btn">
                             <button id="btnFaqSearch" class="btn btn-info btn-md" type="button"
-                                    onclick="dm_faq_execute_search();">Search
+                                    onclick="dm_faq_execute_search();"><i class="icon-search"></i>Search
                             </button>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                     <!--===================================================-->
                     <h3 class="pad-all bord-btm text-thin">General</h3>
 
-                    <div id="demo-acc-faq" class="panel-group accordion">
+                    <div id="faqList" class="panel-group accordion">
                         <?php foreach ($faqs as $faq): ?>
                             <div class="panel panel-trans pad-top">
 
