@@ -66,6 +66,7 @@ $route['manage-news'] = 'dm/news_controller/index';
 $route['manage-sharing'] = 'dm/sharing_controller/index';
 $route['manage-faq'] = 'dm/faq_controller/index';
 $route['faq-execute-search'] = 'dm/faq_controller/execute_search';
+$route['save-faq'] = 'dm/faq_controller/save_faq';
 $route['manage-tag'] = 'dm/tag_controller/index';
 $route['add-category'] = 'dm/category_controller/index';
 $route['add-university'] = 'dm/university_controller/index';

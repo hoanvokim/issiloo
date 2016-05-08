@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">User Form</h3>
+                <h3 class="modal-title">FAQ Form</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="save_faq_form" class="form-horizontal">
@@ -13,44 +13,48 @@
 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">User Name</label>
+                            <label class="control-label col-md-3">Question</label>
 
                             <div class="col-md-9">
-                                <input name="userName" id="username" placeholder="User Name" class="form-control"
-                                       type="text">
+                                <div class="input-group mar-btm">
+                                    <span class="input-group-addon"><img class="lang-flag"
+                                                                         src="<?php echo base_url(); ?>/webresources/images/flags/uk.png"
+                                                                         alt="English"></span>
+                                    <input name="enQuestion" id="enQuestion" placeholder="Question in English" class="form-control"
+                                           type="text">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group mar-btm">
+                                    <span class="input-group-addon"><img class="lang-flag"
+                                                                         src="<?php echo base_url(); ?>/webresources/images/flags/vn.png"
+                                                                         alt="English"></span>
+                                    <input name="viQuestion" id="viQuestion" placeholder="Câu hỏi" class="form-control"
+                                           type="text">
+                                </div>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Password</label>
+                            <label class="control-label col-md-3">Answer</label>
 
                             <div class="col-md-9">
-                                <input name="password" id="password" placeholder="Password" class="form-control"
-                                       type="password">
+                                <div class="input-group mar-btm">
+                                    <span class="input-group-addon"><img class="lang-flag"
+                                                                         src="<?php echo base_url(); ?>/webresources/images/flags/uk.png"
+                                                                         alt="English"></span>
+                                    <input name="enAnswer" id="enAnswer" placeholder="Answer in english" class="form-control"
+                                           type="text">
+                                </div>
                                 <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">First name</label>
 
-                            <div class="col-md-9">
-                                <input name="firstName" id="firstName" placeholder="First name" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Last name</label>
-
-                            <div class="col-md-9">
-                                <input name="lastName" id="lastName" placeholder="lastName" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Email</label>
-
-                            <div class="col-md-9">
-                                <input name="email" id="email" placeholder="Email" class="form-control" type="text">
+                                <div class="input-group mar-btm">
+                                    <span class="input-group-addon"><img class="lang-flag"
+                                                                         src="<?php echo base_url(); ?>/webresources/images/flags/vn.png"
+                                                                         alt="English"></span>
+                                    <input name="viAnswer" id="viAnswer" placeholder="Câu trả lời" class="form-control"
+                                           type="text">
+                                </div>
                                 <span class="help-block"></span>
                             </div>
                         </div>

@@ -39,4 +39,34 @@ class Faq_controller extends CI_Controller
         $data['faqs'] = $this->faq_model->faq_search($searchValue);
         $this->load->view('components/dm/faq/faq_results', $data);
     }
+
+    public function save_faq()
+    {
+        $this->_validate();
+        $data = array(
+            'en_question' => $this->input->post('enQuestion'),
+        );
+        $id = $this->faq_model->save($data);
+    }
+
+    private function _validate()
+    {
+        $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+
+        $username = $this->input->post('enQuestion');
+        if ($username == '') {
+            $data['inputerror'][] = 'enQuestion';
+            $data['error_string'][] = 'Question is required';
+            $data['status'] = FALSE;
+        }
+
+        if ($data['status'] === FALSE) {
+            echo json_encode($data);
+            exit();
+        }
+    }
+
 }
