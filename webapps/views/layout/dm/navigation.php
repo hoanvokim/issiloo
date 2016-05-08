@@ -92,6 +92,9 @@
                         <li class="list-divider"></li>
                         <li class="list-header">Settings</li>
                         <li>
+                            <a href="<?php echo base_url(); ?>edit-profile"> <i class="fa fa-user-md fa-fw"></i> Profile </a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url(); ?>logout"> <i class="fa fa-sign-out fa-fw"></i> Logout </a>
                         </li>
                     </ul>

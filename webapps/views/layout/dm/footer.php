@@ -5,13 +5,13 @@
 <script src="<?php echo base_url(); ?>webresources/dm/vendors/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/scripts.js"></script>
-<script src="<?php echo base_url(); ?>webresources/dm/js/demo/homepage-2.js"></script>
+<!--<script src="--><?php //echo base_url(); ?><!--webresources/dm/js/demo/homepage-2.js"></script>-->
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/wizard.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/jasmine.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/form-wizard.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/tables-datatables.js"></script>
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/form-component.js"></script>
-
+<script src="<?php echo base_url(); ?>webresources/plugins/summernote/summernote.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/parsley/parsley.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/fast-click/fastclick.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/datatables/media/js/jquery.dataTables.js"></script>

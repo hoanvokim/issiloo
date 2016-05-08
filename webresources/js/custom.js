@@ -201,7 +201,7 @@ $('.slider').slick({
   speed: 700,
   slidesToShow: 1,
   adaptiveHeight: true,
-  touchMove: false,
+  touchMove: false
 });
 
 
@@ -210,7 +210,7 @@ $('.recent-projects-slider').slick({
   infinite: true,
   speed: 700,
   slidesToShow: 1,
-  adaptiveHeight: true,
+  adaptiveHeight: true
 });
 
 
@@ -224,7 +224,7 @@ $('.projects-slides').slick({
   autoplaySpeed: 2000,
   pauseOnHover: false,
   touchMove: false,
-  arrows: false,
+  arrows: false
   
 });
 
@@ -272,7 +272,7 @@ $('.screen-slider').slick({
   infinite: true,
   speed: 700,
   slidesToShow: 1,
-  adaptiveHeight: true,
+  adaptiveHeight: true
 });
 
 
@@ -308,7 +308,7 @@ $('.accordion-panel .panel-title').click(function(){
          $('.stat-box').not('.animated').each(function(){
   if( $(window).scrollTop() >= $(this).offset().top-$(window).height() ) {
              $(this).addClass('animated').find('.timer').countTo({
-    from: 0,
+    from: 0
 });
 }
 

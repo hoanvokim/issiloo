@@ -30,7 +30,7 @@ class News_controller extends CI_Controller
         $data['categories'] = $categories;
 
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study_news_add', $data);
+        $this->load->view('pages/dm/study/study_news_add', $data);
     }
 
     public function add_news_into_category()
@@ -48,7 +48,7 @@ class News_controller extends CI_Controller
         $data['categories'] = $categories;
         
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study_news_add_into_category', $data);
+        $this->load->view('pages/dm/study/study_news_add_into_category', $data);
     }
 
     public function loadSub($categories, $currentCategory)

@@ -22,6 +22,7 @@
       rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css"
     rel="stylesheet">
+<link href="<?php echo base_url(); ?>webresources/plugins/summernote/summernote.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-datepicker/bootstrap-datepicker.css"
       rel="stylesheet">

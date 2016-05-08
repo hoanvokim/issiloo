@@ -40,7 +40,7 @@ class Study_controller extends CI_Controller
         }
         $data['categories'] = $categories;
         $data['title'] = 'Xem tất cả phân nhóm';
-        $this->load->view('pages/dm/study_view_all', $data);
+        $this->load->view('pages/dm/study/study_view_all', $data);
     }
 
     public function loadSub($categories, $currentCategory)
@@ -76,7 +76,7 @@ class Study_controller extends CI_Controller
         }
         $data['categories'] = $categories;
         $data['title'] = 'Thêm 1 phân nhóm mới';
-        $this->load->view('pages/dm/study_create_category', $data);
+        $this->load->view('pages/dm/study/study_create_category', $data);
     }
 
     public function create_category_add()
@@ -108,7 +108,7 @@ class Study_controller extends CI_Controller
 
         $data['catId'] = $this->uri->segment(3);
         $data['title'] = 'Thêm 1 phân nhóm mới';
-        $this->load->view('pages/dm/study_update_category', $data);
+        $this->load->view('pages/dm/study/study_update_category', $data);
     }
 
     public function update_category_add()
@@ -145,7 +145,7 @@ class Study_controller extends CI_Controller
 
         $data['catId'] = $this->uri->segment(3);
         $data['title'] = 'Thêm 1 phân nhóm mới';
-        $this->load->view('pages/dm/study_add_child', $data);
+        $this->load->view('pages/dm/study/study_add_child', $data);
     }
 
     public function add_child_category()

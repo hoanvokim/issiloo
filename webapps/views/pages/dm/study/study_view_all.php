@@ -20,7 +20,7 @@
             <div id="page-content">
                 <div class="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/study_view_all'); ?>
+                    <?php $this->load->view('components/dm/study/study_view_all'); ?>
                 </div>
             </div>
             <!--===================================================-->
