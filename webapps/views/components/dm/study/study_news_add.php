@@ -19,6 +19,27 @@
         <div id="demo-lft-tab-1" class="tab-pane fade active in">
             <div class="panel">
                 <div class="panel-heading">
+                    <h3 class="panel-title">Tổng quan</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
+                        <select class="form-control selectpicker" name="catId">
+                            <?php foreach ($categories as $category) { ?>
+                                <option
+                                    value="<?php echo $category['id'] ?>"><?php echo $category['vi_name'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="upload_file">File upload</label>
+                        <input type='file' name='userfile' size='20'/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
                     <h3 class="panel-title">SEO</h3>
                 </div>
                 <div class="panel-body">
@@ -40,27 +61,6 @@
                     </div>
                 </div>
             </div>
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Tổng quan</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
-                        <select class="form-control selectpicker" name="catId">
-                            <?php foreach ($categories as $category) { ?>
-                                <option
-                                    value="<?php echo $category['id'] ?>"><?php echo $category['vi_name'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="upload_file">File upload</label>
-                        <input type='file' name='userfile' size='20'/>
-                    </div>
-                </div>
-            </div>
-
         </div>
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">

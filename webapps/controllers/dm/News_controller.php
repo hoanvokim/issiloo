@@ -47,7 +47,6 @@ class News_controller extends CI_Controller
         if (count($current_news_list > 0)) {
             foreach ($current_news_list as $current) {
                 $data['newsId'] = $current['id'];
-                $data['currentCategory'] = $this->uri->segment(3);
                 $data['slug'] = $current['slug'];
                 $data['title_header'] = $current['title_header'];
                 $data['description_header'] = $current['description_header'];
@@ -59,7 +58,6 @@ class News_controller extends CI_Controller
             }
         } else {
             $data['newsId'] = '';
-            $data['currentCategory'] = $this->uri->segment(3);
             $data['slug'] = '';
             $data['title_header'] = '';
             $data['description_header'] = '';
@@ -69,6 +67,7 @@ class News_controller extends CI_Controller
             $data['summary'] = '';
             $data['img_src'] = '';
         }
+        $data['currentCategory'] = $this->uri->segment(3);
         $data['title'] = 'Viết bài';
         $this->load->view('pages/dm/study/study_news_add_into_category', $data);
     }
