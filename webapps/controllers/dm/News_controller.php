@@ -13,6 +13,9 @@ class News_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if(empty($_SESSION["activeLanguage"])){
+            $_SESSION["activeLanguage"] = "vi";
+        }
     }
 
     public function add_news()
@@ -26,7 +29,7 @@ class News_controller extends CI_Controller
         $data['categories'] = $categories;
 
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study_news_add', $data);
+        $this->load->view('pages/dm/study/study_news_add', $data);
     }
 
     public function add_news_into_category()
@@ -67,7 +70,7 @@ class News_controller extends CI_Controller
             $data['img_src'] = '';
         }
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study_news_add_into_category', $data);
+        $this->load->view('pages/dm/study/study_news_add_into_category', $data);
     }
 
     public function loadSub($categories, $currentCategory)
