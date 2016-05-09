@@ -13,7 +13,7 @@ class News_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if(empty($_SESSION["activeLanguage"])){
+        if (empty($_SESSION["activeLanguage"])) {
             $_SESSION["activeLanguage"] = "vi";
         }
     }
@@ -24,7 +24,7 @@ class News_controller extends CI_Controller
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
-            $categories = $this->loadSub($categories, $category);
+            $categories = $this->loadSub($categories, $category, 0);
         }
         $data['categories'] = $categories;
 
@@ -39,7 +39,7 @@ class News_controller extends CI_Controller
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
-            $categories = $this->loadSub($categories, $category);
+            $categories = $this->loadSub($categories, $category, $this->uri->segment(3));
         }
         $data['categories'] = $categories;
 
@@ -72,20 +72,23 @@ class News_controller extends CI_Controller
         $this->load->view('pages/dm/study/study_news_add_into_category', $data);
     }
 
-    public function loadSub($categories, $currentCategory)
+    public function loadSub($categories, $currentCategory, $id)
     {
         $subCategories = $this->Category_model->findByParent($currentCategory['id']);
         if (count($subCategories) > 0) {
             foreach ($subCategories as $category) {
-                array_push($categories, array(
-                    'id' => $category['id'],
-                    'vi_name' => $category['vi_name'],
-                    'parent_id' => $currentCategory['vi_name'],
-                    'updated_date' => $category['updated_date'],
-                    'created_date' => $category['created_date'],
-                    'can_be_deleted' => FALSE,
-                ));
-                $categories = $this->loadSub($categories, $category);
+                $this->load->model('News_model');
+                if (strcasecmp($id, $category['id']) == 0 || count($this->News_model->getNewsByCatId($category['id'])) == 0) {
+                    array_push($categories, array(
+                        'id' => $category['id'],
+                        'vi_name' => $category['vi_name'],
+                        'parent_id' => $currentCategory['vi_name'],
+                        'updated_date' => $category['updated_date'],
+                        'created_date' => $category['created_date'],
+                        'can_be_deleted' => FALSE,
+                    ));
+                }
+                $categories = $this->loadSub($categories, $category, $id);
             }
         }
         return $categories;

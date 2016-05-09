@@ -26,7 +26,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
+                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm <?php echo $currentCategory ?></label>
                         <select class="form-control selectpicker" name="catId">
                             <?php foreach ($categories as $category) { ?>
                                 <option

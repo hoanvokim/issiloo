@@ -93,5 +93,8 @@ $route['study-manager-update-category-submit'] = 'dm/study_controller/update_cat
 $route['study-manager/update-category-cancel'] = 'dm/study_controller/update_category_cancel';
 $route['study-manager-add-child-category-submit'] = 'dm/study_controller/add_child_category';
 
+$route['news-manager-add-news-submit'] = 'dm/news_controller/add_news_add';
+$route['news-manager-add-news-into-category-submit'] = 'dm/news_controller/add_news_into_category_add';
 $route['news-manager/add-news'] = 'dm/news_controller/add_news';
+$route['news-manager/add-news-cancel'] = 'dm/news_controller/add_news_cancel';
 $route['news-manager/add-news/:num'] = 'dm/news_controller/add_news_into_category';
