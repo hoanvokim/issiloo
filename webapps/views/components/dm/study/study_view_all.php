@@ -3,7 +3,7 @@
         <h3 class="panel-title pull-left">Tất cả các Phân Nhóm của Du Học</h3>
         <a href="<?php echo base_url() . "study-manager/create-category" ?>"
            class="btn btn-success pull-right btn-top-right btn-xs"><i class="fa fa-plus-square"></i> Thêm 1
-                                                                                                     Phân Nhóm mới</a>
+            Phân Nhóm mới</a>
     </div>
     <div class="panel-body">
         <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -24,8 +24,8 @@
                     <td><i><?php echo $category['parent_id']; ?></i></td>
                     <td><?php echo $category['vi_name']; ?><a
                             href="<?php echo base_url() . "news-manager/add-news/" . $category['id']; ?>"
-                            class="btn btn-mint btn-xs pull-right"><i class="fa fa-pencil-square" data-toggle="tooltip" data-placement="bottom"
-                                                                      data-original-title="Xem chi tiết"></i></a></td>
+                            class="pull-right"><i class="fa fa-pencil-square" data-toggle="tooltip" data-placement="bottom"
+                                                  data-original-title="Xem chi tiết"></i></a></td>
                     <td><?php echo $category['created_date']; ?></td>
                     <td><?php echo $category['updated_date']; ?></td>
                     <td>
@@ -44,6 +44,6 @@
         </table>
         <a href="<?php echo base_url() . "study-manager/create-category" ?>"
            class="btn btn-success pull-right btn-xs"><i class="fa fa-plus-square"></i> Thêm 1
-                                                                                       Phân Nhóm mới</a>
+            Phân Nhóm mới</a>
     </div>
 </div>

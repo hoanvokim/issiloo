@@ -21,34 +21,53 @@ class News_controller extends CI_Controller
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
-            array_push($categories, array(
-                'id' => $category['id'],
-                'vi_name' => $category['vi_name']
-            ));
             $categories = $this->loadSub($categories, $category);
         }
         $data['categories'] = $categories;
 
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study/study_news_add', $data);
+        $this->load->view('pages/dm/study_news_add', $data);
     }
 
     public function add_news_into_category()
     {
+        $this->load->model('News_model');
         $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
-            array_push($categories, array(
-                'id' => $category['id'],
-                'vi_name' => $category['vi_name']
-            ));
             $categories = $this->loadSub($categories, $category);
         }
         $data['categories'] = $categories;
-        
+
+        $current_news_list = $this->News_model->getNewsByCatId($this->uri->segment(3));
+        if (count($current_news_list > 0)) {
+            foreach ($current_news_list as $current) {
+                $data['newsId'] = $current['id'];
+                $data['currentCategory'] = $this->uri->segment(3);
+                $data['slug'] = $current['slug'];
+                $data['title_header'] = $current['title_header'];
+                $data['description_header'] = $current['description_header'];
+                $data['keyword_header'] = $current['keyword_header'];
+                $data['vititle'] = $current['title'];
+                $data['content'] = $current['content'];
+                $data['summary'] = $current['summary'];
+                $data['img_src'] = $current['img_src'];
+            }
+        } else {
+            $data['newsId'] = '';
+            $data['currentCategory'] = $this->uri->segment(3);
+            $data['slug'] = '';
+            $data['title_header'] = '';
+            $data['description_header'] = '';
+            $data['keyword_header'] = '';
+            $data['vititle'] = '';
+            $data['content'] = '';
+            $data['summary'] = '';
+            $data['img_src'] = '';
+        }
         $data['title'] = 'Viết bài';
-        $this->load->view('pages/dm/study/study_news_add_into_category', $data);
+        $this->load->view('pages/dm/study_news_add_into_category', $data);
     }
 
     public function loadSub($categories, $currentCategory)
@@ -70,4 +89,95 @@ class News_controller extends CI_Controller
         return $categories;
     }
 
+    public function add_news_add()
+    {
+        $this->load->library('upload', $this->get_config());
+        if ($this->upload->do_upload('userfile')) {
+            $upload_files = $this->upload->data();
+            $file_path = 'assets/upload/images/' . $upload_files['file_name'];
+
+            $this->load->model('News_model');
+            $this->News_model->insert_full(
+                $this->input->post('catId'),
+                $file_path,
+                $this->input->post('slug'),
+                $this->input->post('title_header'),
+                $this->input->post('description_header'),
+                $this->input->post('keyword_header'),
+                $this->input->post('vititle'),
+                $this->input->post('vicontent'),
+                $this->input->post('visummary')
+            );
+        } else {
+            $this->load->model('News_model');
+            $this->News_model->insert_full(
+                $this->input->post('catId'),
+                $this->input->post('img_src'),
+                $this->input->post('slug'),
+                $this->input->post('title_header'),
+                $this->input->post('description_header'),
+                $this->input->post('keyword_header'),
+                $this->input->post('vititle'),
+                $this->input->post('vicontent'),
+                $this->input->post('visummary')
+            );
+        }
+
+        redirect('manage-study-category', 'refresh');
+    }
+
+    public function add_news_into_category_add()
+    {
+        $this->load->library('upload', $this->get_config());
+        if ($this->upload->do_upload('userfile')) {
+            $upload_files = $this->upload->data();
+            $file_path = 'assets/upload/images/' . $upload_files['file_name'];
+
+            $this->load->model('News_model');
+            $this->News_model->insert_full(
+                $this->input->post('catId'),
+                $file_path,
+                $this->input->post('slug'),
+                $this->input->post('title_header'),
+                $this->input->post('description_header'),
+                $this->input->post('keyword_header'),
+                $this->input->post('vititle'),
+                $this->input->post('vicontent'),
+                $this->input->post('visummary')
+            );
+        } else {
+            $this->load->model('News_model');
+            $this->News_model->update_full(
+                $this->input->post('newsId'),
+                $this->input->post('catId'),
+                $this->input->post('img_src'),
+                $this->input->post('slug'),
+                $this->input->post('title_header'),
+                $this->input->post('description_header'),
+                $this->input->post('keyword_header'),
+                $this->input->post('vititle'),
+                $this->input->post('vicontent'),
+                $this->input->post('visummary')
+            );
+        }
+
+        redirect('manage-study-category', 'refresh');
+    }
+
+
+    public function add_news_cancel()
+    {
+        redirect('admin', 'refresh');
+    }
+
+    private function get_config()
+    {
+        return array(
+            'upload_path' => "./assets/upload/images/news",
+            'allowed_types' => "gif|jpg|png|jpeg",
+            'overwrite' => TRUE,
+            'max_size' => "20480000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+        );
+
+    }
 }

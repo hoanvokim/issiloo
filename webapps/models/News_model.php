@@ -149,6 +149,24 @@ class News_Model extends CI_Model
         return  $insert_id;
     }
 
+    public function insert_full($catId, $img_src, $slug, $title_header, $description_header, $keyword_header, $vi_title, $vi_content, $vi_summary)
+    {
+        $data = array(
+            'category_id' => $catId,
+            'img_src' => $img_src,
+            'slug' => $slug,
+            'title_header' => $title_header,
+            'description_header' => $description_header,
+            'keyword_header' => $keyword_header,
+            'vi_title' => $vi_title,
+            'vi_content' => $vi_content,
+            'vi_summary' => $vi_summary
+        );
+
+        $this->db->insert('news', $data);
+        $insert_id = $this->db->insert_id();
+        return  $insert_id;
+    }
 
     public function update($catId, $vi_content)
     {
@@ -158,6 +176,22 @@ class News_Model extends CI_Model
         $this->db->where('category_id', $catId);
         $this->db->update('news', $data);
     }
-
+    
+    public function update_full($newsId, $catId, $img_src, $slug, $title_header, $description_header, $keyword_header, $vi_title, $vi_content, $vi_summary)
+    {
+        $data = array(
+            'category_id' => $catId,
+            'img_src' => $img_src,
+            'slug' => $slug,
+            'title_header' => $title_header,
+            'description_header' => $description_header,
+            'keyword_header' => $keyword_header,
+            'vi_title' => $vi_title,
+            'vi_content' => $vi_content,
+            'vi_summary' => $vi_summary
+        );
+        $this->db->where('id', $newsId);
+        $this->db->update('news', $data);
+    }
 }
 
