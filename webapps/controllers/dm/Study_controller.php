@@ -30,11 +30,13 @@ class Study_controller extends CI_Controller
             };
             array_push($categories, array(
                 'id' => $category['id'],
+                'isView' => 0,
                 'vi_name' => $category['vi_name'],
                 'parent_id' => $category['parent_id'],
                 'updated_date' => $category['updated_date'],
                 'created_date' => $category['created_date'],
                 'can_be_deleted' => $can_be_deleted,
+                'can_be_edited' => false
             ));
             $categories = $this->loadSub($categories, $category);
         }
@@ -48,13 +50,23 @@ class Study_controller extends CI_Controller
         $subCategories = $this->Category_model->findByParent($currentCategory['id']);
         if (count($subCategories) > 0) {
             foreach ($subCategories as $category) {
+
+                $this->load->model('News_model');
+                $current_news_list = $this->News_model->getNewsByCatId($category['id']);
+                $isView = 0;
+                if (count($current_news_list) > 0) {
+                    $isView = 1;
+                }
+
                 array_push($categories, array(
                     'id' => $category['id'],
+                    'isView' => $isView,
                     'vi_name' => $category['vi_name'],
                     'parent_id' => $currentCategory['vi_name'],
                     'updated_date' => $category['updated_date'],
                     'created_date' => $category['created_date'],
                     'can_be_deleted' => FALSE,
+                    'can_be_edited' => TRUE
                 ));
                 $categories = $this->loadSub($categories, $category);
             }

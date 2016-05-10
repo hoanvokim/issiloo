@@ -20,7 +20,7 @@
             <div id="page-content">
                 <div class="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/intro/intro'); ?>
+                    <?php $this->load->view('components/dm/program/edit'); ?>
                 </div>
             </div>
             <!--===================================================-->
@@ -36,10 +36,12 @@
 
     <?php $this->load->view('layout/dm/footer_bar'); ?>
 
+
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
 
 <?php $this->load->view('layout/dm/footer'); ?>
+<?php $this->load->view('pages/dm/study/study-scripts'); ?>
 </body>
 </html>

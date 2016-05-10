@@ -53,8 +53,8 @@
                         <li class="list-header">Du Học</li>
                         <li>
                             <a href="<?php echo site_url('manage-study-category'); ?>">
-                                <i class="fa fa-spinner"></i>
-                                <span class="menu-title">Xem tất cả Category</span>
+                                <i class="fa fa-briefcase"></i>
+                                <span class="menu-title">Phân nhóm</span>
                             </a>
                         </li>
                         <li>
@@ -65,8 +65,8 @@
                         </li>
                         <li>
                             <a href="<?php echo site_url('manage-study-news'); ?>">
-                                <i class="fa fa-spinner"></i>
-                                <span class="menu-title">Xem tất cả bài viết</span>
+                                <i class="fa fa-briefcase"></i>
+                                <span class="menu-title">Bài viết</span>
                             </a>
                         </li>
                         <li>
@@ -76,21 +76,21 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('add-university'); ?>">
-                                <i class="fa fa-plus-circle"></i>
-                                <span class="menu-title">Thêm trường đại học</span>
+                            <a href="<?php echo site_url('university-manager'); ?>">
+                                <i class="fa fa-briefcase"></i>
+                                <span class="menu-title">Trường đại học</span>
                             </a>
                         </li>
                         <li class="list-divider"></li>
                         <li class="list-header">Trung tâm Hàn Ngữ</li>
                         <li>
-                            <a href="<?php echo site_url('add-program'); ?>">
+                            <a href="<?php echo site_url('program-manager'); ?>">
                                 <i class="fa fa-product-hunt"></i>
                                 <span class="menu-title">Chương trình đào tạo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('add-schedule'); ?>">
+                            <a href="<?php echo site_url('schedule-manager'); ?>">
                                 <i class="fa fa-calendar"></i>
                                 <span class="menu-title">Thời khoá biểu</span>
                             </a>

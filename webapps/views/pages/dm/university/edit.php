@@ -18,9 +18,9 @@
             <!--Page content-->
             <!--===================================================-->
             <div id="page-content">
-                <div class="row">
+                <div claass="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/intro/intro'); ?>
+                    <?php $this->load->view('components/dm/university/edit'); ?>
                 </div>
             </div>
             <!--===================================================-->

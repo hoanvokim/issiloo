@@ -99,7 +99,7 @@ class News_controller extends CI_Controller
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/' . $upload_files['file_name'];
+            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
             $this->load->model('News_model');
             $this->News_model->insert_full(
@@ -136,7 +136,7 @@ class News_controller extends CI_Controller
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/' . $upload_files['file_name'];
+            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
             $this->load->model('News_model');
             $this->News_model->insert_full(
@@ -169,6 +169,11 @@ class News_controller extends CI_Controller
         redirect('manage-study-category', 'refresh');
     }
 
+    public function delete_news_category() {
+        $this->load->model('News_model');
+        $this->News_model->delete($this->uri->segment(3));
+        redirect('manage-study-category', 'refresh');
+    }
 
     public function add_news_cancel()
     {

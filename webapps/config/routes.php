@@ -69,9 +69,6 @@ $route['faq-execute-search'] = 'dm/faq_controller/execute_search';
 $route['save-faq'] = 'dm/faq_controller/save_faq';
 $route['manage-tag'] = 'dm/tag_controller/index';
 $route['add-category'] = 'dm/category_controller/index';
-$route['add-university'] = 'dm/university_controller/index';
-$route['add-program'] = 'dm/program_controller/index';
-$route['add-schedule'] = 'dm/schedule_controller/index';
 
 $route['manage-intro'] = 'dm/intro_controller/index';
 $route['intro-manager/create'] = 'dm/intro_controller/create';
@@ -98,3 +95,31 @@ $route['news-manager-add-news-into-category-submit'] = 'dm/news_controller/add_n
 $route['news-manager/add-news'] = 'dm/news_controller/add_news';
 $route['news-manager/add-news-cancel'] = 'dm/news_controller/add_news_cancel';
 $route['news-manager/add-news/:num'] = 'dm/news_controller/add_news_into_category';
+$route['study-manager/delete-news-category/:num'] = 'dm/news_controller/delete_news_category';
+
+$route['university-manager'] = 'dm/university_controller/index';
+$route['university-manager/create-university'] = 'dm/university_controller/create_university';
+$route['university-manager/update-university/:num'] = 'dm/university_controller/update_university';
+$route['university-manager/delete-university/:num'] = 'dm/university_controller/delete_university';
+$route['university-manager-create-university-submit'] = 'dm/university_controller/create_university_submit';
+$route['university-manager/create-university-cancel'] = 'dm/university_controller/create_university_cancel';
+$route['university-manager-update-university-submit'] = 'dm/university_controller/update_university_submit';
+$route['university-manager/update-university-cancel'] = 'dm/university_controller/update_university_cancel';
+
+$route['program-manager'] = 'dm/program_controller/index';
+$route['program-manager/create-program'] = 'dm/program_controller/create_program';
+$route['program-manager/update-program/:num'] = 'dm/program_controller/update_program';
+$route['program-manager/delete-program/:num'] = 'dm/program_controller/delete_program';
+$route['program-manager-create-program-submit'] = 'dm/program_controller/create_program_submit';
+$route['program-manager/create-program-cancel'] = 'dm/program_controller/create_program_cancel';
+$route['program-manager-update-program-submit'] = 'dm/program_controller/update_program_submit';
+$route['program-manager/update-program-cancel'] = 'dm/program_controller/update_program_cancel';
+
+$route['schedule-manager'] = 'dm/schedule_controller/index';
+$route['schedule-manager/create-schedule'] = 'dm/schedule_controller/create_schedule';
+$route['schedule-manager/update-schedule/:num'] = 'dm/schedule_controller/update_schedule';
+$route['schedule-manager/delete-schedule/:num'] = 'dm/schedule_controller/delete_schedule';
+$route['schedule-manager-create-schedule-submit'] = 'dm/schedule_controller/create_schedule_submit';
+$route['schedule-manager/create-schedule-cancel'] = 'dm/schedule_controller/create_schedule_cancel';
+$route['schedule-manager-update-schedule-submit'] = 'dm/schedule_controller/update_schedule_submit';
+$route['schedule-manager/update-schedule-cancel'] = 'dm/schedule_controller/update_schedule_cancel';

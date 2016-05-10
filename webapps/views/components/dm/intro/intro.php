@@ -23,8 +23,8 @@
                     <td>
                         <?php echo $intro['viNewsContent']; ?>
                     </td>
-                    <td><?php echo $intro['catCreatedDate']; ?></td>
-                    <td><?php echo $intro['catUpdatedDate']; ?></td>
+                    <td><?php echo substr($intro['catCreatedDate'],0,10); ?></td>
+                    <td><?php echo substr($intro['catUpdatedDate'],0,10); ?></td>
                     <td>
                         <a href="<?php echo base_url() . "intro-manager/update/" . $intro['catId']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
