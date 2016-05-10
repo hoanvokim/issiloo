@@ -19,4 +19,9 @@ class Gallery_Model extends CI_Model
          $sql = "select img_src,$temp as title from newsgallery, gallery where newsgallery.images_id=gallery.id limit 0,10";
          return $this->db->query($sql)->result_array();
      }
+
+     public function getGalleryByNewsId($news_id){
+         $sql = "select gallery.* from newsgallery, gallery where news_id=$news_id and images_id = gallery.id";
+         return $this->db->query($sql)->result_array();
+     }
 }

@@ -25,6 +25,8 @@ $lang['UNIVERSITY_INFO'] = 'Thông tin các trường đại học';
 $lang['LASTEST_NEWS'] = 'Tin tức nổi bật';
 $lang['POST_DATE'] = 'Đăng ngày';
 $lang['READ_MORE_NEWS'] = 'Xem thêm tin tức';
+$lang['PREVIOUS_POST'] = 'Previous Post';
+$lang['NEXT_POST'] = 'Next Post';
 
 //consult register
 $lang['REGISTER_CONSULT'] = 'Đăng Ký Tư Vấn';

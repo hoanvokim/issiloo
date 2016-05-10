@@ -35,7 +35,7 @@ class News_Model extends CI_Model
     }
 
      public function getNewsByCatId($catId){
-         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id = $catId";
+         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, created_date from news where category_id = $catId";
          return $this->db->query($sql)->result_array();
      }
 

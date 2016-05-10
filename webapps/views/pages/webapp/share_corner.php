@@ -28,7 +28,7 @@
 
                                             <div data-filter="one" class="col-md-4 col-sm-6 grid-item">
                                                 <img src="<?php echo base_url().$news['img_src']; ?>" alt="" style="min-height: 200px;min-width:200px;"/>
-                                                <a href="#" class="portfolio-hover">
+                                                <a href="<?php echo base_url().'news/'.$news['slug']; ?>" class="portfolio-hover">
                                                     <div class="portfolio-hover-content">
                                                         <h4 style="text-transform: lowercase;letter-spacing: 1px;"><?php echo $news['title']; ?></h4>
                                                     </div>

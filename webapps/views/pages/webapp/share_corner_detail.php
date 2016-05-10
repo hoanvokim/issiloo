@@ -13,23 +13,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="project-sidebar-widget">
-                                <h3>Project Title 1</h3>
-                                <h5>Website</h5>
-                                <p>Duis laoreet est nec molestie volutpat. Pellentesque eu condimentum turpis.
-                                    Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla
-                                    rutrum nibh in accumsan venenatis. Duis laoreet est nec molestie volutpat.
-                                    Duis laoreet est nec molestie volutpat. Pellentesque eu condimentum turpis.
-                                    Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla
-                                    rutrum nibh in accumsan venenatis. </p>
-                            </div>
-
-                            <div class="project-sidebar-widget">
-                                <h4>Client</h4>
-                                <h6>John Doe</h6>
+                                <h3><?php echo $detail['title']; ?></h3>
+                                <p><?php echo $detail['summary']; ?></p>
                             </div>
 
 
-                            <div class="project-sidebar-widget">
+                           <!-- <div class="project-sidebar-widget">
                                 <h4>Website</h4>
                                 <h6><a href="#" target="_blank">www.website-url.com</a></h6>
                             </div>
@@ -40,7 +29,7 @@
                                     Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla
                                     rutrum nibh in accumsan venenatis. Duis laoreet est nec molestie
                                     volutpat.</p>
-                            </div>
+                            </div> -->
 
 
                         </div>
@@ -48,14 +37,22 @@
 
                         <div class="col-md-8">
                             <div class="project-screens screen-slider">
-                                <img src="images/1.jpg" alt=""/>
-                                <img src="images/7.jpg" alt=""/>
+                                <?php foreach($img_galleries as $item){ ?>
+                                    <img src="<?php echo base_url().$item['img_src']; ?>" alt=""/>
+                                <?php } ?>
                             </div>
+
                             <div class="project-nav">
-                                <a href="#" class="prev-project btn btn-primary"><i
-                                        class="ion ion-ios-undo"></i> PREVIOUS PROJECT</a>
-                                <a href="#" class="next-project btn btn-primary">NEXT PROJECT <i
-                                        class="ion ion-ios-redo"></i></a>
+                                <?php if($cur_post>0){ ?>
+                                    <a href="<?php echo base_url().'news/'.$lst_post[$cur_post-1]['slug']; ?>" class="prev-project btn btn-primary">
+                                        <i class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?></a>
+                                <?php } ?>
+
+                                <?php if($cur_post < $max_post){ ?>
+                                    <a href="<?php echo base_url().'news/'.$lst_post[$cur_post+1]['slug']; ?>" class="next-project btn btn-primary"><?php echo $this->lang->line('NEXT_POST'); ?>
+                                        <i class="ion ion-ios-redo"></i></a>
+                                <?php } ?>
+
                             </div>
                         </div>
 

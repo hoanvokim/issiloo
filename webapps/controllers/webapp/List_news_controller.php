@@ -44,7 +44,7 @@ class List_news_controller extends CI_Controller{
 
         $category_info = $this->Category_model->getInfoFromId($category_id);
 
-        if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+       if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
             $this->load->view('pages/webapp/share_corner',$data);
         }else{
             $this->load->view("pages/webapp/list_news",$data);
