@@ -18,7 +18,7 @@
             <!--Page content-->
             <!--===================================================-->
             <div id="page-content">
-                <div class="row">
+                <div claass="row">
                     <!--YOU WRITE HERE-->
                     <?php $this->load->view('components/dm/study/study_view_all'); ?>
                 </div>

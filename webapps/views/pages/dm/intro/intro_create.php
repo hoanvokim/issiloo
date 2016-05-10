@@ -21,7 +21,7 @@
             <div id="page-content">
                 <div class="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/intro_create'); ?>
+                    <?php $this->load->view('components/dm/intro/intro_create'); ?>
                 </div>
             </div>
             <!--===================================================-->
@@ -42,5 +42,6 @@
 <!-- END OF CONTAINER -->
 
 <?php $this->load->view('layout/dm/footer'); ?>
+<?php $this->load->view('pages/dm/study/study-scripts'); ?>
 </body>
 </html>

@@ -24,14 +24,14 @@ class Intro_controller extends CI_Controller
     {
         $data['title'] = 'Giới thiệu';
         $data['intros'] = $this->News_model->getIntroduces(1);
-        $this->load->view('pages/dm/intro', $data);
+        $this->load->view('pages/dm/intro/intro', $data);
     }
 
 
     public function create()
     {
         $data['title'] = 'Tạo tab mới';
-        $this->load->view('pages/dm/intro_create', $data);
+        $this->load->view('pages/dm/intro/intro_create', $data);
     }
 
     public function create_add()
@@ -52,7 +52,7 @@ class Intro_controller extends CI_Controller
     {
         $data['title'] = 'Cập nhật giới thiệu';
         $data['intros'] = $this->News_model->getCurrentIntroduce($this->uri->segment(3));
-        $this->load->view('pages/dm/intro_update', $data);
+        $this->load->view('pages/dm/intro/intro_update', $data);
 
     }
 

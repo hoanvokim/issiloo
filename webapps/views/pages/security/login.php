@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $title ?></title>
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>webresources/dm/img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url(); ?>webresources/dm/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url(); ?>webresources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css"/>
     <link href="<?php echo base_url(); ?>webresources/dm/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jasmine.css" rel="stylesheet">
@@ -26,7 +26,7 @@
             <h4> Hello User !</h4>
 
             <p class="text-center">Please login to Access your Account</p>
-            <div class="text-danger fa-close">
+            <div class="text-danger">
                 <?php echo validation_errors(); ?>
             </div>
             <div class="row">
