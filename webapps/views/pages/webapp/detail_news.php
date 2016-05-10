@@ -44,12 +44,18 @@
                 <!-- author details end -->
 
                 <!-- post nav start -->
-                <!--<div class="post-nav">
-                    <h4 class="prev-post"><a href="#" class="btn btn-primary btn-block"><i
-                                class="ion ion-ios-undo"></i> PREVIOUS POST</a></h4>
-                    <h4 class="next-post"><a href="#" class="btn btn-primary btn-block">NEXT POST <i
-                                class="ion ion-ios-redo"></i></a></h4>
-                </div>-->
+                <div class="post-nav">
+                    <?php if($cur_post > 0){ ?>
+                        <h4 class="prev-post"><a href="<?php echo base_url().'news/'.$lst_post[$cur_post-1]['slug']; ?>" class="btn btn-primary btn-block"><i
+                                    class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?></a></h4>
+                    <?php } ?>
+
+                    <?php if($cur_post < $max_post){ ?>
+                        <h4 class="next-post"><a href="<?php echo base_url().'news/'.$lst_post[$cur_post+1]['slug']; ?>" class="btn btn-primary btn-block"><?php echo $this->lang->line('NEXT_POST'); ?> <i
+                                    class="ion ion-ios-redo"></i></a></h4>
+                    <?php } ?>
+
+                </div>
                 <!-- post nav end -->
 
 
