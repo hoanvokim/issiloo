@@ -11,6 +11,14 @@ class Faq_Model extends CI_Model
 {
     var $table = 'faq';
 
+    public $question = "vi_question";
+    public $answer = "vi_answer";
+
+    public function __construct(){
+        $this->question = $_SESSION["activeLanguage"] == "vi" ? "vi_question" : "en_question";
+        $this->answer = $_SESSION["activeLanguage"] == "vi" ? "vi_answer" : "en_answer";
+    }
+
     public function faq_search($value)
     {
         if (!isset($value)) {
@@ -27,6 +35,11 @@ class Faq_Model extends CI_Model
         $this->db->from($this->table);
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function getAll(){
+        $sql = "select id, $this->question as question, $this->answer as answer, created_date, updated_date from faq";
+        return $this->db->query($sql)->result_array();
     }
 
     public function find_by_id($id)

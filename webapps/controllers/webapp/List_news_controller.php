@@ -17,6 +17,7 @@ class List_news_controller extends CI_Controller{
         $this->load->model('News_model');
         $this->load->model('Tag_model');
         $this->load->library('pageutility');
+        $this->load->model('Faq_model');
     }
 
     public function index($slug,$curpage = null){
@@ -47,9 +48,12 @@ class List_news_controller extends CI_Controller{
 
        if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
             $this->load->view('pages/webapp/share_corner',$data);
+        }elseif($category_id==19 || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs'){
+           $data['faqs'] = $this->Faq_model->getAll();
+           $this->load->view('pages/webapp/faq',$data);
         }else{
-            $this->load->view("pages/webapp/list_news",$data);
-        }
+           $this->load->view("pages/webapp/list_news",$data);
+       }
     }
 
     public function tag($tag_id,$curpage = null){
