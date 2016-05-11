@@ -36,7 +36,7 @@ class List_news_controller extends CI_Controller{
         $data['aMenu'] = $aMenu;
 
         //limit = 10
-        $this->pageutility->setData($this->News_model->getToTalRowByCatCollection($aMenu),4);
+        $this->pageutility->setData($this->News_model->getToTalRowByCatCollection($aMenu),10);
         $data['total_page'] = $this->pageutility->total_page;
         $data['cur_page'] = $curpage == null ? 1 : $curpage;
         $data['slug'] = $slug;

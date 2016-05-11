@@ -45,18 +45,46 @@
                             <div class="col-sm-12 text-center">
                                 <ul class="pagination">
 
-                                    <?php if($total_page>10){ ?>
-                                        <li><a href="#"><i class="ion ion-android-arrow-back"></i></a></li>
+                                    <?php if($total_page > 5 && $cur_page>1){ ?>
+                                        <li><a href="<?php echo base_url().'cat/'.$slug.'/'.($cur_page-1); ?>"><i class="ion ion-android-arrow-back"></i></a></li>
                                     <?php } ?>
 
-                                    <?php for($i=1;$i<=$total_page;$i++){ ?>
+                                    <?php if($total_page <= 12){ for($i=1;$i<=$total_page;$i++){ ?>
 
                                         <li <?php if($cur_page==$i){ echo "class='active'"; }?>><a href="<?php echo base_url()."cat/".$slug."/$i"; ?>"><?php echo $i; ?></a></li>
 
+                                    <?php } }else{ ?>
+
+                                        <?php if(($cur_page-1)>=1){ ?>
+                                            <li <?php if($cur_page==1){ echo "class='active'"; }?>><a href="<?php echo base_url()."cat/".$slug; ?>">1</a></li>
+                                        <?php } ?>
+
+                                        <?php if(($cur_page-2) > 1){ ?>
+                                            <li><a href="#">..</a></li>
+                                        <?php } ?>
+
+                                        <?php if(($cur_page-1)>1){ ?>
+                                            <li><a href="<?php echo base_url()."cat/".$slug."/".($cur_page-1); ?>"><?php echo ($cur_page - 1); ?></a></li>
+                                        <?php } ?>
+
+                                        <li class="active"><a href="<?php echo base_url()."cat/".$slug."/".($cur_page); ?>"><?php echo $cur_page; ?></a></li>
+
+                                        <?php if(($cur_page+1)<$total_page){ ?>
+                                            <li><a href="<?php echo base_url()."cat/".$slug."/".($cur_page+1); ?>"><?php echo ($cur_page + 1); ?></a></li>
+                                        <?php } ?>
+
+                                        <?php if(($cur_page+2) < $total_page){ ?>
+                                            <li><a href="#">..</a></li>
+                                        <?php } ?>
+
+                                        <?php if(($cur_page+1)<=$total_page){ ?>
+                                            <li <?php if($cur_page==$total_page){ echo "class='active'"; }?>><a href="<?php echo base_url()."cat/".$slug."/$total_page"; ?>"><?php echo $total_page; ?></a></li>
+                                        <?php } ?>
+
                                     <?php } ?>
 
-                                    <?php if($total_page>10){ ?>
-                                        <li><a href="#"><i class="ion ion-android-arrow-forward"></i></a></li>
+                                    <?php if($total_page > 5 && $cur_page<$total_page){ ?>
+                                        <li><a href="<?php echo base_url().'cat/'.$slug.'/'.($cur_page+1); ?>"><i class="ion ion-android-arrow-forward"></i></a></li>
                                     <?php } ?>
 
                                 </ul>
