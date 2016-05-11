@@ -1,12 +1,12 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
  * Created by IntelliJ IDEA.
  * User: hoanvo
  * Date: 4/25/16
  * Time: 5:34 PM
  */
-
 class Faq_Model extends CI_Model
 {
     var $table = 'faq';
@@ -14,7 +14,8 @@ class Faq_Model extends CI_Model
     public $question = "vi_question";
     public $answer = "vi_answer";
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->question = $_SESSION["activeLanguage"] == "vi" ? "vi_question" : "en_question";
         $this->answer = $_SESSION["activeLanguage"] == "vi" ? "vi_answer" : "en_answer";
     }
@@ -37,7 +38,47 @@ class Faq_Model extends CI_Model
         return $query->result();
     }
 
-    public function getAll(){
+    public function findAll()
+    {
+        return $this->db->get("faq")->result_array();
+    }
+
+    public function findById($faqId)
+    {
+        $this->db->where('id', $faqId);
+        return $this->db->get("faq")->result_array()[0];
+    }
+
+    public function insert($faqQuestion, $faqAnswer)
+    {
+        $data = array(
+            'vi_question' => $faqQuestion,
+            'vi_answer' => $faqAnswer
+        );
+
+        $this->db->insert('faq', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function update($faqId, $faqQuestion, $faqAnswer)
+    {
+        $data = array(
+            'vi_question' => $faqQuestion,
+            'vi_answer' => $faqAnswer
+        );
+        $this->db->where('id', $faqId);
+        $this->db->update('faq', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('faq');
+    }
+
+    public function getAll()
+    {
         $sql = "select id, $this->question as question, $this->answer as answer, created_date, updated_date from faq";
         return $this->db->query($sql)->result_array();
     }
@@ -48,16 +89,5 @@ class Faq_Model extends CI_Model
         $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->row();
-    }
-
-    public function insert($faq)
-    {
-        $this->db->insert($this->table, $faq);
-    }
-
-    public function update($id, $faq)
-    {
-        $this->db->where('id', $id);
-        $this->db->update($this->table, $faq);
     }
 }

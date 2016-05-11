@@ -18,9 +18,9 @@
             <!--Page content-->
             <!--===================================================-->
             <div id="page-content">
-                <div class="row">
+                <div claass="row">
                     <!--YOU WRITE HERE-->
-                    <?php $this->load->view('components/dm/faq/faq_view_all'); ?>
+                    <?php $this->load->view('components/dm/faq/edit'); ?>
                 </div>
             </div>
             <!--===================================================-->
@@ -41,7 +41,6 @@
 <!-- END OF CONTAINER -->
 
 <?php $this->load->view('layout/dm/footer'); ?>
-<?php $this->load->view('components/dm/faq/faq_scripts'); ?>
-<?php $this->load->view('components/dm/faq/faq_dialogs'); ?>
+<?php $this->load->view('pages/dm/study/study-scripts'); ?>
 </body>
 </html>

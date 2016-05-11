@@ -38,13 +38,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('manage-faq'); ?>">
+                            <a href="<?php echo site_url('faq-manager'); ?>">
                                 <i class="fa fa-question-circle-o"></i>
                                 <span class="menu-title">Hỏi đáp</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('manage-tag'); ?>">
+                            <a href="<?php echo site_url('tag-manager'); ?>">
                                 <i class="fa fa-search"></i>
                                 <span class="menu-title">Từ khoá tìm kiếm</span>
                             </a>

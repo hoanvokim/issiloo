@@ -16,7 +16,7 @@
             <?php foreach ($tags as $tag) { ?>
                 <tr>
                     <td><?php echo $tag['id']; ?></td>
-                    <td><?php echo $tag['tag']; ?></td>
+                    <td><?php echo $tag['name']; ?></td>
                     <td>
                         <a href="<?php echo base_url() . "tag-manager/update-tag/" . $tag['id']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>

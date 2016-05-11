@@ -35,7 +35,7 @@ class Tag_controller extends CI_Controller
     public function create_tag_submit()
     {
         $this->Tag_model->insert(
-            $this->input->post('name')
+            $this->input->post('tagName')
         );
         redirect('tag-manager', 'refresh');
     }
@@ -67,7 +67,6 @@ class Tag_controller extends CI_Controller
 
     public function update_tag_cancel()
     {
-
         redirect('tag-manager', 'refresh');
     }
 
