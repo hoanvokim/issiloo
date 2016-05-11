@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by IntelliJ IDEA.
- * User: hoanvo
- * Date: 5/10/16
- * Time: 9:32 PM
- */
+<?php echo form_open('tag-manager-update-tag-submit'); ?>
+<input type="hidden" id="hide" name="tagId" value="<?php if (!empty($tagId)) {
+    echo $tagId;
+} ?>">
+<div class="form-group">
+    <label for="demo-vs-definput" class="control-label">Tên tag</label>
+    <input type="text" name="tagName" class="form-control">
+</div>
+<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
+<a href="<?php echo base_url() . "tag-manager/create-tag-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i class="fa fa-close"></i> Huỷ</a>
+<a href="<?php echo base_url() . "tag-manager/delete-tag/" . $tagId; ?>"
+   class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
+</form>

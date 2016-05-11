@@ -129,7 +129,6 @@ $route['schedule-manager/create-schedule-cancel'] = 'dm/schedule_controller/crea
 $route['schedule-manager-update-schedule-submit'] = 'dm/schedule_controller/update_schedule_submit';
 $route['schedule-manager/update-schedule-cancel'] = 'dm/schedule_controller/update_schedule_cancel';
 
-
 $route['news-manager'] = 'dm/hotnews_controller/index';
 $route['news-manager/create-news'] = 'dm/hotnews_controller/create_news';
 $route['news-manager/update-news/:num'] = 'dm/hotnews_controller/update_news';
@@ -138,3 +137,13 @@ $route['news-manager-create-news-submit'] = 'dm/hotnews_controller/create_news_s
 $route['news-manager/create-news-cancel'] = 'dm/hotnews_controller/create_news_cancel';
 $route['news-manager-update-news-submit'] = 'dm/hotnews_controller/update_news_submit';
 $route['news-manager/update-news-cancel'] = 'dm/hotnews_controller/update_news_cancel';
+
+
+$route['tag-manager'] = 'dm/tag_controller/index';
+$route['tag-manager/create-tag'] = 'dm/tag_controller/create_news';
+$route['tag-manager/update-tag/:num'] = 'dm/tag_controller/update_news';
+$route['tag-manager/delete-tag/:num'] = 'dm/tag_controller/delete_news';
+$route['tag-manager-create-tag-submit'] = 'dm/tag_controller/create_news_submit';
+$route['tag-manager/create-tag-cancel'] = 'dm/tag_controller/create_news_cancel';
+$route['tag-manager-update-tag-submit'] = 'dm/tag_controller/update_news_submit';
+$route['tag-manager/update-tag-cancel'] = 'dm/tag_controller/update_news_cancel';
