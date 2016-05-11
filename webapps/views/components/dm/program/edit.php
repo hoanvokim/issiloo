@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('program-manager-create-program-submit'); ?>
+<?php echo form_open_multipart('program-manager-update-program-submit'); ?>
 <input type="hidden" id="hide" name="newsId" value="<?php if (!empty($newsId)) {
     echo $newsId;
 } ?>">

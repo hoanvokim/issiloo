@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('schedule-manager-update-schedule-submit'); ?>
+<?php echo form_open_multipart('news-manager-update-news-submit'); ?>
 <input type="hidden" id="hide" name="newsId" value="<?php if (!empty($newsId)) {
     echo $newsId;
 } ?>">
@@ -85,9 +85,9 @@
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
 <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
-<a href="<?php echo base_url() . "schedule-manager/update-schedule-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
+<a href="<?php echo base_url() . "news-manager/update-news-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
         class="fa fa-close"></i> Huỷ</a>
-<a href="<?php echo base_url() . "schedule-manager/delete-schedule/" . $newsId; ?>"
+<a href="<?php echo base_url() . "news-manager/delete-news/" . $newsId; ?>"
    class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
 </form>
 <script>

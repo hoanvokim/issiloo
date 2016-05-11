@@ -1,6 +1,9 @@
-<?php echo form_open_multipart('schedule-manager-update-schedule-submit'); ?>
+<?php echo form_open_multipart('study-news-manager-update-study-news-submit'); ?>
 <input type="hidden" id="hide" name="newsId" value="<?php if (!empty($newsId)) {
     echo $newsId;
+} ?>">
+<input type="hidden" id="hide" name="newsId" value="<?php if (!empty($catId)) {
+    echo $catId;
 } ?>">
 <!--Default Tabs (Left Aligned)-->
 <!--===================================================-->
@@ -25,6 +28,10 @@
                     <h3 class="panel-title">Tổng quan</h3>
                 </div>
                 <div class="panel-body">
+                    <div class="form-group">
+                        <label for="demo-vs-definput" class="control-label">Phân nhóm: </label>
+                       <strong><?php echo $catName ?></strong>
+                    </div>
                     <div class="form-group">
                         <?php if (!empty($img_src)) { ?>
                             <input type="hidden" id="hide" name="img_src" value="<?php echo $img_src; ?>">
@@ -85,9 +92,9 @@
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
 <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
-<a href="<?php echo base_url() . "schedule-manager/update-schedule-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
+<a href="<?php echo base_url() . "news-manager/update-study-news-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
         class="fa fa-close"></i> Huỷ</a>
-<a href="<?php echo base_url() . "schedule-manager/delete-schedule/" . $newsId; ?>"
+<a href="<?php echo base_url() . "news-manager/delete-study-news/" . $newsId; ?>"
    class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
 </form>
 <script>

@@ -62,7 +62,6 @@ $route['admin'] = 'dm/admin_controller/index';
 $route['logout'] = 'dm/admin_controller/logout';
 $route['login'] = 'dm/admin_controller/login_submit';
 
-$route['manage-news'] = 'dm/news_controller/index';
 $route['manage-sharing'] = 'dm/sharing_controller/index';
 $route['manage-faq'] = 'dm/faq_controller/index';
 $route['faq-execute-search'] = 'dm/faq_controller/execute_search';
@@ -89,6 +88,12 @@ $route['study-manager/create-category-cancel'] = 'dm/study_controller/create_cat
 $route['study-manager-update-category-submit'] = 'dm/study_controller/update_category_add';
 $route['study-manager/update-category-cancel'] = 'dm/study_controller/update_category_cancel';
 $route['study-manager-add-child-category-submit'] = 'dm/study_controller/add_child_category';
+$route['manage-study-news'] = 'dm/news_controller/all_news';
+
+$route['news-manager/update-study-news/:num'] = 'dm/news_controller/update_study_news';
+$route['study-news-manager-update-study-news-submit'] = 'dm/news_controller/update_study_news_submit';
+$route['news-manager/update-study-news-cancel'] = 'dm/news_controller/update_study_news_cancel';
+$route['news-manager/delete-study-news/:num'] = 'dm/news_controller/delete_news_category';
 
 $route['news-manager-add-news-submit'] = 'dm/news_controller/add_news_add';
 $route['news-manager-add-news-into-category-submit'] = 'dm/news_controller/add_news_into_category_add';
@@ -123,3 +128,13 @@ $route['schedule-manager-create-schedule-submit'] = 'dm/schedule_controller/crea
 $route['schedule-manager/create-schedule-cancel'] = 'dm/schedule_controller/create_schedule_cancel';
 $route['schedule-manager-update-schedule-submit'] = 'dm/schedule_controller/update_schedule_submit';
 $route['schedule-manager/update-schedule-cancel'] = 'dm/schedule_controller/update_schedule_cancel';
+
+
+$route['news-manager'] = 'dm/hotnews_controller/index';
+$route['news-manager/create-news'] = 'dm/hotnews_controller/create_news';
+$route['news-manager/update-news/:num'] = 'dm/hotnews_controller/update_news';
+$route['news-manager/delete-news/:num'] = 'dm/hotnews_controller/delete_news';
+$route['news-manager-create-news-submit'] = 'dm/hotnews_controller/create_news_submit';
+$route['news-manager/create-news-cancel'] = 'dm/hotnews_controller/create_news_cancel';
+$route['news-manager-update-news-submit'] = 'dm/hotnews_controller/update_news_submit';
+$route['news-manager/update-news-cancel'] = 'dm/hotnews_controller/update_news_cancel';

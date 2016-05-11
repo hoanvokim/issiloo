@@ -31,6 +31,13 @@ class Category_Model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function findCategoryNameFromId($catId) {
+        $sql = "select vi_name from category where id='$catId'";
+        $result = $this->db->query($sql)->result_array();
+        return $result[0]['vi_name'];
+    }
+
+
     public function findById($catId)
     {
         $this->db->select('*');

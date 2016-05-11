@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('manage-news'); ?>">
+                            <a href="<?php echo site_url('news-manager'); ?>">
                                 <i class="fa fa-newspaper-o"></i>
                                 <span class="menu-title">Tin Tức</span>
                             </a>

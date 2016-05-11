@@ -22,67 +22,86 @@ class News_Model extends CI_Model
         $this->load->model("Category_model");
     }
 
-    public function getIdFromSlug($slug){
+    public function getIdFromSlug($slug)
+    {
         $sql = "select id from news where slug='$slug' limit 0,1";
         $result = $this->db->query($sql)->result_array();
         return $result[0]['id'];
     }
 
-    public function getNewsById($id){
+    public function getNewsById($id)
+    {
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where id = $id";
         $result = $this->db->query($sql)->result_array();
         return $result[0];
     }
 
-     public function getNewsByCatId($catId){
-         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary, created_date, updated_date from news where category_id = $catId";
-         return $this->db->query($sql)->result_array();
-     }
+    public function getNewsByCatId($catId)
+    {
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary, created_date, updated_date from news where category_id = $catId";
+        return $this->db->query($sql)->result_array();
+    }
 
-     public function getLastNews(){
-         $sql = "select img_src,$this->title as title, $this->summary as summary, created_date from news order by created_date desc limit 0,4";
-         return $this->db->query($sql)->result_array();
-     }
+    public function getLastNews()
+    {
+        $sql = "select img_src,$this->title as title, $this->summary as summary, created_date from news order by created_date desc limit 0,4";
+        return $this->db->query($sql)->result_array();
+    }
 
-     public function getNewsByCatCollection($aCat,$cur_page,$limit){
-         $start = ($cur_page-1)*$limit;
-         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id in (";
-         $cnt = count($aCat);
-         for($i=0;$i<$cnt-1;$i++){
+    public function getNewsByCatCollection($aCat, $cur_page, $limit)
+    {
+        $start = ($cur_page - 1) * $limit;
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id in (";
+        $cnt = count($aCat);
+        for ($i = 0; $i < $cnt - 1; $i++) {
             $sql = $sql . $aCat[$i] . ",";
-         }
-         $sql = $sql . $aCat[$cnt-1] . ") limit $start,$limit";
-         return $this->db->query($sql)->result_array();
-     }
+        }
+        $sql = $sql . $aCat[$cnt - 1] . ") limit $start,$limit";
+        return $this->db->query($sql)->result_array();
+    }
 
-     public function getToTalRowByCatCollection($aCat){
-         $sql = "select count(*) as total_row from news where category_id in(";
-         $cnt = count($aCat);
-         for($i=0;$i<$cnt-1;$i++){
-             $sql = $sql . $aCat[$i] . ",";
-         }
-         $sql = $sql . $aCat[$cnt-1] . ")";
-         $rs = $this->db->query($sql)->result_array();
-         return $rs[0]['total_row'];
-     }
+    public function getNewsByCatCollectionWithoutLimit($aCat)
+    {
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, updated_date, $this->summary as summary from news where category_id in (";
+        foreach ($aCat as $value) {
+            $sql = $sql . $value . ",";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql = $sql . ")";
+        return $this->db->query($sql)->result_array();
+    }
 
-     public function getRelatedNewsByCatId($category_id){
-         $arr = array();
-         $cnt = 0;
-         $aSubMenu = array();
-         $this->Category_model->getDirectSubMenu($category_id,$aSubMenu);
-         foreach($aSubMenu as $item){
-             if(count($this->getNewsByCatId($item))==0){
-                 continue;
-             }
-             $arr[$cnt]['cat_name'] = $this->Category_model->getName($item);
-             $arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
-             $cnt++;
-         }
-         return $arr;
-     }
+    public function getToTalRowByCatCollection($aCat)
+    {
+        $sql = "select count(*) as total_row from news where category_id in(";
+        $cnt = count($aCat);
+        for ($i = 0; $i < $cnt - 1; $i++) {
+            $sql = $sql . $aCat[$i] . ",";
+        }
+        $sql = $sql . $aCat[$cnt - 1] . ")";
+        $rs = $this->db->query($sql)->result_array();
+        return $rs[0]['total_row'];
+    }
 
-    public function getRelatedNewsById($news_id){
+    public function getRelatedNewsByCatId($category_id)
+    {
+        $arr = array();
+        $cnt = 0;
+        $aSubMenu = array();
+        $this->Category_model->getDirectSubMenu($category_id, $aSubMenu);
+        foreach ($aSubMenu as $item) {
+            if (count($this->getNewsByCatId($item)) == 0) {
+                continue;
+            }
+            $arr[$cnt]['cat_name'] = $this->Category_model->getName($item);
+            $arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
+            $cnt++;
+        }
+        return $arr;
+    }
+
+    public function getRelatedNewsById($news_id)
+    {
         $sql = "select category_id from news where id=$news_id";
         $result = $this->db->query($sql)->result_array();
         $category_id = $result[0]['category_id'];
@@ -92,14 +111,16 @@ class News_Model extends CI_Model
         return $this->db->query($sql)->result_array();
     }
 
-    public function getTotalRowByTagId($tag_id){
+    public function getTotalRowByTagId($tag_id)
+    {
         $sql = "select count(*) as total_row from news, tagnews where tag_id = $tag_id and news_id = news.id";
         $rs = $this->db->query($sql)->result_array();
         return $rs[0]['total_row'];
     }
 
-    public function getNewsByTagId($tag_id,$cur_page,$limit){
-        $start = ($cur_page-1)*$limit;
+    public function getNewsByTagId($tag_id, $cur_page, $limit)
+    {
+        $start = ($cur_page - 1) * $limit;
         $sql = "select news.id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news, tagnews where tagnews.tag_id = $tag_id and tagnews.news_id = news.id limit $start,$limit";
         return $this->db->query($sql)->result_array();
 
@@ -121,6 +142,7 @@ class News_Model extends CI_Model
                  order by category.id desc;";
         return $this->db->query($sql)->result_array();
     }
+
     public function getCurrentIntroduce($catId)
     {
         $sql = " select category.id as catId, 
@@ -146,7 +168,7 @@ class News_Model extends CI_Model
 
         $this->db->insert('news', $data);
         $insert_id = $this->db->insert_id();
-        return  $insert_id;
+        return $insert_id;
     }
 
     public function insert_full($catId, $img_src, $slug, $title_header, $description_header, $keyword_header, $vi_title, $vi_content, $vi_summary)
@@ -165,7 +187,7 @@ class News_Model extends CI_Model
 
         $this->db->insert('news', $data);
         $insert_id = $this->db->insert_id();
-        return  $insert_id;
+        return $insert_id;
     }
 
     public function update($catId, $vi_content)
@@ -176,7 +198,7 @@ class News_Model extends CI_Model
         $this->db->where('category_id', $catId);
         $this->db->update('news', $data);
     }
-    
+
     public function update_full($newsId, $catId, $img_src, $slug, $title_header, $description_header, $keyword_header, $vi_title, $vi_content, $vi_summary)
     {
         $data = array(
@@ -192,6 +214,12 @@ class News_Model extends CI_Model
         );
         $this->db->where('id', $newsId);
         $this->db->update('news', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('news');
     }
 }
 
