@@ -23,6 +23,10 @@
 
     <style>
 
+        .float-left{
+            float:left;
+        }
+
         .message {
             display: none;
             font-size: 16px;

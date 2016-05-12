@@ -44,7 +44,7 @@ class News_Model extends CI_Model
 
     public function getLastNews()
     {
-        $sql = "select img_src,$this->title as title, $this->summary as summary, created_date from news order by created_date desc limit 0,4";
+        $sql = "select img_src, slug, $this->title as title, $this->summary as summary, created_date from news order by created_date desc limit 0,4";
         return $this->db->query($sql)->result_array();
     }
 

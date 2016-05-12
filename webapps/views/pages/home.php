@@ -26,15 +26,15 @@
             <div class="row service-layout">
                 <div class="col-md-4 col-sm-12">
                     <div>
-                        <h4 class="col-header"><i class="fa fa-plane"></i> <?php echo $dhhq; ?></h4>
+                        <h4 class="col-header"><i class="fa fa-plane"></i> <?php echo $dhhq['vi_name']; ?></h4>
                         <div class="widget-box">
                             <ul class="list">
 
                                 <?php if(count($adhhq) > 0){ ?>
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
                                         <?php if($i > (count($adhhq) - 1)){ break; } ?>
-                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $adhhq[$i]['img_src']; ?>"
-                                                                             alt=""/>
+                                        <li><a href="<?php echo base_url().'news/'.$adhhq[$i]['slug']; ?>">
+                                                <img src="<?php echo base_url(); ?>/<?php echo $adhhq[$i]['img_src']; ?>" alt=""/>
                                                 <?php echo $adhhq[$i]['title'] ?><br/>
                                                 <small><?php echo date_format(new DateTime($adhhq[$i]['created_date']), "F d, Y"); ?></small>
                                             </a></li>
@@ -45,7 +45,7 @@
                             </ul>
                         </div>
                         <?php if (count($adhhq) > 4) { ?>
-                            <div class="pull-right"><a
+                            <div class="pull-right"><a href="<?php echo base_url().'cat/'.$dhhq['slug']; ?>"
                                     class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?><i
                                         class="ion ion-ios-arrow-thin-right"></i></a></div>
                         <?php } ?>
@@ -53,13 +53,13 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div>
-                        <h4 class="col-header"><i class="fa fa-trophy"></i><?php echo $hbdh; ?></h4>
+                        <h4 class="col-header"><i class="fa fa-trophy"></i><?php echo $hbdh['vi_name']; ?></h4>
                         <div class="widget-box">
                             <ul class="list">
                                 <?php if(count($ahbdh) > 0){ ?>
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
                                         <?php if($i > (count($ahbdh) - 1)){ break; } ?>
-                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahbdh[$i]['img_src']; ?>"
+                                        <li><a href="<?php echo base_url().'news/'.$ahbdh[$i]['slug']; ?>"><img src="<?php echo base_url(); ?>/<?php echo $ahbdh[$i]['img_src']; ?>"
                                                                              alt=""/>
                                                 <?php echo $ahbdh[$i]['title']; ?><br/>
                                                 <small><?php echo date_format(new DateTime($ahbdh[$i]['created_date']), "F d, Y"); ?></small>
@@ -70,7 +70,7 @@
                             </ul>
                         </div>
                         <?php if (count($ahbdh) > 4) { ?>
-                            <div class="pull-right"><a
+                            <div class="pull-right"><a href="<?php echo base_url().'cat/'.$hbdh['slug']; ?>"
                                     class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?><i
                                         class="ion ion-ios-arrow-thin-right"></i></a></div>
                         <?php } ?>
@@ -78,13 +78,13 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div>
-                        <h4 class="col-header"><i class="fa fa-leanpub"></i><?php echo $hth; ?></h4>
+                        <h4 class="col-header"><i class="fa fa-leanpub"></i><?php echo $hth['vi_name']; ?></h4>
                         <div class="widget-box">
                             <ul class="list">
                                 <?php if(count($ahth) > 0){ ?>
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
                                         <?php if($i > (count($ahth) - 1)){ break; } ?>
-                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahth[$i]['img_src']; ?>"
+                                        <li><a href="<?php echo base_url().'news/'.$ahth[$i]['slug']; ?>"><img src="<?php echo base_url(); ?>/<?php echo $ahth[$i]['img_src']; ?>"
                                                                              alt=""/>
                                                 <?php echo $ahth[$i]['title']; ?><br/>
                                                 <small><?php echo date_format(new DateTime($ahth[$i]['created_date']), "F d, Y"); ?></small>
@@ -95,7 +95,7 @@
                             </ul>
                         </div>
                         <?php if (count($ahth) > 4) { ?>
-                            <div class="pull-right"><a
+                            <div class="pull-right"><a href="<?php echo base_url().'cat/'.$hth['slug']; ?>"
                                     class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?><i
                                         class="ion ion-ios-arrow-thin-right"></i></a></div>
                         <?php } ?>
@@ -146,10 +146,10 @@
                                                           target="_blank"><?php echo $university['url']; ?></a>
                                                 </small>
                                             </h4>
-                                            <p><a href="#"
+                                            <!--<p><a href="#"
                                                   class="btn btn-primary"><?php echo $this->lang->line('READ_DETAIL'); ?>
                                                     <i
-                                                        class="ion ion-ios-arrow-thin-right"></i></a></p>
+                                                        class="ion ion-ios-arrow-thin-right"></i></a></p> -->
                                         </div>
                                     </div>
                             </li>
@@ -178,10 +178,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#"><h4><strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
+                    <a href="<?php echo base_url().'news/'.$last_news[0]['slug']; ?>"><h4><strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                     <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                         <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
-                    <div><?php echo $last_news[0]['summary']; ?> <a href="#"
+                    <div><?php echo $last_news[0]['summary']; ?> <a href="<?php echo base_url().'news/'.$last_news[0]['slug']; ?>"
                                                                   data-toggle="tooltip"
                                                                   data-placement="bottom"
                                                                   data-original-title="Xem chi tiết"
@@ -195,12 +195,12 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="service-box">
-                            <a href="#"><h4><strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
+                            <a href="<?php echo base_url().'news/'.$last_news[$i]['slug']; ?>"><h4><strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
                             <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                                 <i><?php echo date_format(new DateTime($last_news[$i]['created_date']), "d/m/Y"); ?></i>
                             </h6>
                             <div><?php echo $last_news[$i]['summary']; ?>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom"
+                                <a href="<?php echo base_url().'news/'.$last_news[$i]['slug']; ?>" data-toggle="tooltip" data-placement="bottom"
                                    data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
                                         class="ion ion-ios-arrow-thin-right"></i></a>
                             </div>
@@ -209,9 +209,9 @@
 
                 <?php } ?>
             </div>
-            <div class="pull-right"><a class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+            <!--<div class="pull-right"><a class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
                     <i
-                        class="ion ion-ios-arrow-thin-right"></i></a></div>
+                        class="ion ion-ios-arrow-thin-right"></i></a></div>  -->
         </div>
     </div>
     <!-- inner container end -->

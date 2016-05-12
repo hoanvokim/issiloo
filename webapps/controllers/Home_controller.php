@@ -71,13 +71,13 @@ class Home_controller extends CI_Controller
         $data['sliders'] = $this->Slider_model->getAll();
 
         //get widget news
-        $data['dhhq'] = $this->Category_model->getName(11);
+        $data['dhhq'] = $this->Category_model->getInfoFromId(11);
         $data['adhhq'] = $this->News_model->getNewsByCatId(11);
 
-        $data['hbdh'] = $this->Category_model->getName(10);
+        $data['hbdh'] = $this->Category_model->getInfoFromId(10);
         $data['ahbdh'] = $this->News_model->getNewsByCatId(10);
 
-        $data['hth'] = $this->Category_model->getName(13);
+        $data['hth'] = $this->Category_model->getInfoFromId(13);
         $data['ahth'] = $this->News_model->getNewsByCatId(13);
 
         //get university.
