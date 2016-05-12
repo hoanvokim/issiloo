@@ -18,6 +18,7 @@
 <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jasmine.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/dm/css/demo/jquery-steps.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/tag-it/jquery.tagit.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>webresources/plugins/select2/css/select2.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>webresources/plugins/datatables/media/css/dataTables.bootstrap.css"
       rel="stylesheet">
 <link href="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css"

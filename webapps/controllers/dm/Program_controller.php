@@ -18,6 +18,7 @@ class Program_controller extends CI_Controller
             $_SESSION["activeLanguage"] = "vi";
         }
         $this->load->model('News_model');
+        $this->load->model('Tag_model');
     }
 
     public function index()
@@ -29,18 +30,20 @@ class Program_controller extends CI_Controller
 
     public function create_program()
     {
+        $data['tags'] = $this->Tag_model->findAll();
         $data['title'] = 'Thêm chương trình mới';
         $this->load->view('pages/dm/program/add', $data);
     }
 
     public function create_program_submit()
     {
+        $insertId = -1;
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
             $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $file_path,
                 $this->input->post('slug'),
@@ -54,7 +57,7 @@ class Program_controller extends CI_Controller
         }
         else {
             $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $this->input->post('img_src'),
                 $this->input->post('slug'),
@@ -66,7 +69,10 @@ class Program_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
+        $tags = $this->input->post('tags');
+        foreach ($tags as $tag) {
+            $this->Tag_model->saveReferenceNews($tag, $insertId);
+        }
         redirect('program-manager', 'refresh');
     }
 
@@ -88,6 +94,8 @@ class Program_controller extends CI_Controller
         $data['summary'] = $current['summary'];
         $data['img_src'] = $current['img_src'];
 
+        $data['tags'] = $this->Tag_model->findAll();
+        $data['activeTags'] = $this->Tag_model->findByNews($data['newsId']);
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
         $this->load->view('pages/dm/program/edit', $data);
     }
