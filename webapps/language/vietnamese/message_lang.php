@@ -12,6 +12,8 @@ $lang['ISSI_INTRO'] = 'Với nhiều năm kinh nghiệm và giáo viên tận t�
                         được khả năng của mình.';
 $lang['ISSI_ADDRESS_STREET'] = 'số 37 Hoa Hồng, P.2';
 $lang['ISSI_ADDRESS_CITY'] = 'Q.Phú Nhuận, Tp.HCM';
+$lang['ISSI_EMAIL'] = 'kr-info@issiloo.edu.vn';
+$lang['ISSI_PHONE'] = '08 3517 1099 - 08 3517 1089';
 
 
 //general
@@ -27,18 +29,22 @@ $lang['POST_DATE'] = 'Đăng ngày';
 $lang['READ_MORE_NEWS'] = 'Xem thêm tin tức';
 $lang['PREVIOUS_POST'] = 'Previous Post';
 $lang['NEXT_POST'] = 'Next Post';
+$lang['ADDRESS'] = 'Địa chỉ';
 
 //consult register
-$lang['REGISTER_CONSULT'] = 'Đăng Ký Tư Vấn';
-$lang['NAME'] = 'Tên';
+$lang['REGISTER_CONSULT'] = 'Đăng ký tư vấn';
+$lang['NAME'] = 'Họ Tên';
 $lang['EMAIL'] = 'Email';
 $lang['PHONE'] = 'Điện thoại';
-$lang['TITLE'] = 'Tiêu đề';
+$lang['TITLE'] = 'Chủ đề';
 $lang['CONTENT'] = 'Nội dung';
 $lang['SEND'] = 'Gửi';
+$lang['CONSULT_SUCCESS'] = 'Đăng ký tư vấn thành công. Chúng tôi sẽ sớm phản hồi cho bạn.';
 
 //contact page
 $lang['CONTACT_BANNER_TITLE'] = 'LIÊN HỆ VỚI ISSILOO';
 $lang['CONTACT_MESSAGE'] = 'ĐỂ CHÚNG TÔI CUNG CẤP CHO BẠN NHỮNG THÔNG TIN CẦN THIẾT';
+$lang['CONTACT_SUCCESS'] = 'Liên hệ thành công. Chúng tôi sẽ sớm phản hồi cho bạn.';
+$lang['MESSAGE_ERROR'] = 'Có lỗi xảy ra. vui lòng thử lại.';
 
 ?>

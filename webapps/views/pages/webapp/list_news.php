@@ -125,45 +125,49 @@
                         <div class="heading-text text-center text-uppercase">
                             <h3><?php echo $this->lang->line('REGISTER_CONSULT'); ?></h3>
                         </div>
+
+                        <p class="message <?php echo $status; ?>"><?php if($status=='error'){ echo $this->lang->line('MESSAGE_ERROR'); }elseif($status=='success'){ echo $this->lang->line('CONTACT_SUCCESS'); }else{ echo ''; } ?></p>
+
+
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                <form class="contact-form" id="ContactForm" method="post" action="sendemail.php">
+                                <form class="contact-form" id="ContactForm" method="post" action="<?php echo base_url().'cat/'.$slug.'/'.$cur_page; ?>">
                                     <!--contact form-->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control"
-                                                       placeholder="<?php echo $this->lang->line('NAME'); ?>"
+                                                <input type="text" name="consult_name" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('NAME'); ?> *"
                                                        required="required">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control"
-                                                       placeholder="<?php echo $this->lang->line('EMAIL'); ?>"
+                                                <input type="email" name="consult_email" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
                                                        required="required">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="text" name="subject" class="form-control"
+                                                <input type="text" name="consult_phone" class="form-control"
                                                        placeholder="<?php echo $this->lang->line('PHONE'); ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="text" name="subject" class="form-control"
-                                                       placeholder="<?php echo $this->lang->line('TITLE'); ?>">
+                                                <input type="text" name="consult_subject" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                        <textarea class="form-control" name="message" rows="10" placeholder="<?php echo $this->lang->line('CONTENT'); ?>"
+                                        <textarea class="form-control" name="consult_content" rows="10" placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
                                                   required="required"></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-primary"><?php echo $this->lang->line('SEND'); ?></button>
+                                            <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>" name="btn_consult_send" class="btn btn-primary"/>
                                         </div>
                                     </div>
                                 </form>

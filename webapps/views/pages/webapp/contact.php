@@ -18,29 +18,29 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <h4>Send us a Message</h4>
-                                <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum nibh
-                                    in accumsan venenatis. Duis laoreet est nec molestie volutpat.</p>
+                                <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
 
-                                <form>
+                                <p class="message <?php echo $status; ?>"><?php if($status=='error'){ echo $this->lang->line('MESSAGE_ERROR'); }elseif($status=='success'){ echo $this->lang->line('CONTACT_SUCCESS'); }else{ echo ''; } ?></p>
+
+                                <form method="post" action="<?php echo base_url().'contact'; ?>">
                                     <div class="form-group">
-                                        <label>Name*</label>
-                                        <input type="text" value="" class="form-control" required/>
+                                        <label><?php echo $this->lang->line('NAME'); ?>*</label>
+                                        <input type="text" value="" name="sender_name" class="form-control" required="required" />
                                     </div>
                                     <div class="form-group">
-                                        <label>Email*</label>
-                                        <input type="email" value="" class="form-control" required/>
+                                        <label><?php echo $this->lang->line('EMAIL'); ?>*</label>
+                                        <input type="email" value="" name="sender_email" class="form-control" required="required" />
                                     </div>
                                     <div class="form-group">
-                                        <label>Subject</label>
-                                        <input type="text" value="" class="form-control"/>
+                                        <label><?php echo $this->lang->line('TITLE'); ?></label>
+                                        <input type="text" value="" name="sender_subject" class="form-control" required="required" />
                                     </div>
                                     <div class="form-group">
-                                        <label>Message*</label>
-                                        <textarea class="form-control" required></textarea>
+                                        <label><?php echo $this->lang->line('CONTENT'); ?>*</label>
+                                        <textarea class="form-control" name="sender_content" required="required"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" value="Send Message" class="btn btn-primary"/>
+                                        <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>" name="btn_send" class="btn btn-primary"/>
                                     </div>
                                 </form>
 
@@ -48,18 +48,17 @@
 
                             <div class="col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-0">
                                 <div class="contact-details">
-                                    <h4>Get in Touch</h4>
-                                    <p>Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla rutrum
-                                        nibh in accumsan venenatis. Duis laoreet est nec molestie volutpat.</p>
+                                    <h4></h4>
+                                    <p><?php echo $this->lang->line('ISSI_INTRO'); ?></p>
 
-                                    <h5><i class="ion ion-ios-location-outline"></i> ADDRESS</h5>
-                                    <p>Sahadatpura, Kedia Market <br/>Mau 275101, U.P. India</p>
+                                    <h5><i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ADDRESS'); ?></h5>
+                                    <p><?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?><br/><?php echo $this->lang->line('ISSI_ADDRESS_CITY'); ?></p>
 
-                                    <h5><i class="ion ion-ios-email-outline"></i> EMAIL</h5>
-                                    <p><a href="mailto:email@yourdomain.com">email@yourdomain.com</a></p>
+                                    <h5><i class="ion ion-ios-email-outline"></i> <?php echo $this->lang->line('EMAIL'); ?></h5>
+                                    <p><a href="mailto:email@yourdomain.com"><?php echo $this->lang->line('ISSI_EMAIL'); ?></a></p>
 
-                                    <h5><i class="ion ion-ios-telephone-outline"></i> PHONE</h5>
-                                    <p><a href="tel:1234567890">+91 - 123 456 7890</a></p>
+                                    <h5><i class="ion ion-ios-telephone-outline"></i> <?php echo $this->lang->line('PHONE'); ?></h5>
+                                    <p><?php echo $this->lang->line('ISSI_PHONE'); ?></p>
 
                                 </div>
                             </div>
