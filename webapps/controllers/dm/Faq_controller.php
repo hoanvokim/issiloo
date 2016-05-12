@@ -10,63 +10,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Faq_controller extends CI_Controller
 {
 
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('faq_model', '', true);
-        $this->load->model('user_model', '', TRUE);
-
+        if (empty($_SESSION["activeLanguage"])) {
+            $_SESSION["activeLanguage"] = "vi";
+        }
+        $this->load->model('Faq_model');
     }
 
     public function index()
     {
-        if (!$this->is_login()) {
-            $this->load_login_view();
-            return;
-        }
-        $data['title'] = 'Mục hỏi đáp';
-        $data['faqs'] = $this->faq_model->find_all();
-        $this->load->view('pages/dm/faq/faq_view_all', $data);
+        $data['faqs'] = $this->Faq_model->findAll();
+        $data['title'] = 'Câu hỏi thường gặp';
+        $this->load->view('pages/dm/faq/view_all', $data);
     }
 
-    public function execute_search()
+    public function create_faq()
     {
-        if (!$this->is_login()) {
-            $this->load_login_view();
-            return;
-        }
-        $searchValue = $this->input->post('inputSearchValue');
-        $data['faqs'] = $this->faq_model->faq_search($searchValue);
-        $this->load->view('components/dm/faq/faq_results', $data);
+        $data['title'] = 'Thêm câu hỏi thường gặp';
+        $this->load->view('pages/dm/faq/add', $data);
     }
 
-    public function save_faq()
+    public function create_faq_submit()
     {
-        $this->_validate();
-        $data = array(
-            'en_question' => $this->input->post('enQuestion'),
+        $this->Faq_model->insert(
+            $this->input->post('faqQuestion'),
+            $this->input->post('faqAnswer')
         );
-        $id = $this->faq_model->save($data);
+        redirect('faq-manager', 'refresh');
     }
 
-    private function _validate()
+    public function create_faq_cancel()
     {
-        $data = array();
-        $data['error_string'] = array();
-        $data['inputerror'] = array();
-        $data['status'] = TRUE;
+        redirect('faq-manager', 'refresh');
+    }
 
-        $username = $this->input->post('enQuestion');
-        if ($username == '') {
-            $data['inputerror'][] = 'enQuestion';
-            $data['error_string'][] = 'Question is required';
-            $data['status'] = FALSE;
-        }
+    public function update_faq()
+    {
+        $current = $this->Faq_model->findById($this->uri->segment(3));
+        $data['faqId'] = $current['id'];
+        $data['faqQuestion'] = $current['vi_question'];
+        $data['faqAnswer'] = $current['vi_answer'];
 
-        if ($data['status'] === FALSE) {
-            echo json_encode($data);
-            exit();
-        }
+        $data['title'] = 'Cập nhật nội dung';
+        $this->load->view('pages/dm/faq/edit', $data);
+    }
+
+    public function update_faq_submit()
+    {
+        $this->Faq_model->update(
+            $this->input->post('faqId'),
+            $this->input->post('faqQuestion'),
+            $this->input->post('faqAnswer')
+        );
+
+        redirect('faq-manager', 'refresh');
+    }
+
+    public function update_faq_cancel()
+    {
+        redirect('faq-manager', 'refresh');
+    }
+
+    public function delete_faq()
+    {
+        $this->Faq_model->delete($this->uri->segment(3));
+        redirect('faq-manager', 'refresh');
     }
 
 }

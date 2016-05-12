@@ -1,1 +1,1 @@
-<span>HEHE</span>
+<span>DASHBOARD comes here</span>
