@@ -30,6 +30,7 @@ $lang['READ_MORE_NEWS'] = 'Read more';
 $lang['PREVIOUS_POST'] = 'Previous Post';
 $lang['NEXT_POST'] = 'Next Post';
 $lang['ADDRESS'] = 'Địa chỉ';
+$lang['SHARING_VIDEO'] = 'Chia sẽ ảnh và video';
 
 
 //consult register

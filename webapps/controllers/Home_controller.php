@@ -20,10 +20,48 @@ class Home_controller extends CI_Controller
         $this->load->model('News_model');
         $this->load->model('University_model');
         $this->load->model('Gallery_model');
+        $this->load->library('email');
     }
 
     public function index()
     {
+
+        $data['status'] = '';
+        if($this->input->post('btn_consult_send')){
+            $contact['protocol'] = $this->config->item('protocol');
+            $contact['charset'] = $this->config->item('charset');
+            $contact['mailtype'] = $this->config->item('mailtype');
+            $contact['wordwrap'] = $this->config->item('wordwrap');
+            $this->email->initialize($contact);
+
+            $consult_name = $this->input->post('consult_name');
+            $consult_email = $this->input->post('consult_email');
+            $consult_phone = $this->input->post('consult_phone');
+
+            $consult_subject = $this->input->post('consult_subject');
+            $consult_content = $this->input->post('consult_content')."\n Phone : ".$consult_phone;
+
+            $this->email->from($consult_email, $consult_name);
+
+            $this->email->to($this->config->item('contact_email'));
+
+            $this->email->subject($consult_subject);
+            $this->email->message($consult_content);
+            if ( ! $this->email->send())
+            {
+                $data['status'] = 'error';
+            }else{
+                $data['status'] = 'success';
+            }
+            $sql = "insert into user(email,name,phone) values('$consult_email','$consult_name','$consult_phone')";
+            $result = $this->db->query($sql);
+            if($result){
+                $data['status'] = 'success';
+            }else{
+                $data['status'] = 'error';
+            }
+        }
+
         //get main menu
         $strMenu = '';
         $this->Category_model->getMainMenu(null,$strMenu);

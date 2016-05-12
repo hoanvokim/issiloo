@@ -30,12 +30,15 @@
                         <div class="widget-box">
                             <ul class="list">
 
-                                <?php for ($i = 0; $i < 4; $i++) { ?>
-                                    <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $adhhq[$i]['img_src']; ?>"
-                                                                         alt=""/>
-                                            <?php echo $adhhq[$i]['title'] ?><br/>
-                                            <small><?php echo date_format(new DateTime($adhhq[$i]['created_date']), "F d, Y"); ?></small>
-                                        </a></li>
+                                <?php if(count($adhhq) > 0){ ?>
+                                    <?php for ($i = 0; $i < 4; $i++) { ?>
+                                        <?php if($i > (count($adhhq) - 1)){ break; } ?>
+                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $adhhq[$i]['img_src']; ?>"
+                                                                             alt=""/>
+                                                <?php echo $adhhq[$i]['title'] ?><br/>
+                                                <small><?php echo date_format(new DateTime($adhhq[$i]['created_date']), "F d, Y"); ?></small>
+                                            </a></li>
+                                    <?php } ?>
                                 <?php } ?>
 
 
@@ -53,13 +56,15 @@
                         <h4 class="col-header"><i class="fa fa-trophy"></i><?php echo $hbdh; ?></h4>
                         <div class="widget-box">
                             <ul class="list">
-
-                                <?php for ($i = 0; $i < 4; $i++) { ?>
-                                    <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahbdh[$i]['img_src']; ?>"
-                                                                         alt=""/>
-                                            <?php echo $ahbdh[$i]['title']; ?><br/>
-                                            <small><?php echo date_format(new DateTime($ahbdh[$i]['created_date']), "F d, Y"); ?></small>
-                                        </a></li>
+                                <?php if(count($ahbdh) > 0){ ?>
+                                    <?php for ($i = 0; $i < 4; $i++) { ?>
+                                        <?php if($i > (count($ahbdh) - 1)){ break; } ?>
+                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahbdh[$i]['img_src']; ?>"
+                                                                             alt=""/>
+                                                <?php echo $ahbdh[$i]['title']; ?><br/>
+                                                <small><?php echo date_format(new DateTime($ahbdh[$i]['created_date']), "F d, Y"); ?></small>
+                                            </a></li>
+                                    <?php } ?>
                                 <?php } ?>
 
                             </ul>
@@ -76,13 +81,15 @@
                         <h4 class="col-header"><i class="fa fa-leanpub"></i><?php echo $hth; ?></h4>
                         <div class="widget-box">
                             <ul class="list">
-
-                                <?php for ($i = 0; $i < 4; $i++) { ?>
-                                    <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahth[$i]['img_src']; ?>"
-                                                                         alt=""/>
-                                            <?php echo $ahth[$i]['title']; ?><br/>
-                                            <small><?php echo date_format(new DateTime($ahth[$i]['created_date']), "F d, Y"); ?></small>
-                                        </a></li>
+                                <?php if(count($ahth) > 0){ ?>
+                                    <?php for ($i = 0; $i < 4; $i++) { ?>
+                                        <?php if($i > (count($ahth) - 1)){ break; } ?>
+                                        <li><a href="xem-chi-tiet.html"><img src="<?php echo base_url(); ?>/<?php echo $ahth[$i]['img_src']; ?>"
+                                                                             alt=""/>
+                                                <?php echo $ahth[$i]['title']; ?><br/>
+                                                <small><?php echo date_format(new DateTime($ahth[$i]['created_date']), "F d, Y"); ?></small>
+                                            </a></li>
+                                    <?php } ?>
                                 <?php } ?>
 
                             </ul>
@@ -99,6 +106,7 @@
     </div>
     <!-- inner container end -->
 
+    <?php if(count($universities)>0){ ?>
     <!-- slider container start -->
     <div class="slider-study-abroad-container">
         <div class="container">
@@ -153,7 +161,9 @@
         </div>
     </div>
     <!-- slider container end -->
+    <?php } ?>
 
+    <?php if(count($last_news)>0){ ?>
     <div class="news-inner-container">
         <div class="container">
             <h3 class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3>
@@ -171,12 +181,12 @@
                     <a href="#"><h4><strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                     <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                         <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
-                    <p><?php echo $last_news[0]['summary']; ?> <a href="#"
+                    <div><?php echo $last_news[0]['summary']; ?> <a href="#"
                                                                   data-toggle="tooltip"
                                                                   data-placement="bottom"
                                                                   data-original-title="Xem chi tiết"
                                                                   style="margin-left: 10px;"><i
-                                class="ion ion-ios-arrow-thin-right"></i></a></p>
+                                class="ion ion-ios-arrow-thin-right"></i></a></div>
                 </div>
             </div>
 
@@ -189,11 +199,11 @@
                             <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                                 <i><?php echo date_format(new DateTime($last_news[$i]['created_date']), "d/m/Y"); ?></i>
                             </h6>
-                            <p><?php echo $last_news[$i]['summary']; ?>
+                            <div><?php echo $last_news[$i]['summary']; ?>
                                 <a href="#" data-toggle="tooltip" data-placement="bottom"
                                    data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
                                         class="ion ion-ios-arrow-thin-right"></i></a>
-                            </p>
+                            </div>
                         </div>
                     </div>
 
@@ -205,14 +215,14 @@
         </div>
     </div>
     <!-- inner container end -->
+    <?php } ?>
 
+    <?php if(count($video_image)>0){ ?>
     <div class="feature-container mar-60">
-        <h3 class="col-header-color" style="margin-bottom: -1px;">Chia sẽ hình ảnh và video.</h3>
+        <h3 class="col-header-color" style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
         <div class="feature-box-container feature-slider">
 
-            <?php for ($i = 0;
-            $i < count($video_image);
-            $i++){ ?>
+            <?php for ($i = 0;$i < count($video_image);$i++){ ?>
 
             <?php if ($i % 2 == 0){ ?>
             <div class="feature-box">
@@ -232,44 +242,47 @@
         <div class="inner-container mar-30">
             <div class="container">
                 <div class="heading-text text-center text-uppercase">
-                    <h3>Hãy để chúng tôi giúp bạn</h3>
+                    <h3><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h3>
                 </div>
+
+                <p class="message <?php echo $status; ?>"><?php if($status=='error'){ echo $this->lang->line('MESSAGE_ERROR'); }elseif($status=='success'){ echo $this->lang->line('CONTACT_SUCCESS'); }else{ echo ''; } ?></p>
+
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <form class="contact-form" id="ContactForm" method="post" action="sendemail.php">
+                        <form class="contact-form" id="ContactForm" method="post" action="<?php echo base_url(); ?>">
                             <!--contact form-->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Tên *"
+                                        <input type="text" name="consult_name" class="form-control" placeholder="<?php echo $this->lang->line('NAME'); ?> *"
                                                required="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="E-mail *"
+                                        <input type="email" name="consult_email" class="form-control" placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
                                                required="required">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" name="subject" class="form-control"
-                                               placeholder="Điện thoại *">
+                                        <input type="text" name="subject" class="form-control" name="consult_phone"
+                                               placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" name="subject" class="form-control" placeholder="Tiêu đề">
+                                        <input type="text" name="consult_subject" class="form-control" placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" rows="10" placeholder="Nội dung"
+                                        <textarea class="form-control" name="consult_content" rows="10" placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
                                                   required="required"></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                    <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>" name="btn_consult_send" class="btn btn-primary"/>
                                 </div>
                             </div>
                         </form>
@@ -280,5 +293,7 @@
         </div>
     </div>
     <!-- main container end -->
+
+    <?php } ?>
 
     <?php $this->load->view('layout/webapp/footer'); ?>
