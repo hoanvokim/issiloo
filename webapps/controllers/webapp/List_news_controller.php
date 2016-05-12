@@ -103,8 +103,9 @@ class List_news_controller extends CI_Controller{
         $data['title_header'] = $this->Tag_model->getNameById($tag_id);
 
         //limit = 10
-        $this->pageutility->setData($this->News_model->getTotalRowByTagId($tag_id),10);
+        $this->pageutility->setData($this->News_model->getTotalRowByTagId($tag_id),1);
         $data['total_page'] = $this->pageutility->total_page;
+        $data['cur_page'] = $curpage == null ? 1 : $curpage;
         $data['tag_id'] = $tag_id;
         $data['anews'] =  $this->News_model->getNewsByTagId($tag_id,$curpage,$this->pageutility->limit);
 

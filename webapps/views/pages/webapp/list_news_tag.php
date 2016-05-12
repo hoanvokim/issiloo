@@ -56,18 +56,46 @@
                                 <div class="col-sm-12 text-center">
                                     <ul class="pagination">
 
-                                        <?php if($total_page>10){ ?>
-                                            <li><a href="#"><i class="ion ion-android-arrow-back"></i></a></li>
+                                        <?php if($total_page > 5 && $cur_page>1){ ?>
+                                            <li><a href="<?php echo base_url().'tag/'.$tag_id.'/'.($cur_page-1); ?>"><i class="ion ion-android-arrow-back"></i></a></li>
                                         <?php } ?>
 
-                                        <?php for($i=1;$i<=$total_page;$i++){ ?>
+                                        <?php if($total_page <= 12){ for($i=1;$i<=$total_page;$i++){ ?>
 
-                                            <li><a href="<?php echo base_url()."cat/".$slug."/$i"; ?>"><?php echo $i; ?></a></li>
+                                            <li <?php if($cur_page==$i){ echo "class='active'"; }?>><a href="<?php echo base_url()."tag/".$tag_id.'/'.$i; ?>"><?php echo $i; ?></a></li>
+
+                                        <?php } }else{ ?>
+
+                                            <?php if(($cur_page-1)>=1){ ?>
+                                                <li <?php if($cur_page==1){ echo "class='active'"; }?>><a href="<?php echo base_url()."tag/".$tag_id.'/1'; ?>">1</a></li>
+                                            <?php } ?>
+
+                                            <?php if(($cur_page-2) > 1){ ?>
+                                                <li><a href="#">..</a></li>
+                                            <?php } ?>
+
+                                            <?php if(($cur_page-1)>1){ ?>
+                                                <li><a href="<?php echo base_url()."tag/".$tag_id.'/'.($cur_page-1); ?>"><?php echo ($cur_page - 1); ?></a></li>
+                                            <?php } ?>
+
+                                            <li class="active"><a href="<?php echo base_url()."tag/".$tag_id.'/'.($cur_page); ?>"><?php echo $cur_page; ?></a></li>
+
+                                            <?php if(($cur_page+1)<$total_page){ ?>
+                                                <li><a href="<?php echo base_url()."tag/".$tag_id.'/'.($cur_page+1); ?>"><?php echo ($cur_page + 1); ?></a></li>
+                                            <?php } ?>
+
+                                            <?php if(($cur_page+2) < $total_page){ ?>
+                                                <li><a href="#">..</a></li>
+                                            <?php } ?>
+
+                                            <?php if(($cur_page+1)<=$total_page){ ?>
+                                                <li <?php if($cur_page==$total_page){ echo "class='active'"; }?>><a href="<?php echo base_url()."tag/".$tag_id.'/'.$total_page; ?>"><?php echo $total_page; ?></a></li>
+                                            <?php } ?>
 
                                         <?php } ?>
 
-                                        <?php if($total_page>10){ ?>
-                                            <li><a href="#"><i class="ion ion-android-arrow-forward"></i></a></li>
+                                        <?php if($total_page > 5 && $cur_page<$total_page){ ?>
+                                            <li><a href="<?php echo base_url().'tag/'.$tag_id.'/'.($cur_page+1); ?>"><i class="ion ion-android-arrow-forward"></i></a></li>
                                         <?php } ?>
 
                                     </ul>
@@ -80,63 +108,7 @@
                     <!-- inner container end -->
 
                 </div>
-                <div class="col-sm-12 col-md-4">
 
-
-                    <!--form-->
-                    <div class="inner-container">
-                        <div class="container">
-                            <div class="heading-text text-center text-uppercase">
-                                <h3><?php echo $this->lang->line('REGISTER_CONSULT'); ?></h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <form class="contact-form" id="ContactForm" method="post" action="sendemail.php">
-                                        <!--contact form-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="name" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('NAME'); ?>"
-                                                           required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="email" name="email" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('EMAIL'); ?>"
-                                                           required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="subject" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('PHONE'); ?>">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="subject" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('TITLE'); ?>">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="message" rows="10" placeholder="<?php echo $this->lang->line('CONTENT'); ?>"
-                                                              required="required"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary"><?php echo $this->lang->line('SEND'); ?></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!--end contact form-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
