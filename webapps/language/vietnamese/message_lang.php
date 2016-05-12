@@ -37,4 +37,8 @@ $lang['TITLE'] = 'Tiêu đề';
 $lang['CONTENT'] = 'Nội dung';
 $lang['SEND'] = 'Gửi';
 
+//contact page
+$lang['CONTACT_BANNER_TITLE'] = 'LIÊN HỆ VỚI ISSILOO';
+$lang['CONTACT_MESSAGE'] = 'ĐỂ CHÚNG TÔI CUNG CẤP CHO BẠN NHỮNG THÔNG TIN CẦN THIẾT';
+
 ?>

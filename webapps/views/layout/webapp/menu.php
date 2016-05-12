@@ -9,7 +9,7 @@
                     <ul class="menu">
                         <li><a class="active" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('MENU_HOME'); ?></a></li>
                         <?php echo $menustr; ?>
-                        <li><a href="#"><?php echo $this->lang->line('MENU_CONTACT'); ?></a></li>
+                        <li><a href="<?php echo base_url().'contact'; ?>"><?php echo $this->lang->line('MENU_CONTACT'); ?></a></li>
                         <li>
                             <form action="" class="search-form">
                                 <div class="form-group has-feedback">

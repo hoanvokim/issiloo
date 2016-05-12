@@ -56,6 +56,7 @@ $route['cat/(:any)/(:num)'] = 'webapp/list_news_controller/index/$1/$2';
 $route['tag/(:num)'] = 'webapp/list_news_controller/tag/$1/1';
 $route['tag/(:num)/(:num)'] = 'webapp/list_news_controller/tag/$1/$2';
 $route['news/(:any)'] = 'webapp/detail_controller/index/$1';
+$route['contact'] = 'webapp/contact_controller/index';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
