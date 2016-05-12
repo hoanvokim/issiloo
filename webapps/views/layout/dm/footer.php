@@ -36,3 +36,13 @@
 <script src="<?php echo base_url(); ?>webresources/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/dropzone/dropzone.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/ion-rangeslider/ion.rangeSlider.min.js"></script>
+<script src="<?php echo base_url(); ?>webresources/plugins/select2/js/select2.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $("#tags_dropdown").select2({
+            tags: true,
+            placeholder: "Hãy chọn tag",
+            allowClear: true
+        });
+    });
+</script>

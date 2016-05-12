@@ -9,6 +9,22 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  */
 class Tag_Model extends CI_Model
 {
+
+    public function saveReferenceNews($tag, $newsId)
+    {
+        if (count($this->checkIdExisted($tag)) == 0) {
+            $tagId = $this->insert($tag);
+        }
+        else {
+            $tagId = $tag;
+        }
+        $data = array(
+            'news_id' => $newsId,
+            'tag_id' => $tagId,
+        );
+        $this->db->insert('tagnews', $data);
+    }
+
     public function getTagByNewsId($news_id)
     {
         $sql = "select tag.id as tag_id, tag.name as tag_name from tag, tagnews where tagnews.news_id = $news_id and tagnews.tag_id = tag.id";
@@ -26,13 +42,28 @@ class Tag_Model extends CI_Model
     {
         return $this->db->get("tag")->result_array();
     }
-    
+
     public function findById($tagId)
     {
         $this->db->where('id', $tagId);
         return $this->db->get("tag")->result_array()[0];
     }
-    
+
+    public function findByNews($newsId)
+    {
+        $this->db->select('tag_id');
+        $this->db->from('tagnews');
+        $this->db->where('news_id =', $newsId);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function checkIdExisted($tagId)
+    {
+        $this->db->where('id', $tagId);
+        return $this->db->get("tag")->result_array();
+    }
+
     public function insert($tagName)
     {
         $data = array(
@@ -52,7 +83,7 @@ class Tag_Model extends CI_Model
         $this->db->where('id', $tagId);
         $this->db->update('tag', $data);
     }
-    
+
     public function delete($id)
     {
         $this->db->where('id', $id);
