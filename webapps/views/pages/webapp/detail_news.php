@@ -68,7 +68,7 @@
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
-                <div class="fb-comments" data-href="http://issiloo.edu.vn" data-numposts="5"></div>
+                <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-mobile="auto-detect" data-numposts="100"></div>
             </div>
 
             <div class="col-md-4 sidebar">
