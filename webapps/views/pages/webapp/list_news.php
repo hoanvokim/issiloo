@@ -175,7 +175,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> <!-- register consult -->
+                <!-- end regiter consult -->
             </div>
         </div>
     </div>
