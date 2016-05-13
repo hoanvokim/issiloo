@@ -13,7 +13,7 @@ class Admin_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('user_model', '', TRUE);
+        $this->load->model('User_model', '', TRUE);
     }
 
     public function index()
@@ -30,7 +30,7 @@ class Admin_controller extends CI_Controller
     {
         $data["title"] = "Login";
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('username', 'username', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'password', 'trim|required|xss_clean|callback_check_database');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('pages/security/login', $data);
@@ -49,13 +49,13 @@ class Admin_controller extends CI_Controller
 
     function check_database($password)
     {
-        $username = $this->input->post('username');
-        $result = $this->user_model->authenticate($username, $password);
+        $email = $this->input->post('email');
+        $result = $this->User_model->authenticate($email, $password);
         if ($result) {
             foreach ($result as $row) {
                 $sess_array = array(
                     'id' => $row->id,
-                    'username' => $row->username
+                    'email' => $row->email
                 );
                 $this->session->set_userdata('authenticated_user', $sess_array);
             }

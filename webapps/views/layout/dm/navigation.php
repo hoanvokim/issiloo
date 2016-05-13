@@ -49,6 +49,12 @@
                                 <span class="menu-title">Từ khoá tìm kiếm</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('slider-manager'); ?>">
+                                <i class="fa fa-braille"></i>
+                                <span class="menu-title">Slider</span>
+                            </a>
+                        </li>
                         <li class="list-divider"></li>
                         <li class="list-header">Du Học</li>
                         <li>

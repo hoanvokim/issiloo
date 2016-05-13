@@ -16,11 +16,12 @@ class Study_controller extends CI_Controller
         if (empty($_SESSION["activeLanguage"])) {
             $_SESSION["activeLanguage"] = "vi";
         }
+        $this->load->model('Category_model');
+        $this->load->model('News_model');
     }
 
     public function view_all()
     {
-        $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         $can_be_deleted = TRUE;
@@ -51,7 +52,6 @@ class Study_controller extends CI_Controller
         if (count($subCategories) > 0) {
             foreach ($subCategories as $category) {
 
-                $this->load->model('News_model');
                 $current_news_list = $this->News_model->getNewsByCatId($category['id']);
                 $isView = 0;
                 if (count($current_news_list) > 0) {
@@ -76,7 +76,6 @@ class Study_controller extends CI_Controller
 
     public function create_category()
     {
-        $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -93,7 +92,6 @@ class Study_controller extends CI_Controller
 
     public function create_category_add()
     {
-        $this->load->model('Category_model');
         $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('parentCatId'));
         redirect('manage-study-category', 'refresh');
 
@@ -106,8 +104,6 @@ class Study_controller extends CI_Controller
 
     public function update_category()
     {
-        $this->load->model('Category_model');
-
         //getCurrent
         $currentCategory = $this->Category_model->findById($this->uri->segment(3));
         $data['currentCategory'] = $currentCategory;
@@ -125,7 +121,6 @@ class Study_controller extends CI_Controller
 
     public function update_category_add()
     {
-        $this->load->model('Category_model');
         $this->Category_model->updateWithParent($this->input->post('catId'), $this->input->post('viCatName'));
         redirect('manage-study-category', 'refresh');
     }
@@ -137,14 +132,12 @@ class Study_controller extends CI_Controller
 
     public function delete_category()
     {
-        $this->load->model('Category_model');
         $this->Category_model->delete($this->uri->segment(3));
         redirect('manage-study-category', 'refresh');
     }
 
     public function add_child()
     {
-        $this->load->model('Category_model');
         //getCurrent
         $currentCategory = $this->Category_model->findById($this->uri->segment(3));
         $data['currentCategory'] = $currentCategory;
@@ -162,7 +155,6 @@ class Study_controller extends CI_Controller
 
     public function add_child_category()
     {
-        $this->load->model('Category_model');
         $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('catId'));
         redirect('manage-study-category', 'refresh');
     }

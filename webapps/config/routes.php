@@ -107,7 +107,6 @@ $route['university-manager/delete-university/:num'] = 'dm/university_controller/
 $route['university-manager-create-university-submit'] = 'dm/university_controller/create_university_submit';
 $route['university-manager/create-university-cancel'] = 'dm/university_controller/create_university_cancel';
 $route['university-manager-update-university-submit'] = 'dm/university_controller/update_university_submit';
-$route['university-manager/update-university-cancel'] = 'dm/university_controller/update_university_cancel';
 
 $route['program-manager'] = 'dm/program_controller/index';
 $route['program-manager/create-program'] = 'dm/program_controller/create_program';
@@ -154,3 +153,11 @@ $route['faq-manager-create-faq-submit'] = 'dm/faq_controller/create_faq_submit';
 $route['faq-manager/create-faq-cancel'] = 'dm/faq_controller/create_faq_cancel';
 $route['faq-manager-update-faq-submit'] = 'dm/faq_controller/update_faq_submit';
 $route['faq-manager/update-faq-cancel'] = 'dm/faq_controller/update_faq_cancel';
+
+
+$route['slider-manager'] = 'dm/slider_controller/index';
+$route['slider-manager/create-slider'] = 'dm/slider_controller/create_slider';
+$route['slider-manager/update-slider/:num'] = 'dm/slider_controller/update_slider';
+$route['slider-manager/delete-slider/:num'] = 'dm/slider_controller/delete_slider';
+$route['slider-manager-create-slider-submit'] = 'dm/slider_controller/create_slider_submit';
+$route['slider-manager-update-slider-submit'] = 'dm/slider_controller/update_slider_submit';

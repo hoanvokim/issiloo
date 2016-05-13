@@ -18,6 +18,7 @@ class Intro_controller extends CI_Controller
         }
 
         $this->load->model('News_model');
+        $this->load->model('Category_model');
     }
 
     public function index()
@@ -36,7 +37,6 @@ class Intro_controller extends CI_Controller
 
     public function create_add()
     {
-        $this->load->model('Category_model');
         $category_inserted = $this->Category_model->insert($this->input->post('viTabName'));
         $this->News_model->insert($category_inserted, $this->input->post('viContent'));
         redirect('manage-intro', 'refresh');
@@ -58,7 +58,6 @@ class Intro_controller extends CI_Controller
 
     public function update_add()
     {
-        $this->load->model('Category_model');
         $this->Category_model->update($this->input->post('catId'), $this->input->post('viTabName'));
         $this->News_model->update($this->input->post('catId'), $this->input->post('viContent'));
         redirect('manage-intro', 'refresh');
@@ -71,7 +70,6 @@ class Intro_controller extends CI_Controller
 
     public function delete()
     {
-        $this->load->model('Category_model');
         $this->Category_model->delete($this->uri->segment(3));
         redirect('manage-intro', 'refresh');
     }

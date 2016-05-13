@@ -11,10 +11,10 @@ class User_Model extends CI_Model
 {
     private static $TABLE_NAME = 'user';
 
-    public function authenticate($username, $password)
+    public function authenticate($email, $password)
     {
         $this->db->from(self::$TABLE_NAME);
-        $this->db->where('username', $username);
+        $this->db->where('email', $email);
         $this->db->where('password', MD5($password));
         $this->db->limit(1);
         $query = $this->db->get();

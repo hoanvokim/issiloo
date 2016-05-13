@@ -139,7 +139,7 @@ class News_Model extends CI_Model
                  category.updated_date as catUpdatedDate 
                  from news INNER JOIN category ON news.category_id=category.id 
                  where news.category_id in (select id from category where category.parent_id = $catId) 
-                 order by category.id desc;";
+                 order by category.id asc;";
         return $this->db->query($sql)->result_array();
     }
 

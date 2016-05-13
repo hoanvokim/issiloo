@@ -42,7 +42,6 @@ class Program_controller extends CI_Controller
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
-            $this->load->model('News_model');
             $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $file_path,
@@ -56,7 +55,6 @@ class Program_controller extends CI_Controller
             );
         }
         else {
-            $this->load->model('News_model');
             $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $this->input->post('img_src'),
@@ -70,8 +68,10 @@ class Program_controller extends CI_Controller
             );
         }
         $tags = $this->input->post('tags');
-        foreach ($tags as $tag) {
-            $this->Tag_model->saveReferenceNews($tag, $insertId);
+        if (count($tags) > 0) {
+            foreach ($tags as $tag) {
+                $this->Tag_model->saveReferenceNews($tag, $insertId);
+            }
         }
         redirect('program-manager', 'refresh');
     }
@@ -121,7 +121,6 @@ class Program_controller extends CI_Controller
             );
         }
         else {
-            $this->load->model('News_model');
             $this->News_model->update_full(
                 $this->input->post('newsId'),
                 $this->programId,
@@ -141,7 +140,6 @@ class Program_controller extends CI_Controller
 
     public function update_program_cancel()
     {
-
         redirect('program-manager', 'refresh');
     }
 

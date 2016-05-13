@@ -84,6 +84,19 @@
                     </div>
                 </div>
             </div>
+            <?php if ($tags != null): ?>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="packing">Tags</label>
+                        <select class="form-control select2 populate" multiple="multiple" id="tags_dropdown"
+                                name="tags[]">
+                            <?php foreach ($tags as $tag): ?>
+                                <option value="<?php echo $tag['id'] ?>"><?php echo $tag['name'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+            <?php endif ?>
         </div>
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">

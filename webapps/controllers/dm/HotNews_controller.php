@@ -19,6 +19,7 @@ class HotNews_controller extends CI_Controller
             $_SESSION["activeLanguage"] = "vi";
         }
         $this->load->model('News_model');
+        $this->load->model('Tag_model');
     }
 
     public function index()
@@ -31,17 +32,18 @@ class HotNews_controller extends CI_Controller
     public function create_news()
     {
         $data['title'] = 'Thêm tin mới';
+        $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/news/add', $data);
     }
 
     public function create_news_submit()
     {
+        $insertId = -1;
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $file_path,
                 $this->input->post('slug'),
@@ -52,10 +54,8 @@ class HotNews_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        }
-        else {
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+        } else {
+            $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $this->input->post('img_src'),
                 $this->input->post('slug'),
@@ -67,7 +67,12 @@ class HotNews_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
+        $tags = $this->input->post('tags');
+        if (count($tags) > 0) {
+            foreach ($tags as $tag) {
+                $this->Tag_model->saveReferenceNews($tag, $insertId);
+            }
+        }
         redirect('news-manager', 'refresh');
     }
 
@@ -100,7 +105,6 @@ class HotNews_controller extends CI_Controller
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->load->model('News_model');
             $this->News_model->insert_full(
                 $this->programId,
                 $file_path,
@@ -112,9 +116,7 @@ class HotNews_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        }
-        else {
-            $this->load->model('News_model');
+        } else {
             $this->News_model->update_full(
                 $this->input->post('newsId'),
                 $this->programId,
@@ -134,7 +136,6 @@ class HotNews_controller extends CI_Controller
 
     public function update_news_cancel()
     {
-
         redirect('news-manager', 'refresh');
     }
 

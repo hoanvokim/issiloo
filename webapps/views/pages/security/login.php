@@ -33,19 +33,19 @@
                 <form id="form-login" action="login" class="form-inline" role="form" method="POST">
                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                         <div class="text-left">
-                            <label for="signupInputUserName" class="text-muted">Username</label>
-                            <input id="signupInputUserName" placeholder="Enter Username" class="form-control" name="username"/>
+                            <label for="signupInputEmail" class="text-muted">Email</label>
+                            <input id="signupInputEmail" placeholder="Enter Email" class="form-control" name="email"/>
                         </div>
                         <div class="text-left">
                             <label for="signupInputPassword" class="text-muted">Password</label>
                             <input id="signupInputPassword" type="password" placeholder="Password"
                                    class="form-control lock-input" name="password"/>
                         </div>
-                        <div class="pull-left pad-btm">
-                            <label class="form-checkbox form-icon form-text">
-                                <input type="checkbox"> Remember Me
-                            </label>
-                        </div>
+<!--                        <div class="pull-left pad-btm">-->
+<!--                            <label class="form-checkbox form-icon form-text">-->
+<!--                                <input type="checkbox"> Remember Me-->
+<!--                            </label>-->
+<!--                        </div>-->
                         <button type="submit" class="btn btn-block btn-primary">
                             Sign In
                         </button>

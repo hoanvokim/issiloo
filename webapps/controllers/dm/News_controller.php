@@ -16,12 +16,13 @@ class News_controller extends CI_Controller
         if (empty($_SESSION["activeLanguage"])) {
             $_SESSION["activeLanguage"] = "vi";
         }
+        $this->load->model('News_model');
+        $this->load->model('Category_model');
+        $this->load->model('Tag_model');
     }
 
     public function all_news()
     {
-        $this->load->model('News_model');
-        $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -60,7 +61,6 @@ class News_controller extends CI_Controller
 
     public function update_study_news()
     {
-        $this->load->model('News_model');
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
         $data['catId'] = $current['category_id'];
@@ -85,7 +85,6 @@ class News_controller extends CI_Controller
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->load->model('News_model');
             $this->News_model->insert_full(
                 $this->input->post('catId'),
                 $file_path,
@@ -99,7 +98,6 @@ class News_controller extends CI_Controller
             );
         }
         else {
-            $this->load->model('News_model');
             $this->News_model->update_full(
                 $this->input->post('newsId'),
                 $this->input->post('catId'),
@@ -119,7 +117,6 @@ class News_controller extends CI_Controller
 
     public function add_news()
     {
-        $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -128,13 +125,12 @@ class News_controller extends CI_Controller
         $data['categories'] = $categories;
 
         $data['title'] = 'Viết bài';
+        $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/study/study_news_add', $data);
     }
 
     public function add_news_into_category()
     {
-        $this->load->model('News_model');
-        $this->load->model('Category_model');
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -168,6 +164,7 @@ class News_controller extends CI_Controller
         }
         $data['currentCategory'] = $this->uri->segment(3);
         $data['title'] = 'Viết bài';
+        $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/study/study_news_add_into_category', $data);
     }
 
@@ -195,13 +192,13 @@ class News_controller extends CI_Controller
 
     public function add_news_add()
     {
+        $insertId = -1;
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->input->post('catId'),
                 $file_path,
                 $this->input->post('slug'),
@@ -213,8 +210,7 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         } else {
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->input->post('catId'),
                 $this->input->post('img_src'),
                 $this->input->post('slug'),
@@ -226,7 +222,12 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
+        $tags = $this->input->post('tags');
+        if (count($tags) > 0) {
+            foreach ($tags as $tag) {
+                $this->Tag_model->saveReferenceNews($tag, $insertId);
+            }
+        }
         redirect('manage-study-news', 'refresh');
     }
 
@@ -237,7 +238,6 @@ class News_controller extends CI_Controller
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->load->model('News_model');
             $this->News_model->insert_full(
                 $this->input->post('catId'),
                 $file_path,
@@ -250,7 +250,6 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         } else {
-            $this->load->model('News_model');
             $this->News_model->update_full(
                 $this->input->post('newsId'),
                 $this->input->post('catId'),
@@ -270,7 +269,6 @@ class News_controller extends CI_Controller
 
     public function delete_news_category()
     {
-        $this->load->model('News_model');
         $this->News_model->delete($this->uri->segment(3));
         redirect('manage-study-news', 'refresh');
     }

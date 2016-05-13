@@ -2,8 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="logo"><a href="index.html" class="animsition-link"><img src="<?php echo base_url(); ?>webresources/images/logo-line.png"
+                <div class="logo"><a href="<?php echo base_url(); ?>" class="animsition-link"><img src="<?php echo base_url(); ?>webresources/images/logo-line.png"
                                                                                     alt="ISSILOO"/></a></div>
+
+                <div class="hotline">
+                    <strong> <i class="fa fa-phone"></i> Hotline: </strong>  <strong style="color: red;">(04) 6294 2701 - (0240) 6261 261 - (08) 6294 1875</strong>
+                </div>
                 <div class="nav-menu-icon"><a href="#"><i></i></a></div>
                 <nav>
                     <ul class="menu">

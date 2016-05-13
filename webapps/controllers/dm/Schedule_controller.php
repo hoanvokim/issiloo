@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Schedule_controller extends CI_Controller
 {
     public $scheduleId = 16;
+
     public function __construct()
     {
         parent::__construct();
@@ -17,6 +18,7 @@ class Schedule_controller extends CI_Controller
             $_SESSION["activeLanguage"] = "vi";
         }
         $this->load->model('News_model');
+        $this->load->model('Tag_model');
     }
 
     public function index()
@@ -29,17 +31,18 @@ class Schedule_controller extends CI_Controller
     public function create_schedule()
     {
         $data['title'] = 'Thêm thời khoá biểu mới';
+        $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/schedule/add', $data);
     }
 
     public function create_schedule_submit()
     {
+        $insertId = -1;
         $this->load->library('upload', $this->get_config());
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+            $insertId = $this->News_model->insert_full(
                 $this->scheduleId,
                 $file_path,
                 $this->input->post('slug'),
@@ -50,10 +53,8 @@ class Schedule_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        }
-        else {
-            $this->load->model('News_model');
-            $this->News_model->insert_full(
+        } else {
+            $insertId = $this->News_model->insert_full(
                 $this->scheduleId,
                 $this->input->post('img_src'),
                 $this->input->post('slug'),
@@ -65,7 +66,12 @@ class Schedule_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
+        $tags = $this->input->post('tags');
+        if (count($tags) > 0) {
+            foreach ($tags as $tag) {
+                $this->Tag_model->saveReferenceNews($tag, $insertId);
+            }
+        }
         redirect('schedule-manager', 'refresh');
     }
 
@@ -98,7 +104,6 @@ class Schedule_controller extends CI_Controller
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->load->model('News_model');
             $this->News_model->insert_full(
                 $this->scheduleId,
                 $file_path,
@@ -110,9 +115,7 @@ class Schedule_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        }
-        else {
-            $this->load->model('News_model');
+        } else {
             $this->News_model->update_full(
                 $this->input->post('newsId'),
                 $this->scheduleId,
@@ -132,7 +135,6 @@ class Schedule_controller extends CI_Controller
 
     public function update_schedule_cancel()
     {
-
         redirect('schedule-manager', 'refresh');
     }
 

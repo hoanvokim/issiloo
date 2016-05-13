@@ -1,5 +1,4 @@
 <?php $this->load->view('layout/webapp/header'); ?>
-
 <!-- main container start -->
 <div class="main-container">
     <!-- slider container start -->
@@ -10,7 +9,7 @@
                     <ul class="recent-projects recent-projects-slider">
                         <?php foreach ($sliders as $slider) { ?>
                             <li>
-                                <img src="<?php echo base_url(); ?>/<?php echo $slider['img_src']; ?>">
+                                <a href="<?php echo $slider['url']; ?>"><img src="<?php echo base_url() . $slider['img_src']; ?>" alt="<?php echo $slider['vi_content']; ?>"></a>
                             </li>
                         <?php } ?>
                     </ul>
