@@ -126,6 +126,22 @@ class News_Model extends CI_Model
 
     }
 
+    public function getTotalRowBySearchTag($keyword){
+        $select = "select distinct news_id ";
+        $from = "from tag, tagnews, news ";
+        $where = "where lower(tag.name) = lower('$keyword') and tag.id=tagnews.tag_id and tagnews.news_id = news.id";
+        $sql = $select.$from.$where;
+        return count($this->db->query($sql)->result_array());
+    }
+
+    public function getNewsBySearchTag($keyword, $cur_page, $limit){
+        $start = ($cur_page - 1) * $limit;
+        $select = "select distinct news_id , category_id, img_src, slug, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
+        $from = "from tag, tagnews, news ";
+        $where = "where lower(tag.name) = lower('$keyword') and tag.id=tagnews.tag_id and tagnews.news_id = news.id limit $start,$limit";
+        $sql = $select.$from.$where;
+        return $this->db->query($sql)->result_array();
+    }
 
     public function getIntroduces($catId)
     {

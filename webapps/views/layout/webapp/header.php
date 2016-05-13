@@ -50,6 +50,18 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $(".message").fadeOut(5000);
+
+            $('#search_keyword').keydown(function (event) {
+                var keypressed = event.keyCode || event.which;
+                if (keypressed == 13) {
+                    var action_str = $(this).closest('form').attr('action');
+                    var keyword_str = $(this).val();
+                    var updated_link = action_str + keyword_str;
+                    $(this).closest('form').attr('action',updated_link);
+                    $(this).closest('form').submit();
+                }
+            });
+
         });
     </script>
 

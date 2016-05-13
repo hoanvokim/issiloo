@@ -58,6 +58,8 @@ $route['tag/(:num)/(:num)'] = 'webapp/list_news_controller/tag/$1/$2';
 $route['news/(:any)'] = 'webapp/detail_controller/index/$1';
 $route['contact'] = 'webapp/contact_controller/index';
 $route['contact/send'] = 'webapp/contact_controller/send';
+$route['search/(:any)'] = 'webapp/search_controller/find/$1/1';
+$route['search/(:any)/(:num)'] = 'webapp/search_controller/find/$1/$2';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';

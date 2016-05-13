@@ -22,13 +22,33 @@ class Search_controller extends CI_Controller{
         $this->load->library('email');
     }
 
-    public function find($tag_name=''){
+    public function find($keyword = null,$curpage = null){
+
+        if($this->input->post('search_keyword')){
+            $keyword = $this->input->post('search_keyword');
+        }
+        $keyword = urldecode($keyword);
+        $total_row = $this->News_model->getTotalRowBySearchTag($keyword);
+        $data['search_item_count'] = $total_row > 0 ? $total_row : 0;
+        $data['keyword'] = $keyword;
+
+        if($total_row > 0){
+            //limit = 10
+            $this->pageutility->setData($total_row,10);
+            $data['total_page'] = $this->pageutility->total_page;
+            $data['cur_page'] = $curpage == null ? 1 : $curpage;
+            $data['anews'] =  $this->News_model->getNewsBySearchTag($keyword,$curpage,$this->pageutility->limit);
+            $data['search_item_count'] = $total_row;
+        }
+
         //get main menu
         $strMenu = '';
         $this->Category_model->getMainMenu(null,$strMenu);
         $data['menustr'] = $strMenu;
 
         $data['title_header'] = 'Searching';
+
+        $this->load->view("pages/webapp/search_result",$data);
     }
 
 }
