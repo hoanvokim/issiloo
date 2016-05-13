@@ -43,6 +43,9 @@ $lang['CONTENT'] = 'Nội dung';
 $lang['SEND'] = 'Gửi';
 $lang['CONSULT_SUCCESS'] = 'Đăng ký tư vấn thành công. Chúng tôi sẽ sớm phản hồi cho bạn.';
 
+//search
+$lang['SEARCH_RESULT'] = 'Số bài viết được tìm thấy : ';
+
 $lang['CONTACT_BANNER_TITLE'] = 'LIÊN HỆ VỚI ISSILOO';
 $lang['CONTACT_MESSAGE'] = 'ĐỂ CHÚNG TÔI CUNG CẤP CHO BẠN NHỮNG THÔNG TIN CẦN THIẾT';
 $lang['CONTACT_SUCCESS'] = 'Liên hệ thành công. Chúng tôi sẽ sớm phản hồi cho bạn.';

@@ -74,9 +74,11 @@
     <!-- main container end -->
 
     <!-- map container start -->
-    <div class="map-container">
+    <!--<div class="map-container">
         <div id="map-canvas"></div>
-    </div>
+    </div>-->
+
+    <iframe src="https://www.google.com/maps/d/embed?mid=101P52VXby25wQAz2RPMoPdJamQk" width="100%" height="550"></iframe>
     <!-- map container end -->
 
 

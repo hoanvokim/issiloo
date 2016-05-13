@@ -15,11 +15,11 @@
                         <?php echo $menustr; ?>
                         <li><a href="<?php echo base_url().'contact'; ?>"><?php echo $this->lang->line('MENU_CONTACT'); ?></a></li>
                         <li>
-                            <form action="" class="search-form">
+                            <form method="post" action="<?php echo base_url().'search/' ?>" class="search-form">
                                 <div class="form-group has-feedback">
                                     <label for="search" class="sr-only">Search</label>
-                                    <input type="text" class="form-control" name="search" id="search"
-                                           placeholder="search">
+                                    <input type="text" class="form-control" id="search_keyword" name="search_keyword" id="search"
+                                           placeholder="search" onkey>
                                     <span class="fa fa-search form-control-feedback"></span>
                                 </div>
                             </form>

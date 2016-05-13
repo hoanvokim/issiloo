@@ -86,17 +86,38 @@ class List_news_controller extends CI_Controller
 
         $category_info = $this->Category_model->getInfoFromId($category_id);
 
-        if ($category_id == 8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing') {
-            $this->load->view('pages/webapp/share_corner', $data);
-        } elseif ($category_id == 19 || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs') {
-            $data['faqs'] = $this->Faq_model->getAll();
-            $this->load->view('pages/webapp/faq', $data);
+       if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+
+            $arr_news = array();
+            $cnt = 0;
+            foreach($data['anews'] as $item){
+                $arr_news[$cnt]['id'] = $item['id'];
+                $arr_news[$cnt]['category_id'] = $item['category_id'];
+                $arr_news[$cnt]['img_src'] = $item['img_src'];
+                $arr_news[$cnt]['slug'] = $item['slug'];
+                $arr_news[$cnt]['title'] = $item['title'];
+                if(strripos($item['img_src'],'embed/') !== false || strripos($item['img_src'],'watch?v=') !== false){
+                    //is video
+                    $arr_news[$cnt]['youtube_thumbnail'] = $this->getThumbnailFromYoutubeLink($item['img_src']);
+                }else{
+                    $arr_news[$cnt]['youtube_thumbnail'] = false;
+                }
+                $cnt++;
+            }
+            $data['anews'] = $arr_news;
+            $this->load->view('pages/webapp/share_corner',$data);
+
+        }elseif($category_id==19 || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs'){
+
+           $data['faqs'] = $this->Faq_model->getAll();
+           $this->load->view('pages/webapp/faq',$data);
+
         } elseif ($category_id == 1 || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce') {
-            $data['intros'] = $this->News_model->getIntroduces(1);
-            $this->load->view('pages/webapp/intro', $data);
-        } else {
-            $this->load->view("pages/webapp/list_news", $data);
-        }
+           $data['intros'] = $this->News_model->getIntroduces(1);
+           $this->load->view('pages/webapp/intro', $data);
+       } else{
+           $this->load->view("pages/webapp/list_news",$data);
+       }
     }
 
     public function tag($tag_id, $curpage = null)
@@ -118,6 +139,16 @@ class List_news_controller extends CI_Controller
         $data['tag_name'] = $data['title_header'];
 
         $this->load->view("pages/webapp/list_news_tag", $data);
+    }
+
+    public function getThumbnailFromYoutubeLink($youtube_link){
+        if(strpos($youtube_link,'embed')!==false){
+            //embed link.
+            $video_id = substr(str_replace('embed/','',$youtube_link),strripos($youtube_link,'embed/'));
+        }else{
+            $video_id = substr(str_replace('watch?v=','',$youtube_link),strripos($youtube_link,'watch?v='));
+        }
+        return "http://img.youtube.com/vi/$video_id/0.jpg";
     }
 
 }
