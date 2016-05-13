@@ -36,11 +36,21 @@
 
 
                         <div class="col-md-8">
-                            <div class="project-screens screen-slider">
-                                <?php foreach($img_galleries as $item){ ?>
-                                    <img src="<?php echo base_url().$item['img_src']; ?>" alt=""/>
-                                <?php } ?>
-                            </div>
+                            <?php if($is_video==false){ ?>
+                                <div class="project-screens screen-slider">
+                                    <?php foreach($img_galleries as $item){ ?>
+                                        <img src="<?php echo base_url().$item['img_src']; ?>" alt="" />
+                                    <?php } ?>
+                                </div>
+
+
+                            <?php }else{ ?>
+
+                                <iframe width="100%" height="450"
+                                        src="<?php echo $link_embed; ?>">
+                                </iframe>
+
+                            <?php } ?>
 
                             <div class="project-nav">
                                 <?php if($cur_post>0){ ?>
@@ -54,6 +64,7 @@
                                 <?php } ?>
 
                             </div>
+
                         </div>
 
                     </div>

@@ -172,7 +172,7 @@
                 <div class="col-sm-6">
                     <div class="img-responsive">
                         <a href="#">
-                            <img src="<?php echo $last_news[0]['img_src']; ?>"
+                            <img src="<?php echo base_url().$last_news[0]['img_src']; ?>"
                                  width="500px;">
                         </a>
                     </div>

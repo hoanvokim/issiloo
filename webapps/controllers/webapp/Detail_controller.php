@@ -37,7 +37,14 @@ class Detail_controller extends CI_Controller{
         $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'],$news_id);
         $data['max_post'] = count($data['lst_post']) - 1;
 
+        $data['is_video'] = false;
         if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+            if(strpos($data['detail']['img_src'],'youtube')==false){
+                $data['is_video'] = false;
+            }else{
+                $data['is_video'] = true;
+                $data['link_embed'] = strpos($data['detail']['img_src'],'embed') == false ? str_replace('watch?v=','embed/',$data['detail']['img_src']) : $data['detail']['img_src'];
+            }
             $data['img_galleries'] = $this->Gallery_model->getGalleryByNewsId($news_id);
             $this->load->view('pages/webapp/share_corner_detail',$data);
         }else{
