@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('manage-sharing'); ?>">
+                            <a href="<?php echo site_url('sharing-manager'); ?>">
                                 <i class="fa fa-share-alt"></i>
                                 <span class="menu-title">Góc chia sẽ</span>
                             </a>

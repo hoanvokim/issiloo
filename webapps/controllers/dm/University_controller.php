@@ -45,13 +45,12 @@ class University_controller extends CI_Controller
 
         $files = $_FILES;
         $cpt = count($_FILES['userfile']['name']);
-        for($i=0; $i<$cpt; $i++)
-        {
-            $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-            $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-            $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-            $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-            $_FILES['userfile']['size']= $files['userfile']['size'][$i];
+        for ($i = 0; $i < $cpt; $i++) {
+            $_FILES['userfile']['name'] = $files['userfile']['name'][$i];
+            $_FILES['userfile']['type'] = $files['userfile']['type'][$i];
+            $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
+            $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
+            $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
             $this->upload->initialize($this->set_upload_options());
             $this->upload->do_upload();
             $fileName = $_FILES['userfile']['name'];
@@ -81,22 +80,27 @@ class University_controller extends CI_Controller
 
     public function update_university_submit()
     {
-        if(isset($_POST["save"])) {
+        if (isset($_POST["save"])) {
             $this->University_model->update(
                 $this->input->post('uniId'), $this->input->post('uniTitle'), $this->input->post('uniDes'), $this->input->post('url')
             );
             redirect('university-manager', 'refresh');
         }
 
-        if(isset($_POST["cancel"])){
+        if (isset($_POST["cancel"])) {
             redirect('university-manager', 'refresh');
         }
-        if(isset($_POST["delete"])){
+        if (isset($_POST["delete"])) {
             $this->University_model->delete($this->input->post('uniId'));
             redirect('university-manager', 'refresh');
         }
-        if(isset($_POST["delete-img"])){
-            $this->Gallery_model->deleteList($this->input->post('deleteimg'));
+        if (isset($_POST["delete-img"])) {
+            if (count($this->input->post('deleteimg')) > 0) {
+                foreach ($this->input->post('deleteimg') as $item) {
+                    unlink('./' . $this->Gallery_model->getGalleryById($item)['img_src']);
+                }
+                $this->Gallery_model->deleteList($this->input->post('deleteimg'));
+            }
             //
             $data['uniId'] = $this->input->post('uniId');
             $data['uniTitle'] = $this->input->post('uniTitle');
@@ -106,16 +110,15 @@ class University_controller extends CI_Controller
             $data['title'] = 'Cập nhật trường đại học';
             $this->load->view('pages/dm/university/edit', $data);
         }
-        if(isset($_POST["add-img"])){
+        if (isset($_POST["add-img"])) {
             $files = $_FILES;
             $cpt = count($_FILES['userfile']['name']);
-            for($i=0; $i<$cpt; $i++)
-            {
-                $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-                $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-                $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-                $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-                $_FILES['userfile']['size']= $files['userfile']['size'][$i];
+            for ($i = 0; $i < $cpt; $i++) {
+                $_FILES['userfile']['name'] = $files['userfile']['name'][$i];
+                $_FILES['userfile']['type'] = $files['userfile']['type'][$i];
+                $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
+                $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
+                $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
                 $this->upload->initialize($this->set_upload_options());
                 $this->upload->do_upload();
                 $fileName = $_FILES['userfile']['name'];
@@ -135,7 +138,14 @@ class University_controller extends CI_Controller
 
     public function delete_university()
     {
-        $this->University_model->delete($this->input->post('uniId'));
+        $listGallery = $this->Gallery_model->getGalleryByUniverity($this->uri->segment(3));
+        if(count($listGallery)>0) {
+            foreach ($listGallery as $item) {
+                unlink('./' . $item['img_src']);
+            }
+        }
+        $this->Gallery_model->deleteImagesByUniversityID($this->uri->segment(3));
+        $this->University_model->delete($this->uri->segment(3));
         redirect('university-manager', 'refresh');
     }
 

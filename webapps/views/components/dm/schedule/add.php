@@ -25,6 +25,8 @@
                     <div class="form-group">
                         <label for="upload_file">File upload</label>
                         <input type='file' name='userfile' size='20'/>
+                        <br/>
+                        <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 686px</i>
                     </div>
                 </div>
             </div>

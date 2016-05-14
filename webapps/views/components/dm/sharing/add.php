@@ -1,4 +1,4 @@
-<?php  echo form_open_multipart('news-manager-add-news-submit'); ?>
+<?php echo form_open_multipart('sharing-manager-create-sharing-submit'); ?>
 <!--Default Tabs (Left Aligned)-->
 <!--===================================================-->
 <div class="tab-base">
@@ -18,24 +18,36 @@
     <div class="tab-content">
         <div id="demo-lft-tab-1" class="tab-pane fade active in">
             <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Tổng quan</h3>
-                </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Bài viết của phân nhóm </label>
-                        <select class="form-control selectpicker" name="catId">
-                            <?php foreach ($categories as $category) { ?>
-                                <option
-                                    value="<?php echo $category['id'] ?>"><?php echo $category['vi_name'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="upload_file">File upload</label>
-                        <input type='file' name='userfile' size='20'/>
-                        <br/>
-                        <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 686px</i>
+                        <div class="tab-base">
+                            <!--Nav Tabs-->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#demo-lft-tab-4">Ảnh</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#demo-lft-tab-5">Video</a>
+                                </li>
+                            </ul>
+
+                            <!--Tabs Content-->
+                            <div class="tab-content">
+                                <div id="demo-lft-tab-4" class="tab-pane fade active in">
+                                    <div class="form-group">
+                                        <label for="upload_file">File upload</label>
+                                        <input type='file' name='albumFile' size='20'/>
+                                    </div>
+                                </div>
+                                <div id="demo-lft-tab-5" class="tab-pane fade">
+                                    <div class="form-group">
+                                        <label>Youtube link</label>
+                                        <input type="text" name="img_src" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -63,24 +75,34 @@
                     </div>
                 </div>
             </div>
-            <?php if ($tags != null): ?>
+
+            <div class="panel">
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="packing">Tags</label>
-                        <select class="form-control select2 populate" multiple="multiple" id="tags_dropdown"
-                                name="tags[]">
-                            <?php foreach ($tags as $tag): ?>
-                                <option value="<?php echo $tag['id'] ?>"><?php echo $tag['name'] ?></option>
-                            <?php endforeach ?>
-                        </select>
+                        <label for="upload_file">Ảnh trong album chia sẽ</label>
+                        <input type="file" multiple name="userfile[]"/>
                     </div>
+                    <?php if ($tags != null): ?>
+                        <div class="form-group">
+                            <label for="packing">Tags</label>
+                            <select class="form-control select2 populate" multiple="multiple" id="tags_dropdown"
+                                    name="tags[]">
+                                <?php foreach ($tags as $tag): ?>
+                                    <option value="<?php echo $tag['id'] ?>"><?php echo $tag['name'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    <?php endif ?>
                 </div>
-            <?php endif ?>
+            </div>
+
+
         </div>
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Tóm tắt</label>
-                <textarea name="visummary" id="sumsummernote" class="summernote"><p>Nhập nội dung rút gọn...</p></textarea>
+                <textarea name="visummary" id="sumsummernote"
+                          class="summernote"><p>Nhập nội dung rút gọn...</p></textarea>
             </div>
 
         </div>
@@ -100,9 +122,8 @@
 </div>
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
-<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
-<a href="<?php echo base_url() . "news-manager/add-news-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
-        class="fa fa-close"></i> Huỷ</a>
+<button type="submit" class="btn btn-success btn" name="save"><i class="fa fa-save"></i> Lưu</button>
+<button type="submit" class="btn btn-default btn" name="cancel"><i class="fa fa-close"></i> Huỷ</button>
 </form>
 <script>
     $(document).ready(function () {
@@ -139,7 +160,6 @@
         }
 
     }
-
 
     var postForm = function () {
         $('textarea[name="visummary"]').html($('#sumsummernote').code());

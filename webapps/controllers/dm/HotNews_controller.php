@@ -20,6 +20,7 @@ class HotNews_controller extends CI_Controller
         }
         $this->load->model('News_model');
         $this->load->model('Tag_model');
+        $this->load->model('Gallery_model');
     }
 
     public function index()
@@ -90,8 +91,8 @@ class HotNews_controller extends CI_Controller
         $data['description_header'] = $current['description_header'];
         $data['keyword_header'] = $current['keyword_header'];
         $data['vititle'] = $current['title'];
-        $data['content'] = $current['content'];
-        $data['summary'] = $current['summary'];
+        $data['vicontent'] = $current['content'];
+        $data['visummary'] = $current['summary'];
         $data['img_src'] = $current['img_src'];
 
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
@@ -100,38 +101,60 @@ class HotNews_controller extends CI_Controller
 
     public function update_news_submit()
     {
-        $this->load->library('upload', $this->get_config());
-        if ($this->upload->do_upload('userfile')) {
-            $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->News_model->insert_full(
-                $this->programId,
-                $file_path,
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
-            );
-        } else {
-            $this->News_model->update_full(
-                $this->input->post('newsId'),
-                $this->programId,
-                $this->input->post('img_src'),
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
-            );
+        if (isset($_POST["save"])) {
+            $this->load->library('upload', $this->get_config());
+            if ($this->upload->do_upload('userfile')) {
+                $upload_files = $this->upload->data();
+                $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
+
+                $this->News_model->update_full(
+                    $this->input->post('newsId'),
+                    $this->programId,
+                    $file_path,
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('vicontent'),
+                    $this->input->post('visummary')
+                );
+            } else {
+                $this->News_model->update_full(
+                    $this->input->post('newsId'),
+                    $this->programId,
+                    $this->input->post('img_src'),
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('vicontent'),
+                    $this->input->post('visummary')
+                );
+            }
+
+            redirect('news-manager', 'refresh');
         }
+        if (isset($_POST["remove-current"])) {
+            $this->News_model->updateImage($this->input->post('newsId'));
+            if (strpos($this->input->post('img_src'), 'youtube') == false) {
+                unlink('./' . $this->input->post('img_src'));
+            }
+            $data['newsId'] = $this->input->post('newsId');
+            $data['img_src'] = '';
+            $data['slug'] = $this->input->post('slug');
+            $data['title_header'] = $this->input->post('title_header');
+            $data['description_header'] = $this->input->post('description_header');
+            $data['keyword_header'] = $this->input->post('keyword_header');
+            $data['vititle'] = $this->input->post('vititle');
+            $data['vicontent'] = $this->input->post('vicontent');
+            $data['visummary'] = $this->input->post('visummary');
+            $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
+            $this->load->view('pages/dm/news/edit', $data);
 
-        redirect('news-manager', 'refresh');
+        }
     }
 
     public function update_news_cancel()
@@ -141,6 +164,8 @@ class HotNews_controller extends CI_Controller
 
     public function delete_news()
     {
+        $news = $this->News_model->getNewsById($this->uri->segment(3));
+        unlink('./' . $news['img_src']);
         $this->News_model->delete($this->uri->segment(3));
         redirect('news-manager', 'refresh');
     }

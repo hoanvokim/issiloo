@@ -60,7 +60,7 @@ class Slider_controller extends CI_Controller
         $data['img_src'] = $current['img_src'];
         if (strlen($data['img_src']) > 0) {
             $data['hasImg'] = 1;
-        }else {
+        } else {
             $data['hasImg'] = 0;
         }
         $data['url'] = $current['url'];
@@ -92,29 +92,47 @@ class Slider_controller extends CI_Controller
                     $this->input->post('vi_content')
                 );
             }
+            redirect('slider-manager', 'refresh');
 
         }
         if (isset($_POST["delete"])) {
+            $news = $this->Slider_model->findById($this->input->post('id'));
+            if (strlen($news['img_src']) > 0) {
+                unlink('./' . $news['img_src']);
+            }
             $this->Slider_model->delete($this->uri->segment(3));
+            redirect('slider-manager', 'refresh');
         }
         if (isset($_POST["cancel"])) {
+            redirect('slider-manager', 'refresh');
         }
 
         if (isset($_POST["delete-img"])) {
-            unlink('./assets/upload/images/slider/12.jpg');
+            $news = $this->Slider_model->findById($this->input->post('id'));
+            unlink('./' . $news['img_src']);
             $this->Slider_model->update(
                 $this->input->post('id'),
                 '',
                 $this->input->post('url'),
                 $this->input->post('vi_content')
             );
+
+            $data['id'] = $this->input->post('id');
+            $data['img_src'] = $this->input->post('img_src');
+            $data['url'] = $this->input->post('url');
+            $data['vi_content'] = $this->input->post('vi_content');
             $data['hasImg'] = 0;
+            $data['title'] = 'Cập nhật slider';
+            $this->load->view('pages/dm/slider/edit', $data);
         }
-        redirect('slider-manager', 'refresh');
     }
 
     public function delete_slider()
     {
+        $news = $this->Slider_model->findById($this->uri->segment(3));
+        if (strlen($news['img_src']) > 0) {
+            unlink('./' . $news['img_src']);
+        }
         $this->Slider_model->delete($this->uri->segment(3));
         redirect('slider-manager', 'refresh');
     }

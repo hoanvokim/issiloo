@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('news-manager-update-news-submit'); ?>
+<?php echo form_open_multipart('sharing-manager-update-sharing-submit'); ?>
 <input type="hidden" id="hide" name="newsId" value="<?php if (!empty($newsId)) {
     echo $newsId;
 } ?>">
@@ -27,18 +27,46 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <?php if (!empty($img_src)) { ?>
+                            <?php if (strpos($img_src, 'youtube') == false) { ?>
+                                <img src="<?php echo base_url() . $img_src; ?> " height="120px;"/>
+                            <?php } else { ?>
+                                <img src="<?php echo $youtube_thumbnail; ?>" alt=""
+                                     style="height:120px;"/>
+                            <?php } ?>
                             <input type="hidden" id="hide" name="img_src" value="<?php echo $img_src; ?>">
-                            <img src="<?php echo base_url() . $img_src; ?> " width="600px;"/>
                             <br/>
                             <br/>
                             <button type="submit" class="btn btn-danger btn-xs" name="remove-current"><i
                                     class="fa fa-close"></i> Xoá
                             </button>
                         <?php } else { ?>
-                            <label for="upload_file">File upload</label>
-                            <input type='file' name='userfile' size='20'/>
-                            <br/>
-                            <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 686px</i>
+                            <div class="tab-base">
+                                <!--Nav Tabs-->
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#demo-lft-tab-4">Ảnh</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#demo-lft-tab-5">Video</a>
+                                    </li>
+                                </ul>
+
+                                <!--Tabs Content-->
+                                <div class="tab-content">
+                                    <div id="demo-lft-tab-4" class="tab-pane fade active in">
+                                        <div class="form-group">
+                                            <label for="upload_file">File upload</label>
+                                            <input type='file' name='albumFile' size='20'>
+                                        </div>
+                                    </div>
+                                    <div id="demo-lft-tab-5" class="tab-pane fade">
+                                        <div class="form-group">
+                                            <label for="upload_file">Youtube link</label>
+                                            <input type="text" name="img_src" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -70,6 +98,54 @@
                     </div>
                 </div>
             </div>
+
+            <!--Handle Image-->
+            <div class="form-group">
+                <label for="demo-vs-definput" class="control-label">Hình ảnh</label>
+                <div class="tab-base">
+
+                    <!--Nav Tabs-->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#demo-lft-tab-6"> Duyệt ảnh </a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#demo-lft-tab-7">Thêm ảnh</a>
+                        </li>
+                    </ul>
+
+                    <!--Tabs Content-->
+                    <div class="tab-content">
+                        <div id="demo-lft-tab-6" class="tab-pane fade active in">
+                            <?php foreach ($images as $img) { ?>
+                                <div class="checkbox">
+                                    <label class="form-checkbox form-icon">
+                                        <input type="checkbox" name="deleteimg[]" value="<?php echo $img['id'] ?>"> <img
+                                            src="<?php echo base_url() . $img['img_src'] ?>"
+                                            style="height: 50px;"> <?php echo $img['vi_title'] ?></label>
+                                </div>
+                            <?php } ?>
+                            <button type="submit" class="btn btn-danger btn-xs" name="delete-img"><i
+                                    class="fa fa-close"></i> Xoá
+                                ảnh
+                            </button>
+                        </div>
+                        <div id="demo-lft-tab-7" class="tab-pane fade">
+
+                            <div class="form-group">
+                                <label for="upload_file">File upload</label>
+                                <input type="file" multiple name="userfile[]"/>
+                                <br/>
+                                <button type="submit" class="btn btn-success btn-xs" name="add-img"><i
+                                        class="fa fa-save"></i> Thêm
+                                    ảnh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">
@@ -94,11 +170,9 @@
 </div>
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
-<button type="submit" class="btn btn-success btn-xs"  name="save"><i class="fa fa-save"></i> Lưu</button>
-<a href="<?php echo base_url() . "news-manager/update-news-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
-        class="fa fa-close"></i> Huỷ</a>
-<a href="<?php echo base_url() . "news-manager/delete-news/" . $newsId; ?>"
-   class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
+<button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>
+<button type="submit" class="btn btn-default btn-xs" name="cancel"><i class="fa fa-close"></i> Huỷ</button>
+<button type="submit" class="btn btn-danger btn-xs" name="delete"><i class="fa fa-close"></i> Xoá</button>
 </form>
 <script>
     $(document).ready(function () {

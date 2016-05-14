@@ -57,8 +57,6 @@ echo form_open('university-manager-update-university-submit', $attributes); ?>
             </div>
         </div>
     </div>
-
-
 </div>
 
 <button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>

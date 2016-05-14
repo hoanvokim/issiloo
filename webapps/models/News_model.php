@@ -231,6 +231,14 @@ class News_Model extends CI_Model
         $this->db->where('id', $newsId);
         $this->db->update('news', $data);
     }
+    
+    public function updateImage($newsId) {
+        $data = array(
+            'img_src' => ''
+        );
+        $this->db->where('id', $newsId);
+        $this->db->update('news', $data);
+    }
 
     public function delete($id)
     {

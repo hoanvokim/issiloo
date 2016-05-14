@@ -43,9 +43,16 @@
                             <input type="hidden" id="hide" name="img_src" value="<?php echo $img_src; ?>">
                             <img src="<?php echo base_url() . $img_src; ?> " width="600px;"/>
                             <br/>
+                            <br/>
+                            <button type="submit" class="btn btn-danger btn-xs" name="remove-current"><i
+                                    class="fa fa-close"></i> Xoá
+                            </button>
+                        <?php } else { ?>
+                            <label for="upload_file">File upload</label>
+                            <input type='file' name='userfile' size='20'/>
+                            <br/>
+                            <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 686px</i>
                         <?php } ?>
-                        <label for="upload_file">Thay hình? </label>
-                        <input type='file' name='userfile' size='20'/>
                     </div>
                 </div>
             </div>
@@ -101,8 +108,8 @@
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Tóm tắt</label>
-                <textarea name="visummary" id="sumsummernote" class="summernote"><?php if (!empty($summary)) {
-                        echo $summary;
+                <textarea name="visummary" id="sumsummernote" class="summernote"><?php if (!empty($visummary)) {
+                        echo $visummary;
                     } else {
                         echo 'Nhập nội dung rút gọn...';
                     } ?></textarea>
@@ -120,8 +127,8 @@
 
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Nội dung bài viết</label>
-                <textarea name="vicontent" id="contentsummernote" class="summernote"><?php if (!empty($content)) {
-                        echo $content;
+                <textarea name="vicontent" id="contentsummernote" class="summernote"><?php if (!empty($vicontent)) {
+                        echo $vicontent;
                     } else {
                         echo 'Nhập nội dung...';
                     } ?></textarea>
@@ -131,7 +138,7 @@
 </div>
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
-<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
+<button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>
 <a href="<?php echo base_url() . "news-manager/add-news-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
         class="fa fa-close"></i> Huỷ</a>
 <?php if (!empty($newsId)) { ?>

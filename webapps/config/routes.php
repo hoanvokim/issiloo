@@ -66,7 +66,6 @@ $route['admin'] = 'dm/admin_controller/index';
 $route['logout'] = 'dm/admin_controller/logout';
 $route['login'] = 'dm/admin_controller/login_submit';
 
-$route['manage-sharing'] = 'dm/sharing_controller/index';
 $route['add-category'] = 'dm/category_controller/index';
 
 $route['manage-intro'] = 'dm/intro_controller/index';
@@ -156,10 +155,16 @@ $route['faq-manager/create-faq-cancel'] = 'dm/faq_controller/create_faq_cancel';
 $route['faq-manager-update-faq-submit'] = 'dm/faq_controller/update_faq_submit';
 $route['faq-manager/update-faq-cancel'] = 'dm/faq_controller/update_faq_cancel';
 
-
 $route['slider-manager'] = 'dm/slider_controller/index';
 $route['slider-manager/create-slider'] = 'dm/slider_controller/create_slider';
 $route['slider-manager/update-slider/:num'] = 'dm/slider_controller/update_slider';
 $route['slider-manager/delete-slider/:num'] = 'dm/slider_controller/delete_slider';
 $route['slider-manager-create-slider-submit'] = 'dm/slider_controller/create_slider_submit';
 $route['slider-manager-update-slider-submit'] = 'dm/slider_controller/update_slider_submit';
+
+$route['sharing-manager'] = 'dm/sharing_controller/index';
+$route['sharing-manager/create-sharing'] = 'dm/sharing_controller/create_sharing';
+$route['sharing-manager/update-sharing/:num'] = 'dm/sharing_controller/update_sharing';
+$route['sharing-manager/delete-sharing/:num'] = 'dm/sharing_controller/delete_sharing';
+$route['sharing-manager-create-sharing-submit'] = 'dm/sharing_controller/create_sharing_submit';
+$route['sharing-manager-update-sharing-submit'] = 'dm/sharing_controller/update_sharing_submit';
