@@ -60,7 +60,19 @@ class Category_Model extends CI_Model
         $insert_id = $this->db->insert_id();
         return $insert_id;
     }
+    public function insertSubCategory($vi_name, $slug)
+    {
+        $data = array(
+            'vi_name' => $vi_name,
+            'slug' => $slug,
+            'sort_index' => 0,
+            'is_menu' => 0
+        );
 
+        $this->db->insert('category', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
     public function insertWithParent($vi_name, $parentId)
     {
         $children = $this->findByParent($parentId);
@@ -109,6 +121,12 @@ class Category_Model extends CI_Model
         $this->db->from('category');
         $this->db->where('id = 10');
         return $this->db->get()->result_array();
+    }
+    
+    public function findAllSubCategory()
+    {
+        $sql = "select * from category where parent_id is null and is_menu = 0";
+        return $this->db->query($sql)->result_array();
     }
 
     public function getMainMenu($parent_id = null, &$strMenu)

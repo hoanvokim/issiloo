@@ -168,3 +168,8 @@ $route['sharing-manager/update-sharing/:num'] = 'dm/sharing_controller/update_sh
 $route['sharing-manager/delete-sharing/:num'] = 'dm/sharing_controller/delete_sharing';
 $route['sharing-manager-create-sharing-submit'] = 'dm/sharing_controller/create_sharing_submit';
 $route['sharing-manager-update-sharing-submit'] = 'dm/sharing_controller/update_sharing_submit';
+
+$route['sub-category-manager'] = 'dm/subcategory_controller/create_subcategory';
+$route['sub-category-manager-create-sub-category-submit'] = 'dm/subcategory_controller/create_subcategory_submit';
+$route['news-sub-category-manager'] = 'dm/subcategory_controller/create_news_subcategory';
+$route['subcategory-manager-add-news-subcategory-submit'] = 'dm/subcategory_controller/create_news_subcategory_submit';

@@ -55,6 +55,20 @@
                                 <span class="menu-title">Slider</span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="<?php echo site_url('sub-category-manager'); ?>">
+                                <i class="fa fa-sun-o"></i>
+                                <span class="menu-title">Thêm phân nhóm phụ</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo site_url('news-sub-category-manager'); ?>">
+                                <i class="fa fa-newspaper-o"></i>
+                                <span class="menu-title">Viết bài cho phân nhóm phụ</span>
+                            </a>
+                        </li>
                         <li class="list-divider"></li>
                         <li class="list-header">Du Học</li>
                         <li>
