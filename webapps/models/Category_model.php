@@ -33,8 +33,13 @@ class Category_Model extends CI_Model
 
     public function findCategoryNameFromId($catId) {
         $sql = "select vi_name from category where id='$catId'";
-        $result = $this->db->query($sql)->result_array();
-        return $result[0]['vi_name'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['vi_name'];
+		}
+	}
+        return 'no item found';
     }
 
 
@@ -233,14 +238,24 @@ class Category_Model extends CI_Model
     public function getIdFromSlug($slug)
     {
         $sql = "select id from category where is_menu=1 and slug='$slug' limit 0,1";
-        $result = $this->db->query($sql)->result_array();
-        return $result[0]['id'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['id'];
+		}
+	}
+        return -1;
     }
 
     public function getInfoFromId($category_id){
         $sql = "select * from category where id=$category_id";
-        $rs = $this->db->query($sql)->result_array();
-        return $rs[0];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
 }

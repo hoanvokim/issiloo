@@ -10,17 +10,16 @@ $lang['MENU_CONTACT'] = 'Contact';
 $lang['ISSI_INTRO'] = 'Với nhiều năm kinh nghiệm và giáo viên tận tâm. Chúng tôi có thể tự hào để nói rằng chúng
                         tôi có thể giúp bạn tăng cường khả năng tiếng hàn: Nghe, nói, đọc và viết. Bạn sẽ khám phá
                         được khả năng của mình.';
-$lang['ISSI_ADDRESS_STREET'] = 'số 37 Hoa Hồng, P.2';
-$lang['ISSI_ADDRESS_CITY'] = 'Q.Phú Nhuận, Tp.HCM';
+$lang['ISSI_ADDRESS_STREET'] = 'số 37 Hoa Hồng, P.2, Q.Phú Nhuận, Tp.HCM';
 $lang['ISSI_EMAIL'] = 'kr-info@issiloo.edu.vn';
-$lang['ISSI_PHONE'] = '08 3517 1099 - 08 3517 1089';
+$lang['ISSI_PHONE'] = 'Phone: 08 3517 1098 - 08 3517 1099';
 
 
 //general
 $lang['READ_DETAIL'] = 'Read more';
 $lang['CONTACT_WITH_US'] = 'Contact with us';
 $lang['WORKING_TIME'] = 'Working time';
-$lang['MONDAY_FRIDAY'] = 'Monday – Friday';
+$lang['MONDAY_FRIDAY'] = 'Monday – Saturday';
 $lang['MORNING_EVENING'] = '8:00 am - 5:30 pm';
 $lang['READ_MORE'] = 'Read more';
 $lang['UNIVERSITY_INFO'] = 'Universities infomation';

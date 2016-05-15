@@ -46,7 +46,13 @@ class Faq_Model extends CI_Model
     public function findById($faqId)
     {
         $this->db->where('id', $faqId);
-        return $this->db->get("faq")->result_array()[0];
+        $list = $this->db->get("faq")->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
     public function insert($faqQuestion, $faqAnswer)

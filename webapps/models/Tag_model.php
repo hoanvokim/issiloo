@@ -34,8 +34,13 @@ class Tag_Model extends CI_Model
     public function getNameById($tag_id)
     {
         $sql = "select name from tag where id=$tag_id";
-        $rs = $this->db->query($sql)->result_array();
-        return $rs[0]['name'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['name'];
+		}
+	}
+        return -1;
     }
 
     public function findAll()
@@ -46,7 +51,13 @@ class Tag_Model extends CI_Model
     public function findById($tagId)
     {
         $this->db->where('id', $tagId);
-        return $this->db->get("tag")->result_array()[0];
+        $list = $this->db->get("tag")->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
     public function findByNews($newsId)

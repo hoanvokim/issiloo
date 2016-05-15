@@ -31,8 +31,13 @@ class University_Model extends CI_Model
         $title = $this->title;
         $description = $this->description;
         $sql = "select id as university_id, $title as title, $description as description, url from university where id = $uniId";
-        $result = $this->db->query($sql)->result_array();
-        return $result[0];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
     public function insert($uniTitle, $uniDes, $url)

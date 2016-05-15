@@ -18,7 +18,13 @@ class Gallery_Model extends CI_Model
     public function getGalleryById($id)
     {
         $sql = "select gallery.id, img_src, vi_title from gallery where gallery.id = $id";
-        return $this->db->query($sql)->result_array()[0];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
     public function getGalleryByNews()

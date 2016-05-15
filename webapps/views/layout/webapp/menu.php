@@ -6,7 +6,7 @@
                                                                                     alt="ISSILOO"/></a></div>
 
                 <div class="hotline">
-                    <strong> <i class="fa fa-phone"></i> Hotline: </strong>  <strong style="color: red;">(04) 6294 2701 - (0240) 6261 261 - (08) 6294 1875</strong>
+                    <strong> <i class="fa fa-phone"></i> Phone: </strong>  <strong style="color: red;">08 3517 1098 - 08 3517 1099</strong> <i class="fa fa-phone" style="margin-left: 10px;"></i> Hotline: </strong>  <strong style="color: red;">0898 084 080</strong>
                 </div>
                 <div class="nav-menu-icon"><a href="#"><i></i></a></div>
                 <nav>

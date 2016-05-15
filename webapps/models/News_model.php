@@ -25,15 +25,25 @@ class News_Model extends CI_Model
     public function getIdFromSlug($slug)
     {
         $sql = "select id from news where slug='$slug' limit 0,1";
-        $result = $this->db->query($sql)->result_array();
-        return $result[0]['id'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['id'];
+		}
+	}
+        return -1;
     }
 
     public function getNewsById($id)
     {
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where id = $id";
-        $result = $this->db->query($sql)->result_array();
-        return $result[0];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item;
+		}
+	}
+        return -1;
     }
 
     public function getNewsByCatId($catId)
@@ -79,8 +89,13 @@ class News_Model extends CI_Model
             $sql = $sql . $aCat[$i] . ",";
         }
         $sql = $sql . $aCat[$cnt - 1] . ")";
-        $rs = $this->db->query($sql)->result_array();
-        return $rs[0]['total_row'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['total_row'];
+		}
+	}
+        return -1;
     }
 
     public function getRelatedNewsByCatId($category_id)
@@ -114,8 +129,13 @@ class News_Model extends CI_Model
     public function getTotalRowByTagId($tag_id)
     {
         $sql = "select count(*) as total_row from news, tagnews where tag_id = $tag_id and news_id = news.id";
-        $rs = $this->db->query($sql)->result_array();
-        return $rs[0]['total_row'];
+        $list = $this->db->query($sql)->result_array();
+        if(count($list > 0)) {
+	        foreach ($list as $item) {
+		     return $item['total_row'];
+		}
+	}
+        return -1;
     }
 
     public function getNewsByTagId($tag_id, $cur_page, $limit)
@@ -246,4 +266,3 @@ class News_Model extends CI_Model
         $this->db->delete('news');
     }
 }
-

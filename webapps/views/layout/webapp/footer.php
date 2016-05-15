@@ -8,7 +8,7 @@
                     <h5><a href="#"><img src="<?php echo base_url(); ?>webresources/images/logo-line-white.png" alt="ISSILOO"
                                                   class="footer-logo"/></a></h5>
                     <p><?php echo $this->lang->line('ISSI_INTRO'); ?></p>
-                    <p><a href="about-us.html"> <?php echo $this->lang->line('READ_DETAIL'); ?> <i class="ion ion-ios-arrow-thin-right"></i></a></p>
+                    <p><a href="<?php echo base_url().'cat/gioi-thieu'; ?>"> <?php echo $this->lang->line('READ_DETAIL'); ?> <i class="ion ion-ios-arrow-thin-right"></i></a></p>
 
                 </div>
 
@@ -17,14 +17,12 @@
                 <div class="col-md-4 col-sm-6  mar-30 text-right">
                     <h5><i class="ion ion-email"></i> <?php echo $this->lang->line('CONTACT_WITH_US'); ?></h5>
                     <address>
-                        <p><?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?><br/><?php echo $this->lang->line('ISSI_ADDRESS_CITY'); ?></p>
+                        <p><?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?></p>
 
                         <p>
                             <i class="ion ion-ios-location-outline"></i> <a href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
-                            <i class="ion ion-ios-telephone-outline"></i> <a href="tel:(08) 3517 1099">(08) 3517
-                                1099</a><br/>
-                            <i class="ion ion-ios-telephone-outline"></i> <a href="tel:(08) 3517 1099">0898 084
-                                080</a><br/>
+                            <i class="ion ion-ios-telephone-outline"></i> Phone: <a href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
+                            <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
                         </p>
 
                     </address>

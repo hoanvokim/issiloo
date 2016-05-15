@@ -18,7 +18,13 @@ class Slider_Model extends CI_Model
     public function findById($id)
     {
         $this->db->where('id', $id);
-        return $this->db->get("slider")->result_array()[0];
+        $sliders = $this->db->get("slider")->result_array();
+        if(count($sliders > 0)) {
+	        foreach ($sliders as $slider) {
+		     return $slider;
+		}
+	}
+        return -1;
     }
 
     public function insert($img_src, $url, $vi_content)
