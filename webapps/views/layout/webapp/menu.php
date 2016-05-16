@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="logo"><a href="<?php echo base_url(); ?>" class="animsition-link"><img src="<?php echo base_url(); ?>webresources/images/logo-line.png"
+                <div class="logo"><a href="<?php echo base_url(); ?>" class="animsition-link"><img src="<?php echo base_url(); ?>webresources/images/logo-line-2.png"
                                                                                     alt="ISSILOO"/></a></div>
 
                 <div class="hotline">

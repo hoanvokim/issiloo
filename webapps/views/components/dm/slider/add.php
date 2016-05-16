@@ -12,7 +12,7 @@
     <label for="upload_file">File upload</label>
     <input type='file' name='userfile' size='20'/>
     <br/>
-    <i>Lưu ý: Hình ảnh size chuẩn: 2000px * 625px</i>
+    <i>Lưu ý: Hình ảnh size chuẩn: 2000px * 748px</i>
 </div>
 
 <button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>
