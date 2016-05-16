@@ -113,11 +113,39 @@ class List_news_controller extends CI_Controller
            $this->load->view('pages/webapp/faq',$data);
 
         } elseif ($category_id == 1 || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce') {
+
            $data['intros'] = $this->News_model->getIntroduces(1);
            $this->load->view('pages/webapp/intro', $data);
+
        } else{
-           $this->load->view("pages/webapp/list_news",$data);
+
+           if($this->belongToStudyAbroad($category_id) && count($data['anews']) == 1){
+               $news_id = $data['anews'][0]['id'];
+               $data['detail'] = $data['anews'][0];
+
+               $data['lst_post'] = 0;
+               $data['cur_post'] = 0;
+               $data['max_post'] = 0;
+
+               $data['news_sidebar'] = array();
+               $data['tagnews'] = $this->Tag_model->getTagByNewsId($news_id);
+
+               $this->load->view("pages/webapp/detail_news",$data);
+           }else{
+               $this->load->view("pages/webapp/list_news",$data);
+           }
        }
+    }
+
+    public function belongToStudyAbroad($category_id){
+        $aStudyAbroadMenu = array();
+        $this->Category_model->getAllSubMenu(10,$aStudyAbroadMenu);
+        foreach($aStudyAbroadMenu as $item){
+            if($category_id == $item){
+                return true;
+            }
+        }
+        return false;
     }
 
     public function tag($tag_id, $curpage = null)

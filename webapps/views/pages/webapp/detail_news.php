@@ -75,27 +75,31 @@
 
                 <!-- widget start -->
                 <div class="widget-box">
-                    <ul class="list">
-                        <?php foreach($news_sidebar as $item){ ?>
+                    <?php if($news_sidebar && count($news_sidebar) > 0){ ?>
+                        <ul class="list">
+                            <?php foreach($news_sidebar as $item){ ?>
 
-                            <li><a href="<?php echo base_url(); ?>news/<?php echo $item['slug']; ?>"><img src="<?php echo base_url(); ?><?php echo $item['img_src']; ?>" alt=""/> <?php echo $item['title']; ?><br/>
-                                    <small><?php echo date_format(new DateTime($item['created_date']),"F d, Y"); ?></small>
-                                </a></li>
+                                <li><a href="<?php echo base_url(); ?>news/<?php echo $item['slug']; ?>"><img src="<?php echo base_url(); ?><?php echo $item['img_src']; ?>" alt=""/> <?php echo $item['title']; ?><br/>
+                                        <small><?php echo date_format(new DateTime($item['created_date']),"F d, Y"); ?></small>
+                                    </a></li>
 
-                        <?php } ?>
+                            <?php } ?>
 
-                    </ul>
+                        </ul>
+                    <?php } ?>
                 </div>
                 <!-- widget end -->
 
                 <!-- widget start -->
                 <div class="widget-box">
-                    <h4>Tags</h4>
-                    <div class="tag-box">
-                        <?php foreach($tagnews as $item){ ?>
-                            <a href="<?php echo base_url(); ?>tag/<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></a>
-                        <?php } ?>
-                    </div>
+                    <?php if($tagnews && count($tagnews) > 0){ ?>
+                        <h4>Tags</h4>
+                        <div class="tag-box">
+                            <?php foreach($tagnews as $item){ ?>
+                                <a href="<?php echo base_url(); ?>tag/<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></a>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <!-- widget end -->
 

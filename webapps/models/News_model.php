@@ -121,8 +121,16 @@ class News_Model extends CI_Model
         $result = $this->db->query($sql)->result_array();
         $category_id = $result[0]['category_id'];
 
+        $aMenu = array();
+        $aMenu[0] = $category_id;
+        $this->Category_model->getAllSubMenu($category_id,$aMenu);
+
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
-        $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,3";
+        $sql = $sql . "from news where category_id in (";
+        for($i=0;$i<count($aMenu)-1;$i++){
+            $sql = $sql . $aMenu[$i] . ", ";
+        }
+        $sql = $sql . $aMenu[$i] . ") and id <> $news_id limit 0,5";
         return $this->db->query($sql)->result_array();
     }
 
