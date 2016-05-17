@@ -84,6 +84,15 @@ class List_news_controller extends CI_Controller
         $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu, $curpage, $this->pageutility->limit);
         $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
+        if(count($data['relatednews']) == 0){
+            $data['relatednews'] = $this->News_model->getNewsByCategoryConfig('sidebar',false); // get from category_config not care about is_enable
+        }else{
+            $aTemp = $this->News_model->getNewsByCategoryConfig('sidebar',true);
+            if(count($aTemp)>0){
+                $data['relatednews'] = $aTemp;
+            }
+        }
+
         $category_info = $this->Category_model->getInfoFromId($category_id);
 
        if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
@@ -132,7 +141,9 @@ class List_news_controller extends CI_Controller
 
                $this->load->view("pages/webapp/detail_news",$data);
            }else{
+
                $this->load->view("pages/webapp/list_news",$data);
+
            }
        }
     }

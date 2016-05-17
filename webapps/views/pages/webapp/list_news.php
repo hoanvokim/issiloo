@@ -139,7 +139,7 @@
                 <?php } ?>
 
 
-                <!--form-->
+                <!--register form-->
                 <div class="inner-container">
                     <div class="container">
                         <div class="heading-text text-center text-uppercase">

@@ -25,96 +25,39 @@
     <div class="inner-container">
         <div class="container">
             <div class="row service-layout">
-                <div class="col-md-4 col-sm-12">
-                    <div>
-                        <h4 class="col-header"><i class="fa fa-plane"></i> <?php echo $dhhq['vi_name']; ?></h4>
-                        <div class="widget-box">
-                            <ul class="list">
 
-                                <?php if (count($adhhq) > 0) { ?>
-                                    <?php for ($i = 0; $i < 4; $i++) { ?>
-                                        <?php if ($i > (count($adhhq) - 1)) {
-                                            break;
-                                        } ?>
-                                        <li><a href="<?php echo base_url() . 'news/' . $adhhq[$i]['slug']; ?>">
+                <?php foreach($aImpNews as $item){ ?>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div>
+                            <h4 class="col-header"><i class="fa fa-plane"></i> <?php echo $item['cat_name']; ?></h4>
+                            <div class="widget-box">
+                                <ul class="list">
+
+                                    <?php foreach($item['related_news'] as $news_item){ ?>
+                                        <li><a href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
                                                 <img
-                                                    src="<?php echo base_url(); ?>/<?php echo $adhhq[$i]['img_src']; ?>"
+                                                    src="<?php echo base_url(); ?>/<?php echo $news_item['img_src']; ?>"
                                                     alt=""/>
-                                                <?php echo $adhhq[$i]['title'] ?><br/>
-                                                <small><?php echo date_format(new DateTime($adhhq[$i]['created_date']), "F d, Y"); ?></small>
+                                                <?php echo $news_item['title'] ?><br/>
+                                                <small><?php echo date_format(new DateTime($news_item['created_date']), "F d, Y"); ?></small>
                                             </a></li>
                                     <?php } ?>
-                                <?php } ?>
 
-
-                            </ul>
+                                </ul>
+                            </div>
+                            <!--<?php if (count($adhhq) > 4) { ?>
+                                <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $dhhq['slug']; ?>"
+                                                           class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
+                                        <i
+                                            class="ion ion-ios-arrow-thin-right"></i></a></div>
+                            <?php } ?>  -->
                         </div>
-                        <?php if (count($adhhq) > 4) { ?>
-                            <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $dhhq['slug']; ?>"
-                                                       class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
-                                    <i
-                                        class="ion ion-ios-arrow-thin-right"></i></a></div>
-                        <?php } ?>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div>
-                        <h4 class="col-header"><i class="fa fa-trophy"></i><?php echo $hbdh['vi_name']; ?></h4>
-                        <div class="widget-box">
-                            <ul class="list">
-                                <?php if (count($ahbdh) > 0) { ?>
-                                    <?php for ($i = 0; $i < 4; $i++) { ?>
-                                        <?php if ($i > (count($ahbdh) - 1)) {
-                                            break;
-                                        } ?>
-                                        <li><a href="<?php echo base_url() . 'news/' . $ahbdh[$i]['slug']; ?>"><img
-                                                    src="<?php echo base_url(); ?>/<?php echo $ahbdh[$i]['img_src']; ?>"
-                                                    alt=""/>
-                                                <?php echo $ahbdh[$i]['title']; ?><br/>
-                                                <small><?php echo date_format(new DateTime($ahbdh[$i]['created_date']), "F d, Y"); ?></small>
-                                            </a></li>
-                                    <?php } ?>
-                                <?php } ?>
 
-                            </ul>
-                        </div>
-                        <?php if (count($ahbdh) > 4) { ?>
-                            <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $hbdh['slug']; ?>"
-                                                       class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
-                                    <i
-                                        class="ion ion-ios-arrow-thin-right"></i></a></div>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div>
-                        <h4 class="col-header"><i class="fa fa-leanpub"></i><?php echo $hth['vi_name']; ?></h4>
-                        <div class="widget-box">
-                            <ul class="list">
-                                <?php if (count($ahth) > 0) { ?>
-                                    <?php for ($i = 0; $i < 4; $i++) { ?>
-                                        <?php if ($i > (count($ahth) - 1)) {
-                                            break;
-                                        } ?>
-                                        <li><a href="<?php echo base_url() . 'news/' . $ahth[$i]['slug']; ?>"><img
-                                                    src="<?php echo base_url(); ?>/<?php echo $ahth[$i]['img_src']; ?>"
-                                                    alt=""/>
-                                                <?php echo $ahth[$i]['title']; ?><br/>
-                                                <small><?php echo date_format(new DateTime($ahth[$i]['created_date']), "F d, Y"); ?></small>
-                                            </a></li>
-                                    <?php } ?>
-                                <?php } ?>
+                <?php } ?>
 
-                            </ul>
-                        </div>
-                        <?php if (count($ahth) > 4) { ?>
-                            <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $hth['slug']; ?>"
-                                                       class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
-                                    <i
-                                        class="ion ion-ios-arrow-thin-right"></i></a></div>
-                        <?php } ?>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

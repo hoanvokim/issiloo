@@ -73,22 +73,27 @@
 
             <div class="col-md-4 sidebar">
 
-                <!-- widget start -->
-                <div class="widget-box">
-                    <?php if($news_sidebar && count($news_sidebar) > 0){ ?>
+                <?php foreach ($relatednews as $item) { ?>
+                    <!-- widget start -->
+                    <div class="widget-box">
+                        <h4><?php echo $item['cat_name']; ?></h4>
                         <ul class="list">
-                            <?php foreach($news_sidebar as $item){ ?>
 
-                                <li><a href="<?php echo base_url(); ?>news/<?php echo $item['slug']; ?>"><img src="<?php echo base_url(); ?><?php echo $item['img_src']; ?>" alt=""/> <?php echo $item['title']; ?><br/>
-                                        <small><?php echo date_format(new DateTime($item['created_date']),"F d, Y"); ?></small>
+                            <?php $cnt = count($item['related_news']) >= 4 ? 4 : count($item['related_news']); ?>
+                            <?php for ($i = 0; $i < $cnt; $i++) { ?>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
+                                            src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>"
+                                            alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
+                                        <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
                                     </a></li>
-
                             <?php } ?>
 
+
                         </ul>
-                    <?php } ?>
-                </div>
-                <!-- widget end -->
+                    </div>
+                    <!-- widget end -->
+                <?php } ?>
 
                 <!-- widget start -->
                 <div class="widget-box">

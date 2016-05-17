@@ -48,7 +48,7 @@ class Detail_controller extends CI_Controller{
             $data['img_galleries'] = $this->Gallery_model->getGalleryByNewsId($news_id);
             $this->load->view('pages/webapp/share_corner_detail',$data);
         }else{
-            $data['news_sidebar'] = $this->News_model->getRelatedNewsById($news_id);
+            $data['relatednews'] = $this->News_model->getRelatedNewsById($news_id);
             $data['tagnews'] = $this->Tag_model->getTagByNewsId($news_id);
             $this->load->view('pages/webapp/detail_news',$data);
         }

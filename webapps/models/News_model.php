@@ -48,7 +48,7 @@ class News_Model extends CI_Model
 
     public function getNewsByCatId($catId)
     {
-        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary, created_date, updated_date from news where category_id = $catId";
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, $this->summary as summary, created_date, updated_date from news where category_id = $catId";
         return $this->db->query($sql)->result_array();
     }
 
@@ -105,11 +105,63 @@ class News_Model extends CI_Model
         $aSubMenu = array();
         $this->Category_model->getDirectSubMenu($category_id, $aSubMenu);
         foreach ($aSubMenu as $item) {
+            if($cnt > 2){
+                break;
+            }
             if (count($this->getNewsByCatId($item)) == 0) {
                 continue;
             }
             $arr[$cnt]['cat_name'] = $this->Category_model->getName($item);
-            $arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
+            //$arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
+            $aNews = $this->getNewsByCatId($item);
+            $max_news = count($aNews) > 4 ? 4 : count($aNews);
+            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews,$max_news);
+            $cnt++;
+        }
+        return $arr;
+    }
+
+    public function resizeNewsArray($aNews,$new_cnt){
+        $arr = array();
+        for($j=0;$j<$new_cnt;$j++){
+            $arr[$j]['id'] = $aNews[$j]['id'];
+            $arr[$j]['category_id'] = $aNews[$j]['category_id'];
+            $arr[$j]['img_src'] = $aNews[$j]['img_src'];
+            $arr[$j]['slug'] = $aNews[$j]['slug'];
+            $arr[$j]['title_header'] = $aNews[$j]['title_header'];
+            $arr[$j]['description_header'] = $aNews[$j]['description_header'];
+            $arr[$j]['keyword_header'] = $aNews[$j]['keyword_header'];
+            $arr[$j]['title'] = $aNews[$j]['title'];
+            $arr[$j]['content'] = $aNews[$j]['content'];
+            $arr[$j]['summary'] = $aNews[$j]['summary'];
+            $arr[$j]['created_date'] = $aNews[$j]['created_date'];
+            $arr[$j]['updated_date'] = $aNews[$j]['updated_date'];
+        }
+        return $arr;
+    }
+
+    public function getNewsByCategoryConfig($type,$is_enable_op = true){
+        $sql = "select category_id,max_news from category_config where type='$type'";
+        if($is_enable_op){
+            $sql = $sql . " and is_enable=1";
+        }
+        $sql = $sql . " order by sort_index";
+        $aCatConfig = $this->db->query($sql)->result_array();
+
+        $arr = array();
+        $cnt = 0;
+        foreach($aCatConfig as $item){
+            if($cnt > 2){
+                //max category is 3
+                break;
+            }
+            $aNews = $this->getNewsByCatId($item['category_id']);
+            if(count($aNews) == 0){
+                continue;
+            }
+            $arr[$cnt]['cat_name'] = $this->Category_model->getName($item['category_id']);
+            $max_news = $item['max_news'] < count($aNews) ? $item['max_news'] : count($aNews);
+            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews,$max_news);
             $cnt++;
         }
         return $arr;
@@ -121,17 +173,14 @@ class News_Model extends CI_Model
         $result = $this->db->query($sql)->result_array();
         $category_id = $result[0]['category_id'];
 
-        $aMenu = array();
-        $aMenu[0] = $category_id;
-        $this->Category_model->getAllSubMenu($category_id,$aMenu);
+        $arr = array();
+        $arr[0]['cat_name'] = $this->Category_model->getName($category_id);
 
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
-        $sql = $sql . "from news where category_id in (";
-        for($i=0;$i<count($aMenu)-1;$i++){
-            $sql = $sql . $aMenu[$i] . ", ";
-        }
-        $sql = $sql . $aMenu[$i] . ") and id <> $news_id limit 0,5";
-        return $this->db->query($sql)->result_array();
+        $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,5";
+
+        $arr[0]['related_news'] = $this->db->query($sql)->result_array();
+        return $arr;
     }
 
     public function getTotalRowByTagId($tag_id)
