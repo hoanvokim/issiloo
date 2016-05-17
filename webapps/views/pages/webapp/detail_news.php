@@ -98,7 +98,7 @@
                 <!-- widget start -->
                 <div class="widget-box">
                     <?php if($tagnews && count($tagnews) > 0){ ?>
-                        <h4>Tags</h4>
+                        <h4>Tags </h4>
                         <div class="tag-box">
                             <?php foreach($tagnews as $item){ ?>
                                 <a href="<?php echo base_url(); ?>tag/<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></a>
