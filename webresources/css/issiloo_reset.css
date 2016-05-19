@@ -179,6 +179,7 @@
     display: block;
 }
 
+/*detail */
 #detail_content hr {
     display: block;
     -webkit-margin-before: 0.5em;
