@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="2260178693">
-    <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.6.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )" uuid="2fa92ff1-8f4a-4363-8b96-2cef91427f46">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
+    <data-source source="LOCAL" name="Data Source" uuid="2fa92ff1-8f4a-4363-8b96-2cef91427f46">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/issiloo</jdbc-url>
-      <user-name>root</user-name>
-      <user-password>dfcbdf9ddf82dfc4dfc9dfe7dfe9df8b</user-password>
       <libraries>
         <library>
           <url>file://$PROJECT_DIR$/sql/mysql-connector-java-5.1.35-bin.jar</url>
@@ -17,4 +14,3 @@
     </data-source>
   </component>
 </project>
-
