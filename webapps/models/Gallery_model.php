@@ -27,6 +27,14 @@ class Gallery_Model extends CI_Model
         return -1;
     }
 
+    public function getGalleryCorner()
+    {
+        $temp = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";
+        $sql = "select img_src,$temp as title from gallery where gallery.type='corner' limit 0,10";
+        return $this->db->query($sql)->result_array();
+    }
+
+
     public function getGalleryByNews()
     {
         $temp = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";

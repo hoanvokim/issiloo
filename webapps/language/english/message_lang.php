@@ -24,6 +24,7 @@ $lang['MORNING_EVENING'] = '8:00 am - 5:30 pm';
 $lang['READ_MORE'] = 'Read more';
 $lang['UNIVERSITY_INFO'] = 'Universities infomation';
 $lang['LASTEST_NEWS'] = 'Tin tức nổi bật';
+$lang['SOCIAL'] = 'Social networks';
 $lang['POST_DATE'] = 'Posted by';
 $lang['READ_MORE_NEWS'] = 'Read more';
 $lang['PREVIOUS_POST'] = 'Previous Post';

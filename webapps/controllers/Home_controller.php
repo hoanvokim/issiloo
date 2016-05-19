@@ -116,7 +116,7 @@ class Home_controller extends CI_Controller
         $data['last_news'] = $this->News_model->getLastNews();
 
         //get video and images.
-        $data['video_image'] = $this->Gallery_model->getGalleryByNews();
+        $data['video_image'] = $this->Gallery_model->getGalleryCorner();
 
         $data['title_header'] = $this->lang->line('MENU_HOME');
 

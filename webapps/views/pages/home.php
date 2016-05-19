@@ -26,15 +26,24 @@
         <div class="container">
             <div class="row service-layout">
 
-                <?php foreach($aImpNews as $item){ ?>
+                <?php foreach ($aImpNews as $item) { ?>
 
                     <div class="col-md-4 col-sm-12">
                         <div>
-                            <h4 class="col-header"><i class="fa fa-plane"></i> <?php if($item['cat_id']!=14){ echo $item['cat_name']; }else{ echo $this->lang->line('HOC_TIENG_HAN'); }?></h4>
+                            <h4 class="col-header"><?php if ($item['cat_id'] == 14) {
+                                    echo '<img src="'.base_url().'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
+                                    echo $this->lang->line('HOC_TIENG_HAN');
+                                } else if ($item['cat_id'] == 21) {
+                                    echo '<img src="'.base_url().'webresources/images/hocbong.png" style="width: 50px;" />   ';
+                                    echo $item['cat_name'];
+                                } else {
+                                    echo '<img src="'.base_url().'webresources/images/duhoc.png" style="width: 50px;" />   ';
+                                    echo $item['cat_name'];
+                                } ?></h4>
                             <div class="widget-box">
                                 <ul class="list">
 
-                                    <?php foreach($item['related_news'] as $news_item){ ?>
+                                    <?php foreach ($item['related_news'] as $news_item) { ?>
                                         <li><a href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
                                                 <img
                                                     src="<?php echo base_url(); ?>/<?php echo $news_item['img_src']; ?>"
@@ -65,7 +74,7 @@
 
     <?php if (count($universities) > 0) { ?>
         <!-- slider container start -->
-        <div class="slider-study-abroad-container">
+        <div class="slider-university-container">
             <div class="container">
                 <h3 class="col-header-color"><?php echo $this->lang->line('UNIVERSITY_INFO'); ?></h3>
                 <div class="row">
@@ -79,9 +88,6 @@
                                         <div class="row">
                                             <div class="col-md-6 text-center">
                                                 <div class="project-img-box">
-                                                    <img src="<?php echo base_url(); ?>webresources/images/imac.png"
-                                                         alt=""
-                                                         class="imac-img"/>
                                                     <div class="imac-img-content projects-slides">
 
                                                         <?php foreach ($university['gallery'] as $item) { ?>
@@ -180,96 +186,123 @@
     <?php } ?>
 
     <?php if (count($video_image) > 0) { ?>
-    <div class="feature-container mar-60">
-        <h3 class="col-header-color"
-            style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
-        <div class="feature-box-container feature-slider">
+        <div class="feature-container mar-60">
+            <h3 class="col-header-color"
+                style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
+            <div class="feature-box-container feature-slider">
 
-            <?php for ($i = 0;
-            $i < count($video_image);
-            $i++) {
-            if ($i % 2 == 0) { ?>
-            <div class="feature-box">
-                <?php } else { ?>
-                <div class="feature-box dark">
-                    <?php } ?>
-                    <img src="<?php echo $video_image[$i]['img_src']; ?>"/>
-                    <p><?php echo $video_image[$i]['title']; ?></p>
-
-                </div>
+                <?php for ($i = 0;
+                           $i < count($video_image);
+                           $i++) { ?>
+                    <div class="feature-box dark">
+                        <div class="white-paper">
+                            <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?>"
+                                 style="padding-top: 10px;"/>
+                            <p><?php echo $video_image[$i]['title']; ?></p>
+                            <p>Chúc bạn thành công!</p>
+                        </div>
+                    </div>
                 <?php } ?>
 
             </div>
         </div>
 
-        <?php } ?>
+    <?php } ?>
 
-        <!--form-->
-        <div class="inner-container mar-30">
-            <div class="container">
-                <div class="heading-text text-center text-uppercase">
-                    <h3><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h3>
-                </div>
+    <!--form-->
+    <div class="inner-container">
+        <div class="container">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-bg">
+                    <div class="heading-text text-center text-uppercase" style="padding-top: 20px; color: white;">
+                        <h3><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h3>
+                    </div>
 
-                <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
-                        echo $this->lang->line('MESSAGE_ERROR');
-                    } elseif ($status == 'success') {
-                        echo $this->lang->line('CONTACT_SUCCESS');
-                    } else {
-                        echo '';
-                    } ?></p>
+                    <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
+                            echo $this->lang->line('MESSAGE_ERROR');
+                        } elseif ($status == 'success') {
+                            echo $this->lang->line('CONTACT_SUCCESS');
+                        } else {
+                            echo '';
+                        } ?></p>
 
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <form class="contact-form" id="ContactForm" method="post" action="<?php echo base_url(); ?>">
-                            <!--contact form-->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="consult_name" class="form-control"
-                                               placeholder="<?php echo $this->lang->line('NAME'); ?> *"
-                                               required="required">
+                    <div class="row" style="height: 450px;">
+                        <div class="col-md-10 col-md-offset-1">
+                            <form class="contact-form" id="ContactForm" method="post"
+                                  action="<?php echo base_url(); ?>">
+                                <!--contact form-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="consult_name" class="form-control"
+                                                   placeholder="<?php echo $this->lang->line('NAME'); ?> *"
+                                                   required="required">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" name="consult_email" class="form-control"
-                                               placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
-                                               required="required">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" name="consult_email" class="form-control"
+                                                   placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
+                                                   required="required">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="subject" class="form-control" name="consult_phone"
-                                               placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="subject" class="form-control" name="consult_phone"
+                                                   placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="consult_subject" class="form-control"
-                                               placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="consult_subject" class="form-control"
+                                                   placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                         <textarea class="form-control" name="consult_content" rows="10"
                                                   placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
                                                   required="required"></textarea>
+                                        </div>
+                                        <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
+                                               name="btn_consult_send" class="btn btn-primary"/>
                                     </div>
-                                    <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
-                                           name="btn_consult_send" class="btn btn-primary"/>
                                 </div>
-                            </div>
-                        </form>
-                        <!--end contact form-->
+                            </form>
+                            <!--end contact form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="heading-text text-center text-uppercase" style="padding-top: 20px;">
+                    <h3><?php echo $this->lang->line('SOCIAL'); ?></h3>
+                </div>
+                <div style="margin-left: auto; margin-right: auto;">
+                    <div class="fb-page" data-href="https://www.facebook.com/issiloo.edu.vn" data-tabs="timeline"
+                         data-width="420" data-height="200" data-small-header="false" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/issiloo.edu.vn"><a
+                                    href="https://www.facebook.com/issiloo.edu.vn">Hàn ngữ ISSILOO</a></blockquote>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- main container end -->
+</div>
+<!-- main container end -->
 
-
-    <?php $this->load->view('layout/webapp/footer'); ?>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<?php $this->load->view('layout/webapp/footer'); ?>

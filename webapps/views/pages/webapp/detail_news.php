@@ -3,7 +3,7 @@
 <?php $this->load->view('components/webapp/banner_start'); ?>
 
 <!-- inner container start -->
-<div class="inner-container">
+<div class="inner-container" style="margin-top: 30px;">
     <div class="container">
         <div class="row">
             <div class="col-md-8">

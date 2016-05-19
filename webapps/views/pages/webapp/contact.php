@@ -1,7 +1,7 @@
 <?php $this->load->view('layout/webapp/header');  ?>
 
     <!--banner-container start-->
-    <div class="inner-banner-container mar-20" style="background-image:url(../../../../assets/upload/images/webapp/banner1.jpg)">
+    <div class="inner-banner-container mar-20" style="background-image:url(../../../../assets/upload/images/webapp/banner0.jpg)">
         <div class="banner-title">
             <h1><?php echo $this->lang->line('CONTACT_BANNER_TITLE'); ?></h1>
             <h2><?php echo $this->lang->line('CONTACT_MESSAGE'); ?></h2>

@@ -27,7 +27,8 @@ class Detail_controller extends CI_Controller{
 
         $news_id = $this->News_model->getIdFromSlug($slug);
         $data['detail'] = $this->News_model->getNewsById($news_id);    //array of a news.
-        $data['banner_title'] = $data['detail']['title'];
+        $data['banner_title'] = $data['detail']['title'];   
+        $data['banner_bg'] = $data['detail']['img_src'];
         $data['title_header'] = $data['banner_title'];
 
         $category_id = $data['detail']['category_id'];

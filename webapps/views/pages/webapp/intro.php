@@ -4,7 +4,7 @@
 
 <!-- main container start -->
 
-<div class="inner-container">
+<div class="inner-container" style="margin-top: 30px;">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
