@@ -12,9 +12,10 @@
                 <div class="single-post">
                     <div class="entry-content">
                         <!--<h4><a href="single-post.html"><?php echo $detail['title']; ?></a></h4>-->
-                        <pre>
+                        <link href="<?php echo base_url(); ?>webresources/css/issiloo_reset.css" rel="stylesheet" type="text/css">
+                        <div id="detail_content">
                             <?php echo $detail['content']; ?>
-                        </pre>
+                        </div>
                     </div>
                 </div>
                 <!-- blog item end -->

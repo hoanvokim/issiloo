@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-sm-12 col-md-8">
-                    <br><br><br><br>
+                    <br><br><br><br><br><br>
                     <ul class="project-category" style="text-align: left; margin-left:20px;">
                         <li><a href="#" data-filter="" id="option1" class="active"><?php echo $keyword; ?></a></li>
                     </ul>
