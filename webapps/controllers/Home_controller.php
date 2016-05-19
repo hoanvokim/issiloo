@@ -71,41 +71,29 @@ class Home_controller extends CI_Controller
         $data['sliders'] = $this->Slider_model->getAll();
 
         //get widget news
-        $data['dhhq'] = $this->Category_model->getInfoFromId(11);
-        $data['adhhq'] = $this->News_model->getNewsByCatId(11);
 
-        $data['hbdh'] = $this->Category_model->getInfoFromId(10);
-        $data['ahbdh'] = $this->News_model->getNewsByCatId(10);
-
-        $data['hth'] = $this->Category_model->getInfoFromId(13);
-        $data['ahth'] = $this->News_model->getNewsByCatId(13);
-
-        $aImportantMenu = array(11,10,13);
+        $aImportantMenu = array(11,20,14);
         $cnt = 0;
         $aImpNews = array();
         foreach($aImportantMenu as $item){
-            $aTemp = $this->News_model->getNewsByCatId($item);
+            //get sub menu of each item.
+            $aCat = array();
+            $aCat[0] = $item;
+            $this->Category_model->getAllSubMenu($item,$aCat);
+
+            $aTemp = $this->News_model->getNewsByArrCat($aCat);
             if(count($aTemp) == 0){
                 continue;
             }
             $aImpNews[$cnt]['cat_name'] = $this->Category_model->getName($item);
-            $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
+            $aImpNews[$cnt]['cat_id'] = $item;
+            $max_news = count($aTemp) > 5 ? 5 : count($aTemp);
             $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp,$max_news);
             $cnt++;
+            $aCat = null;
         }
 
         $data['aImpNews'] = $aImpNews;
-        if(count($aImpNews) < 3){
-            $data['aImpNews'] = $this->News_model->getNewsByCategoryConfig('homepage',false); // don't care is_enable
-        }else{
-            $aImpTemp = $this->News_model->getNewsByCategoryConfig('homepage',true); // care about is_enable
-            if(count($aImpTemp) >= 3){
-                $data['aImpNews'] = $aImpTemp;
-            }
-        }
-
-        //echo 'count aImpNews : '.count($data['aImpNews']);
-        //return;
 
         //get university.
         $temp = $this->University_model->getAll();

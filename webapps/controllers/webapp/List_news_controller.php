@@ -107,7 +107,7 @@ class List_news_controller extends CI_Controller
                 $arr_news[$cnt]['title'] = $item['title'];
                 if(strripos($item['img_src'],'embed/') !== false || strripos($item['img_src'],'watch?v=') !== false){
                     //is video
-                    $arr_news[$cnt]['youtube_thumbnail'] = $this->getThumbnailFromYoutubeLink($item['img_src']);
+                    $arr_news[$cnt]['youtube_thumbnail'] = getThumbnailFromYoutubeLink($item['img_src']);
                 }else{
                     $arr_news[$cnt]['youtube_thumbnail'] = false;
                 }
@@ -128,23 +128,8 @@ class List_news_controller extends CI_Controller
 
        } else{
 
-           if($this->belongToStudyAbroad($category_id) && count($data['anews']) == 1){
-               $news_id = $data['anews'][0]['id'];
-               $data['detail'] = $data['anews'][0];
-
-               $data['lst_post'] = 0;
-               $data['cur_post'] = 0;
-               $data['max_post'] = 0;
-
-               $data['news_sidebar'] = array();
-               $data['tagnews'] = $this->Tag_model->getTagByNewsId($news_id);
-
-               $this->load->view("pages/webapp/detail_news",$data);
-           }else{
-
                $this->load->view("pages/webapp/list_news",$data);
 
-           }
        }
     }
 
@@ -178,16 +163,6 @@ class List_news_controller extends CI_Controller
         $data['tag_name'] = $data['title_header'];
 
         $this->load->view("pages/webapp/list_news_tag", $data);
-    }
-
-    public function getThumbnailFromYoutubeLink($youtube_link){
-        if(strpos($youtube_link,'embed')!==false){
-            //embed link.
-            $video_id = substr(str_replace('embed/','',$youtube_link),strripos($youtube_link,'embed/'));
-        }else{
-            $video_id = substr(str_replace('watch?v=','',$youtube_link),strripos($youtube_link,'watch?v='));
-        }
-        return "http://img.youtube.com/vi/$video_id/0.jpg";
     }
 
 }

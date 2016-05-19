@@ -30,6 +30,7 @@ $lang['PREVIOUS_POST'] = 'Previous Post';
 $lang['NEXT_POST'] = 'Next Post';
 $lang['ADDRESS'] = 'Địa chỉ';
 $lang['SHARING_VIDEO'] = 'Chia sẽ ảnh và video';
+$lang['HOC_TIENG_HAN'] = 'Học tiếng hàn';
 
 
 //consult register

@@ -149,7 +149,13 @@ class Category_Model extends CI_Model
 
             foreach ($arr_result as $item) {
                 $url = base_url() . "cat/" . $item['slug'];
-                $strMenu = $strMenu . "<li><a href='$url'>" . $item[$temp_name];
+                $strMenu = $strMenu . "<li><a href=";//"''>" . $item[$temp_name];
+                if($this->hasSubMenu($item['id'])){
+                    $strMenu = $strMenu . "'#'>";
+                }else{
+                    $strMenu = $strMenu . "'$url'>";
+                }
+                $strMenu = $strMenu . $item[$temp_name];
                 if ($this->hasSubMenu($item['id'])) {
                     $strMenu = $strMenu . '<span class="ion ion-ios-arrow-down"></span>';
                 }

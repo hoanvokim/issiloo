@@ -30,7 +30,7 @@
 
                     <div class="col-md-4 col-sm-12">
                         <div>
-                            <h4 class="col-header"><i class="fa fa-plane"></i> <?php echo $item['cat_name']; ?></h4>
+                            <h4 class="col-header"><i class="fa fa-plane"></i> <?php if($item['cat_id']!=14){ echo $item['cat_name']; }else{ echo $this->lang->line('HOC_TIENG_HAN'); }?></h4>
                             <div class="widget-box">
                                 <ul class="list">
 
@@ -130,7 +130,7 @@
                     <div class="col-sm-6">
                         <div class="img-responsive">
                             <a href="#">
-                                <img src="<?php echo base_url() . $last_news[0]['img_src']; ?>"
+                                <img src="<?php echo $last_news[0]['img_src']; ?>"
                                      width="500px;">
                             </a>
                         </div>

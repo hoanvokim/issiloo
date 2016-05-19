@@ -54,7 +54,38 @@ class News_Model extends CI_Model
 
     public function getLastNews()
     {
-        $sql = "select img_src, slug, $this->title as title, $this->summary as summary, created_date from news order by created_date desc limit 0,4";
+        $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in (18,7,8) order by created_date desc limit 0,4";
+        $aData = $this->db->query($sql)->result_array();
+        $aResult = array();
+        $cnt = 0;
+        if(count($aData)>0){
+             if(strripos($aData[0]['img_src'],'embed/') !== false || strripos($aData[0]['img_src'],'watch?v=') !== false){
+                 $aData[0]['img_src'] = getThumbnailFromYoutubeLink($aData[0]['img_src']);
+             }else{
+                 $aData[0]['img_src'] = base_url().$aData[0]['img_src'];
+             }
+
+             foreach($aData as $item){
+                 $aResult[$cnt]['id'] = $item['id'];
+                 $aResult[$cnt]['category_id'] = $item['category_id'];
+                 $aResult[$cnt]['title'] = $item['title'];
+                 $aResult[$cnt]['slug'] = $item['slug'];
+                 $aResult[$cnt]['img_src'] = $item['img_src'];
+                 $aResult[$cnt]['created_date'] = $item['created_date'];
+                 $aResult[$cnt]['summary'] = $item['summary'];
+                 $cnt++;
+             }
+        }
+        return $aResult;
+    }
+
+    public function getNewsByArrCat($aCat){
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary, updated_date from news where category_id in (";
+        $cnt = count($aCat);
+        for ($i = 0; $i < $cnt - 1; $i++) {
+            $sql = $sql . $aCat[$i] . ",";
+        }
+        $sql = $sql . $aCat[$cnt - 1] . ")";
         return $this->db->query($sql)->result_array();
     }
 
