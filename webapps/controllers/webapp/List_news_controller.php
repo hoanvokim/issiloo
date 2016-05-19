@@ -95,7 +95,7 @@ class List_news_controller extends CI_Controller
 
         $category_info = $this->Category_model->getInfoFromId($category_id);
 
-       if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+       if($category_id==$this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
 
             $arr_news = array();
             $cnt = 0;
@@ -116,7 +116,7 @@ class List_news_controller extends CI_Controller
             $data['anews'] = $arr_news;
             $this->load->view('pages/webapp/share_corner',$data);
 
-        }elseif($category_id==19 || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs'){
+        }elseif($category_id==$this->config->item('faq') || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs'){
 
            $data['faqs'] = $this->Faq_model->getAll();
            $this->load->view('pages/webapp/faq',$data);

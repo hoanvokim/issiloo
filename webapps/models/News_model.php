@@ -54,7 +54,10 @@ class News_Model extends CI_Model
 
     public function getLastNews()
     {
-        $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in (18,7,8) order by created_date desc limit 0,4";
+        //HARDCODE
+        $news_and_event = $this->config->item('news_and_event') != 0 ? $this->config->item('news_and_event') : 0;
+        $sharing_corner = $this->config->item('sharing_corner') != 0 ? $this->config->item('sharing_corner') : 0;
+        $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($news_and_event,$sharing_corner) order by created_date desc limit 0,4";
         $aData = $this->db->query($sql)->result_array();
         $aResult = array();
         $cnt = 0;

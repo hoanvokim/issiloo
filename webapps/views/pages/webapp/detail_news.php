@@ -76,7 +76,10 @@
                 <?php foreach ($relatednews as $item) { ?>
                     <!-- widget start -->
                     <div class="widget-box">
-                        <h4><?php echo $item['cat_name']; ?></h4>
+
+                        <?php if(count($item['related_news'])>0){ ?>
+                            <h4><?php echo $item['cat_name']; ?></h4>
+                        <?php } ?>
                         <ul class="list">
 
                             <?php $cnt = count($item['related_news']) >= 4 ? 4 : count($item['related_news']); ?>

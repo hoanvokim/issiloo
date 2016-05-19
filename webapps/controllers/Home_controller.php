@@ -72,7 +72,8 @@ class Home_controller extends CI_Controller
 
         //get widget news
 
-        $aImportantMenu = array(11,20,14);
+        //HARDCODE
+        $aImportantMenu = $this->config->item('homepage_widget_news');
         $cnt = 0;
         $aImpNews = array();
         foreach($aImportantMenu as $item){
@@ -87,7 +88,7 @@ class Home_controller extends CI_Controller
             }
             $aImpNews[$cnt]['cat_name'] = $this->Category_model->getName($item);
             $aImpNews[$cnt]['cat_id'] = $item;
-            $max_news = count($aTemp) > 5 ? 5 : count($aTemp);
+            $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
             $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp,$max_news);
             $cnt++;
             $aCat = null;

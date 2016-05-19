@@ -521,3 +521,9 @@ $config['protocol'] = 'sendmail';
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
 $config['wordwrap'] = TRUE;
+
+//HARDCODE
+$config['homepage_widget_news'] = array(11,21,14); //du hoc han quoc | hoc bong | hoc tieng han (trung tam han ngu)
+$config['news_and_event'] = 7;
+$config['sharing_corner'] = 8;
+$config['faq'] = 19;
