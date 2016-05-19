@@ -12,9 +12,9 @@
                 <div class="single-post">
                     <div class="entry-content">
                         <!--<h4><a href="single-post.html"><?php echo $detail['title']; ?></a></h4>-->
-                        <div>
+                        <pre>
                             <?php echo $detail['content']; ?>
-                        </div>
+                        </pre>
                     </div>
                 </div>
                 <!-- blog item end -->

@@ -46,6 +46,11 @@
             color:darkred;
         }
 
+        pre{
+            background-color: #ffffff;
+            border:none;
+        }
+
     </style>
 
     <script type="text/javascript">
