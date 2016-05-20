@@ -26,11 +26,11 @@ class News_Model extends CI_Model
     {
         $sql = "select id from news where slug='$slug' limit 0,1";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['id'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['id'];
+            }
+        }
         return -1;
     }
 
@@ -38,11 +38,11 @@ class News_Model extends CI_Model
     {
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where id = $id";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item;
+            }
+        }
         return -1;
     }
 
@@ -77,21 +77,22 @@ class News_Model extends CI_Model
                  }
              }
 
-             foreach($aData as $item){
-                 $aResult[$cnt]['id'] = $item['id'];
-                 $aResult[$cnt]['category_id'] = $item['category_id'];
-                 $aResult[$cnt]['title'] = $item['title'];
-                 $aResult[$cnt]['slug'] = $item['slug'];
-                 $aResult[$cnt]['img_src'] = $item['img_src'];
-                 $aResult[$cnt]['created_date'] = $item['created_date'];
-                 $aResult[$cnt]['summary'] = $item['summary'];
-                 $cnt++;
-             }
+            foreach ($aData as $item) {
+                $aResult[$cnt]['id'] = $item['id'];
+                $aResult[$cnt]['category_id'] = $item['category_id'];
+                $aResult[$cnt]['title'] = $item['title'];
+                $aResult[$cnt]['slug'] = $item['slug'];
+                $aResult[$cnt]['img_src'] = $item['img_src'];
+                $aResult[$cnt]['created_date'] = $item['created_date'];
+                $aResult[$cnt]['summary'] = $item['summary'];
+                $cnt++;
+            }
         }
         return $aResult;
     }
 
-    public function getNewsByArrCat($aCat){
+    public function getNewsByArrCat($aCat)
+    {
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary, updated_date from news where category_id in (";
         $cnt = count($aCat);
         for ($i = 0; $i < $cnt - 1; $i++) {
@@ -133,11 +134,11 @@ class News_Model extends CI_Model
         }
         $sql = $sql . $aCat[$cnt - 1] . ")";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['total_row'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['total_row'];
+            }
+        }
         return -1;
     }
 
@@ -148,7 +149,7 @@ class News_Model extends CI_Model
         $aSubMenu = array();
         $this->Category_model->getDirectSubMenu($category_id, $aSubMenu);
         foreach ($aSubMenu as $item) {
-            if($cnt > 2){
+            if ($cnt > 2) {
                 break;
             }
             if (count($this->getNewsByCatId($item)) == 0) {
@@ -158,15 +159,16 @@ class News_Model extends CI_Model
             //$arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
             $aNews = $this->getNewsByCatId($item);
             $max_news = count($aNews) > 4 ? 4 : count($aNews);
-            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews,$max_news);
+            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews, $max_news);
             $cnt++;
         }
         return $arr;
     }
 
-    public function resizeNewsArray($aNews,$new_cnt){
+    public function resizeNewsArray($aNews, $new_cnt)
+    {
         $arr = array();
-        for($j=0;$j<$new_cnt;$j++){
+        for ($j = 0; $j < $new_cnt; $j++) {
             $arr[$j]['id'] = $aNews[$j]['id'];
             $arr[$j]['category_id'] = $aNews[$j]['category_id'];
             $arr[$j]['img_src'] = $aNews[$j]['img_src'];
@@ -183,9 +185,10 @@ class News_Model extends CI_Model
         return $arr;
     }
 
-    public function getNewsByCategoryConfig($type,$is_enable_op = true){
+    public function getNewsByCategoryConfig($type, $is_enable_op = true)
+    {
         $sql = "select category_id,max_news from category_config where type='$type'";
-        if($is_enable_op){
+        if ($is_enable_op) {
             $sql = $sql . " and is_enable=1";
         }
         $sql = $sql . " order by sort_index";
@@ -193,18 +196,18 @@ class News_Model extends CI_Model
 
         $arr = array();
         $cnt = 0;
-        foreach($aCatConfig as $item){
-            if($cnt > 2){
+        foreach ($aCatConfig as $item) {
+            if ($cnt > 2) {
                 //max category is 3
                 break;
             }
             $aNews = $this->getNewsByCatId($item['category_id']);
-            if(count($aNews) == 0){
+            if (count($aNews) == 0) {
                 continue;
             }
             $arr[$cnt]['cat_name'] = $this->Category_model->getName($item['category_id']);
             $max_news = $item['max_news'] < count($aNews) ? $item['max_news'] : count($aNews);
-            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews,$max_news);
+            $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews, $max_news);
             $cnt++;
         }
         return $arr;
@@ -230,11 +233,11 @@ class News_Model extends CI_Model
     {
         $sql = "select count(*) as total_row from news, tagnews where tag_id = $tag_id and news_id = news.id";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['total_row'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['total_row'];
+            }
+        }
         return -1;
     }
 
@@ -246,20 +249,22 @@ class News_Model extends CI_Model
 
     }
 
-    public function getTotalRowBySearchTag($keyword){
+    public function getTotalRowBySearchTag($keyword)
+    {
         $select = "select distinct news_id ";
         $from = "from tag, tagnews, news ";
         $where = "where lower(tag.name) = lower('$keyword') and tag.id=tagnews.tag_id and tagnews.news_id = news.id";
-        $sql = $select.$from.$where;
+        $sql = $select . $from . $where;
         return count($this->db->query($sql)->result_array());
     }
 
-    public function getNewsBySearchTag($keyword, $cur_page, $limit){
+    public function getNewsBySearchTag($keyword, $cur_page, $limit)
+    {
         $start = ($cur_page - 1) * $limit;
         $select = "select distinct news_id , category_id, img_src, slug, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
         $from = "from tag, tagnews, news ";
         $where = "where lower(tag.name) = lower('$keyword') and tag.id=tagnews.tag_id and tagnews.news_id = news.id limit $start,$limit";
-        $sql = $select.$from.$where;
+        $sql = $select . $from . $where;
         return $this->db->query($sql)->result_array();
     }
 
@@ -351,8 +356,9 @@ class News_Model extends CI_Model
         $this->db->where('id', $newsId);
         $this->db->update('news', $data);
     }
-    
-    public function updateImage($newsId) {
+
+    public function updateImage($newsId)
+    {
         $data = array(
             'img_src' => ''
         );

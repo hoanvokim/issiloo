@@ -36,6 +36,6 @@
 
 
     var postForm = function () {
-        $('textarea[name="viContent"]').html($('#summernote').code());
+        $('textarea[name="vicontent"]').html($('#summernote').code());
     }
 </script>

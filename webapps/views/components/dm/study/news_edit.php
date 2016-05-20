@@ -2,7 +2,7 @@
 <input type="hidden" id="hide" name="newsId" value="<?php if (!empty($newsId)) {
     echo $newsId;
 } ?>">
-<input type="hidden" id="hide" name="newsId" value="<?php if (!empty($catId)) {
+<input type="hidden" id="hide" name="catId" value="<?php if (!empty($catId)) {
     echo $catId;
 } ?>">
 <!--Default Tabs (Left Aligned)-->

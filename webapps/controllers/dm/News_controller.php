@@ -110,7 +110,6 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
         redirect('manage-study-news', 'refresh');
     }
 
