@@ -527,3 +527,4 @@ $config['homepage_widget_news'] = array(11,21,14); //du hoc han quoc | hoc bong 
 $config['news_and_event'] = 7;
 $config['sharing_corner'] = 8;
 $config['faq'] = 19;
+$config['introduce'] = 22;

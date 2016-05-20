@@ -121,9 +121,9 @@ class List_news_controller extends CI_Controller
            $data['faqs'] = $this->Faq_model->getAll();
            $this->load->view('pages/webapp/faq',$data);
 
-        } elseif ($category_id == 1 || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce') {
+        } elseif ($category_id == $this->config->item('introduce') || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce') {
 
-           $data['intros'] = $this->News_model->getIntroduces(1);
+           $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
            $this->load->view('pages/webapp/intro', $data);
 
        } else{
