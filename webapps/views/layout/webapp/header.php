@@ -50,25 +50,48 @@
             border:none;
         }
 
+        /* Note: Try to remove the following lines to see the effect of CSS positioning */
+        .affix {
+            top: 0;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            z-index: 999;
+            border-bottom: 0.2px solid #2e4c95;
+        }
+
+        .affix .logo {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .affix-top nav ul > li ul {
+            top: 61px;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
     </style>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".message").fadeOut(5000);
-
-            $('#search_keyword').keydown(function (event) {
-                var keypressed = event.keyCode || event.which;
-                if (keypressed == 13) {
-                    var action_str = $(this).closest('form').attr('action');
-                    var keyword_str = $(this).val();
-                    var updated_link = action_str + keyword_str;
-                    $(this).closest('form').attr('action',updated_link);
-                    $(this).closest('form').submit();
-                }
-            });
-
-        });
-    </script>
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function(){-->
+<!--            $(".message").fadeOut(5000);-->
+<!---->
+<!--            $('#search_keyword').keydown(function (event) {-->
+<!--                var keypressed = event.keyCode || event.which;-->
+<!--                if (keypressed == 13) {-->
+<!--                    var action_str = $(this).closest('form').attr('action');-->
+<!--                    var keyword_str = $(this).val();-->
+<!--                    var updated_link = action_str + keyword_str;-->
+<!--                    $(this).closest('form').attr('action',updated_link);-->
+<!--                    $(this).closest('form').submit();-->
+<!--                }-->
+<!--            });-->
+<!---->
+<!--        });-->
+<!--    </script>-->
 
 </head>
 <body class="home">

@@ -289,6 +289,9 @@
                                     href="https://www.facebook.com/issiloo.edu.vn">Hàn ngữ ISSILOO</a></blockquote>
                         </div>
                     </div>
+                    <div>
+                        <img src="<?php echo  base_url().'webresources/images/zalo.jpg'?>" style="width: 420px; margin-top: 40px;">
+                    </div>
                 </div>
             </div>
         </div>

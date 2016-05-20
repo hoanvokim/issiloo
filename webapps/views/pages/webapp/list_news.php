@@ -18,7 +18,7 @@
                                 <div class="col-md-12 grid-item">
                                     <div class="blog-item">
                                         <div class="entry-media">
-                                            <img src="<?php echo base_url(); ?><?php echo $news['img_src']; ?>"
+                                            <img src="<?php echo base_url(); ?><?php if(empty($news['img_src'])){echo 'webresources/images/img_default.jpg';} else { echo $news['img_src'];} ?>"
                                                  alt=""/>
                                         </div>
                                         <div class="entry-content">
@@ -126,7 +126,7 @@
                             <?php for ($i = 0; $i < $cnt; $i++) { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
-                                            src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>"
+                                            src="<?php echo base_url(); ?><?php if(empty($item['related_news'][$i]['img_src'])){echo 'webresources/images/img_default.jpg';} else { echo $item['related_news'][$i]['img_src'];} ?>"
                                             alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
                                         <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
                                     </a></li>

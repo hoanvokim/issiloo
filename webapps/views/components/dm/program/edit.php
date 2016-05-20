@@ -38,7 +38,7 @@
                             <label for="upload_file">File upload</label>
                             <input type='file' name='userfile' size='20'/>
                             <br/>
-                            <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 686px</i>
+                            <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 503px</i>
                         <?php } ?>
                     </div>
                 </div>

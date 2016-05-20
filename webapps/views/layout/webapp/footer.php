@@ -3,10 +3,26 @@
     <div class="footer-upper">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <h5><a href="#"><img src="<?php echo base_url(); ?>webresources/images/logo-line-white-2.png"
                                          alt="ISSILOO"
                                          class="footer-logo"/></a></h5>
+                    <div class="pull-left">
+                        <ul class="social-links" style="margin-right: -20px;">
+                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
+                                    <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
+                                         style="width: 25px;"/></a></li>
+                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
+                                    <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
+                                         style="width: 25px;"/></a></li>
+                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
+                                    <img src="<?php echo base_url() . 'webresources/images/zalo.png' ?>"
+                                         style="width: 25px;"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 text-left">
+                    <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
                     <address>
                         <p>
                             <i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?>
@@ -24,24 +40,10 @@
                     </address>
                 </div>
                 <div class="col-md-4 col-sm-12 text-right">
-                    <h5><i class="ion ion-email"></i> <?php echo $this->lang->line('WORKING_TIME'); ?></h5>
+                    <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
                     <p class="open"><i
                             class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
                         <br/><?php echo $this->lang->line('MORNING_EVENING'); ?></p>
-                    <br/>
-                    <div class="col-md-6 col-sm-6 pull-right">
-                        <ul class="social-links" style="margin-right: -20px;">
-                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
-                                    <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
-                                         style="width: 35px;"/></a></li>
-                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
-                                    <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
-                                         style="width: 35px;"/></a></li>
-                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
-                                    <img src="<?php echo base_url() . 'webresources/images/zalo.png' ?>"
-                                         style="width: 35px;"/></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
