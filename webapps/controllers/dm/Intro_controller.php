@@ -59,7 +59,7 @@ class Intro_controller extends CI_Controller
     public function update_add()
     {
         $this->Category_model->update($this->input->post('catId'),'', $this->input->post('viTabName'));
-        $this->News_model->update($this->input->post('catId'), $this->input->post('viContent'));
+        $this->News_model->update($this->input->post('catId'), $this->input->post('vicontent'));
         redirect('manage-intro', 'refresh');
     }
 
