@@ -54,11 +54,11 @@ class Category_Model extends CI_Model
 
     public function insert($vi_name)
     {
-        $children = $this->findByParent(1);
+        $children = $this->findByParent($this->config->item('introduce'));
         $sortIndex = sizeof($children);
         $data = array(
             'vi_name' => $vi_name,
-            'parent_id' => 1,
+            'parent_id' => $this->config->item('introduce'),
             'sort_index' => $sortIndex
         );
 

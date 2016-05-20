@@ -24,7 +24,7 @@ class Intro_controller extends CI_Controller
     public function index()
     {
         $data['title'] = 'Giới thiệu';
-        $data['intros'] = $this->News_model->getIntroduces(1);
+        $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
         $this->load->view('pages/dm/intro/intro', $data);
     }
 
@@ -38,7 +38,7 @@ class Intro_controller extends CI_Controller
     public function create_add()
     {
         $category_inserted = $this->Category_model->insert($this->input->post('viTabName'));
-        $this->News_model->insert($category_inserted, $this->input->post('viContent'));
+        $this->News_model->insert($category_inserted, $this->input->post('vicontent'));
         redirect('manage-intro', 'refresh');
     }
 
