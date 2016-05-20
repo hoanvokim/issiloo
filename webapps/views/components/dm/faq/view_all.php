@@ -9,7 +9,6 @@
             <tr>
                 <th width="5%">Id</th>
                 <th width="10%">Câu hỏi</th>
-                <th width="10%">Trả lời</th>
                 <th width="10%">Ngày tạo</th>
                 <th width="10%">Ngày cập nhật</th>
                 <th width="15%">Tác vụ</th>
@@ -20,7 +19,6 @@
                 <tr>
                     <td><?php echo $faq['id']; ?></td>
                     <td><?php echo $faq['vi_question']; ?></td>
-                    <td><?php echo $faq['vi_answer']; ?></td>
                     <td><?php echo substr($faq['created_date'],0,10); ?></td>
                     <td><?php echo substr($faq['updated_date'],0,10); ?></td>
                     <td>

@@ -50,6 +50,9 @@ echo form_open('university-manager-update-university-submit', $attributes); ?>
                     <label for="upload_file">File upload</label>
                     <input type="file" multiple name="userfile[]"/>
                     <br/>
+                    <i>Lưu ý: Hình ảnh size chuẩn: 608px * 349px</i>
+                    <br/>
+                    <br/>
                     <button type="submit" class="btn btn-success btn-xs" name="add-img"><i class="fa fa-save"></i> Thêm
                         ảnh
                     </button>

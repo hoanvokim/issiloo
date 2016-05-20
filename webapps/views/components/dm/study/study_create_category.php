@@ -13,6 +13,11 @@
 
 
 <div class="form-group">
+    <label for="demo-vs-definput" class="control-label">Tên trên thanh tiêu đề</label>
+    <input type="text" name="slug" class="form-control">
+</div>
+
+<div class="form-group">
     <label for="demo-vs-definput" class="control-label">Tên phân nhóm</label>
     <input type="text" name="viCatName" class="form-control">
 </div>

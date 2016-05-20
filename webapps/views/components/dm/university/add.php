@@ -16,6 +16,8 @@ echo form_open('university-manager-create-university-submit', $attributes); ?>
 <div class="form-group">
     <label for="upload_file">File upload</label>
     <input type="file" multiple name="userfile[]"/>
+    <br/>
+    <i>Lưu ý: Hình ảnh size chuẩn: 608px * 349px</i>
 </div>
 
 <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>

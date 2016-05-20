@@ -1,5 +1,7 @@
 <?php $this->load->view('layout/webapp/header'); ?>
 
+<link href="<?php echo base_url(); ?>webresources/css/issiloo_reset.css"
+      rel="stylesheet" type="text/css">
 <?php $this->load->view('components/webapp/banner_start'); ?>
 
 <!-- main container start -->
@@ -31,7 +33,9 @@
                                 echo 'active in';
                                 $isFirst = TRUE;
                             } ?>" id="tab<?php echo $item['catId']; ?>">
-                                <?php echo $item['viNewsContent']; ?>
+                                <div id="detail_content">
+                                    <?php echo $item['viNewsContent']; ?>
+                                </div>
                             </div>
                         <?php } ?>
                     </div>

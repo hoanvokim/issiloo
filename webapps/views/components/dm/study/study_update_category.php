@@ -1,8 +1,8 @@
-<h3 class="panel-title pull-left">Cập nhật phân khúc: <b><?php foreach ($currentCategory as $currentCat) {
+<h3 class="panel-title pull-left">Cập nhật phân nhóm: <b><?php foreach ($currentCategory as $currentCat) {
             echo $currentCat['vi_name'];
         } ?> </b></h3>
 <?php echo form_open('study-manager-update-category-submit'); ?>
-<br><br/>
+<br><br/><br/>
 <?php foreach ($currentCategory as $currentCat) { ?>
     <input type="hidden" id="hide" name="catId" value="<?php echo $catId; ?>">
     <div class="form-group">
@@ -19,6 +19,10 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="demo-vs-definput" class="control-label">Tên trên thanh tiêu đề</label>
+        <input type="text" name="slug" class="form-control" value="<?php echo $currentCat['slug']; ?>">
+    </div>
 
     <div class="form-group">
         <label for="demo-vs-definput" class="control-label">Tên phân nhóm</label>

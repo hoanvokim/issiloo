@@ -97,20 +97,25 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         } else {
-            $this->News_model->update_full(
-                $this->input->post('newsId'),
-                $this->input->post('catId'),
-                $this->input->post('img_src'),
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
-            );
+            echo 'test'.$this->input->post('vicontent');
+//            $this->News_model->update_full(
+//                $this->input->post('newsId'),
+//                $this->input->post('catId'),
+//                $this->input->post('img_src'),
+//                $this->input->post('slug'),
+//                $this->input->post('title_header'),
+//                $this->input->post('description_header'),
+//                $this->input->post('keyword_header'),
+//                $this->input->post('vititle'),
+//                $this->input->post('vicontent'),
+//                $this->input->post('visummary')
+//            );
         }
 
+//        redirect('manage-study-news', 'refresh');
+    }
+
+    public function update_study_news_cancel() {
         redirect('manage-study-news', 'refresh');
     }
 
@@ -136,31 +141,6 @@ class News_controller extends CI_Controller
             $categories = $this->loadSub($categories, $category, $this->uri->segment(3));
         }
         $data['categories'] = $categories;
-
-        $current_news_list = $this->News_model->getNewsByCatId($this->uri->segment(3));
-        if (count($current_news_list > 0)) {
-            foreach ($current_news_list as $current) {
-                $data['newsId'] = $current['id'];
-                $data['slug'] = $current['slug'];
-                $data['title_header'] = $current['title_header'];
-                $data['description_header'] = $current['description_header'];
-                $data['keyword_header'] = $current['keyword_header'];
-                $data['vititle'] = $current['title'];
-                $data['vicontent'] = $current['content'];
-                $data['visummary'] = $current['summary'];
-                $data['img_src'] = $current['img_src'];
-            }
-        } else {
-            $data['newsId'] = '';
-            $data['slug'] = '';
-            $data['title_header'] = '';
-            $data['description_header'] = '';
-            $data['keyword_header'] = '';
-            $data['vititle'] = '';
-            $data['vicontent'] = '';
-            $data['visummary'] = '';
-            $data['img_src'] = '';
-        }
         $data['currentCategory'] = $this->uri->segment(3);
         $data['title'] = 'Viết bài';
         $data['tags'] = $this->Tag_model->findAll();
@@ -173,7 +153,9 @@ class News_controller extends CI_Controller
         if (count($subCategories) > 0) {
             foreach ($subCategories as $category) {
                 $this->load->model('News_model');
-                if (strcasecmp($id, $category['id']) == 0 || count($this->News_model->getNewsByCatId($category['id'])) == 0) {
+                $can_be_write = $this->Category_model->hasChild($category['id']);
+
+                if (!$can_be_write) {
                     array_push($categories, array(
                         'id' => $category['id'],
                         'vi_name' => $category['vi_name'],

@@ -31,14 +31,15 @@ class Category_Model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function findCategoryNameFromId($catId) {
+    public function findCategoryNameFromId($catId)
+    {
         $sql = "select vi_name from category where id='$catId'";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['vi_name'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['vi_name'];
+            }
+        }
         return 'no item found';
     }
 
@@ -65,6 +66,7 @@ class Category_Model extends CI_Model
         $insert_id = $this->db->insert_id();
         return $insert_id;
     }
+
     public function insertSubCategory($vi_name, $slug)
     {
         $data = array(
@@ -78,12 +80,14 @@ class Category_Model extends CI_Model
         $insert_id = $this->db->insert_id();
         return $insert_id;
     }
-    public function insertWithParent($vi_name, $parentId)
+
+    public function insertWithParent($vi_name, $slug, $parentId)
     {
         $children = $this->findByParent($parentId);
         $sortIndex = sizeof($children);
         $data = array(
             'vi_name' => $vi_name,
+            'slug' => $slug,
             'parent_id' => $parentId,
             'sort_index' => $sortIndex,
             'is_menu' => 1
@@ -94,19 +98,21 @@ class Category_Model extends CI_Model
         return $insert_id;
     }
 
-    public function update($catId, $vi_name)
+    public function update($catId, $slug, $vi_name)
     {
         $data = array(
-            'vi_name' => $vi_name
+            'vi_name' => $vi_name,
+            'slug' => $slug
         );
         $this->db->where('id', $catId);
         $this->db->update('category', $data);
     }
 
-    public function updateWithParent($catId, $vi_name)
+    public function updateWithParent($catId,$slug, $vi_name)
     {
         $data = array(
-            'vi_name' => $vi_name
+            'vi_name' => $vi_name,
+            'slug' => $slug
         );
         $this->db->where('id', $catId);
         $this->db->update('category', $data);
@@ -127,7 +133,7 @@ class Category_Model extends CI_Model
         $this->db->where('id = 10');
         return $this->db->get()->result_array();
     }
-    
+
     public function findAllSubCategory()
     {
         $sql = "select * from category where parent_id is null and is_menu = 0";
@@ -150,9 +156,9 @@ class Category_Model extends CI_Model
             foreach ($arr_result as $item) {
                 $url = base_url() . "cat/" . $item['slug'];
                 $strMenu = $strMenu . "<li><a href=";//"''>" . $item[$temp_name];
-                if($this->hasSubMenu($item['id'])){
+                if ($this->hasSubMenu($item['id'])) {
                     $strMenu = $strMenu . "'#'>";
-                }else{
+                } else {
                     $strMenu = $strMenu . "'$url'>";
                 }
                 $strMenu = $strMenu . $item[$temp_name];
@@ -233,6 +239,16 @@ class Category_Model extends CI_Model
         return false;
     }
 
+    public function hasChild($id)
+    {
+        $sql = "select * from category where parent_id = $id";
+        $result = $this->db->query($sql)->result_array();
+        if (count($result) > 0) {
+            return true;
+        }
+        return false;
+    }
+
     public function getName($id)
     {
         $temp = $this->name_field;
@@ -245,22 +261,23 @@ class Category_Model extends CI_Model
     {
         $sql = "select id from category where is_menu=1 and slug='$slug' limit 0,1";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['id'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['id'];
+            }
+        }
         return -1;
     }
 
-    public function getInfoFromId($category_id){
+    public function getInfoFromId($category_id)
+    {
         $sql = "select * from category where id=$category_id";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item;
+            }
+        }
         return -1;
     }
 

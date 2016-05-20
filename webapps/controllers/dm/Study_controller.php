@@ -29,6 +29,7 @@ class Study_controller extends CI_Controller
             if ($this->Category_model->findByParent($category['id'])) {
                 $can_be_deleted = FALSE;
             };
+            $can_be_write = $this->Category_model->hasChild($category['id']);
             array_push($categories, array(
                 'id' => $category['id'],
                 'isView' => 0,
@@ -37,7 +38,8 @@ class Study_controller extends CI_Controller
                 'updated_date' => $category['updated_date'],
                 'created_date' => $category['created_date'],
                 'can_be_deleted' => $can_be_deleted,
-                'can_be_edited' => false
+                'can_be_edited' => false,
+                'can_be_write' => $can_be_write
             ));
             $categories = $this->loadSub($categories, $category);
         }
@@ -57,7 +59,7 @@ class Study_controller extends CI_Controller
                 if (count($current_news_list) > 0) {
                     $isView = 1;
                 }
-
+                $can_be_write = $this->Category_model->hasChild($category['id']);
                 array_push($categories, array(
                     'id' => $category['id'],
                     'isView' => $isView,
@@ -66,7 +68,8 @@ class Study_controller extends CI_Controller
                     'updated_date' => $category['updated_date'],
                     'created_date' => $category['created_date'],
                     'can_be_deleted' => FALSE,
-                    'can_be_edited' => TRUE
+                    'can_be_edited' => TRUE,
+                    'can_be_write' => $can_be_write
                 ));
                 $categories = $this->loadSub($categories, $category);
             }
@@ -92,7 +95,7 @@ class Study_controller extends CI_Controller
 
     public function create_category_add()
     {
-        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('parentCatId'));
+        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('slug'), $this->input->post('parentCatId'));
         redirect('manage-study-category', 'refresh');
 
     }
@@ -121,7 +124,7 @@ class Study_controller extends CI_Controller
 
     public function update_category_add()
     {
-        $this->Category_model->updateWithParent($this->input->post('catId'), $this->input->post('viCatName'));
+        $this->Category_model->updateWithParent($this->input->post('catId') ,$this->input->post('slug'), $this->input->post('viCatName'));
         redirect('manage-study-category', 'refresh');
     }
 
@@ -155,7 +158,7 @@ class Study_controller extends CI_Controller
 
     public function add_child_category()
     {
-        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('catId'));
+        $this->Category_model->insertWithParent($this->input->post('viCatName'), $this->input->post('slug'),$this->input->post('catId'));
         redirect('manage-study-category', 'refresh');
     }
 }

@@ -25,10 +25,14 @@
                     <td> <?php if ($category['isView']==1) { ?>
                             <i class="fa fa-eye"></i>
                         <?php } ?>
-                        <?php echo $category['vi_name']; ?><a
-                            href="<?php echo base_url() . "news-manager/add-news/" . $category['id']; ?>"
+                        <?php echo $category['vi_name']; ?>
+
+                        <?php if(!$category['can_be_write']) { ?>
+                        <a href="<?php echo base_url() . "news-manager/add-news/" . $category['id']; ?>"
                             class="pull-right"><i class="fa fa-pencil-square" data-toggle="tooltip" data-placement="bottom"
-                                                  data-original-title="Xem chi tiết"></i></a></td>
+                                                  data-original-title="Xem chi tiết"></i></a>
+                        <?php } ?>
+                    </td>
                     <td><?php echo substr($category['created_date'],0,10); ?></td>
                     <td><?php echo substr($category['updated_date'],0,10); ?></td>
                     <td>

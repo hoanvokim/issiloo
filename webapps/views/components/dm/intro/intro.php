@@ -9,7 +9,6 @@
             <tr>
                 <th width="5%">TabID</th>
                 <th width="10%">Tên tab</th>
-                <th width="40%">Nội dung</th>
                 <th width="15%">Ngày thêm</th>
                 <th width="15%">Ngày cập nhật</th>
                 <th width="15%">Tác vụ</th>
@@ -20,9 +19,6 @@
                 <tr>
                     <td><?php echo $intro['catId']; ?></td>
                     <td><?php echo $intro['viCatName']; ?></td>
-                    <td>
-                        <?php echo $intro['viNewsContent']; ?>
-                    </td>
                     <td><?php echo substr($intro['catCreatedDate'],0,10); ?></td>
                     <td><?php echo substr($intro['catUpdatedDate'],0,10); ?></td>
                     <td>

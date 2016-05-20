@@ -46,3 +46,17 @@
         });
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $('.summernote').summernote({
+            height: 600,                 // set editor height
+            minHeight: 400
+        });
+    });
+
+    var postForm = function () {
+        $('textarea[name="visummary"]').html($('#sumsummernote').code());
+        $('textarea[name="vicontent"]').html($('#contentsummernote').code());
+        $('textarea[name="faqAnswer"]').html($('#summernote').code());
+    }
+</script>

@@ -8,23 +8,11 @@
 
     <!--Summernote-->
     <!--===================================================-->
-    <textarea name="viContent" class="summernote"><p><?php echo $intro['viNewsContent']; ?></p></textarea>
+    <textarea name="vicontent" class="contentsummernote"><p><?php echo $intro['viNewsContent']; ?></p></textarea>
     <!--===================================================-->
     <!-- End Summernote -->
     <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Cập nhật</button>
     <a href="<?php echo base_url() . "intro-manager/update-cancel" ?>" type="submit"
        class="btn btn-default btn-xs"><i class="fa fa-close"></i> Huỷ</a>
     </form>
-    <script>
-        $(document).ready(function () {
-            $('.summernote').summernote({
-                height: 600,                 // set editor height
-                minHeight: 400
-            });
-        });
-
-        var postForm = function () {
-            $('textarea[name="viContent"]').html($('#summernote').code());
-        }
-    </script>
 <?php } ?>
