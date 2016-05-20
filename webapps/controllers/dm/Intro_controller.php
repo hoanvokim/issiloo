@@ -61,6 +61,7 @@ class Intro_controller extends CI_Controller
         $this->Category_model->update($this->input->post('catId'),'', $this->input->post('viTabName'));
         $this->News_model->update($this->input->post('catId'), $this->input->post('vicontent'));
         redirect('manage-intro', 'refresh');
+
     }
 
     public function update_cancel()
