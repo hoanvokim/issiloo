@@ -3056,3 +3056,9 @@ ol {
     background-size: 100%;
 
 }
+
+.simple-summary {
+    font-weight: normal!important;
+    padding-top:5px;
+    padding-bottom:5px;
+}

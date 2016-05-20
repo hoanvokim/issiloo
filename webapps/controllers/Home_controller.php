@@ -79,7 +79,7 @@ class Home_controller extends CI_Controller
         foreach($aImportantMenu as $item){
             //get sub menu of each item.
             $aCat = array();
-            $aCat[0] = $item;
+            $aCat[] = $item;
             $this->Category_model->getAllSubMenu($item,$aCat);
 
             $aTemp = $this->News_model->getNewsByArrCat($aCat);
