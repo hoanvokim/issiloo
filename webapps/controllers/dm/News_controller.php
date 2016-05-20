@@ -97,22 +97,21 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         } else {
-            echo 'test'.$this->input->post('vicontent');
-//            $this->News_model->update_full(
-//                $this->input->post('newsId'),
-//                $this->input->post('catId'),
-//                $this->input->post('img_src'),
-//                $this->input->post('slug'),
-//                $this->input->post('title_header'),
-//                $this->input->post('description_header'),
-//                $this->input->post('keyword_header'),
-//                $this->input->post('vititle'),
-//                $this->input->post('vicontent'),
-//                $this->input->post('visummary')
-//            );
+            $this->News_model->update_full(
+                $this->input->post('newsId'),
+                $this->input->post('catId'),
+                $this->input->post('img_src'),
+                $this->input->post('slug'),
+                $this->input->post('title_header'),
+                $this->input->post('description_header'),
+                $this->input->post('keyword_header'),
+                $this->input->post('vititle'),
+                $this->input->post('vicontent'),
+                $this->input->post('visummary')
+            );
         }
 
-//        redirect('manage-study-news', 'refresh');
+        redirect('manage-study-news', 'refresh');
     }
 
     public function update_study_news_cancel() {
