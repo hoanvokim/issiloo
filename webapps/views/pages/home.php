@@ -146,7 +146,7 @@
                                 <strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                         <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                             <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
-                        <div><?php echo $last_news[0]['summary']; ?> <a
+                        <div class="simple-summary"><?php echo $last_news[0]['summary']; ?> <a
                                 href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
                                 data-toggle="tooltip"
                                 data-placement="bottom"

@@ -62,10 +62,19 @@ class News_Model extends CI_Model
         $aResult = array();
         $cnt = 0;
         if(count($aData)>0){
-             if(strripos($aData[0]['img_src'],'embed/') !== false || strripos($aData[0]['img_src'],'watch?v=') !== false){
-                 $aData[0]['img_src'] = getThumbnailFromYoutubeLink($aData[0]['img_src']);
-             }else{
-                 $aData[0]['img_src'] = base_url().$aData[0]['img_src'];
+
+             $flag = 0;
+             foreach($aData as $item){
+                 if($flag == 1){
+                      break;
+                 }
+                 if(strripos($item['img_src'],'embed/') !== false || strripos($item['img_src'],'watch?v=') !== false){
+                     $item['img_src'] = getThumbnailFromYoutubeLink($item['img_src']);
+                     $flag = 1;
+                 }else{
+                     $item['img_src'] = base_url().$item['img_src'];
+                     $flag = 1;
+                 }
              }
 
              foreach($aData as $item){
@@ -205,16 +214,16 @@ class News_Model extends CI_Model
     {
         $sql = "select category_id from news where id=$news_id";
         $result = $this->db->query($sql)->result_array();
-        $category_id = $result[0]['category_id'];
-
-        $arr = array();
-        $arr[0]['cat_name'] = $this->Category_model->getName($category_id);
+        $category_id = 0;
+        foreach($result as $item){
+            $category_id = $item['category_id'];
+            break;
+        }
 
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
         $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,5";
 
-        $arr[0]['related_news'] = $this->db->query($sql)->result_array();
-        return $arr;
+        return $this->db->query($sql)->result_array();
     }
 
     public function getTotalRowByTagId($tag_id)

@@ -74,22 +74,21 @@
 
             <div class="col-md-4 sidebar">
 
-                <?php foreach ($relatednews as $item) { ?>
                     <!-- widget start -->
                     <div class="widget-box">
 
-                        <?php if(count($item['related_news'])>0){ ?>
-                            <h4><?php echo $item['cat_name']; ?></h4>
+                        <?php if(count($relatednews)>0){ ?>
+                            <h4><?php echo $category_info['vi_name']; ?></h4>
                         <?php } ?>
                         <ul class="list">
 
-                            <?php $cnt = count($item['related_news']) >= 4 ? 4 : count($item['related_news']); ?>
+                            <?php $cnt = count($relatednews) >= 4 ? 4 : count($relatednews); ?>
                             <?php for ($i = 0; $i < $cnt; $i++) { ?>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
-                                            src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>"
-                                            alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
-                                        <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
+                                    <a href="<?php echo base_url(); ?>news/<?php echo $relatednews[$i]['slug']; ?>"><img
+                                            src="<?php echo base_url(); ?><?php echo $relatednews[$i]['img_src']; ?>"
+                                            alt=""/><?php echo $relatednews[$i]['title']; ?><br/>
+                                        <small><?php echo date_format(new DateTime($relatednews[$i]['created_date']), "F d, Y"); ?></small>
                                     </a></li>
                             <?php } ?>
 
@@ -97,7 +96,7 @@
                         </ul>
                     </div>
                     <!-- widget end -->
-                <?php } ?>
+
 
                 <!-- widget start -->
                 <div class="widget-box">

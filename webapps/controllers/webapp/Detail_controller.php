@@ -34,6 +34,8 @@ class Detail_controller extends CI_Controller{
         $category_id = $data['detail']['category_id'];
         $category_info = $this->Category_model->getInfoFromId($category_id);
 
+        $data['category_info'] = $category_info;
+
         $data['lst_post'] = $this->News_model->getNewsByCatId($category_id);
         $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'],$news_id);
         $data['max_post'] = count($data['lst_post']) - 1;
