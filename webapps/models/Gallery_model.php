@@ -19,11 +19,11 @@ class Gallery_Model extends CI_Model
     {
         $sql = "select gallery.id, img_src, vi_title from gallery where gallery.id = $id";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item;
+            }
+        }
         return -1;
     }
 
@@ -112,6 +112,7 @@ class Gallery_Model extends CI_Model
             return $this->db->query($sql1);
         }
     }
+
     public function deleteImagesByUniversityID($uniId)
     {
         $list = $this->getGalleryByUniverity($uniId);

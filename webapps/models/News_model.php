@@ -9,7 +9,6 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  */
 class News_Model extends CI_Model
 {
-
     public $title = "vi_title";
     public $content = "vi_content";
     public $summary = "vi_summary";

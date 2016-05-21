@@ -70,7 +70,9 @@
         .affix-top nav ul > li ul {
             top: 61px;
         }
-
+        .submenu {
+            top: 0px !important;
+        }
         .affix + .container-fluid {
             padding-top: 70px;
         }

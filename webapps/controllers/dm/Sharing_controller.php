@@ -212,8 +212,9 @@ class Sharing_controller extends CI_Controller
         if (isset($_POST["delete-img"])) {
             if (count($this->input->post('deleteimg')) > 0) {
                 foreach ($this->input->post('deleteimg') as $item) {
-                    if(!is_null($this->Gallery_model->getGalleryById($item)['img_src'])) {
-                        unlink('./' . $this->Gallery_model->getGalleryById($item)['img_src']);
+                    $img = $this->Gallery_model->getGalleryById($item);
+                    if(!is_null($img['img_src'])) {
+                        unlink('./' . $img['img_src']);
                     }
                 }
                 $this->Gallery_model->deleteList($this->input->post('deleteimg'));

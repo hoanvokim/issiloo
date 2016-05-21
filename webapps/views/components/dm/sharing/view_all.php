@@ -10,8 +10,8 @@
             <tr>
                 <th width="5%">Id</th>
                 <th width="20%">Tiêu đề</th>
-                <th width="20%">Tóm tắt</th>
-                <th width="20%">Phân loại</th>
+                <th width="30%">Tóm tắt</th>
+                <th width="10%">Phân loại</th>
                 <th width="10%">Ngày tạo</th>
                 <th width="10%">Ngày cập nhật</th>
                 <th width="15%">Tác vụ</th>
