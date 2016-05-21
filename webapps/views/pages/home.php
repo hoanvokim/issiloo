@@ -136,7 +136,11 @@
                     <div class="col-sm-6">
                         <div class="img-responsive">
                             <a href="#">
-                                <img src="<?php echo $last_news[0]['img_src']; ?>"
+                                <img src="<?php  if(strripos($last_news[0]['img_src'],'embed/') !== false || strripos($last_news[0]['img_src'],'watch?v=') !== false){ echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);}
+                                    else{
+                                        echo base_url().$last_news[0]['img_src'];
+                                    }
+                                ?>"
                                      width="500px;">
                             </a>
                         </div>

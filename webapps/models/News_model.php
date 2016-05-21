@@ -63,7 +63,7 @@ class News_Model extends CI_Model
         $cnt = 0;
         if(count($aData)>0){
 
-             $flag = 0;
+            /* $flag = 0;
              foreach($aData as $item){
                  if($flag == 1){
                       break;
@@ -75,7 +75,7 @@ class News_Model extends CI_Model
                      $item['img_src'] = base_url().$item['img_src'];
                      $flag = 1;
                  }
-             }
+             }*/
 
             foreach ($aData as $item) {
                 $aResult[$cnt]['id'] = $item['id'];
