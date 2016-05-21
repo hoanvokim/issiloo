@@ -165,7 +165,10 @@ class HotNews_controller extends CI_Controller
     public function delete_news()
     {
         $news = $this->News_model->getNewsById($this->uri->segment(3));
-        unlink('./' . $news['img_src']);
+
+        if(!is_null($news['img_src'])) {
+            unlink('./' . $news['img_src']);
+        }
         $this->News_model->delete($this->uri->segment(3));
         redirect('news-manager', 'refresh');
     }

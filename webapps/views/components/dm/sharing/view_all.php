@@ -22,7 +22,7 @@
                 <tr>
                     <td><?php echo $program['id']; ?></td>
                     <td><?php echo $program['title']; ?></td>
-                    <td><?php echo substr($program['summary'],0,100); ?></td>
+                    <td><?php echo $program['summary']; ?></td>
                     <td><?php echo $program['type']; ?></td>
                     <td><?php echo substr($program['created_date'],0,10); ?></td>
                     <td><?php echo substr($program['updated_date'],0,10); ?></td>

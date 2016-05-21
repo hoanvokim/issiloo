@@ -201,7 +201,9 @@ class Sharing_controller extends CI_Controller
         if (isset($_POST["delete"])) {
             $listGallery = $this->Gallery_model->getGalleryByNewsId($this->input->post('newsId'));
             foreach ($listGallery as $item) {
-                unlink('./' . $item['img_src']);
+                if(!is_null($item['img_src'])) {
+                    unlink('./' . $item['img_src']);
+                }
             }
             $this->Gallery_model->deleteImagesByNewsID($this->input->post('newsId'));
             $this->News_model->delete($this->input->post('newsId'));
@@ -210,7 +212,9 @@ class Sharing_controller extends CI_Controller
         if (isset($_POST["delete-img"])) {
             if (count($this->input->post('deleteimg')) > 0) {
                 foreach ($this->input->post('deleteimg') as $item) {
-                    unlink('./' . $this->Gallery_model->getGalleryById($item)['img_src']);
+                    if(!is_null($this->Gallery_model->getGalleryById($item)['img_src'])) {
+                        unlink('./' . $this->Gallery_model->getGalleryById($item)['img_src']);
+                    }
                 }
                 $this->Gallery_model->deleteList($this->input->post('deleteimg'));
             }
@@ -274,7 +278,9 @@ class Sharing_controller extends CI_Controller
         $listGallery = $this->Gallery_model->getGalleryByNewsId($this->uri->segment(3));
         if(count($listGallery)>0) {
             foreach ($listGallery as $item) {
-                unlink('./' . $item['img_src']);
+                if(!is_null($item['img_src'])) {
+                    unlink('./' . $item['img_src']);
+                }
             }
         }
         $this->Gallery_model->deleteImagesByNewsID($this->uri->segment(3));

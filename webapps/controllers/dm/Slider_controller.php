@@ -109,7 +109,9 @@ class Slider_controller extends CI_Controller
 
         if (isset($_POST["delete-img"])) {
             $news = $this->Slider_model->findById($this->input->post('id'));
-            unlink('./' . $news['img_src']);
+            if(!is_null($news['img_src'])) {
+                unlink('./' . $news['img_src']);
+            }
             $this->Slider_model->update(
                 $this->input->post('id'),
                 '',

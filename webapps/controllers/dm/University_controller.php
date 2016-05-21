@@ -141,7 +141,9 @@ class University_controller extends CI_Controller
         $listGallery = $this->Gallery_model->getGalleryByUniverity($this->uri->segment(3));
         if(count($listGallery)>0) {
             foreach ($listGallery as $item) {
-                unlink('./' . $item['img_src']);
+                if(!is_null($item['img_src'])) {
+                    unlink('./' . $item['img_src']);
+                }
             }
         }
         $this->Gallery_model->deleteImagesByUniversityID($this->uri->segment(3));
