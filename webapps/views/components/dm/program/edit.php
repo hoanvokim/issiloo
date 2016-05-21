@@ -51,19 +51,19 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Đường dẫn trên thanh địa chỉ</label>
-                        <input type="text" name="slug" class="form-control" value=" <?php  echo $slug; ?>">
+                        <input type="text" name="slug" class="form-control" value="<?php  echo $slug; ?>">
                     </div>
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Tiêu đề [SEO]</label>
-                        <input type="text" name="title_header" class="form-control" value=" <?php  echo $title_header; ?>">
+                        <input type="text" name="title_header" class="form-control" value="<?php  echo $title_header; ?>">
                     </div>
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Đặc tả [SEO]</label>
-                        <input type="text" name="description_header" class="form-control" value=" <?php  echo $description_header; ?>">
+                        <input type="text" name="description_header" class="form-control" value="<?php  echo $description_header; ?>">
                     </div>
                     <div class="form-group">
                         <label for="demo-vs-definput" class="control-label">Từ khoá [SEO]</label>
-                        <input type="text" name="keyword_header" class="form-control" value=" <?php  echo $keyword_header; ?>">
+                        <input type="text" name="keyword_header" class="form-control" value="<?php  echo $keyword_header; ?>">
                     </div>
                 </div>
             </div>
