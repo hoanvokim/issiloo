@@ -86,8 +86,12 @@ class Home_controller extends CI_Controller
             if(count($aTemp) == 0){
                 continue;
             }
+
+            $imp_cat_info = $this->Category_model->getInfoFromId($item);
             $aImpNews[$cnt]['cat_name'] = $this->Category_model->getName($item);
             $aImpNews[$cnt]['cat_id'] = $item;
+            $aImpNews[$cnt]['cat_slug'] = $imp_cat_info['slug'];
+            $aImpNews[$cnt]['count_news'] = count($aTemp);
             $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
             $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp,$max_news);
             $cnt++;

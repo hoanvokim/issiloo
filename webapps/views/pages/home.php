@@ -55,12 +55,12 @@
 
                                 </ul>
                             </div>
-                            <!--<?php if (count($adhhq) > 4) { ?>
-                                <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $dhhq['slug']; ?>"
+                            <?php if ($item['count_news'] > 4) { ?>
+                                <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
                                                            class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
                                         <i
                                             class="ion ion-ios-arrow-thin-right"></i></a></div>
-                            <?php } ?>  -->
+                            <?php } ?>
                         </div>
                     </div>
 
