@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 4/29/16
  * Time: 9:44 PM
  */
-class HotNews_controller extends CI_Controller
+class Hotnews_controller extends CI_Controller
 {
 
     public $programId = 7;
