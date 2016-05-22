@@ -34,6 +34,10 @@ class Gallery_Model extends CI_Model
         return $this->db->query($sql)->result_array();
     }
 
+    public function getGalleryByType($type,$start_record,$limit){
+        $sql = "select * from gallery where type='$type' limit $start_record,$limit";
+        return $this->db->query($sql)->result_array();
+    }
 
     public function getGalleryByNews()
     {
@@ -125,5 +129,34 @@ class Gallery_Model extends CI_Model
             $sql1 = $sql1 . ")";
             return $this->db->query($sql1);
         }
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('gallery');
+    }
+
+    public function insert($img_src, $type, $vi_title)
+    {
+        $data = array(
+            'img_src' => $img_src,
+            'type' => $type,
+            'vi_title' => $vi_title
+        );
+
+        $this->db->insert('gallery', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function update($id, $img_src, $vi_title)
+    {
+        $data = array(
+            'img_src' => $img_src,
+            'vi_title' => $vi_title
+        );
+        $this->db->where('id', $id);
+        $this->db->update('gallery', $data);
     }
 }

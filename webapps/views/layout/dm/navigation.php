@@ -57,6 +57,13 @@
                         </li>
 
                         <li>
+                            <a href="<?php echo site_url('gallery-corner-manager'); ?>">
+                                <i class="fa fa-braille"></i>
+                                <span class="menu-title">Chia sẽ ảnh và video</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="<?php echo site_url('sub-category-manager'); ?>">
                                 <i class="fa fa-sun-o"></i>
                                 <span class="menu-title">Thêm phân nhóm phụ</span>

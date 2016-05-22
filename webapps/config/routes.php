@@ -162,6 +162,13 @@ $route['slider-manager/delete-slider/:num'] = 'dm/slider_controller/delete_slide
 $route['slider-manager-create-slider-submit'] = 'dm/slider_controller/create_slider_submit';
 $route['slider-manager-update-slider-submit'] = 'dm/slider_controller/update_slider_submit';
 
+$route['gallery-corner-manager'] = 'dm/gallery_corner_controller/index';
+$route['gallery-corner-manager/create-gallery'] = 'dm/gallery_corner_controller/create_gallery';
+$route['gallery-corner-manager/update-gallery/:num'] = 'dm/gallery_corner_controller/update_gallery';
+$route['gallery-corner-manager/delete-gallery/:num'] = 'dm/gallery_corner_controller/delete_gallery';
+$route['gallery-corner-manager-create-gallery-submit'] = 'dm/gallery_corner_controller/create_gallery_submit';
+$route['gallery-corner-manager-update-gallery-submit'] = 'dm/gallery_corner_controller/update_gallery_submit';
+
 $route['sharing-manager'] = 'dm/sharing_controller/index';
 $route['sharing-manager/create-sharing'] = 'dm/sharing_controller/create_sharing';
 $route['sharing-manager/update-sharing/:num'] = 'dm/sharing_controller/update_sharing';
