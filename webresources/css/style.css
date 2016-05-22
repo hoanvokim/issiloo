@@ -3065,3 +3065,24 @@ ol {
     padding-top:5px;
     padding-bottom:5px;
 }
+
+.message {
+    display:none;
+    padding:5px;
+    margin:5px;
+    border:1px solid #cccccc;
+    border-radius:2px;
+}
+
+.error, .success{
+    display:block!important;
+    font-weight:bold!important;
+}
+
+.error {
+    color:red!important;
+}
+
+.success{
+    color:green!important;
+}

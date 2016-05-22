@@ -44,6 +44,9 @@
             placeholder: "Hãy chọn tag",
             allowClear: true
         });
+
+        $('.message').fadeOut(7000);
+
     });
 </script>
 <script>

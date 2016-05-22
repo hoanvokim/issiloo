@@ -65,6 +65,8 @@ $route['search/(:any)/(:num)'] = 'webapp/search_controller/find/$1/$2';
 $route['admin'] = 'dm/admin_controller/index';
 $route['logout'] = 'dm/admin_controller/logout';
 $route['login'] = 'dm/admin_controller/login_submit';
+$route['edit-profile'] = 'dm/admin_controller/change_password';
+$route['edit-profile-change-password-submit'] = 'dm/admin_controller/change_password_submit';
 
 $route['add-category'] = 'dm/category_controller/index';
 

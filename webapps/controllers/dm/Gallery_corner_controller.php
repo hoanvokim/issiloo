@@ -21,7 +21,7 @@ class Gallery_corner_controller extends CI_Controller
 
     public function index()
     {
-        $data['galleries'] = $this->Gallery_model->getGalleryByType('corner',0,10);
+        $data['galleries'] = $this->Gallery_model->getGalleryByType('corner',0,1000);
         $data['title'] = 'Chia sẽ ảnh và video';
         $this->load->view('pages/dm/gallery/view_all', $data);
     }
