@@ -24,9 +24,7 @@
 
 <div class="form-group">
     <label for="demo-vs-definput" class="control-label">Tiêu đề ảnh</label>
-    <textarea name="vi_title" class="form-control">
-        <?php echo $vi_title; ?>
-    </textarea>
+    <textarea name="vi_title" class="form-control"><?php echo $vi_title; ?></textarea>
 </div>
 
 <button type="submit" class="btn btn-success btn" name="save"><i class="fa fa-save"></i> Lưu</button>

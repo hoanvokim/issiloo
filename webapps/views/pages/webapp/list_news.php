@@ -18,13 +18,13 @@
                                 <div class="col-md-12 grid-item">
                                     <div class="blog-item">
                                         <div class="entry-media">
-                                            <img src="<?php echo base_url(); ?><?php if(empty($news['img_src'])){echo 'webresources/images/img_default.jpg';} else { echo $news['img_src'];} ?>"
+                                            <img src="<?php echo base_url(); ?><?php if(empty($news['img_src'])){echo 'webresources/images/banner0.jpg';} else { echo $news['img_src'];} ?>"
                                                  alt=""/>
                                         </div>
                                         <div class="entry-content">
                                             <span class="entry-date"><a href="#"><?php echo date_format(new DateTime($news['created_date']),"d.m.Y"); ?></a></span>
                                             <h5><a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><?php echo $news['title']; ?></a></h5>
-                                            <div><?php echo $news['summary']; ?></div>
+                                            <div style="padding: 15px;"><?php echo $news['summary']; ?></div>
                                             <br>
                                             <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
                                         </div>
@@ -155,7 +155,7 @@
                                     echo '';
                                 } ?></p>
 
-                            <div class="row" style="height: 450px;">
+                            <div class="row" style="height: 405px;">
                                 <div class="col-md-10 col-md-offset-1">
                                     <form class="contact-form" id="ContactForm" method="post"
                                           action="<?php echo base_url(); ?>">

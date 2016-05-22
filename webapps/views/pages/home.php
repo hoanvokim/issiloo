@@ -46,7 +46,7 @@
                                     <?php foreach ($item['related_news'] as $news_item) { ?>
                                         <li><a href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
                                                 <img
-                                                    src="<?php echo base_url(); ?>/<?php echo $news_item['img_src']; ?>"
+                                                    src="<?php echo base_url(); ?><?php if(empty($news_item['img_src'])){echo 'webresources/images/banner0.jpg';} else { echo $news_item['img_src'];} ?>"
                                                     alt=""/>
                                                 <?php echo $news_item['title'] ?><br/>
                                                 <small><?php echo date_format(new DateTime($news_item['created_date']), "F d, Y"); ?></small>
@@ -230,7 +230,7 @@
                             echo '';
                         } ?></p>
 
-                    <div class="row" style="height: 450px;">
+                    <div class="row" style="height: 420px;">
                         <div class="col-md-10 col-md-offset-1">
                             <form class="contact-form" id="ContactForm" method="post"
                                   action="<?php echo base_url(); ?>">

@@ -1,4 +1,9 @@
 /*reset css starts here*/
+@font-face {
+    font-family: Roboto Slab, 'Open Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1028,7 +1033,7 @@ footer h5.small {
 }
 
 .footer-logo {
-    width: 180px;
+    width: 333px;
 }
 
 footer .open {

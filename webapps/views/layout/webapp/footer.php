@@ -44,6 +44,10 @@
                     <p class="open"><i
                             class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
                         <br/><?php echo $this->lang->line('MORNING_EVENING'); ?></p>
+
+                    <p class="open"><i
+                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
+                        <br/><?php echo $this->lang->line('MORNING_NOON'); ?></p>
                 </div>
             </div>
         </div>

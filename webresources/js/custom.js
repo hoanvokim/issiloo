@@ -104,7 +104,7 @@ $(function () {
 		var map;
 		function initialize() {
 			var mapOptions = {
-				zoom: 16,
+				zoom: 10,
 				scrollwheel: false,
 			 	center: new google.maps.LatLng(25.932884, 83.569633),
 			 	styles: [
@@ -164,6 +164,7 @@ $('.intro-scroll-down').click(function(){
   slidesToShow: 4,
   slidesToScroll: 1,
   pauseOnHover: false,
+  adaptiveHeight: true,
   responsive: [
     {
       breakpoint: 1100,
@@ -201,7 +202,7 @@ $('.slider').slick({
   speed: 700,
   slidesToShow: 1,
   adaptiveHeight: true,
-  touchMove: false
+  touchMove: true
 });
 
 
@@ -210,7 +211,8 @@ $('.recent-projects-slider').slick({
   infinite: true,
   speed: 700,
   slidesToShow: 1,
-  adaptiveHeight: true
+  adaptiveHeight: true,
+	touchMove: true
 });
 
 
@@ -223,7 +225,7 @@ $('.projects-slides').slick({
   autoplay: true,
   autoplaySpeed: 2000,
   pauseOnHover: false,
-  touchMove: false,
+  touchMove: true,
   arrows: false
   
 });
