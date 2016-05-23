@@ -8,7 +8,7 @@
 
     <!--Summernote-->
     <!--===================================================-->
-    <textarea name="vicontent" class="contentsummernote"><p><?php echo $intro['viNewsContent']; ?></p></textarea>
+    <textarea name="vicontent" id="contentsummernote" class="summernote"><p><?php echo $intro['viNewsContent']; ?></p></textarea>
     <!--===================================================-->
     <!-- End Summernote -->
     <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Cập nhật</button>

@@ -6,7 +6,7 @@
 
 <!--Summernote-->
 <!--===================================================-->
-<textarea name="vicontent" class="contentsummernote"><p>Nhập nội dung...</p></textarea>
+<textarea name="vicontent" id="contentsummernote" class="summernote"><p>Nhập nội dung...</p></textarea>
 <!--===================================================-->
 <!-- End Summernote -->
 <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
