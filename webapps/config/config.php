@@ -516,7 +516,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 $config['protocol'] = 'sendmail';
-$config['contact_email'] = 'admin@nghitran.info';
+$config['contact_email'] = 'kr-info@issiloo.edu.vn';
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
 $config['wordwrap'] = TRUE;

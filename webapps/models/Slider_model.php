@@ -11,8 +11,16 @@ class Slider_Model extends CI_Model
 {
     public function getAll()
     {
-        $sql = "select * from slider";
-        return $this->db->query($sql)->result_array();
+        try{
+
+            $sql = "select * from slider order by created_date DESC";
+            return $this->db->query($sql)->result_array();
+
+        }catch(Exception $e){
+
+            return false;
+
+        }
     }
 
     public function findById($id)

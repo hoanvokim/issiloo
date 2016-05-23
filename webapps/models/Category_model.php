@@ -271,9 +271,9 @@ class Category_Model extends CI_Model
 
     public function getInfoFromId($category_id)
     {
-        $sql = "select * from category where id=$category_id";
+        $sql = "select * from category where id = $category_id";
         $list = $this->db->query($sql)->result_array();
-        if (count($list > 0)) {
+        if (count($list) > 0) {
             foreach ($list as $item) {
                 return $item;
             }
