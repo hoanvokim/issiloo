@@ -93,9 +93,9 @@ class List_news_controller extends CI_Controller
             }
         }
 
-        $category_info = $this->Category_model->getInfoFromId($category_id);
+        $category_info = $this->Category_model->getInfoFromId($category_id);   //if not return -1
 
-       if($category_id==$this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+       if($category_info != -1 && ($category_id==$this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')){
 
             $arr_news = array();
             $cnt = 0;
@@ -116,12 +116,12 @@ class List_news_controller extends CI_Controller
             $data['anews'] = $arr_news;
             $this->load->view('pages/webapp/share_corner',$data);
 
-        }elseif($category_id==$this->config->item('faq') || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs'){
+        }elseif($category_info != -1 && ($category_id==$this->config->item('faq') || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs')){
 
            $data['faqs'] = $this->Faq_model->getAll();
            $this->load->view('pages/webapp/faq',$data);
 
-        } elseif ($category_id == $this->config->item('introduce') || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce') {
+        } elseif ($category_info != -1 && ($category_id == $this->config->item('introduce') || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce')) {
 
            $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
            $this->load->view('pages/webapp/intro', $data);
@@ -151,7 +151,8 @@ class List_news_controller extends CI_Controller
         $this->Category_model->getMainMenu(null, $strMenu);
         $data['menustr'] = $strMenu;
 
-        $data['title_header'] = $this->Tag_model->getNameById($tag_id);
+        $tag_name =  $this->Tag_model->getNameById($tag_id);
+        $data['title_header'] = $tag_name !=-1 ? $tag_name : '';
 
         //limit = 10
         $this->pageutility->setData($this->News_model->getTotalRowByTagId($tag_id), 10);

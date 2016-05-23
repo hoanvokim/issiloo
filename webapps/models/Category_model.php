@@ -253,12 +253,18 @@ class Category_Model extends CI_Model
     {
         $temp = $this->name_field;
         $sql = "select $temp from category where id=$id";
-        $row = $this->db->query($sql)->row();
-        return $row->$temp;
+        $result = $this->db->query($sql)->result_array();
+        if($result && count($result) > 0){
+            foreach($result as $item){
+                return $item[$temp];
+            }
+        }
+        return '';
     }
 
     public function getIdFromSlug($slug)
     {
+        $slug = urldecode($slug);
         $sql = "select id from category where is_menu=1 and slug='$slug' limit 0,1";
         $list = $this->db->query($sql)->result_array();
         if (count($list > 0)) {

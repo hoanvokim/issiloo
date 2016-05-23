@@ -78,7 +78,7 @@
         <!-- inner container end -->
     <?php } ?>
 
-    <?php if (count($universities) > 0) { ?>
+    <?php if ($universities && count($universities) > 0) { ?>
         <!-- slider container start -->
         <div class="slider-university-container">
             <div class="container">
@@ -112,7 +112,7 @@
                                                 <p><?php echo $university['description']; ?></p>
 
                                                 <h4>Website -
-                                                    <small><a href="http://www.KOGURYEO.com"
+                                                    <small><a href="<?php echo $university['url']; ?>"
                                                               target="_blank"><?php echo $university['url']; ?></a>
                                                     </small>
                                                 </h4>
@@ -198,7 +198,7 @@
         <!-- inner container end -->
     <?php } ?>
 
-    <?php if (count($video_image) > 0) { ?>
+    <?php if ($video_image && count($video_image) > 0) { ?>
         <div class="feature-container mar-60">
             <h3 class="col-header-color"
                 style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>

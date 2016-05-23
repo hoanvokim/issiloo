@@ -96,13 +96,16 @@ class News_Model extends CI_Model
     public function getNewsByCatCollection($aCat, $cur_page, $limit)
     {
         $start = ($cur_page - 1) * $limit;
-        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id in (";
-        $cnt = count($aCat);
-        for ($i = 0; $i < $cnt - 1; $i++) {
-            $sql = $sql . $aCat[$i] . ",";
+        if($aCat && count($aCat) > 0){
+            $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where category_id in (";
+            $cnt = count($aCat);
+            for ($i = 0; $i < $cnt - 1; $i++) {
+                $sql = $sql . $aCat[$i] . ",";
+            }
+            $sql = $sql . $aCat[$cnt - 1] . ") limit $start,$limit";
+            return $this->db->query($sql)->result_array();
         }
-        $sql = $sql . $aCat[$cnt - 1] . ") limit $start,$limit";
-        return $this->db->query($sql)->result_array();
+        return array();
     }
 
     public function getNewsByCatCollectionWithoutLimit($aCat)
@@ -125,7 +128,7 @@ class News_Model extends CI_Model
         }
         $sql = $sql . $aCat[$cnt - 1] . ")";
         $list = $this->db->query($sql)->result_array();
-        if (count($list > 0)) {
+        if (count($list) > 0) {
             foreach ($list as $item) {
                 return $item['total_row'];
             }
@@ -147,7 +150,6 @@ class News_Model extends CI_Model
                 continue;
             }
             $arr[$cnt]['cat_name'] = $this->Category_model->getName($item);
-            //$arr[$cnt]['related_news'] = $this->getNewsByCatId($item);
             $aNews = $this->getNewsByCatId($item);
             $max_news = count($aNews) > 4 ? 4 : count($aNews);
             $arr[$cnt]['related_news'] = $this->resizeNewsArray($aNews, $max_news);

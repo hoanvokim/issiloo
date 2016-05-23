@@ -12,7 +12,7 @@
                     <div class="container">
                         <div id="masonry" class="row">
 
-
+                        <?php if($anews && count($anews) > 0){ ?>
                             <?php foreach ($anews as $news) { ?>
                                 <!-- blog item start -->
                                 <div class="col-md-12 grid-item">
@@ -31,7 +31,8 @@
                                     </div>
                                 </div>
                                 <!-- blog item end -->
-                            <?php } ?>
+                            <?php }
+                        } ?>
 
 
                         </div>
@@ -116,7 +117,8 @@
             </div>
             <div class="col-sm-12 col-md-4">
 
-                <?php foreach ($relatednews as $item) { ?>
+                <?php if($relatednews && count($relatednews) > 0){
+                    foreach ($relatednews as $item) { ?>
                     <!-- widget start -->
                     <div class="widget-box">
                         <h4><?php echo $item['cat_name']; ?></h4>
@@ -136,7 +138,8 @@
                         </ul>
                     </div>
                     <!-- widget end -->
-                <?php } ?>
+                <?php }
+                } ?>
 
 
                 <!--register form-->

@@ -8,13 +8,16 @@
                 <div class="col-sm-12 col-md-8">
                     <br><br><br><br><br><br>
                     <ul class="project-category" style="text-align: left; margin-left:20px;">
-                        <li><a href="#" data-filter="" id="option1" class="active"><?php echo $tag_name; ?></a></li>
+                        <?php if(strlen($tag_name) > 0){ ?>
+                            <li><a href="#" data-filter="" id="option1" class="active"><?php echo $tag_name; ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-12 col-md-8">
+                    <?php if($anews && count($anews) > 0){ ?>
                     <!-- inner container start -->
                     <div class="inner-container">
                         <div class="container">
@@ -103,7 +106,7 @@
                         </div>
                     </div>
                     <!-- inner container end -->
-
+                 <?php } ?>
                 </div>
 
             </div>
