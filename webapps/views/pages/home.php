@@ -3,8 +3,10 @@
 <div class="main-container">
 
     <!-- slider container start -->
-    <div class="slider-study-abroad-container" style="<?php if(!$sliders || count($sliders) == 0){ echo 'padding-top:0px'; } ?>">
-        <?php if($sliders && count($sliders) > 0){ ?>
+    <div class="slider-study-abroad-container" style="<?php if (!$sliders || count($sliders) == 0) {
+        echo 'padding-top:0px';
+    } ?>">
+        <?php if ($sliders && count($sliders) > 0) { ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -24,7 +26,7 @@
     </div>
     <!-- slider container end -->
 
-    <?php if($aImpNews && count($aImpNews) > 0){ ?>
+    <?php if ($aImpNews && count($aImpNews) > 0) { ?>
         <!-- inner container start -->
         <div class="inner-container">
             <div class="container">
@@ -36,13 +38,13 @@
                             <div>
                                 <h4 class="col-header">
                                     <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
-                                        echo '<img src="'.base_url().'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
+                                        echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                         echo $this->lang->line('HOC_TIENG_HAN');
                                     } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
-                                        echo '<img src="'.base_url().'webresources/images/hocbong.png" style="width: 50px;" />   ';
+                                        echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                         echo $item['cat_name'];
                                     } else {
-                                        echo '<img src="'.base_url().'webresources/images/duhoc.png" style="width: 50px;" />   ';
+                                        echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                         echo $item['cat_name'];
                                     } ?></h4>
                                 <div class="widget-box">
@@ -51,7 +53,11 @@
                                         <?php foreach ($item['related_news'] as $news_item) { ?>
                                             <li><a href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
                                                     <img
-                                                        src="<?php echo base_url(); ?><?php if(empty($news_item['img_src'])){echo 'webresources/images/banner0.jpg';} else { echo $news_item['img_src'];} ?>"
+                                                        src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
+                                                            echo 'webresources/images/banner0.jpg';
+                                                        } else {
+                                                            echo $news_item['img_src'];
+                                                        } ?>"
                                                         alt=""/>
                                                     <?php echo $news_item['title'] ?><br/>
                                                     <small><?php echo date_format(new DateTime($news_item['created_date']), "F d, Y"); ?></small>
@@ -61,8 +67,9 @@
                                     </ul>
                                 </div>
                                 <?php if ($item['count_news'] > 4) { ?>
-                                    <div class="pull-right"><a href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
-                                                               class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
+                                    <div class="pull-right"><a
+                                            href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
+                                            class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
                                             <i
                                                 class="ion ion-ios-arrow-thin-right"></i></a></div>
                                 <?php } ?>
@@ -142,12 +149,18 @@
                     <div class="col-sm-6">
                         <div class="img-responsive">
                             <a href="#">
-                                <img src="<?php  if(strripos($last_news[0]['img_src'],'embed/') !== false || strripos($last_news[0]['img_src'],'watch?v=') !== false){ echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);}
-                                    else{
-                                        echo base_url().$last_news[0]['img_src'];
+                                <img
+                                    src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
+                                        echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
+                                    } else {
+                                        if (empty($last_news[0]['img_src'])) {
+                                            echo base_url() . 'webresources/images/banner0.jpg';
+                                        } else {
+                                            echo base_url() . $last_news[0]['img_src'];
+                                        }
                                     }
-                                ?>"
-                                     width="500px;">
+                                    ?>"
+                                    width="500px;">
                             </a>
                         </div>
                     </div>
@@ -169,9 +182,9 @@
                 <div class="row">
                     <?php for ($i = 1; $i < 4; $i++) { ?>
 
-                        <?php if($i>(count($last_news)-1)){
+                        <?php if ($i > (count($last_news) - 1)) {
                             break;
-                        }?>
+                        } ?>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box">
                                 <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"><h4>
@@ -261,7 +274,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="subject" class="form-control" name="consult_phone"
+                                            <input type="text" name="consult_phone" class="form-control"
                                                    placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
                                         </div>
                                     </div>
@@ -303,7 +316,8 @@
                         </div>
                     </div>
                     <div>
-                        <img src="<?php echo  base_url().'webresources/images/zalo.jpg'?>" style="width: 420px; margin-top: 40px;">
+                        <img src="<?php echo base_url() . 'webresources/images/zalo.jpg' ?>"
+                             style="width: 420px; margin-top: 40px;">
                     </div>
                 </div>
             </div>
