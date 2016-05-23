@@ -527,3 +527,6 @@ $config['news_and_event'] = 7;
 $config['sharing_corner'] = 8;
 $config['faq'] = 19;
 $config['introduce'] = 1;
+$config['hoc_tieng_han'] = 14;
+$config['hoc_bong'] = 21;
+$config['du_hoc_han_quoc'] = 11;

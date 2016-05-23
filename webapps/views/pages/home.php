@@ -35,10 +35,10 @@
                         <div class="col-md-4 col-sm-12">
                             <div>
                                 <h4 class="col-header">
-                                    <?php if ($item['cat_id'] == 14) {
+                                    <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                         echo '<img src="'.base_url().'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                         echo $this->lang->line('HOC_TIENG_HAN');
-                                    } else if ($item['cat_id'] == 21) {
+                                    } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
                                         echo '<img src="'.base_url().'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                         echo $item['cat_name'];
                                     } else {
