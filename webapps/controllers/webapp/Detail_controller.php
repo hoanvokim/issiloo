@@ -25,14 +25,14 @@ class Detail_controller extends CI_Controller{
         $this->Category_model->getMainMenu(null,$strMenu);
         $data['menustr'] = $strMenu;
 
-        $news_id = $this->News_model->getIdFromSlug($slug);
-        $data['detail'] = $this->News_model->getNewsById($news_id);    //array of a news.
-        $data['banner_title'] = $data['detail']['title'];   
-        $data['banner_bg'] = $data['detail']['img_src'];
+        $news_id = $this->News_model->getIdFromSlug($slug); //if not return -1
+        $data['detail'] = $this->News_model->getNewsById($news_id);    //array of a news.    if not return -1
+        $data['banner_title'] = $data['detail'] != -1 ? $data['detail']['title'] : '';
+        $data['banner_bg'] = $data['detail'] != -1 ? $data['detail']['img_src'] : '';
         $data['title_header'] = $data['banner_title'];
 
-        $category_id = $data['detail']['category_id'];
-        $category_info = $this->Category_model->getInfoFromId($category_id);
+        $category_id = $data['detail'] != -1 ? $data['detail']['category_id'] : -1;
+        $category_info = $this->Category_model->getInfoFromId($category_id);  //a category row. if not return -1
 
         $data['category_info'] = $category_info;
 
@@ -41,7 +41,7 @@ class Detail_controller extends CI_Controller{
         $data['max_post'] = count($data['lst_post']) - 1;
 
         $data['is_video'] = false;
-        if($category_id==8 || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing'){
+        if($category_info != -1 && ($category_id==$this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')){
             if(strpos($data['detail']['img_src'],'youtube')==false){
                 $data['is_video'] = false;
             }else{

@@ -10,13 +10,15 @@
                 <!-- blog item start -->
 
                 <div class="single-post">
-                    <div class="entry-content">
-                        <!--<h4><a href="single-post.html"><?php echo $detail['title']; ?></a></h4>-->
-                        <link href="<?php echo base_url(); ?>webresources/css/issiloo_reset.css" rel="stylesheet" type="text/css">
-                        <div id="detail_content">
-                            <?php echo $detail['content']; ?>
+                    <?php if($detail != -1){ ?>
+                        <div class="entry-content">
+                            <!--<h4><a href="single-post.html"><?php echo $detail['title']; ?></a></h4>-->
+                            <link href="<?php echo base_url(); ?>webresources/css/issiloo_reset.css" rel="stylesheet" type="text/css">
+                            <div id="detail_content">
+                                <?php echo $detail['content']; ?>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
                 <!-- blog item end -->
 
@@ -77,7 +79,7 @@
                     <!-- widget start -->
                     <div class="widget-box">
 
-                        <?php if(count($relatednews)>0){ ?>
+                        <?php if($relatednews && count($relatednews)>0){ ?>
                             <h4><?php echo $category_info['vi_name']; ?></h4>
                         <?php } ?>
                         <ul class="list">
