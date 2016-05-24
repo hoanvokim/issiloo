@@ -122,6 +122,12 @@
                                 <span class="menu-title">Thời khoá biểu</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('scholarship-manager'); ?>">
+                                <i class="fa fa-unlink"></i>
+                                <span class="menu-title">Học bổng</span>
+                            </a>
+                        </li>
                         <li class="list-divider"></li>
                         <li class="list-header">Settings</li>
                         <li>

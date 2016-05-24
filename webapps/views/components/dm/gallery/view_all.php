@@ -17,7 +17,12 @@
             <?php foreach ($galleries as $gallery) { ?>
                 <tr>
                     <td><?php echo $gallery['id']; ?></td>
-                    <td><img src="<?php echo  base_url() . $gallery['img_src']; ?>" style="height: 50px;"/></td>
+                    <td> <?php if (strpos($gallery['img_src'], 'youtube') == false) { ?>
+                            <img src="<?php echo base_url() . $gallery['img_src']; ?> " height="120px;"/>
+                        <?php } else { ?>
+                            <img src="<?php echo $gallery['youtube']; ?>" alt=""
+                                 style="height:120px;"/>
+                        <?php } ?></td>
                     <td><?php echo $gallery['vi_title']; ?></td>
                     <td>
                         <a href="<?php echo base_url() . "gallery-corner-manager/update-gallery/" . $gallery['id']; ?>"

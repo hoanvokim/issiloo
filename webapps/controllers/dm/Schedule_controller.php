@@ -148,7 +148,7 @@ class Schedule_controller extends CI_Controller
             $data['vicontent'] = $this->input->post('vicontent');
             $data['visummary'] = $this->input->post('visummary');
             $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
-            $this->load->view('pages/dm/news/edit', $data);
+            $this->load->view('pages/dm/schedule/edit', $data);
 
         }
     }

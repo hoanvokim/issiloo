@@ -222,8 +222,13 @@
                            $i++) { ?>
                     <div class="feature-box dark">
                         <div class="white-paper">
-                            <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?>"
-                                 style="padding-top: 10px;"/>
+                            <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
+                                <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> " style="padding-top: 10px;"/>
+                            <?php } else { ?>
+                                <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
+                                     style="padding-top: 10px;"/>
+                            <?php } ?>
+<!--                            <img src="--><?php //echo base_url() . $video_image[$i]['img_src']; ?><!-- " style="padding-top: 10px;"/>-->
                             <p><?php echo $video_image[$i]['title']; ?></p>
                             <p>Chúc bạn thành công!</p>
                         </div>
@@ -302,7 +307,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-5 col-sm-12" style="margin-left: 70px;">
                 <div class="heading-text text-center text-uppercase" style="padding-top: 20px;">
                     <h3><?php echo $this->lang->line('SOCIAL'); ?></h3>
                 </div>

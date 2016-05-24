@@ -11,43 +11,46 @@
                         <ul class="social-links" style="margin-right: -20px;">
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
-                                         style="width: 25px;"/></a></li>
+                                         style="width: 40px;"/></a></li>
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
-                                         style="width: 25px;"/></a></li>
+                                         style="width: 40px;"/></a></li>
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/zalo.png' ?>"
-                                         style="width: 25px;"/></a></li>
+                                         style="width: 40px;"/></a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12 text-left">
-                    <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
-                    <address>
-                        <p>
-                            <i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?>
-                        </p>
+                <div class="col-md-8">
+                    <div class="col-md-6 col-sm-12 text-left" style="margin-left: 103px;">
+                        <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
+                        <address>
+                            <p>
+                                <i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?>
+                            </p>
 
-                        <p>
-                            <i class="ion ion-ios-at-outline" style="font-size: 25px;"></i> <a
-                                href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
-                            <i class="ion ion-ios-telephone-outline"></i> Phone: <a
-                                href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
-                            <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898 084
-                                080</a><br/>
-                        </p>
+                            <p>
+                                <i class="ion ion-ios-at-outline" style="font-size: 25px;"></i> <a
+                                    href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
+                                <i class="ion ion-ios-telephone-outline"></i> Phone: <a
+                                    href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
+                                <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
+                                    084
+                                    080</a><br/>
+                            </p>
 
-                    </address>
-                </div>
-                <div class="col-md-4 col-sm-12 text-right">
-                    <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
-                    <p class="open"><i
-                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
-                        <br/><?php echo $this->lang->line('MORNING_EVENING'); ?></p>
+                        </address>
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-right">
+                        <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
+                        <p class="open"><i
+                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
+                            <br/><?php echo $this->lang->line('MORNING_EVENING'); ?></p>
 
-                    <p class="open"><i
-                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
-                        <br/><?php echo $this->lang->line('MORNING_NOON'); ?></p>
+                        <p class="open"><i
+                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
+                            <br/><?php echo $this->lang->line('MORNING_NOON'); ?></p>
+                    </div>
                 </div>
             </div>
         </div>

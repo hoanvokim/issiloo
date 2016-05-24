@@ -182,3 +182,10 @@ $route['sub-category-manager'] = 'dm/subcategory_controller/create_subcategory';
 $route['sub-category-manager-create-sub-category-submit'] = 'dm/subcategory_controller/create_subcategory_submit';
 $route['news-sub-category-manager'] = 'dm/subcategory_controller/create_news_subcategory';
 $route['subcategory-manager-add-news-subcategory-submit'] = 'dm/subcategory_controller/create_news_subcategory_submit';
+
+$route['scholarship-manager'] = 'dm/scholarship_controller/index';
+$route['scholarship-manager/create-scholarship'] = 'dm/scholarship_controller/create_scholarship';
+$route['scholarship-manager/update-scholarship/:num'] = 'dm/scholarship_controller/update_scholarship';
+$route['scholarship-manager/delete-scholarship/:num'] = 'dm/scholarship_controller/delete_scholarship';
+$route['scholarship-manager-create-scholarship-submit'] = 'dm/scholarship_controller/create_scholarship_submit';
+$route['scholarship-manager-update-scholarship-submit'] = 'dm/scholarship_controller/update_scholarship_submit';

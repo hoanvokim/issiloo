@@ -7,9 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 4/29/16
  * Time: 9:44 PM
  */
-class Program_controller extends CI_Controller
+class Scholarship_controller extends CI_Controller
 {
-    public $programId = 15;
 
     public function __construct()
     {
@@ -23,64 +22,63 @@ class Program_controller extends CI_Controller
 
     public function index()
     {
-        $data['programs'] = $this->News_model->getNewsByCatId($this->programId);
-        $data['title'] = 'Chương trình đào tạo';
-        $this->load->view('pages/dm/program/view_all', $data);
+        $data['programs'] = $this->News_model->getNewsByCatId($this->config->item('hoc_bong'));
+        $data['title'] = 'Học Bổng';
+        $this->load->view('pages/dm/scholarship/view_all', $data);
     }
 
-    public function create_program()
+    public function create_scholarship()
     {
+        $data['title'] = 'Thêm thời khoá biểu mới';
         $data['tags'] = $this->Tag_model->findAll();
-        $data['title'] = 'Thêm chương trình mới';
-        $this->load->view('pages/dm/program/add', $data);
+        $this->load->view('pages/dm/scholarship/add', $data);
     }
 
-    public function create_program_submit()
+    public function create_scholarship_submit()
     {
-        $insertId = -1;
-        $this->load->library('upload', $this->get_config());
-        if ($this->upload->do_upload('userfile')) {
-            $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
-            $insertId = $this->News_model->insert_full(
-                $this->programId,
-                $file_path,
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
-            );
-        } else {
-            $insertId = $this->News_model->insert_full(
-                $this->programId,
-                $this->input->post('img_src'),
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
-            );
-        }
-        $tags = $this->input->post('tags');
-        if (count($tags) > 0) {
-            foreach ($tags as $tag) {
-                $this->Tag_model->saveReferenceNews($tag, $insertId);
+        if (isset($_POST["save"])) {
+            $insertId = -1;
+            $this->load->library('upload', $this->get_config());
+            if ($this->upload->do_upload('userfile')) {
+                $upload_files = $this->upload->data();
+                $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
+                $insertId = $this->News_model->insert_full(
+                    $this->config->item('hoc_bong'),
+                    $file_path,
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('vicontent'),
+                    $this->input->post('visummary')
+                );
+            } else {
+                $insertId = $this->News_model->insert_full(
+                    $this->config->item('hoc_bong'),
+                    $this->input->post('img_src'),
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('vicontent'),
+                    $this->input->post('visummary')
+                );
+            }
+            $tags = $this->input->post('tags');
+            if (count($tags) > 0) {
+                foreach ($tags as $tag) {
+                    $this->Tag_model->saveReferenceNews($tag, $insertId);
+                }
             }
         }
-        redirect('program-manager', 'refresh');
+        if (isset($_POST["cancel"])) {
+        }
+        redirect('scholarship-manager', 'refresh');
     }
 
-    public function create_program_cancel()
-    {
-        redirect('program-manager', 'refresh');
-    }
-
-    public function update_program()
+    public function update_scholarship()
     {
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
@@ -93,13 +91,11 @@ class Program_controller extends CI_Controller
         $data['visummary'] = $current['summary'];
         $data['img_src'] = $current['img_src'];
 
-        $data['tags'] = $this->Tag_model->findAll();
-        $data['activeTags'] = $this->Tag_model->findByNews($data['newsId']);
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
-        $this->load->view('pages/dm/program/edit', $data);
+        $this->load->view('pages/dm/scholarship/edit', $data);
     }
 
-    public function update_program_submit()
+    public function update_scholarship_submit()
     {
         if (isset($_POST["save"])) {
             $this->load->library('upload', $this->get_config());
@@ -107,10 +103,8 @@ class Program_controller extends CI_Controller
                 $upload_files = $this->upload->data();
                 $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-                $this->load->model('News_model');
-                $this->News_model->update_full(
-                    $this->input->post('newsId'),
-                    $this->programId,
+                $this->News_model->insert_full(
+                    $this->config->item('hoc_bong'),
                     $file_path,
                     $this->input->post('slug'),
                     $this->input->post('title_header'),
@@ -123,7 +117,7 @@ class Program_controller extends CI_Controller
             } else {
                 $this->News_model->update_full(
                     $this->input->post('newsId'),
-                    $this->programId,
+                    $this->config->item('hoc_bong'),
                     $this->input->post('img_src'),
                     $this->input->post('slug'),
                     $this->input->post('title_header'),
@@ -135,7 +129,7 @@ class Program_controller extends CI_Controller
                 );
             }
 
-            redirect('program-manager', 'refresh');
+            redirect('scholarship-manager', 'refresh');
         }
         if (isset($_POST["remove-current"])) {
             $this->News_model->updateImage($this->input->post('newsId'));
@@ -152,24 +146,35 @@ class Program_controller extends CI_Controller
             $data['vicontent'] = $this->input->post('vicontent');
             $data['visummary'] = $this->input->post('visummary');
             $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
-            $this->load->view('pages/dm/program/edit', $data);
+            $this->load->view('pages/dm/scholarship/edit', $data);
 
+        }
+        if (isset($_POST["cancel"])) {
+            redirect('scholarship-manager', 'refresh');
+        }
+        if (isset($_POST["delete"])) {
+            $news = $this->News_model->getNewsById($this->input->post('newsId'));
+            if (!is_null($news['img_src'])) {
+                unlink('./' . $news['img_src']);
+            }
+            $this->News_model->delete($this->input->post('newsId'));
+            redirect('scholarship-manager', 'refresh');
         }
     }
 
-    public function update_program_cancel()
+    public function update_scholarship_cancel()
     {
-        redirect('program-manager', 'refresh');
+        redirect('scholarship-manager', 'refresh');
     }
 
-    public function delete_program()
+    public function delete_scholarship()
     {
         $news = $this->News_model->getNewsById($this->uri->segment(3));
-        if(!is_null($news['img_src'])) {
+        if (!is_null($news['img_src'])) {
             unlink('./' . $news['img_src']);
         }
         $this->News_model->delete($this->uri->segment(3));
-        redirect('program-manager', 'refresh');
+        redirect('scholarship-manager', 'refresh');
     }
 
 

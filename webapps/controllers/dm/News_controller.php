@@ -32,7 +32,6 @@ class News_controller extends CI_Controller
         $news = $this->News_model->getNewsByCatCollectionWithoutLimit($categories);
         $news_list = array();
         foreach ($news as $item) {
-            $this->load->model('Category_model');
             array_push($news_list, array(
                 'id' => $item['id'],
                 'category' => $this->Category_model->findCategoryNameFromId($item['category_id']),

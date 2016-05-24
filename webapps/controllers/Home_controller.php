@@ -126,9 +126,33 @@ class Home_controller extends CI_Controller
 
         //get video and images.
         $data['video_image'] = $this->Gallery_model->getGalleryCorner();
+        $video_images = array();
+        foreach ($data['video_image'] as $item) {
+            array_push($video_images, array(
+                'img_src' => $item['img_src'],
+                'title' => $item['title'],
+                'youtube' => $this->getThumbnailFromYoutubeLink($item['img_src'])
+            ));
+        }
+        $data['video_image'] = $video_images;
 
         $data['title_header'] = $this->lang->line('MENU_HOME');
 
         $this->load->view("pages/home",$data);
     }
+    public function getThumbnailFromYoutubeLink($youtube_link)
+    {
+        if (strlen($youtube_link) > 0) {
+            if (strpos($youtube_link, 'embed') !== false) {
+                //embed link.
+                $video_id = substr(str_replace('embed/', '', $youtube_link), strripos($youtube_link, 'embed/'));
+            } else {
+                $video_id = substr(str_replace('watch?v=', '', $youtube_link), strripos($youtube_link, 'watch?v='));
+            }
+            return "http://img.youtube.com/vi/$video_id/0.jpg";
+        } else {
+            return '';
+        }
+    }
+
 }

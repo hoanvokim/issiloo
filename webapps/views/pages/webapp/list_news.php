@@ -180,7 +180,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="subject" class="form-control" name="consult_phone"
+                                                    <input type="text" class="form-control" name="consult_phone"
                                                            placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
                                                 </div>
                                             </div>

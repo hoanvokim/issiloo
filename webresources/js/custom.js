@@ -153,50 +153,23 @@ $('.intro-scroll-down').click(function(){
 	return false;
 })
 
-/*==========================*/	
-/* Sliders */	
+/*==========================*/
+/* Sliders */
 /*==========================*/
  $('.feature-slider').slick({
-  dots: false,
-  autoplay: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  pauseOnHover: false,
-  adaptiveHeight: true,
-  responsive: [
-    {
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+	 autoplay: true,
+	 dots: false,
+	 infinite: true,
+	 speed: 200,
+	 slidesToShow: 4,
+	 touchMove: true
 });
 
 
 
 
 $('.slider').slick({
-	autoplay: true,
+  autoplay: true,
   dots: true,
   infinite: true,
   speed: 700,

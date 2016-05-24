@@ -21,7 +21,17 @@ class Gallery_corner_controller extends CI_Controller
 
     public function index()
     {
-        $data['galleries'] = $this->Gallery_model->getGalleryByType('corner',0,1000);
+        $data['galleries'] = $this->Gallery_model->getGalleryByType('corner', 0, 1000);
+        $galleries = array();
+        foreach ($data['galleries'] as $item) {
+            array_push($galleries, array(
+                'id' => $item['id'],
+                'img_src' => $item['img_src'],
+                'vi_title' => $item['vi_title'],
+                'youtube' => $this->getThumbnailFromYoutubeLink($item['img_src'])
+            ));
+        }
+        $data['galleries'] = $galleries;
         $data['title'] = 'Chia sẽ ảnh và video';
         $this->load->view('pages/dm/gallery/view_all', $data);
     }
@@ -46,6 +56,12 @@ class Gallery_corner_controller extends CI_Controller
                     'corner',
                     $this->input->post('vi_title')
                 );
+            } else {
+                $this->Gallery_model->insert(
+                    $this->input->post('img_src'),
+                    'corner',
+                    $this->input->post('vi_title')
+                );
             }
         }
         if (isset($_POST["cancel"])) {
@@ -65,8 +81,24 @@ class Gallery_corner_controller extends CI_Controller
         }
         $data['vi_title'] = $current['vi_title'];
 
+        $data['youtube_thumbnail'] = $this->getThumbnailFromYoutubeLink($current['img_src']);
         $data['title'] = 'Cập nhật ảnh';
         $this->load->view('pages/dm/gallery/edit', $data);
+    }
+
+    public function getThumbnailFromYoutubeLink($youtube_link)
+    {
+        if (strlen($youtube_link) > 0) {
+            if (strpos($youtube_link, 'embed') !== false) {
+                //embed link.
+                $video_id = substr(str_replace('embed/', '', $youtube_link), strripos($youtube_link, 'embed/'));
+            } else {
+                $video_id = substr(str_replace('watch?v=', '', $youtube_link), strripos($youtube_link, 'watch?v='));
+            }
+            return "http://img.youtube.com/vi/$video_id/0.jpg";
+        } else {
+            return '';
+        }
     }
 
     public function update_gallery_submit()
@@ -106,8 +138,10 @@ class Gallery_corner_controller extends CI_Controller
 
         if (isset($_POST["delete-img"])) {
             $gallery = $this->Gallery_model->getGalleryById($this->input->post('id'));
-            if(!is_null($gallery['img_src'])) {
-                unlink('./' . $gallery['img_src']);
+            if (!is_null($gallery['img_src'])) {
+                if (strpos($gallery['img_src'], 'youtube') == false) {
+                    unlink('./' . $gallery['img_src']);
+                }
             }
             $this->Gallery_model->update(
                 $this->input->post('id'),
@@ -116,9 +150,10 @@ class Gallery_corner_controller extends CI_Controller
             );
 
             $data['id'] = $this->input->post('id');
-            $data['img_src'] = $this->input->post('img_src');
+            $data['img_src'] = '';
             $data['vi_title'] = $this->input->post('vi_title');
             $data['hasImg'] = 0;
+            $data['youtube_thumbnail'] = '';
             $data['title'] = 'Cập nhật ảnh chia sẽ';
             $this->load->view('pages/dm/gallery/edit', $data);
         }
