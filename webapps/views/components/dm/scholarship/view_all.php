@@ -1,6 +1,6 @@
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title pull-left">Tất cả các bài viết của Thời khoá biểu</h3>
+        <h3 class="panel-title pull-left">Tất cả các bài viết của mục Học Bổng</h3>
         <a href="<?php echo base_url() . "scholarship-manager/create-scholarship" ?>"
            class="btn btn-success pull-right btn-top-right btn-xs"><i class="fa fa-plus-square"></i> Thêm 1 bài mới</a>
     </div>

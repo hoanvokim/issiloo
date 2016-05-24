@@ -29,7 +29,7 @@ class Scholarship_controller extends CI_Controller
 
     public function create_scholarship()
     {
-        $data['title'] = 'Thêm thời khoá biểu mới';
+        $data['title'] = 'Thêm thời bài học bổng mới';
         $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/scholarship/add', $data);
     }

@@ -97,7 +97,10 @@ class University_controller extends CI_Controller
         if (isset($_POST["delete-img"])) {
             if (count($this->input->post('deleteimg')) > 0) {
                 foreach ($this->input->post('deleteimg') as $item) {
-                    unlink('./' . $this->Gallery_model->getGalleryById($item)['img_src']);
+                    $uni = $this->Gallery_model->getGalleryById($item);
+                    if(!is_null($uni['img_src'])) {
+                        unlink('./' . $uni['img_src']);
+                    }
                 }
                 $this->Gallery_model->deleteList($this->input->post('deleteimg'));
             }
