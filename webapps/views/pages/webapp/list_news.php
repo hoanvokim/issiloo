@@ -23,8 +23,8 @@
                                         </div>
                                         <div class="entry-content">
                                             <span class="entry-date"><a href="#"><?php echo date_format(new DateTime($news['created_date']),"d.m.Y"); ?></a></span>
-                                            <h5><a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><?php echo $news['title']; ?></a></h5>
-                                            <div style="padding: 15px;"><?php echo $news['summary']; ?></div>
+                                            <h4 style="padding-top: 55px;"><a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><strong><?php echo $news['title']; ?></strong></a></h4>
+                                            <div><?php echo $news['summary']; ?></div>
                                             <br>
                                             <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
                                         </div>

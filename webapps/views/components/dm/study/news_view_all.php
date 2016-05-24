@@ -23,7 +23,7 @@
                     <td><?php echo $news['id']; ?></td>
                     <td><?php echo $news['category']; ?></td>
                     <td><?php echo $news['title']; ?></td>
-                    <td><?php echo substr($news['summary'],0,100); ?></td>
+                    <td><?php echo $news['summary']; ?></td>
                     <td><?php echo substr($news['created_date'],0,10); ?></td>
                     <td><?php echo substr($news['updated_date'],0,10); ?></td>
                     <td>
