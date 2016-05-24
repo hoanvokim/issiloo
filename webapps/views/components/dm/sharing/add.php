@@ -123,5 +123,5 @@
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
 <button type="submit" class="btn btn-success btn" name="save"><i class="fa fa-save"></i> Lưu</button>
-<button type="submit" class="btn btn-default btn" name="cancel"><i class="fa fa-close"></i> Huỷ</button>
+<button type="submit" class="btn btn-default btn" name="cancel" onclick="return confirm('Bạn muốn thoát ra phải không?');" ><i class="fa fa-close"></i> Huỷ</button>
 </form>

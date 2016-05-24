@@ -44,7 +44,7 @@
                         <?php } ?>
                         <?php if (!empty($category['parent_id'])) { ?>
                             <a href="<?php echo base_url() . "study-manager/delete-category/" . $category['id']; ?>"
-                               class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
+                               class="btn btn-danger btn-xs" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
                         <?php } ?>
                     </td>
                 </tr>

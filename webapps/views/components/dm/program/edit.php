@@ -105,8 +105,8 @@
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
 <button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>
-<a href="<?php echo base_url() . "program-manager/update-program-cancel" ?>" type="submit" class="btn btn-default btn-xs"><i
+<a href="<?php echo base_url() . "program-manager/update-program-cancel" ?>" type="submit" class="btn btn-default btn-xs" onclick="return confirm('Bạn muốn thoát ra phải không?');" ><i
         class="fa fa-close"></i> Huỷ</a>
 <a href="<?php echo base_url() . "program-manager/delete-program/" . $newsId; ?>"
-   class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Xoá</a>
+   class="btn btn-danger btn-xs" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
 </form>

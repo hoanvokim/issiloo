@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <ul class="recent-projects slider">
+                        <ul class="slider">
                             <?php foreach ($sliders as $slider) { ?>
                                 <li>
                                     <a href="<?php echo $slider['url']; ?>"><img
@@ -95,7 +95,7 @@
                 <h3 class="col-header-color"><?php echo $this->lang->line('UNIVERSITY_INFO'); ?></h3>
                 <div class="row">
                     <div class="col-sm-12">
-                        <ul class="recent-projects recent-projects-slider">
+                        <ul class="recent-projects-slider">
 
                             <?php foreach ($universities as $university) { ?>
 
@@ -104,17 +104,17 @@
                                         <div class="row">
                                             <div class="col-md-6 text-center">
                                                 <div class="project-img-box">
-                                                    <div class="imac-img-content projects-slides">
+                                                    <ul class="projects-slider">
 
                                                         <?php foreach ($university['gallery'] as $item) { ?>
 
-                                                            <div><img
+                                                            <li><img
                                                                     src="<?php echo base_url(); ?>/<?php echo $item['img_src']; ?>"
-                                                                    alt=""/></div>
+                                                                    alt=""/></li>
 
                                                         <?php } ?>
 
-                                                    </div>
+                                                    </ul>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 padding-top--large">
@@ -165,7 +165,7 @@
                                         }
                                     }
                                     ?>"
-                                    width="500px;">
+                                    width="600px;">
                             </a>
                         </div>
                     </div>
@@ -220,7 +220,7 @@
         <div class="feature-container mar-60">
             <h3 class="col-header-color"
                 style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
-            <div class="feature-box-container feature-slider">
+            <div class="feature-slider">
 
                 <?php for ($i = 0;
                            $i < count($video_image);

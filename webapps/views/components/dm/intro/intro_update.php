@@ -13,6 +13,6 @@
     <!-- End Summernote -->
     <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Cập nhật</button>
     <a href="<?php echo base_url() . "intro-manager/update-cancel" ?>" type="submit"
-       class="btn btn-default btn-xs"><i class="fa fa-close"></i> Huỷ</a>
+       class="btn btn-default btn-xs" onclick="return confirm('Bạn muốn thoát ra phải không?');"><i class="fa fa-close"></i> Huỷ</a>
     </form>
 <?php } ?>
