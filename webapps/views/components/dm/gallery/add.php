@@ -21,7 +21,7 @@
                         <label for="upload_file">File upload</label>
                         <input type='file' name='userfile' size='20'/>
                         <br/>
-                        <i>Lưu ý: Hình ảnh size chuẩn: 2000px * 748px</i>
+                        <i>Lưu ý: Hình ảnh size chuẩn: 940px * 788px</i>
                     </div>
                 </div>
                 <div id="demo-lft-tab-5" class="tab-pane fade">
