@@ -38,7 +38,19 @@ class Intro_controller extends CI_Controller
     public function create_add()
     {
         $category_inserted = $this->Category_model->insert($this->input->post('viTabName'));
-        $this->News_model->insert($category_inserted, $this->input->post('vicontent'));
+        $insertId = -1;
+        $insertId = $this->News_model->insert($category_inserted, $this->input->post('vicontent'));
+
+        if($insertId !== -1){
+            $news_update_record = $this->News_model->getNewsById($insertId);
+            $content = $news_update_record['content'];
+            $save_path = 'assets/upload/images/news/';
+            $updated_content = saveImgAndUpdateContent($save_path,$content);
+            if(strlen($updated_content) > 0){
+                $this->News_model->update_content($insertId,'vi_content',$updated_content);
+            }
+        }
+
         redirect('manage-intro', 'refresh');
     }
 
@@ -60,6 +72,20 @@ class Intro_controller extends CI_Controller
     {
         $this->Category_model->update($this->input->post('catId'),'', $this->input->post('viTabName'));
         $this->News_model->update($this->input->post('catId'), $this->input->post('vicontent'));
+        $arrNews = $this->News_model->getNewsByCatId($this->input->post('catId'));
+
+        if($arrNews && count($arrNews) > 0){
+            foreach($arrNews as $item){
+                $news_id = $item['id'];
+                $content = $item['content'];
+                $save_path = 'assets/upload/images/news/';
+                $updated_content = saveImgAndUpdateContent($save_path,$content);
+                if(strlen($updated_content) > 0){
+                    $this->News_model->update_content($news_id,'vi_content',$updated_content);
+                }
+            }
+        }
+
         redirect('manage-intro', 'refresh');
 
     }
