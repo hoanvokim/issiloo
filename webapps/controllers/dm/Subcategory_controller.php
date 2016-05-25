@@ -81,6 +81,17 @@ class Subcategory_controller extends CI_Controller
                     $this->input->post('visummary')
                 );
             }
+
+            if($insertId !== -1){
+                $news_update_record = $this->News_model->getNewsById($insertId);
+                $content = $news_update_record['content'];
+                $save_path = 'assets/upload/images/news/';
+                $updated_content = saveImgAndUpdateContent($save_path,$content);
+                if(strlen($updated_content) > 0){
+                    $this->News_model->update_content($insertId,'vi_content',$updated_content);
+                }
+            }
+
             $tags = $this->input->post('tags');
             if (count($tags) > 0) {
                 foreach ($tags as $tag) {

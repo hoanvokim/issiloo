@@ -47,7 +47,7 @@ class News_Model extends CI_Model
 
     public function getNewsByCatId($catId)
     {
-        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, $this->summary as summary, created_date, updated_date from news where category_id = $catId";
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, $this->summary as summary, created_date, updated_date from news where category_id = $catId order by created_date DESC";
         return $this->db->query($sql)->result_array();
     }
 
@@ -102,7 +102,7 @@ class News_Model extends CI_Model
             for ($i = 0; $i < $cnt - 1; $i++) {
                 $sql = $sql . $aCat[$i] . ",";
             }
-            $sql = $sql . $aCat[$cnt - 1] . ") limit $start,$limit";
+            $sql = $sql . $aCat[$cnt - 1] . ") order by created_date DESC limit $start,$limit";
             return $this->db->query($sql)->result_array();
         }
         return array();
@@ -348,6 +348,15 @@ class News_Model extends CI_Model
         );
         $this->db->where('id', $newsId);
         $this->db->update('news', $data);
+    }
+
+    //$type_content = en_content | vi_content
+    public function update_content($newsId, $type_content, $content){
+        $data = array(
+            $type_content => $content
+        );
+        $this->db->where('id',$newsId);
+        $this->db->update('news',$data);
     }
 
     public function updateImage($newsId)

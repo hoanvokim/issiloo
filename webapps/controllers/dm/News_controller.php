@@ -109,6 +109,16 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
+
+        $news_id = $this->input->post('newsId');
+        $news_update_record = $this->News_model->getNewsById($news_id);
+        $content = $news_update_record['content'];
+        $save_path = 'assets/upload/images/news/';
+        $updated_content = saveImgAndUpdateContent($save_path,$content);
+        if(strlen($updated_content) > 0){
+            $this->News_model->update_content($news_id,'vi_content',$updated_content);
+        }
+
         redirect('manage-study-news', 'refresh');
     }
 
@@ -200,6 +210,17 @@ class News_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
+
+        if($insertId !== -1){
+            $news_update_record = $this->News_model->getNewsById($insertId);
+            $content = $news_update_record['content'];
+            $save_path = 'assets/upload/images/news/';
+            $updated_content = saveImgAndUpdateContent($save_path,$content);
+            if(strlen($updated_content) > 0){
+                $this->News_model->update_content($insertId,'vi_content',$updated_content);
+            }
+        }
+
         $tags = $this->input->post('tags');
         if (count($tags) > 0) {
             foreach ($tags as $tag) {
@@ -241,6 +262,15 @@ class News_controller extends CI_Controller
                     $this->input->post('vicontent'),
                     $this->input->post('visummary')
                 );
+            }
+
+            $news_id = $this->input->post('newsId');
+            $news_update_record = $this->News_model->getNewsById($news_id);
+            $content = $news_update_record['content'];
+            $save_path = 'assets/upload/images/news/';
+            $updated_content = saveImgAndUpdateContent($save_path,$content);
+            if(strlen($updated_content) > 0){
+                $this->News_model->update_content($news_id,'vi_content',$updated_content);
             }
 
             redirect('manage-study-category', 'refresh');

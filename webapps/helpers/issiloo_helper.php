@@ -62,4 +62,69 @@ if ( ! function_exists('getThumbnailFromYoutubeLink'))
         return "http://img.youtube.com/vi/$video_id/0.jpg";
     }
 
+    //$save_path = 'assets/upload/images/news/';
+    function saveImgAndUpdateContent($save_path,$content){
+        try{
+            $doc = new DOMDocument();
+            //$doc->loadHTML($content);
+            $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+            $img_tags = $doc->getElementsByTagName('img');
+
+            foreach ($img_tags as $item )
+            {
+                $src =  $item->getAttribute('src');
+                if(strpos($src,'base64')!==false){
+                    $arr = explode(',',$src);
+                    $decoded = base64_decode($arr[1]);//decode base64
+
+                    //save file after decoded
+                    $data_filename = $item->getAttribute('data-filename');
+                    $file_path = './' . $save_path . $data_filename;
+                    $absolute_path = base_url() . '/' . $save_path . $data_filename;
+                    file_put_contents($file_path,$decoded);
+
+                    $item->setAttribute('src',$absolute_path);
+                }else{
+                    saveImgFromUrl($save_path,$src);
+                    $data_filename = basename($src);
+                    $absolute_path = base_url() . '/' . $save_path . $data_filename;
+                    $item->setAttribute('src',$absolute_path);
+                }
+            }
+            $content = $doc->saveHTML();
+            return $content;
+
+        }catch(Exception $e){
+            return '';
+        }
+    }
+
+    //$save_path = 'assets/upload/images/news/';
+    function saveImgFromUrl($save_path,$url){
+        // maximum execution time in seconds
+        set_time_limit (24 * 60 * 60);
+
+        $destination_folder = './' . $save_path;
+
+        $newfname = $destination_folder . basename($url);
+
+        $file = fopen ($url, "rb");
+        if ($file) {
+            $newf = fopen ($newfname, "wb");
+
+            if ($newf)
+                while(!feof($file)) {
+                    fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
+                }
+        }
+
+        if ($file) {
+            fclose($file);
+        }
+
+        if ($newf) {
+            fclose($newf);
+        }
+    }
+
 }

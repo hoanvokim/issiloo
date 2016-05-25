@@ -41,6 +41,7 @@ class Hotnews_controller extends CI_Controller
     {
         $insertId = -1;
         $this->load->library('upload', $this->get_config());
+
         if ($this->upload->do_upload('userfile')) {
             $upload_files = $this->upload->data();
             $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
@@ -68,6 +69,17 @@ class Hotnews_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
+
+        if($insertId !== -1){
+            $news_update_record = $this->News_model->getNewsById($insertId);
+            $content = $news_update_record['content'];
+            $save_path = 'assets/upload/images/news/';
+            $updated_content = saveImgAndUpdateContent($save_path,$content);
+            if(strlen($updated_content) > 0){
+                $this->News_model->update_content($insertId,'vi_content',$updated_content);
+            }
+        }
+
         $tags = $this->input->post('tags');
         if (count($tags) > 0) {
             foreach ($tags as $tag) {
@@ -133,6 +145,15 @@ class Hotnews_controller extends CI_Controller
                     $this->input->post('vicontent'),
                     $this->input->post('visummary')
                 );
+            }
+
+            $news_id = $this->input->post('newsId');
+            $news_update_record = $this->News_model->getNewsById($news_id);
+            $content = $news_update_record['content'];
+            $save_path = 'assets/upload/images/news/';
+            $updated_content = saveImgAndUpdateContent($save_path,$content);
+            if(strlen($updated_content) > 0){
+                $this->News_model->update_content($news_id,'vi_content',$updated_content);
             }
 
             redirect('news-manager', 'refresh');
