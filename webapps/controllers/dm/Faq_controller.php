@@ -35,10 +35,21 @@ class Faq_controller extends CI_Controller
 
     public function create_faq_submit()
     {
-        $this->Faq_model->insert(
+        $insertId = -1;
+        $insertId = $this->Faq_model->insert(
             $this->input->post('faqQuestion'),
             $this->input->post('faqAnswer')
         );
+
+        $faq_id = $insertId;
+        $faq_update_record = $this->Faq_model->findById($faq_id);
+        $answer = $faq_update_record['vi_answer'];
+        $save_path = 'assets/upload/images/news/';
+        $updated_answer = saveImgAndUpdateContent($save_path,$answer);
+        if(strlen($updated_answer) > 0){
+            $this->Faq_model->update_answer($faq_id,'vi_answer',$updated_answer);
+        }
+
         redirect('faq-manager', 'refresh');
     }
 
@@ -60,11 +71,21 @@ class Faq_controller extends CI_Controller
 
     public function update_faq_submit()
     {
+
         $this->Faq_model->update(
             $this->input->post('faqId'),
             $this->input->post('faqQuestion'),
             $this->input->post('faqAnswer')
         );
+
+        $faq_id = $this->input->post('faqId');
+        $faq_update_record = $this->Faq_model->findById($faq_id);
+        $answer = $faq_update_record['vi_answer'];
+        $save_path = 'assets/upload/images/news/';
+        $updated_answer = saveImgAndUpdateContent($save_path,$answer);
+        if(strlen($updated_answer) > 0){
+            $this->Faq_model->update_answer($faq_id,'vi_answer',$updated_answer);
+        }
 
         redirect('faq-manager', 'refresh');
     }

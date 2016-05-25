@@ -67,6 +67,14 @@ class Faq_Model extends CI_Model
         return $insert_id;
     }
 
+    public function update_answer($faqId, $type_answer, $answer){
+        $data = array(
+            $type_answer => $answer
+        );
+        $this->db->where('id', $faqId);
+        $this->db->update('faq', $data);
+    }
+
     public function update($faqId, $faqQuestion, $faqAnswer)
     {
         $data = array(
