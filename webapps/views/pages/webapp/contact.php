@@ -30,6 +30,7 @@
                                     <div class="form-group">
                                         <label><?php echo $this->lang->line('EMAIL'); ?>*</label>
                                         <input type="email" value="" name="sender_email" class="form-control" required="required" />
+
                                     </div>
                                     <div class="form-group">
                                         <label><?php echo $this->lang->line('PHONE'); ?>*</label>
