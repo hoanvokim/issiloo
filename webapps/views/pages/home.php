@@ -151,7 +151,7 @@
                 <div class="row mar-50">
                     <div class="col-sm-6">
                         <div class="img-responsive">
-                            <a href="#">
+                            <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>">
                                 <img
                                     src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                         echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
@@ -174,13 +174,12 @@
                                 <strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                         <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                             <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
-                        <div class="simple-summary"><?php echo $last_news[0]['summary']; ?> <a
+                        <div class="simple-summary"><?php echo $last_news[0]['summary']; ?><a
                                 href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
                                 data-toggle="tooltip"
                                 data-placement="bottom"
                                 data-original-title="Xem chi tiết"
-                                style="margin-left: 10px;"><i
-                                    class="ion ion-ios-arrow-thin-right"></i></a></div>
+                                style="margin-left: 10px;"><i class="ion ion-ios-arrow-thin-right"></i></a></div>
                     </div>
                 </div>
 

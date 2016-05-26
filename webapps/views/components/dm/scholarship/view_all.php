@@ -28,7 +28,7 @@
                         <a href="<?php echo base_url() . "scholarship-manager/update-scholarship/" . $program['id']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
                         <a href="<?php echo base_url() . "scholarship-manager/delete-scholarship/" . $program['id']; ?>"
-                           class="btn btn-danger btn-xs" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
+                           class="btn btn-danger btn-xs pull-right" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
                     </td>
                 </tr>
             <?php } ?>

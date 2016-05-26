@@ -3848,11 +3848,11 @@ a.disabled-link, a.disabled-link:visited, a.disabled-link:active, a.disabled-lin
     color: #fff;
     cursor: pointer;
     position: fixed;
-    bottom: 55px;
+    bottom: 12px;
     font-size: 20px;
     width: 50px;
     height: 50px;
-    right: 5px;
+    right: 15px;
     border-radius: 100px;
     opacity: 0;
     z-index: 999;

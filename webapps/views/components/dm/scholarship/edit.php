@@ -67,6 +67,27 @@
                     </div>
                 </div>
             </div>
+            <?php if ($tags != null): ?>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="packing">Tags</label>
+                        <select class="form-control select2 populate" multiple="multiple" id="tags_dropdown"
+                                name="tags[]">
+                            <?php foreach ($tags as $tag): ?>
+                                <option value="<?php echo $tag['id'] ?>"
+                                    <?php
+                                    foreach ($selectedTags as $selected) {
+                                        if($tag['id']==$selected['tag_id']) {
+                                            echo ' selected ';
+                                        }
+                                    }
+                                    ?>
+                                ><?php echo $tag['name'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+            <?php endif ?>
         </div>
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">
@@ -91,7 +112,7 @@
 </div>
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
-<button type="submit" class="btn btn-success btn" name="save"><i class="fa fa-save"></i> Lưu</button>
-<button type="submit" class="btn btn-default btn" name="cancel" onclick="return confirm('Bạn muốn thoát ra phải không?');" ><i class="fa fa-close"></i> Huỷ</button>
-<button type="submit" class="btn btn-danger btn-xs" name="delete" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</button>
+<button type="submit" class="btn btn-success" name="save"><i class="fa fa-save"></i> Lưu</button>
+<button type="submit" class="btn btn-default" name="cancel" onclick="return confirm('Bạn muốn thoát ra phải không?');" ><i class="fa fa-close"></i> Huỷ</button>
+<button type="submit" class="btn btn-danger pull-right" name="delete" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</button>
 </form>

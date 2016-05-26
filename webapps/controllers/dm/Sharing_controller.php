@@ -137,6 +137,8 @@ class Sharing_controller extends CI_Controller
         $data['images'] = $this->Gallery_model->getGalleryByNewsId($current['id']);
 
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
+        $data['tags'] = $this->Tag_model->findAll();
+        $data['selectedTags'] = $this->Tag_model->getTagByNewsId($this->uri->segment(3));
         $this->load->view('pages/dm/sharing/edit', $data);
     }
 
@@ -173,6 +175,12 @@ class Sharing_controller extends CI_Controller
                     $this->input->post('vicontent'),
                     $this->input->post('visummary')
                 );
+            }
+            $tags = $this->input->post('tags');
+            if (count($tags) > 0) {
+                foreach ($tags as $tag) {
+                    $this->Tag_model->saveReferenceNews($tag, $this->input->post('newsId'));
+                }
             }
             redirect('sharing-manager', 'refresh');
         }

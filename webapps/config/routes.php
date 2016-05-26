@@ -94,7 +94,7 @@ $route['manage-study-news'] = 'dm/news_controller/all_news';
 $route['news-manager/update-study-news/:num'] = 'dm/news_controller/update_study_news';
 $route['study-news-manager-update-study-news-submit'] = 'dm/news_controller/update_study_news_submit';
 $route['news-manager/update-study-news-cancel'] = 'dm/news_controller/update_study_news_cancel';
-$route['news-manager/delete-study-news/:num'] = 'dm/news_controller/delete_news_category';
+$route['news-manager/delete-study-news/:num'] = 'dm/news_controller/delete_news_id';
 
 $route['news-manager-add-news-submit'] = 'dm/news_controller/add_news_add';
 $route['news-manager-add-news-into-category-submit'] = 'dm/news_controller/add_news_into_category_add';

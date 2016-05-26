@@ -10,9 +10,7 @@ class Home_controller extends CI_Controller
 
         //load curr lang.
         $this->lang->load('message', 'vietnamese');
-        if(empty($_SESSION["activeLanguage"])){
-            $_SESSION["activeLanguage"] = "vi";
-        }
+        $_SESSION["activeLanguage"] = "vi";
 
         //load models for home page.
         $this->load->model('Category_model');
@@ -26,9 +24,9 @@ class Home_controller extends CI_Controller
     public function index()
     {
         $data['status'] = '';
-        try{
+        try {
 
-            if($this->input->post('btn_consult_send')){
+            if ($this->input->post('btn_consult_send')) {
                 $contact['protocol'] = $this->config->item('protocol');
                 $contact['charset'] = $this->config->item('charset');
                 $contact['mailtype'] = $this->config->item('mailtype');
@@ -40,7 +38,7 @@ class Home_controller extends CI_Controller
                 $consult_phone = $this->input->post('consult_phone');
 
                 $consult_subject = $this->input->post('consult_subject');
-                $consult_content = $this->input->post('consult_content')."\n Phone : ".$consult_phone;
+                $consult_content = $this->input->post('consult_content') . "\n Phone : " . $consult_phone;
 
                 $this->email->from($consult_email, $consult_name);
 
@@ -48,28 +46,27 @@ class Home_controller extends CI_Controller
 
                 $this->email->subject($consult_subject);
                 $this->email->message($consult_content);
-                if ( ! $this->email->send())
-                {
+                if (!$this->email->send()) {
                     $data['status'] = 'error';
-                }else{
+                } else {
                     $data['status'] = 'success';
                 }
                 $sql = "insert into user(email,name,phone) values('$consult_email','$consult_name','$consult_phone')";
                 $result = $this->db->query($sql);
-                if($result){
+                if ($result) {
                     $data['status'] = 'success';
-                }else{
+                } else {
                     $data['status'] = 'error';
                 }
             }
 
-        }catch(Exception $e){
+        } catch (Exception $e) {
             $data['status'] = 'error';
         }
 
         //get main menu
         $strMenu = '';
-        $this->Category_model->getMainMenu(null,$strMenu);
+        $this->Category_model->getMainMenu(null, $strMenu);
         $data['menustr'] = $strMenu;
 
         //get slider
@@ -81,14 +78,14 @@ class Home_controller extends CI_Controller
         $aImportantMenu = $this->config->item('homepage_widget_news');
         $cnt = 0;
         $aImpNews = array();
-        foreach($aImportantMenu as $item){
+        foreach ($aImportantMenu as $item) {
             //get sub menu of each item.
             $aCat = array();
             $aCat[] = $item;
-            $this->Category_model->getAllSubMenu($item,$aCat);
+            $this->Category_model->getAllSubMenu($item, $aCat);
 
             $aTemp = $this->News_model->getNewsByArrCat($aCat);
-            if(count($aTemp) == 0){
+            if (count($aTemp) == 0) {
                 continue;
             }
 
@@ -98,7 +95,7 @@ class Home_controller extends CI_Controller
             $aImpNews[$cnt]['cat_slug'] = $imp_cat_info['slug'];
             $aImpNews[$cnt]['count_news'] = count($aTemp);
             $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
-            $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp,$max_news);
+            $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp, $max_news);
             $cnt++;
             $aCat = null;
         }
@@ -109,7 +106,7 @@ class Home_controller extends CI_Controller
         $temp = $this->University_model->getAll();
         $universities = array();
         $cnt = 0;
-        foreach($temp as $item){
+        foreach ($temp as $item) {
             $universities[$cnt]['university_id'] = $item['university_id'];
             $universities[$cnt]['title'] = $item['title'];
             $universities[$cnt]['description'] = $item['description'];
@@ -138,8 +135,9 @@ class Home_controller extends CI_Controller
 
         $data['title_header'] = $this->lang->line('MENU_HOME');
 
-        $this->load->view("pages/home",$data);
+        $this->load->view("pages/home", $data);
     }
+
     public function getThumbnailFromYoutubeLink($youtube_link)
     {
         if (strlen($youtube_link) > 0) {

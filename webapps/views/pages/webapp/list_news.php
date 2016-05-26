@@ -12,27 +12,38 @@
                     <div class="container">
                         <div id="masonry" class="row">
 
-                        <?php if($anews && count($anews) > 0){ ?>
-                            <?php foreach ($anews as $news) { ?>
-                                <!-- blog item start -->
-                                <div class="col-md-12 grid-item">
-                                    <div class="blog-item">
-                                        <div class="entry-media">
-                                            <img src="<?php echo base_url(); ?><?php if(empty($news['img_src'])){echo 'webresources/images/banner0.jpg';} else { echo $news['img_src'];} ?>"
-                                                 alt=""/>
-                                        </div>
-                                        <div class="entry-content">
-                                            <span class="entry-date"><a href="#"><?php echo date_format(new DateTime($news['created_date']),"d.m.Y"); ?></a></span>
-                                            <h4 style="padding-top: 55px;"><a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><strong><?php echo $news['title']; ?></strong></a></h4>
-                                            <div><?php echo $news['summary']; ?></div>
-                                            <br>
-                                            <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
+                            <?php if ($anews && count($anews) > 0) { ?>
+                                <?php foreach ($anews as $news) { ?>
+                                    <!-- blog item start -->
+                                    <div class="col-md-12 grid-item">
+                                        <div class="blog-item">
+                                            <div class="entry-media">
+                                                <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>">
+                                                    <img
+                                                        src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
+                                                            echo 'webresources/images/banner0.jpg';
+                                                        } else {
+                                                            echo $news['img_src'];
+                                                        } ?>"
+                                                        alt=""/>
+                                                </a>
+                                            </div>
+                                            <div class="entry-content">
+                                                <span class="entry-date"><a
+                                                        href="#"><?php echo date_format(new DateTime($news['created_date']), "d.m.Y"); ?></a></span>
+                                                <h4 style="padding-top: 55px;"><a
+                                                        href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><strong><?php echo $news['title']; ?></strong></a>
+                                                </h4>
+                                                <div><?php echo $news['summary']; ?></div>
+                                                <br>
+                                                <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"
+                                                   class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- blog item end -->
-                            <?php }
-                        } ?>
+                                    <!-- blog item end -->
+                                <?php }
+                            } ?>
 
 
                         </div>
@@ -117,28 +128,32 @@
             </div>
             <div class="col-sm-12 col-md-4">
 
-                <?php if($relatednews && count($relatednews) > 0){
+                <?php if ($relatednews && count($relatednews) > 0) {
                     foreach ($relatednews as $item) { ?>
-                    <!-- widget start -->
-                    <div class="widget-box">
-                        <h4><?php echo $item['cat_name']; ?></h4>
-                        <ul class="list">
+                        <!-- widget start -->
+                        <div class="widget-box">
+                            <h4><?php echo $item['cat_name']; ?></h4>
+                            <ul class="list">
 
-                            <?php $cnt = count($item['related_news']) >= 4 ? 4 : count($item['related_news']); ?>
-                            <?php for ($i = 0; $i < $cnt; $i++) { ?>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
-                                            src="<?php echo base_url(); ?><?php if(empty($item['related_news'][$i]['img_src'])){echo 'webresources/images/img_default.jpg';} else { echo $item['related_news'][$i]['img_src'];} ?>"
-                                            alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
-                                        <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
-                                    </a></li>
-                            <?php } ?>
+                                <?php $cnt = count($item['related_news']) >= 4 ? 4 : count($item['related_news']); ?>
+                                <?php for ($i = 0; $i < $cnt; $i++) { ?>
+                                    <li>
+                                        <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
+                                                src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$i]['img_src'])) {
+                                                    echo 'webresources/images/img_default.jpg';
+                                                } else {
+                                                    echo $item['related_news'][$i]['img_src'];
+                                                } ?>"
+                                                alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
+                                            <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
+                                        </a></li>
+                                <?php } ?>
 
 
-                        </ul>
-                    </div>
-                    <!-- widget end -->
-                <?php }
+                            </ul>
+                        </div>
+                        <!-- widget end -->
+                    <?php }
                 } ?>
 
 
@@ -146,7 +161,8 @@
                 <div class="inner-container">
                     <div class="container">
                         <div class="form-bg-large">
-                            <div class="heading-text text-center text-uppercase" style="padding-top: 20px; color: white;">
+                            <div class="heading-text text-center text-uppercase"
+                                 style="padding-top: 20px; color: white;">
                                 <h3><?php echo $this->lang->line('REGISTER_CONSULT'); ?></h3>
                             </div>
 

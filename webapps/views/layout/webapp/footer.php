@@ -63,7 +63,6 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/animsition.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/slick.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.countTo.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/scroll.js"></script>
@@ -72,6 +71,14 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/masonry.filter.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.vide.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/custom.js"></script>
+
+<!--Gmaps [ OPTIONAL ]-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+<script src="<?php echo base_url(); ?>webresources/plugins/gmaps/gmaps.js"></script>
+<!--Map Example [ SAMPLE ]-->
+<script src="<?php echo base_url(); ?>webresources/dm/js/demo/misc-gmaps.js"></script>
+
+
 
 <script>
     (function (i, s, o, g, r, a, m) {

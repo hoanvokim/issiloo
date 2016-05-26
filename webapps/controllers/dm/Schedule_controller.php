@@ -66,17 +66,6 @@ class Schedule_controller extends CI_Controller
                 $this->input->post('visummary')
             );
         }
-
-        if($insertId !== -1){
-            $news_update_record = $this->News_model->getNewsById($insertId);
-            $content = $news_update_record['content'];
-            $save_path = 'assets/upload/images/news/';
-            $updated_content = saveImgAndUpdateContent($save_path,$content);
-            if(strlen($updated_content) > 0){
-                $this->News_model->update_content($insertId,'vi_content',$updated_content);
-            }
-        }
-
         $tags = $this->input->post('tags');
         if (count($tags) > 0) {
             foreach ($tags as $tag) {
@@ -105,6 +94,8 @@ class Schedule_controller extends CI_Controller
         $data['img_src'] = $current['img_src'];
 
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
+        $data['tags'] = $this->Tag_model->findAll();
+        $data['selectedTags'] = $this->Tag_model->getTagByNewsId($this->uri->segment(3));
         $this->load->view('pages/dm/schedule/edit', $data);
     }
 
@@ -116,7 +107,8 @@ class Schedule_controller extends CI_Controller
                 $upload_files = $this->upload->data();
                 $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-                $this->News_model->insert_full(
+                $this->News_model->update_full(
+                    $this->input->post('newsId'),
                     $this->scheduleId,
                     $file_path,
                     $this->input->post('slug'),
@@ -142,15 +134,12 @@ class Schedule_controller extends CI_Controller
                 );
             }
 
-            $news_id = $this->input->post('newsId');
-            $news_update_record = $this->News_model->getNewsById($news_id);
-            $content = $news_update_record['content'];
-            $save_path = 'assets/upload/images/news/';
-            $updated_content = saveImgAndUpdateContent($save_path,$content);
-            if(strlen($updated_content) > 0){
-                $this->News_model->update_content($news_id,'vi_content',$updated_content);
+            $tags = $this->input->post('tags');
+            if (count($tags) > 0) {
+                foreach ($tags as $tag) {
+                    $this->Tag_model->saveReferenceNews($tag, $this->input->post('newsId'));
+                }
             }
-
             redirect('schedule-manager', 'refresh');
         }
         if (isset($_POST["remove-current"])) {

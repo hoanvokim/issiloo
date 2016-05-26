@@ -23,7 +23,7 @@
                     <td><?php echo $gallery['vi_title']; ?></td>
                     <td>
                         <a href="<?php echo base_url() . "gallery-manager/delete-gallery/" . $gallery['id']; ?>"
-                           class="btn btn-danger btn-xs" onclick="return confirm('Bạn có muốn xoá không?');"><i class="fa fa-close"></i> Xoá</a>
+                           class="btn btn-danger btn-xs pull-right" onclick="return confirm('Bạn có muốn xoá không?');"><i class="fa fa-close"></i> Xoá</a>
                     </td>
                 </tr>
             <?php } ?>

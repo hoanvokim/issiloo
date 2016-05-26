@@ -21,7 +21,7 @@
         echo base_url().$banner_bg;
     }
     ?>" />
-    <meta property="og:image:width" content="960" />
+    <meta property="og:image:width" content="12" />
     <meta property="og:image:height" content="360" />
     <!--    End Facebook sharecode-->
 

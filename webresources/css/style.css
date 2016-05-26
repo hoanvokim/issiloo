@@ -3059,7 +3059,7 @@ ol {
 
 .form-bg-large {
     width: 100%;
-    padding: 28px;
+    padding-bottom: 20px;
     background: url('../images/form-bg-large.png') no-repeat;
     background-size: 100%;
     box-shadow: 7px 7px 20px #989898;

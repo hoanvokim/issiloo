@@ -48,10 +48,10 @@ class Faq_Model extends CI_Model
         $this->db->where('id', $faqId);
         $list = $this->db->get("faq")->result_array();
         if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+            foreach ($list as $item) {
+                return $item;
+            }
+        }
         return -1;
     }
 
@@ -65,14 +65,6 @@ class Faq_Model extends CI_Model
         $this->db->insert('faq', $data);
         $insert_id = $this->db->insert_id();
         return $insert_id;
-    }
-
-    public function update_answer($faqId, $type_answer, $answer){
-        $data = array(
-            $type_answer => $answer
-        );
-        $this->db->where('id', $faqId);
-        $this->db->update('faq', $data);
     }
 
     public function update($faqId, $faqQuestion, $faqAnswer)
