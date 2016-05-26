@@ -89,7 +89,7 @@ class News_Model extends CI_Model
         for ($i = 0; $i < $cnt - 1; $i++) {
             $sql = $sql . $aCat[$i] . ",";
         }
-        $sql = $sql . $aCat[$cnt - 1] . ")";
+        $sql = $sql . $aCat[$cnt - 1] . ") order by created_date DESC";
         return $this->db->query($sql)->result_array();
     }
 
@@ -115,7 +115,7 @@ class News_Model extends CI_Model
             $sql = $sql . $value . ",";
         }
         $sql = substr($sql, 0, -1);
-        $sql = $sql . ")";
+        $sql = $sql . ") order by created_date desc";
         return $this->db->query($sql)->result_array();
     }
 

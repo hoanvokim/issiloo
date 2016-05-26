@@ -22,7 +22,7 @@ class University_Model extends CI_Model
     {
         $title = $this->title;
         $description = $this->description;
-        $sql = "select id as university_id, $title as title, $description as description, url from university";
+        $sql = "select id as university_id, $title as title, $description as description, url from university order by university_id desc";
         return $this->db->query($sql)->result_array();
     }
 

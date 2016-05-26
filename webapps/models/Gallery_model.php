@@ -30,12 +30,12 @@ class Gallery_Model extends CI_Model
     public function getGalleryCorner()
     {
         $temp = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";
-        $sql = "select img_src,$temp as title from gallery where gallery.type='corner' limit 0,10";
+        $sql = "select img_src,$temp as title, created_date from gallery where gallery.type='corner' order by created_date desc limit 0,10";
         return $this->db->query($sql)->result_array();
     }
 
     public function getGalleryByType($type,$start_record,$limit){
-        $sql = "select * from gallery where type='$type' limit $start_record,$limit";
+        $sql = "select * from gallery where type='$type' order by created_date desc limit $start_record,$limit";
         return $this->db->query($sql)->result_array();
     }
 
