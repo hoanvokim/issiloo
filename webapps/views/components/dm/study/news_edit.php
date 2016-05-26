@@ -29,17 +29,20 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Phân nhóm: </label>
-                       <strong><?php echo $catName ?></strong>
-                    </div>
-                    <div class="form-group">
                         <?php if (!empty($img_src)) { ?>
                             <input type="hidden" id="hide" name="img_src" value="<?php echo $img_src; ?>">
                             <img src="<?php echo base_url() . $img_src; ?> " width="600px;"/>
                             <br/>
+                            <br/>
+                            <button type="submit" class="btn btn-danger btn-xs" name="remove-current"><i
+                                    class="fa fa-close"></i> Xoá
+                            </button>
+                        <?php } else { ?>
+                            <label for="upload_file">File upload</label>
+                            <input type='file' name='userfile' size='20'/>
+                            <br/>
+                            <i>Lưu ý: Hình ảnh size chuẩn: 1200px * 503px</i>
                         <?php } ?>
-                        <label for="upload_file">File upload</label>
-                        <input type='file' name='userfile' size='20'/>
                     </div>
                 </div>
             </div>
@@ -91,7 +94,7 @@
 </div>
 <!--===================================================-->
 <!--End Default Tabs (Left Aligned)-->
-<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
+<button type="submit" class="btn btn-success btn-xs" name="save"><i class="fa fa-save"></i> Lưu</button>
 <a href="<?php echo base_url() . "news-manager/update-study-news-cancel" ?>" type="submit" class="btn btn-default btn-xs" onclick="return confirm('Bạn muốn thoát ra phải không?');" ><i
         class="fa fa-close"></i> Huỷ</a>
 <a href="<?php echo base_url() . "news-manager/delete-study-news/" . $newsId; ?>"
