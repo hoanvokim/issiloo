@@ -229,13 +229,20 @@
                         <div class="white-paper">
                             <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
                                 <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> " style="padding-top: 10px;"/>
+                                <div style="padding: 10px;">
+                                    <img class="pull-left" src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                    <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
+                                </div>
                             <?php }
                             else { ?>
-                                <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank"> <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
-                                                                                                           style="padding-top: 10px;"/></a>
+                                <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
+                                    <img src="<?php echo $video_image[$i]['youtube']; ?>" alt="" style="padding-top: 10px;"/>
+                                </a>
+                                <div style="padding: 10px;">
+                                    <img class="pull-left" src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                    <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
+                                </div>
                             <?php } ?>
-                            <!--                            <img src="--><?php //echo base_url() . $video_image[$i]['img_src']; ?><!-- " style="padding-top: 10px;"/>-->
-                            <p><?php echo $video_image[$i]['title']; ?></p>
                         </div>
                     </div>
                 <?php } ?>

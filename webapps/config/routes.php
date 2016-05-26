@@ -189,3 +189,9 @@ $route['scholarship-manager/update-scholarship/:num'] = 'dm/scholarship_controll
 $route['scholarship-manager/delete-scholarship/:num'] = 'dm/scholarship_controller/delete_scholarship';
 $route['scholarship-manager-create-scholarship-submit'] = 'dm/scholarship_controller/create_scholarship_submit';
 $route['scholarship-manager-update-scholarship-submit'] = 'dm/scholarship_controller/update_scholarship_submit';
+
+
+$route['gallery-manager'] = 'dm/gallery_controller/index';
+$route['gallery-manager/create-gallery'] = 'dm/gallery_controller/create_gallery';
+$route['gallery-manager/delete-gallery/:num'] = 'dm/gallery_controller/delete_gallery';
+$route['gallery-manager-create-gallery-submit'] = 'dm/gallery_controller/create_gallery_submit';

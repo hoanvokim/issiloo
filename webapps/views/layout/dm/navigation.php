@@ -64,6 +64,13 @@
                         </li>
 
                         <li>
+                            <a href="<?php echo site_url('gallery-manager'); ?>">
+                                <i class="fa fa-image"></i>
+                                <span class="menu-title">Thư mục ảnh</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="<?php echo site_url('sub-category-manager'); ?>">
                                 <i class="fa fa-sun-o"></i>
                                 <span class="menu-title">Thêm phân nhóm phụ</span>
