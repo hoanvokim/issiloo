@@ -4,7 +4,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="http://www.coachesneedsocial.com/wp-content/uploads/2014/12/BannerWCircleImages-1.jpg" />
+
+    <!--    Facebook sharecode-->
+    <meta property="og:site_name" content="issiloo.edu.vn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url"
+          content="<?php echo $title_header; ?>" />
+    <meta property="og:title"
+          content="<?php echo $title_header; ?>" />
+    <meta property="og:description"
+          content="<?php echo $title_header; ?>" />
+    <meta property="og:image" content="<?php
+    if(empty($banner_bg))  {
+        echo base_url().'webresources/images/banner0.jpg';
+    } else {
+        echo base_url().$banner_bg;
+    }
+    ?>" />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="360" />
+    <!--    End Facebook sharecode-->
+
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <title><?php echo $title_header; ?> | ISSILOO</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>webresources/images/favicon.png">
@@ -24,31 +44,31 @@
     <![endif]-->
     <style>
 
-        .float-left{
-            float:left;
+        .float-left {
+            float: left;
         }
 
         .message {
             display: none;
             font-size: 16px;
-            width:100%;
+            width: 100%;
             padding: 10px;
-            border:1px solid #cccccc;
+            border: 1px solid #cccccc;
         }
 
         .success {
             display: block;
-            color:green;
+            color: green;
         }
 
         .error {
-            display:block;
-            color:darkred;
+            display: block;
+            color: darkred;
         }
 
-        pre{
+        pre {
             background-color: #ffffff;
-            border:none;
+            border: none;
         }
 
         /* Note: Try to remove the following lines to see the effect of CSS positioning */
@@ -71,15 +91,17 @@
         .affix-top nav ul > li ul {
             top: 61px;
         }
+
         .submenu {
             top: 0px !important;
         }
+
         .affix + .container-fluid {
             padding-top: 70px;
         }
     </style>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $(".message").fadeOut(5000);
 
             $('#search_keyword').keydown(function (event) {
@@ -88,8 +110,8 @@
                     var action_str = $(this).closest('form').attr('action');
                     var keyword_str = $(this).val();
                     var updated_link = action_str + keyword_str;
-                   $(this).closest('form').attr('action',updated_link);
-                   $(this).closest('form').submit();
+                    $(this).closest('form').attr('action', updated_link);
+                    $(this).closest('form').submit();
                 }
             });
 
