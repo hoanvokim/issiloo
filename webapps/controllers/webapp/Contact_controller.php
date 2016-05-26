@@ -38,10 +38,11 @@ class Contact_controller extends CI_Controller{
             $this->email->initialize($contact);
 
             $sender_mail = $this->input->post('sender_email');
+            $sender_phone = $this->input->post('sender_phone');
             $sender_name = $this->input->post('sender_name');
 
             $sender_subject = $this->input->post('sender_subject');
-            $sender_content = $this->input->post('sender_content');
+            $sender_content = $this->input->post('sender_content')."\n Phone : ".$sender_phone;;
 
             $this->email->from($sender_mail, $sender_name);
 

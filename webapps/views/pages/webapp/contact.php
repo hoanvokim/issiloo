@@ -32,6 +32,10 @@
                                         <input type="email" value="" name="sender_email" class="form-control" required="required" />
                                     </div>
                                     <div class="form-group">
+                                        <label><?php echo $this->lang->line('PHONE'); ?>*</label>
+                                        <input type="text" value="" name="sender_phone" class="form-control" required="required" />
+                                    </div>
+                                    <div class="form-group">
                                         <label><?php echo $this->lang->line('TITLE'); ?></label>
                                         <input type="text" value="" name="sender_subject" class="form-control" required="required" />
                                     </div>
