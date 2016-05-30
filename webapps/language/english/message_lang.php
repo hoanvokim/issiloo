@@ -53,5 +53,6 @@ $lang['CONTACT_BANNER_TITLE'] = 'LIÊN HỆ VỚI ISSILOO';
 $lang['CONTACT_MESSAGE'] = 'ĐỂ CHÚNG TÔI CUNG CẤP CHO BẠN NHỮNG THÔNG TIN CẦN THIẾT';
 $lang['CONTACT_SUCCESS'] = 'Liên hệ thành công. Chúng tôi sẽ sớm phản hồi cho bạn.';
 $lang['MESSAGE_ERROR'] = 'Có lỗi xảy ra. vui lòng thử lại.';
+$lang['GOOGLE_MAP_TITLE'] = 'SƠ ĐỒ ĐƯỜNG ĐI';
 
 ?>

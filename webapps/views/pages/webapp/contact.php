@@ -104,10 +104,17 @@
     <!--<div class="map-container">
         <div id="map-canvas"></div>
     </div>-->
-    <div>
+    <!--<div>
         <div id="demo-marker-map" style="height:300px"></div>
     </div>
     <!-- map container end -->
+
+    <div id="issiloo-map" style="text-align: center">
+        <h3><?php echo $this->lang->line('GOOGLE_MAP_TITLE'); ?></h3>
+        <div class="overlay" onClick="style.pointerEvents='none'"></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.19507362845!2d106.68890111480086!3d10.796366392307974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528ce8a97d779%3A0x730207db5fe33c40!2zMzcgSG9hIEjhu5NuZywgcGjGsOG7nW5nIDIsIFBow7ogTmh14bqtbiwgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1464600882712" width="75%" height="450px" frameborder="1" style="border:none;" allowfullscreen></iframe>
+    </div>
+
 
 
 <?php $this->load->view('layout/webapp/footer'); ?>
