@@ -35,11 +35,11 @@ class Tag_Model extends CI_Model
     {
         $sql = "select name from tag where id=$tag_id";
         $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item['name'];
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item['name'];
+            }
+        }
         return -1;
     }
 
@@ -52,11 +52,11 @@ class Tag_Model extends CI_Model
     {
         $this->db->where('id', $tagId);
         $list = $this->db->get("tag")->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+        if (count($list > 0)) {
+            foreach ($list as $item) {
+                return $item;
+            }
+        }
         return -1;
     }
 
@@ -99,6 +99,12 @@ class Tag_Model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('tag');
+    }
+
+    public function deleteByNews($id)
+    {
+        $sql = "delete tagnews from tagnews where tagnews.`news_id` = $id ";
+        $this->db->query($sql);
     }
 
 }

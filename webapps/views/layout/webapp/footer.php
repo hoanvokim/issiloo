@@ -35,8 +35,8 @@
                                 <i class="ion ion-ios-telephone-outline"></i> Phone: <a
                                     href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
                                 <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                    084
-                                    080</a><br/>
+                                                                                                                  084
+                                                                                                                  080</a><br/>
                             </p>
 
                         </address>
@@ -97,5 +97,6 @@
     ga('send', 'pageview');
 
 </script>
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '9cbb6f17-5e79-4265-ba09-e6230558c487', f: true }); done = true; } }; })();</script>
 </body>
 </html>
