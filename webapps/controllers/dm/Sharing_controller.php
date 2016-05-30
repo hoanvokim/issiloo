@@ -176,6 +176,7 @@ class Sharing_controller extends CI_Controller
                     $this->input->post('visummary')
                 );
             }
+            $this->Tag_model->deleteByNews($this->input->post('newsId'));
             $tags = $this->input->post('tags');
             if (count($tags) > 0) {
                 foreach ($tags as $tag) {

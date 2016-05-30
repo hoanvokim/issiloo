@@ -55,7 +55,8 @@ class Hotnews_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        } else {
+        }
+        else {
             $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $this->input->post('img_src'),
@@ -122,7 +123,8 @@ class Hotnews_controller extends CI_Controller
                     $this->input->post('vicontent'),
                     $this->input->post('visummary')
                 );
-            } else {
+            }
+            else {
                 $this->News_model->update_full(
                     $this->input->post('newsId'),
                     $this->programId,
@@ -136,7 +138,7 @@ class Hotnews_controller extends CI_Controller
                     $this->input->post('visummary')
                 );
             }
-
+            $this->Tag_model->deleteByNews($this->input->post('newsId'));
             $tags = $this->input->post('tags');
             if (count($tags) > 0) {
                 foreach ($tags as $tag) {
@@ -174,7 +176,7 @@ class Hotnews_controller extends CI_Controller
     {
         $news = $this->News_model->getNewsById($this->uri->segment(3));
 
-        if(!is_null($news['img_src'])) {
+        if (!is_null($news['img_src'])) {
             unlink('./' . $news['img_src']);
         }
         $this->News_model->delete($this->uri->segment(3));
