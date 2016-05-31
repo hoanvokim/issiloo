@@ -21,6 +21,10 @@ class Slider_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['sliders'] = $this->Slider_model->getAll();
         $data['title'] = 'Sliders';
         $this->load->view('pages/dm/slider/view_all', $data);
@@ -28,6 +32,10 @@ class Slider_controller extends CI_Controller
 
     public function create_slider()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm slider mới';
         $this->load->view('pages/dm/slider/add', $data);
     }
@@ -55,6 +63,10 @@ class Slider_controller extends CI_Controller
 
     public function update_slider()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->Slider_model->findById($this->uri->segment(3));
         $data['id'] = $current['id'];
         $data['img_src'] = $current['img_src'];

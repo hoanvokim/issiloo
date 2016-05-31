@@ -23,6 +23,10 @@ class Intro_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Giới thiệu';
         $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
         $this->load->view('pages/dm/intro/intro', $data);
@@ -31,6 +35,10 @@ class Intro_controller extends CI_Controller
 
     public function create()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Tạo tab mới';
         $this->load->view('pages/dm/intro/intro_create', $data);
     }
@@ -50,6 +58,10 @@ class Intro_controller extends CI_Controller
 
     public function update()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Cập nhật giới thiệu';
         $data['intros'] = $this->News_model->getCurrentIntroduce($this->uri->segment(3));
         $this->load->view('pages/dm/intro/intro_update', $data);

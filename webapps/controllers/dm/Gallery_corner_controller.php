@@ -21,6 +21,10 @@ class Gallery_corner_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['galleries'] = $this->Gallery_model->getGalleryByType('corner', 0, 1000);
         $galleries = array();
         foreach ($data['galleries'] as $item) {
@@ -38,6 +42,10 @@ class Gallery_corner_controller extends CI_Controller
 
     public function create_gallery()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm 1 ảnh mới';
         $this->load->view('pages/dm/gallery/add', $data);
     }
@@ -71,6 +79,10 @@ class Gallery_corner_controller extends CI_Controller
 
     public function update_gallery()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->Gallery_model->getGalleryById($this->uri->segment(3));
         $data['id'] = $current['id'];
         $data['img_src'] = $current['img_src'];

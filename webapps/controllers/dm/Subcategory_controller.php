@@ -23,12 +23,20 @@ class Subcategory_controller extends CI_Controller
 
     public function create_subcategory()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Tạo 1 phân nhóm phụ';
         $this->load->view('pages/dm/subcategory/add_sub_category', $data);
     }
 
     public function create_subcategory_submit()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         if (isset($_POST["save"])) {
             $this->Category_model->insertSubCategory($this->input->post('viCatName'), $this->input->post('slug'));
         }
@@ -40,6 +48,10 @@ class Subcategory_controller extends CI_Controller
 
     public function create_news_subcategory()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findAllSubCategory();
         $data['tags'] = $this->Tag_model->findAll();
 

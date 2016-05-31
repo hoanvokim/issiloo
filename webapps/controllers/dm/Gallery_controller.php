@@ -21,6 +21,10 @@ class Gallery_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['galleries'] = $this->Gallery_model->getGalleryByType('folder', 0, 1000);
         $galleries = array();
         foreach ($data['galleries'] as $item) {
@@ -37,6 +41,10 @@ class Gallery_controller extends CI_Controller
 
     public function create_gallery()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm 1 ảnh mới';
         $this->load->view('pages/dm/manage_gallery/add', $data);
     }
@@ -58,8 +66,8 @@ class Gallery_controller extends CI_Controller
                     $this->upload->initialize($this->set_upload_options());
                     $this->upload->do_upload();
                     $fileName = $_FILES['userfile']['name'];
-                    $src='assets/upload/images/gallery/'.$fileName;
-                    $this->Gallery_model->insert($src, 'folder',$fileName);
+                    $src = 'assets/upload/images/gallery/' . $fileName;
+                    $this->Gallery_model->insert($src, 'folder', $fileName);
                 }
             }
         }

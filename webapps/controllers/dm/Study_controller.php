@@ -22,6 +22,10 @@ class Study_controller extends CI_Controller
 
     public function view_all()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         $can_be_deleted = TRUE;
@@ -79,6 +83,10 @@ class Study_controller extends CI_Controller
 
     public function create_category()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -107,6 +115,10 @@ class Study_controller extends CI_Controller
 
     public function update_category()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         //getCurrent
         $currentCategory = $this->Category_model->findById($this->uri->segment(3));
         $data['currentCategory'] = $currentCategory;

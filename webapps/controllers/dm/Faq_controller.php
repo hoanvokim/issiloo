@@ -22,6 +22,10 @@ class Faq_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['faqs'] = $this->Faq_model->findAll();
         $data['title'] = 'Câu hỏi thường gặp';
         $this->load->view('pages/dm/faq/view_all', $data);
@@ -29,6 +33,10 @@ class Faq_controller extends CI_Controller
 
     public function create_faq()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm câu hỏi thường gặp';
         $this->load->view('pages/dm/faq/add', $data);
     }
@@ -49,6 +57,10 @@ class Faq_controller extends CI_Controller
 
     public function update_faq()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->Faq_model->findById($this->uri->segment(3));
         $data['faqId'] = $current['id'];
         $data['faqQuestion'] = $current['vi_question'];

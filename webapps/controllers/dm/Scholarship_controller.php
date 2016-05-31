@@ -22,6 +22,10 @@ class Scholarship_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['programs'] = $this->News_model->getNewsByCatId($this->config->item('hoc_bong'));
         $data['title'] = 'Học Bổng';
         $this->load->view('pages/dm/scholarship/view_all', $data);
@@ -29,6 +33,10 @@ class Scholarship_controller extends CI_Controller
 
     public function create_scholarship()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm thời bài học bổng mới';
         $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/scholarship/add', $data);
@@ -80,6 +88,10 @@ class Scholarship_controller extends CI_Controller
 
     public function update_scholarship()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
         $data['slug'] = $current['slug'];

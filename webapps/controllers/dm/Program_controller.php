@@ -23,6 +23,10 @@ class Program_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['programs'] = $this->News_model->getNewsByCatId($this->programId);
         $data['title'] = 'Chương trình đào tạo';
         $this->load->view('pages/dm/program/view_all', $data);
@@ -30,6 +34,10 @@ class Program_controller extends CI_Controller
 
     public function create_program()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['tags'] = $this->Tag_model->findAll();
         $data['title'] = 'Thêm chương trình mới';
         $this->load->view('pages/dm/program/add', $data);
@@ -82,6 +90,10 @@ class Program_controller extends CI_Controller
 
     public function update_program()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
         $data['slug'] = $current['slug'];

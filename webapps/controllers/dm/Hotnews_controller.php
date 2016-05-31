@@ -25,6 +25,10 @@ class Hotnews_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['programs'] = $this->News_model->getNewsByCatId($this->programId);
         $data['title'] = 'Tin tức và sự kiện';
         $this->load->view('pages/dm/news/view_all', $data);
@@ -32,6 +36,10 @@ class Hotnews_controller extends CI_Controller
 
     public function create_news()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm tin mới';
         $data['tags'] = $this->Tag_model->findAll();
         $this->load->view('pages/dm/news/add', $data);
@@ -55,8 +63,7 @@ class Hotnews_controller extends CI_Controller
                 $this->input->post('vicontent'),
                 $this->input->post('visummary')
             );
-        }
-        else {
+        } else {
             $insertId = $this->News_model->insert_full(
                 $this->programId,
                 $this->input->post('img_src'),
@@ -85,6 +92,10 @@ class Hotnews_controller extends CI_Controller
 
     public function update_news()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
         $data['slug'] = $current['slug'];
@@ -123,8 +134,7 @@ class Hotnews_controller extends CI_Controller
                     $this->input->post('vicontent'),
                     $this->input->post('visummary')
                 );
-            }
-            else {
+            } else {
                 $this->News_model->update_full(
                     $this->input->post('newsId'),
                     $this->programId,

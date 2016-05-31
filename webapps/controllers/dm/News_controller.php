@@ -23,6 +23,10 @@ class News_controller extends CI_Controller
 
     public function all_news()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -60,6 +64,10 @@ class News_controller extends CI_Controller
 
     public function update_study_news()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->News_model->getNewsById($this->uri->segment(3));
         $data['newsId'] = $current['id'];
         $data['catId'] = $current['category_id'];
@@ -130,6 +138,10 @@ class News_controller extends CI_Controller
 
     public function add_news()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {
@@ -144,6 +156,10 @@ class News_controller extends CI_Controller
 
     public function add_news_into_category()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['categories'] = $this->Category_model->findStudyAbroadRoot();
         $categories = array();
         foreach ($data['categories'] as $category) {

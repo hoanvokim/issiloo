@@ -21,6 +21,10 @@ class Tag_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['tags'] = $this->Tag_model->findAll();
         $data['title'] = 'Từ khoá';
         $this->load->view('pages/dm/tag/view_all', $data);
@@ -28,6 +32,10 @@ class Tag_controller extends CI_Controller
 
     public function create_tag()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm từ khoá';
         $this->load->view('pages/dm/tag/add', $data);
     }
@@ -47,6 +55,10 @@ class Tag_controller extends CI_Controller
 
     public function update_tag()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $current = $this->Tag_model->findById($this->uri->segment(3));
         $data['tagId'] = $current['id'];
         $data['tagName'] = $current['name'];

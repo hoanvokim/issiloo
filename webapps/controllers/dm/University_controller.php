@@ -25,6 +25,10 @@ class University_controller extends CI_Controller
 
     public function index()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['universities'] = $this->University_model->getAll();
         $data['title'] = 'Xem tất cả trường đại học';
         $this->load->view('pages/dm/university/view_all', $data);
@@ -32,6 +36,10 @@ class University_controller extends CI_Controller
 
     public function create_university()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $data['title'] = 'Thêm trường đại học';
         $this->load->view('pages/dm/university/add', $data);
     }
@@ -68,6 +76,10 @@ class University_controller extends CI_Controller
 
     public function update_university()
     {
+        if (!$this->is_login()) {
+            $this->load_login_view();
+            return;
+        }
         $uni = $this->University_model->getById($this->uri->segment(3));
         $data['uniId'] = $uni['university_id'];
         $data['uniTitle'] = $uni['title'];

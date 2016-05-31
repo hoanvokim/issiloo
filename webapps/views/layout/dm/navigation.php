@@ -58,7 +58,7 @@
 
                         <li>
                             <a href="<?php echo site_url('gallery-corner-manager'); ?>">
-                                <i class="fa fa-braille"></i>
+                                <i class="fa fa-instagram"></i>
                                 <span class="menu-title">Chia sẽ ảnh và video</span>
                             </a>
                         </li>
