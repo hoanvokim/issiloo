@@ -1756,15 +1756,13 @@ ul.list li a {
     display: inline-block;
     width: 100%;
     background: #fff;
-    padding: 10px;
+    padding: 7px;
 }
 
 ul.list li img {
-    width: 70px;
+    width: 130px;
     float: left;
-    margin: 0 15px 0 0;
-    padding: 2px;
-    border: solid 1px #2e4c95;
+    margin: 8px 15px 0 0;
 }
 
 ul.list li a:hover img {
