@@ -272,7 +272,7 @@
                             echo '';
                         } ?></p>
 
-                    <div class="row" style="height: 420px;">
+                    <div class="row" style="height: 410px;">
                         <div class="col-md-10 col-md-offset-1">
                             <form class="contact-form" id="ContactForm" method="post"
                                   action="<?php echo base_url(); ?>">

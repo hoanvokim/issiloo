@@ -23,7 +23,7 @@
                     <br/>
                 </div>
                 <div class="col-md-7 col-sm-12">
-                    <div class="col-md-6 col-sm-12 text-left">
+                    <div class="col-md-7 col-sm-12 text-left">
                         <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
                         <address>
                             <p>
@@ -43,7 +43,7 @@
                         </address>
                         <br/>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-right">
+                    <div class="col-md-5 col-sm-12 text-right">
                         <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
                         <p class="open"><i
                                 class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
