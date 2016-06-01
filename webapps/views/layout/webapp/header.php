@@ -84,12 +84,16 @@
         }
 
         .affix .logo {
-            margin-top: 10px;
+            margin-left: 20px;
+
+        }
+
+        .affix-top .logo {
             margin-left: 20px;
         }
 
         .affix-top nav ul > li ul {
-            top: 61px;
+            top: 71px;
         }
 
         .submenu {

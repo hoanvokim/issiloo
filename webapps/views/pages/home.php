@@ -40,12 +40,10 @@
                                     <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                         echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                         echo $this->lang->line('HOC_TIENG_HAN');
-                                    }
-                                    else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                    } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
                                         echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                         echo $item['cat_name'];
-                                    }
-                                    else {
+                                    } else {
                                         echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                         echo $item['cat_name'];
                                     } ?></h4>
@@ -57,8 +55,7 @@
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
-                                                        }
-                                                        else {
+                                                        } else {
                                                             echo $news_item['img_src'];
                                                         } ?>"
                                                         alt=""/>
@@ -155,12 +152,10 @@
                                 <img
                                     src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                         echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                    }
-                                    else {
+                                    } else {
                                         if (empty($last_news[0]['img_src'])) {
                                             echo base_url() . 'webresources/images/banner0.jpg';
-                                        }
-                                        else {
+                                        } else {
                                             echo base_url() . $last_news[0]['img_src'];
                                         }
                                     }
@@ -189,7 +184,7 @@
                         <?php if ($i > (count($last_news) - 1)) {
                             break;
                         } ?>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-4 col-sm-4">
                             <div class="service-box">
                                 <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"><h4>
                                         <strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
@@ -228,18 +223,23 @@
                         <div class="feature-box dark">
                             <div class="white-paper">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
-                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> " style="padding-top: 10px;"/>
+                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "
+                                         style="padding-top: 10px;"/>
                                     <div style="padding: 10px;">
-                                        <img class="pull-left" src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                        <img class="pull-left"
+                                             src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>"
+                                             style="padding-top: 5px; width: 30px;"/>
                                         <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
                                     </div>
-                                <?php }
-                                else { ?>
+                                <?php } else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
-                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt="" style="padding-top: 10px;"/>
+                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
+                                             style="padding-top: 10px;"/>
                                     </a>
                                     <div style="padding: 10px;">
-                                        <img class="pull-left" src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                        <img class="pull-left"
+                                             src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>"
+                                             style="padding-top: 5px; width: 30px;"/>
                                         <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
                                     </div>
                                 <?php } ?>
@@ -264,11 +264,9 @@
 
                     <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
                             echo $this->lang->line('MESSAGE_ERROR');
-                        }
-                        elseif ($status == 'success') {
+                        } elseif ($status == 'success') {
                             echo $this->lang->line('CONTACT_SUCCESS');
-                        }
-                        else {
+                        } else {
                             echo '';
                         } ?></p>
 

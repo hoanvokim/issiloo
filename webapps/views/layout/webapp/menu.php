@@ -1,4 +1,16 @@
-<header>
+<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="contactinfo pull-right">
+                    <li><a href="tel:0898 084 080"><img src="<?php echo base_url().'webresources/images/telefone.png'; ?>" style="width: 250px;"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="navigation affix-top" data-offset-top="2" data-spy="affix">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -8,8 +20,8 @@
 
 
                 <div class="nav-menu-icon"><a href="#"><i></i></a></div>
-                <nav>
-                    <ul class="menu">
+                <nav class="fixed-collapse-navbar">
+                    <ul class="menu nav navbar-nav navbar-right">
                         <li><a class="active"
                                href="<?php echo base_url(); ?>"><?php echo $this->lang->line('MENU_HOME'); ?></a>
                         </li>

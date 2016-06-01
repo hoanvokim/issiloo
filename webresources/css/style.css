@@ -108,7 +108,7 @@ a, input {
 
 a:hover {
     text-decoration: none;
-    color: #2e4c95;
+    color: #fff;
 }
 
 a img {
@@ -371,7 +371,6 @@ header {
     right: 0;
     background: #ffffff;
     z-index: 999;
-    border-bottom: 0.2px solid #2e4c95;
 }
 
 .logo {
@@ -559,7 +558,7 @@ nav ul > li ul {
     visibility: hidden;
     left: -10px;
     display: block;
-    min-width: 160px;
+    min-width: 220px;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -597,7 +596,7 @@ nav ul > li > ul > li > ul {
     visibility: hidden;
     position: absolute;
     left: 100%;
-    max-width: 150px;
+    min-width: 210px;
     background: #fff;
     background: rgba(255, 255, 255,1);
     top: 0px;
@@ -3088,4 +3087,15 @@ ol {
 
 .success{
     color:green!important;
+}
+
+.nav > li > a {
+    padding: 22px 0 !important;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+}
+.topbar {
+    background-color: #2e4c95;
+    color: #fff;
 }
