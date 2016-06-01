@@ -217,35 +217,37 @@
 
     <?php if ($video_image && count($video_image) > 0) { ?>
         <div class="feature-container mar-60">
-            <h3 class="col-header-color"
-                style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
-            <div class="feature-slider">
+            <div class="container">
+                <h3 class="col-header-color"
+                    style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
+                <div class="feature-slider">
 
-                <?php for ($i = 0;
-                           $i < count($video_image);
-                           $i++) { ?>
-                    <div class="feature-box dark">
-                        <div class="white-paper">
-                            <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
-                                <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> " style="padding-top: 10px;"/>
-                                <div style="padding: 10px;">
-                                    <img class="pull-left" src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
-                                    <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
-                                </div>
-                            <?php }
-                            else { ?>
-                                <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
-                                    <img src="<?php echo $video_image[$i]['youtube']; ?>" alt="" style="padding-top: 10px;"/>
-                                </a>
-                                <div style="padding: 10px;">
-                                    <img class="pull-left" src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
-                                    <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
-                                </div>
-                            <?php } ?>
+                    <?php for ($i = 0;
+                               $i < count($video_image);
+                               $i++) { ?>
+                        <div class="feature-box dark">
+                            <div class="white-paper">
+                                <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
+                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> " style="padding-top: 10px;"/>
+                                    <div style="padding: 10px;">
+                                        <img class="pull-left" src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                        <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
+                                    </div>
+                                <?php }
+                                else { ?>
+                                    <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
+                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt="" style="padding-top: 10px;"/>
+                                    </a>
+                                    <div style="padding: 10px;">
+                                        <img class="pull-left" src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>" style="padding-top: 5px; width: 30px;"/>
+                                        <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
+                                    </div>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
 
+                </div>
             </div>
         </div>
 

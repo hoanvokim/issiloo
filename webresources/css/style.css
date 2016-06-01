@@ -1,6 +1,6 @@
 /*reset css starts here*/
 @font-face {
-    font-family: Roboto Slab, 'Open Sans', Arial, sans-serif;
+    font-family: Helvetica,Arial,sans-serif;
     font-weight: 600;
 }
 
@@ -79,7 +79,7 @@ body {
     line-height: 24px;
     height: 100%;
     width: 100%;
-    font-family: 'Source Sans Pro';
+    font-family: Helvetica,Arial,sans-serif;
     color: #222;
     background-color: #fff;
     font-weight: 500;
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
     line-height: 170%;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 h1 {
@@ -513,8 +513,8 @@ nav {
 nav > ul > li {
     position: relative;
     float: left;
-    margin: 0px 15px;
-    font-size: 15px;
+    margin: 0px 10px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 16px;
     text-transform: uppercase;
@@ -866,7 +866,7 @@ ul.list-group li {
 ul.list-group li:before {
     content: "\f3fd";
     width: 20px;
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     position: absolute;
     left: 0;
     top: 0;
@@ -939,8 +939,6 @@ ul.list-group li:before {
 }
 
 .feature-container {
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
     z-index: 9;
     width: 100%;
     display: inline-block;
@@ -1423,7 +1421,7 @@ ul.social-links li a:hover {
 
 .faq-container h5:before {
     content: "\f375";
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     margin-right: 10px;
 }
 
@@ -1655,7 +1653,7 @@ ul.project-category li a:hover, ul.project-category li a.active {
 
 .entry-author:before {
     content: "\f47e";
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     margin-right: 10px;
     font-size: 20px;
     position: relative;
@@ -1664,7 +1662,7 @@ ul.project-category li a:hover, ul.project-category li a.active {
 
 .entry-comment:before {
     content: "\f3fc";
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     margin-right: 10px;
     font-size: 20px;
     position: relative;
@@ -1715,7 +1713,7 @@ blockquote {
 
 .search-container:before {
     content: "\f4a4";
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     font-size: 20px;
     position: absolute;
     top: 0px;
@@ -2269,7 +2267,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 .accordion-panel .panel-title:before {
     content: "\f48a";
-    font-family: "Ionicons";
+    font-family: Helvetica,Arial,sans-serif;
     font-size: 30px;
     padding: 20px 15px;
     position: absolute;
@@ -2333,7 +2331,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 .tooltip-inner {
     background-color: #2e4c95;
     border-radius: 0;
-    font-family: 'Source Sans Pro';
+    font-family: Helvetica,Arial,sans-serif;
     font-weight: 300;
     outline: solid 1px #2e4c95;
     outline-offset: 1px;
