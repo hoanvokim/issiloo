@@ -3,26 +3,27 @@
     <div class="footer-upper">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-5 col-sm-12">
                     <h5><a href="#"><img src="<?php echo base_url(); ?>webresources/images/logo-line-white-2.png"
                                          alt="ISSILOO"
                                          class="footer-logo"/></a></h5>
-                    <div class="pull-left">
-                        <ul class="social-links" style="margin-right: -20px;">
+                    <div style="width: 100%">
+                        <ul class="social-links">
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
-                                         style="width: 40px;"/></a></li>
-                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
+                                         style="width: 45px;"/></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCypJRV59K16kc0AEjuCPJ9Q" target="_blank" title="Youtube">
                                     <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
-                                         style="width: 40px;"/></a></li>
-                            <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
+                                         style="width: 45px;"/></a></li>
+                            <li><a href="http://zaloapp.com/qr/p/fwc7rp42pe1x" target="_blank" title="Zalo">
                                     <img src="<?php echo base_url() . 'webresources/images/zalo.png' ?>"
-                                         style="width: 40px;"/></a></li>
+                                         style="width: 45px;"/></a></li>
                         </ul>
                     </div>
+                    <br/>
                 </div>
-                <div class="col-md-8">
-                    <div class="col-md-6 col-sm-12 text-left" style="margin-left: 103px;">
+                <div class="col-md-7 col-sm-12">
+                    <div class="col-md-6 col-sm-12 text-left">
                         <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
                         <address>
                             <p>
@@ -40,8 +41,9 @@
                             </p>
 
                         </address>
+                        <br/>
                     </div>
-                    <div class="col-md-4 col-sm-12 text-right">
+                    <div class="col-md-6 col-sm-12 text-right">
                         <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
                         <p class="open"><i
                                 class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
@@ -50,6 +52,8 @@
                         <p class="open"><i
                                 class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
                             <br/><?php echo $this->lang->line('MORNING_NOON'); ?></p>
+
+                        <br/>
                     </div>
                 </div>
             </div>

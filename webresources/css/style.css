@@ -1050,7 +1050,7 @@ footer a:hover {
 }
 
 .footer-upper {
-    padding: 15px 0 10px;
+    padding: 15px 0 10px 0;
     font-size: 12px;
 }
 
@@ -1104,7 +1104,7 @@ ul.footer-tweet-list li {
 }
 
 ul.social-links {
-    float: right;
+    margin-left: 24%;
 }
 
 ul.social-links li {
