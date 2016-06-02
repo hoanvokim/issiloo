@@ -50,7 +50,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="demo-vs-definput" class="control-label">Đường dẫn trên thanh địa chỉ</label>
+                        <label for="demo-vs-definput" class="control-label">Đường dẫn trên thanh địa chỉ <span style="font-style: italic; font-size: 10px; padding-left: 10px;">(Xin vui lòng <span style="font-style: italic; font-size: 10px; color: red;"> không để trống</span> và nhập tiếng việt không dấu, và viết cách nhau bằng dấu "-" (ví dụ: chuong-trinh-du-hoc-issiloo))</span></label>
                         <input type="text" name="slug" class="form-control" value="<?php echo $slug; ?>">
                     </div>
                     <div class="form-group">

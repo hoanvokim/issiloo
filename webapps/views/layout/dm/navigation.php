@@ -34,7 +34,7 @@
                         <li>
                             <a href="<?php echo site_url('sharing-manager'); ?>">
                                 <i class="fa fa-share-alt"></i>
-                                <span class="menu-title">Góc chia sẽ</span>
+                                <span class="menu-title">Góc chia sẻ</span>
                             </a>
                         </li>
                         <li>

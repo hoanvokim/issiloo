@@ -47,7 +47,7 @@ class Sharing_controller extends CI_Controller
             ));
         }
         $data['programs'] = $categories;
-        $data['title'] = 'Góc chia sẽ';
+        $data['title'] = 'Góc chia sẻ';
         $this->load->view('pages/dm/sharing/view_all', $data);
     }
 

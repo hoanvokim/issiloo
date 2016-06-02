@@ -166,7 +166,7 @@ class Gallery_corner_controller extends CI_Controller
             $data['vi_title'] = $this->input->post('vi_title');
             $data['hasImg'] = 0;
             $data['youtube_thumbnail'] = '';
-            $data['title'] = 'Cập nhật ảnh chia sẽ';
+            $data['title'] = 'Cập nhật ảnh chia sẻ';
             $this->load->view('pages/dm/gallery/edit', $data);
         }
     }
