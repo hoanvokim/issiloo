@@ -33,7 +33,7 @@ $lang['READ_MORE_NEWS'] = 'Xem thêm tin tức';
 $lang['PREVIOUS_POST'] = 'Previous Post';
 $lang['NEXT_POST'] = 'Next Post';
 $lang['ADDRESS'] = 'Địa chỉ';
-$lang['SHARING_VIDEO'] = 'Chia sẽ ảnh và video';
+$lang['SHARING_VIDEO'] = 'Chia sẻ ảnh và video';
 $lang['HOC_TIENG_HAN'] = 'Học tiếng hàn';
 
 //consult register
