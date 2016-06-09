@@ -100,10 +100,6 @@
 }
 
 #detail_content table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: grey;
 }
 
 #detail_content tbody {

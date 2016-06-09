@@ -36,17 +36,22 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div>
-                                <h4 class="col-header">
-                                    <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
-                                        echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
-                                        echo $this->lang->line('HOC_TIENG_HAN');
-                                    } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
-                                        echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
-                                        echo $item['cat_name'];
-                                    } else {
-                                        echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
-                                        echo $item['cat_name'];
-                                    } ?></h4>
+                                <a
+                                    href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
+                                    <h4 class="col-header">
+                                        <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
+                                            echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
+                                            echo $this->lang->line('HOC_TIENG_HAN');
+                                        }
+                                        else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                            echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
+                                            echo $item['cat_name'];
+                                        }
+                                        else {
+                                            echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
+                                            echo $item['cat_name'];
+                                        } ?></h4>
+                                </a>
                                 <div class="widget-box">
                                     <ul class="list">
 
@@ -55,7 +60,8 @@
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
-                                                        } else {
+                                                        }
+                                                        else {
                                                             echo $news_item['img_src'];
                                                         } ?>"
                                                         alt=""/>
@@ -143,7 +149,7 @@
     <?php if ($last_news && count($last_news) > 0) { ?>
         <div class="news-inner-container">
             <div class="container">
-                <h3 class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3>
+                <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3 class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
 
                 <div class="row mar-50">
                     <div class="col-sm-6">
@@ -152,10 +158,12 @@
                                 <img
                                     src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                         echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                    } else {
+                                    }
+                                    else {
                                         if (empty($last_news[0]['img_src'])) {
                                             echo base_url() . 'webresources/images/banner0.jpg';
-                                        } else {
+                                        }
+                                        else {
                                             echo base_url() . $last_news[0]['img_src'];
                                         }
                                     }
@@ -202,7 +210,11 @@
 
                     <?php } ?>
                 </div>
-                <!--<div class="pull-right"><a class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+
+                <div class="pull-right"><a class="btn btn-default btn-xs" href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?><i
+                            class="ion ion-ios-arrow-thin-right"></i></a></div>
+
+                <!--<div class="pull-right"><a class="btn btn-default btn-xs">
                     <i
                         class="ion ion-ios-arrow-thin-right"></i></a></div>  -->
             </div>
@@ -231,7 +243,8 @@
                                              style="padding-top: 5px; width: 30px;"/>
                                         <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
                                     </div>
-                                <?php } else { ?>
+                                <?php }
+                                else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
                                         <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
                                              style="padding-top: 10px;"/>
@@ -264,9 +277,11 @@
 
                     <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
                             echo $this->lang->line('MESSAGE_ERROR');
-                        } elseif ($status == 'success') {
+                        }
+                        elseif ($status == 'success') {
                             echo $this->lang->line('CONTACT_SUCCESS');
-                        } else {
+                        }
+                        else {
                             echo '';
                         } ?></p>
 

@@ -165,7 +165,9 @@ $(document).ready(function ($) {
         speed: 700,
         slidesToShow: 1,
         adaptiveHeight: true,
-        touchMove: true
+        touchMove: true,
+        autoplay: true,
+        autoplaySpeed: 6000
     });
 
     $('.projects-slider').slick({
@@ -175,7 +177,7 @@ $(document).ready(function ($) {
         slidesToShow: 1,
         adaptiveHeight: true,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 1400,
         pauseOnHover: false,
         touchMove: true,
         arrows: false
