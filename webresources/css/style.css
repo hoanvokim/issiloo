@@ -1,6 +1,6 @@
 /*reset css starts here*/
 @font-face {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -79,7 +79,7 @@ body {
     line-height: 24px;
     height: 100%;
     width: 100%;
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     color: #222;
     background-color: #fff;
     font-weight: 500;
@@ -365,12 +365,10 @@ p strong {
 
 header {
     width: 100%;
-    position: fixed;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: #2d3861;
     z-index: 999;
-    border-bottom: 0.2px solid #2e4c95;
 }
 
 .logo {
@@ -441,9 +439,9 @@ header {
     display: inline-block;
     width: 24px;
     height: 3px;
-    color: #2e4c95;
+    color: #fff;
     text-indent: -55px;
-    background: #2e4c95;
+    background: #fff;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -454,7 +452,7 @@ header {
     content: '';
     width: 24px;
     height: 3px;
-    background: #262626;
+    background: #939393;
     position: absolute;
     left: 0;
     transition: all .2s ease-out;
@@ -514,28 +512,28 @@ nav > ul > li {
     float: left;
     margin: 0px 10px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 16px;
     text-transform: uppercase;
 }
 
 nav > ul > li > a:hover {
-    color: #2e4c95;
+    color: rgba(255, 255, 255, 1);
 }
 
 nav ul li a {
-    color: #2e4c95;
+    color: rgba(255, 255, 255, 0.5);
     padding: 22px 0;
     display: inline-block;
 }
 
 .current-menu-item, nav > ul > li.active > a {
-    color: #2e4c95;
+    color: #fff;
     font-weight: 300;
 }
 
 nav > ul > li.active > a > span {
-    color: #2e4c95;
+    color: rgba(255, 255, 255, 1);
     transform: rotateX(-180deg);
     -webkit-transform: rotateX(-180deg);
     -moz-transform: rotateX(-180deg);
@@ -554,7 +552,7 @@ nav > ul > li > a > span {
 nav ul > li ul {
     opacity: 0;
     position: absolute;
-    top: 71px;
+    top: 64px;
     visibility: hidden;
     left: -10px;
     display: block;
@@ -563,8 +561,7 @@ nav ul > li ul {
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
-    background: #fff;
-    background: rgba(255, 255, 255, 1);
+    background: #2d3861;
     -webkit-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     -ms-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
@@ -597,8 +594,7 @@ nav ul > li > ul > li > ul {
     position: absolute;
     left: 100%;
     min-width: 210px;
-    background: #fff;
-    background: rgba(255, 255, 255,1);
+    background: #2d3861;
     top: 0px;
 }
 
@@ -625,8 +621,7 @@ nav ul li > ul li a {
 }
 
 nav ul > li > ul > li > a:hover {
-    background: #2e4c95;
-    color: #f6f6f6;
+    color: rgba(255, 255, 255, 1);
 }
 
 .banner-container {
@@ -645,7 +640,6 @@ nav ul > li > ul > li > a:hover {
     background-size: cover;
     background-attachment: fixed;
     position: relative;
-    padding-top: 60px;
 }
 
 .banner-container:before, .inner-banner-container:before, .banner-slide:before, .text-rotator:before {
@@ -865,7 +859,7 @@ ul.list-group li {
 ul.list-group li:before {
     content: "\f3fd";
     width: 20px;
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     position: absolute;
     left: 0;
     top: 0;
@@ -1420,7 +1414,7 @@ ul.social-links li a:hover {
 
 .faq-container h5:before {
     content: "\f375";
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     margin-right: 10px;
 }
 
@@ -1652,7 +1646,7 @@ ul.project-category li a:hover, ul.project-category li a.active {
 
 .entry-author:before {
     content: "\f47e";
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     margin-right: 10px;
     font-size: 20px;
     position: relative;
@@ -1661,7 +1655,7 @@ ul.project-category li a:hover, ul.project-category li a.active {
 
 .entry-comment:before {
     content: "\f3fc";
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     margin-right: 10px;
     font-size: 20px;
     position: relative;
@@ -1712,7 +1706,7 @@ blockquote {
 
 .search-container:before {
     content: "\f4a4";
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
     position: absolute;
     top: 0px;
@@ -2266,7 +2260,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 .accordion-panel .panel-title:before {
     content: "\f48a";
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
     padding: 20px 15px;
     position: absolute;
@@ -2330,7 +2324,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 .tooltip-inner {
     background-color: #2e4c95;
     border-radius: 0;
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: 300;
     outline: solid 1px #2e4c95;
     outline-offset: 1px;
@@ -2543,11 +2537,9 @@ ol {
         position: fixed;
         width: 100%;
         height: 100%;
-        padding-top: 60px;
-        background: #fff;
-        background: rgba(255, 255, 255, 0.95);
+        background: #2e4c95;
         left: 0px;
-        top: 0px;
+        top: -10px;
         z-index: 500;
         text-align: left;
         overflow-y: auto;
@@ -2555,6 +2547,10 @@ ol {
         -webkit-transform: translateY(-100%);
         -moz-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
+    }
+
+    .navbar-nav {
+        margin: 30px;
     }
 
     nav.slide-menu {
@@ -3062,40 +3058,41 @@ ol {
 }
 
 .simple-summary {
-    font-weight: normal!important;
-    padding-top:5px;
-    padding-bottom:5px;
+    font-weight: normal !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .message {
-    display:none;
-    padding:5px;
-    margin:5px;
-    border:1px solid #cccccc;
-    border-radius:2px;
+    display: none;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
     background-color: white;
 }
 
-.error, .success{
-    display:block!important;
-    font-weight:bold!important;
+.error, .success {
+    display: block !important;
+    font-weight: bold !important;
 }
 
 .error {
-    color:red!important;
+    color: red !important;
 }
 
-.success{
-    color:green!important;
+.success {
+    color: green !important;
 }
 
 .nav > li > a {
     padding: 22px 0 !important;
 }
+
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: transparent;
 }
+
 .topbar {
-    background-color: #2e4c95;
     color: #fff;
 }

@@ -78,9 +78,7 @@
             position: fixed;
             left: 0;
             right: 0;
-            background: #ffffff;
             z-index: 999;
-            border-bottom: 0.2px solid #2e4c95;
         }
 
         .affix .logo {
@@ -93,21 +91,22 @@
         }
 
         .affix-top nav ul > li ul {
-            top: 71px;
+            top: 64px;
+            z-index: 999;
         }
 
         .submenu {
             top: 0px !important;
         }
-
-        .affix + .container-fluid {
-            padding-top: 70px;
-        }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".message").fadeOut(5000);
-
+            $('#nav').affix({
+                offset: {
+                    top: $('#banner-ad').height()
+                }
+            });
             $('#search_keyword').keydown(function (event) {
                 var keypressed = event.keyCode || event.which;
                 if (keypressed == 13) {
