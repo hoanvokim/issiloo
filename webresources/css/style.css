@@ -367,7 +367,7 @@ header {
     width: 100%;
     left: 0;
     right: 0;
-    background: #2d3861;
+    background: #2e4c95;
     z-index: 999;
 }
 
@@ -499,7 +499,7 @@ header {
 nav {
     position: relative;
     float: right;
-    margin-top: 10px;
+    margin-top: 20px;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -510,9 +510,8 @@ nav {
 nav > ul > li {
     position: relative;
     float: left;
-    margin: 0px 10px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 16px;
     text-transform: uppercase;
 }
@@ -522,18 +521,18 @@ nav > ul > li > a:hover {
 }
 
 nav ul li a {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     padding: 22px 0;
     display: inline-block;
 }
 
 .current-menu-item, nav > ul > li.active > a {
-    color: #fff;
+    color: #2e4c95;
     font-weight: 300;
 }
 
 nav > ul > li.active > a > span {
-    color: rgba(255, 255, 255, 1);
+    color: #2e4c95;
     transform: rotateX(-180deg);
     -webkit-transform: rotateX(-180deg);
     -moz-transform: rotateX(-180deg);
@@ -552,7 +551,7 @@ nav > ul > li > a > span {
 nav ul > li ul {
     opacity: 0;
     position: absolute;
-    top: 64px;
+    top: 54px;
     visibility: hidden;
     left: -10px;
     display: block;
@@ -561,12 +560,22 @@ nav ul > li ul {
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
-    background: #2d3861;
+    background: #2e4c95;
     -webkit-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     -ms-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+nav ul > li ul > li:hover {
+}
+
+nav ul > li ul > li a:hover {
+    background-color: white;
+    color: #2e4c95;
+    transition: background-color 1s ease;
+    border: 1px solid #2e4c95;
 }
 
 nav ul > li > ul > li span {
@@ -594,7 +603,7 @@ nav ul > li > ul > li > ul {
     position: absolute;
     left: 100%;
     min-width: 210px;
-    background: #2d3861;
+    background: #2e4c95;
     top: 0px;
 }
 
@@ -621,7 +630,7 @@ nav ul li > ul li a {
 }
 
 nav ul > li > ul > li > a:hover {
-    color: rgba(255, 255, 255, 1);
+    color: #2e4c95;
 }
 
 .banner-container {
@@ -2539,7 +2548,7 @@ ol {
         height: 100%;
         background: #2e4c95;
         left: 0px;
-        top: -10px;
+        top: -22px;
         z-index: 500;
         text-align: left;
         overflow-y: auto;
@@ -2559,6 +2568,7 @@ ol {
         -moz-transform: translateY(0%);
         -ms-transform: translateY(0%);
         text-align: center;
+        padding-top: 25px;
     }
 
     nav > ul > li {
@@ -2566,6 +2576,7 @@ ol {
         width: 100%;
         border-bottom: solid 1px #f6f6f6;
         text-align: center;
+        padding: 5px 0;
     }
 
     nav ul li a {
@@ -2582,7 +2593,8 @@ ol {
         top: auto;
         position: relative;
         box-shadow: none;
-        background: #f6f6f6;
+        background: #2e4c95;
+        color: white;
     }
 
     nav ul > li > ul > li > ul {
@@ -2592,7 +2604,8 @@ ol {
         opacity: 1;
         visibility: visible;
         max-width: 100%;
-        background: #f6f6f6;
+        background: #2e4c95;
+        color: white;
     }
 
     nav ul > li > ul > li span {
@@ -2614,8 +2627,8 @@ ol {
     }
 
     nav ul > li > ul > li > a:hover {
-        background: transparent;
-        color: #2e4c95;
+        background: #2e4c95;
+        color: white;
     }
 
     nav ul > li ul {
@@ -2643,6 +2656,10 @@ ol {
     .team-box:hover .team-box-detail, .grid-item:hover .product-hover {
         opacity: 1;
         display: block;
+    }
+
+    .search-field {
+        margin-top: 0px !important;
     }
 }
 
@@ -2675,10 +2692,6 @@ ol {
         margin-bottom: 20px;
     }
 
-    .inner-container {
-        padding: 60px 0;
-    }
-
     .form-group {
         margin-bottom: 15px;
     }
@@ -2699,6 +2712,9 @@ ol {
         font-size: 80px;
     }
 
+    .search-field {
+        margin-top: 0px !important;
+    }
 }
 
 /* ============================= */
@@ -2913,6 +2929,9 @@ ol {
         margin-bottom: 15px;
         font-size: 22px;
     }
+    .search-field {
+        margin-top: 0px !important;
+    }
 }
 
 /* ============================= */
@@ -2929,6 +2948,9 @@ ol {
         margin: 10px 0;
     }
 
+    .search-field {
+        margin-top: 0px !important;
+    }
 }
 
 /*CUSTOMIZATION*/
@@ -3086,13 +3108,20 @@ ol {
 }
 
 .nav > li > a {
-    padding: 22px 0 !important;
+    padding: 5px 10px !important;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
-    background-color: transparent;
+    background-color: white;
+    color: #2e4c95;
+    transition: background-color 1s ease;
 }
 
 .topbar {
     color: #fff;
+}
+
+
+.search-field {
+    margin-top: -15px;
 }

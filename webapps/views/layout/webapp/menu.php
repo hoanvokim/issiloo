@@ -39,15 +39,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <ul class="contactinfo" style="text-align: center;">
-                    <li><a href="tel:0898 084 080"><img id="banner-ad" src="<?php echo base_url().'webresources/images/banner1.png'; ?>" style="width: 70%;"/></a></li>
-                </ul>
+<!--                <ul class="contactinfo" style="text-align: center;">-->
+<!--                    <li><a href="tel:0898 084 080"><img id="banner-ad" src="--><?php //echo base_url().'webresources/images/banner1.png'; ?><!--" style="width: 70%;"/></a></li>-->
+<!--                </ul>-->
             </div>
         </div>
     </div>
 </div>
 
-<header class="navigation affix-top" id="nav" data-spy="affix">
+<header class="navigation" id="nav" >
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -66,7 +66,7 @@
                         <li>
                             <a href="<?php echo base_url() . 'contact'; ?>"><?php echo $this->lang->line('MENU_CONTACT'); ?></a>
                         </li>
-                        <li>
+                        <li class="search-field">
                             <form method="post" action="<?php echo base_url() . 'search/' ?>" class="search-form">
                                 <div class="form-group has-feedback">
                                     <label for="search" class="sr-only">Search</label>

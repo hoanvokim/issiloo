@@ -35,7 +35,7 @@
                     <?php foreach ($aImpNews as $item) { ?>
 
                         <div class="col-md-4 col-sm-12">
-                            <div>
+                            <div style="margin-top: -20px;">
                                 <a
                                     href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
                                     <h4 class="col-header">
@@ -177,12 +177,15 @@
                                 <strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                         <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                             <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
-                        <div class="simple-summary"><?php echo $last_news[0]['summary']; ?><a
-                                href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
+                        <div class="simple-summary">
+                            <?php echo $last_news[0]['summary']; ?>
+                            <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
                                 data-toggle="tooltip"
                                 data-placement="bottom"
-                                data-original-title="Xem chi tiết"
-                                style="margin-left: 10px;"><i class="ion ion-ios-arrow-thin-right"></i></a></div>
+                                data-original-title="Xem chi tiết" >
+                                <i class="ion icon ion-arrow-right-c"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -202,8 +205,8 @@
                                 <div><?php echo $last_news[$i]['summary']; ?>
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"
                                        data-toggle="tooltip" data-placement="bottom"
-                                       data-original-title="Xem chi tiết" style="margin-left: 10px;"><i
-                                            class="ion ion-ios-arrow-thin-right"></i></a>
+                                       data-original-title="Xem chi tiết"><i
+                                            class="ion icon ion-arrow-right-c"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -214,9 +217,6 @@
                 <div class="pull-right"><a class="btn btn-default btn-xs" href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?><i
                             class="ion ion-ios-arrow-thin-right"></i></a></div>
 
-                <!--<div class="pull-right"><a class="btn btn-default btn-xs">
-                    <i
-                        class="ion ion-ios-arrow-thin-right"></i></a></div>  -->
             </div>
         </div>
         <!-- inner container end -->
@@ -232,7 +232,7 @@
                     <?php for ($i = 0;
                                $i < count($video_image);
                                $i++) { ?>
-                        <div class="feature-box dark">
+                        <div class="feature-box">
                             <div class="white-paper">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
                                     <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "
