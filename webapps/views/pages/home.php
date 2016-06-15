@@ -3,13 +3,15 @@
 
 <div class="main-container">
 
-    <div class="jumbotron-v2">
-        <div class="container">
-            <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
-            <span class="infoText" ><i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                    084
-                                    080</a><br/>
+    <div>
+        <div class="container jumbotron-v2">
+            <div class="row">
+                <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
+            <span class="infoText"><i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
+                                                                                                                     084
+                                                                                                                     080</a><br/>
                               </span>
+            </div>
         </div>
     </div>
 
@@ -53,10 +55,12 @@
                                         <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                             echo $this->lang->line('HOC_TIENG_HAN');
-                                        } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                        }
+                                        else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
-                                        } else {
+                                        }
+                                        else {
                                             echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
                                         } ?></h4>
@@ -69,7 +73,8 @@
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
-                                                        } else {
+                                                        }
+                                                        else {
                                                             echo $news_item['img_src'];
                                                         } ?>"
                                                         alt=""/>
@@ -167,10 +172,12 @@
                                 <img
                                     src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                         echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                    } else {
+                                    }
+                                    else {
                                         if (empty($last_news[0]['img_src'])) {
                                             echo base_url() . 'webresources/images/banner0.jpg';
-                                        } else {
+                                        }
+                                        else {
                                             echo base_url() . $last_news[0]['img_src'];
                                         }
                                     }
@@ -245,24 +252,21 @@
                             <div class="white-paper">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
                                     <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "
-                                         style="padding-top: 10px;"/>
-                                    <div style="padding: 10px;">
-                                        <img class="pull-left"
-                                             src="<?php echo base_url() . 'webresources/images/image-icon.png' ?>"
-                                             style="padding-top: 5px; width: 30px;"/>
-                                        <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
-                                    </div>
-                                <?php } else { ?>
+                                         style="padding-bottom: 30px;"/>
+                                    <!--                                    <div style="padding: 10px;">-->
+                                    <!--                                        <img class="pull-left"-->
+                                    <!--                                             src="--><?php //echo base_url() . 'webresources/images/image-icon.png' ?><!--"-->
+                                    <!--                                             style="padding-top: 5px; width: 30px;"/>-->
+                                    <!--                                        <p style="text-align: left;padding-left: 37px;">--><!--</p>-->
+                                    <!--                                    </div>-->
+                                    <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
+                                <?php }
+                                else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
                                         <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
                                              style="padding-top: 10px;"/>
                                     </a>
-                                    <div style="padding: 10px;">
-                                        <img class="pull-left"
-                                             src="<?php echo base_url() . 'webresources/images/youtube-icon.png' ?>"
-                                             style="padding-top: 5px; width: 30px;"/>
-                                        <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
-                                    </div>
+                                    <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
                                 <?php } ?>
                             </div>
                         </div>
@@ -285,9 +289,11 @@
 
                     <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
                             echo $this->lang->line('MESSAGE_ERROR');
-                        } elseif ($status == 'success') {
+                        }
+                        elseif ($status == 'success') {
                             echo $this->lang->line('CONTACT_SUCCESS');
-                        } else {
+                        }
+                        else {
                             echo '';
                         } ?></p>
 
