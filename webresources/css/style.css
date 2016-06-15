@@ -369,6 +369,7 @@ header {
     right: 0;
     background: #2e4c95;
     z-index: 999;
+    margin-top: -1px;
 }
 
 .logo {
@@ -882,6 +883,10 @@ ul.list-group li:before {
 }
 
 .slider-study-abroad-container {
+    padding: 10px 0 10px 0;
+}
+
+.info-container {
     padding: 95px 0 60px 0;
     background: #f6f6f6;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1) inset;
@@ -2929,6 +2934,7 @@ ol {
         margin-bottom: 15px;
         font-size: 22px;
     }
+
     .search-field {
         margin-top: 0px !important;
     }
@@ -3121,7 +3127,32 @@ ol {
     color: #fff;
 }
 
-
 .search-field {
     margin-top: -15px;
+}
+
+.jumbotron-v2 {
+    margin-top: 78px;
+    padding: 23px;
+    background: #474747 url(../images/bg-gray.png);
+    outline: 1px dashed #98abb9;
+    outline-offset: -5px;
+}
+
+.animateText {
+    padding: 14px 0px 0px 0px;
+    font-size: 29px;
+    font-weight: 100;
+    color: #ededed;
+    text-shadow: 0px 2px 3px rgba(85, 85, 85, 0.64);
+}
+
+.infoText {
+    color: #cfcfcf;
+    font-weight: 200;
+    float: right;
+}
+
+.infoText a:hover {
+    color: white;
 }

@@ -1,6 +1,17 @@
 <?php $this->load->view('layout/webapp/header'); ?>
 <!-- main container start -->
+
 <div class="main-container">
+
+    <div class="jumbotron-v2">
+        <div class="container">
+            <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
+            <span class="infoText" ><i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
+                                    084
+                                    080</a><br/>
+                              </span>
+        </div>
+    </div>
 
     <!-- slider container start -->
     <div class="slider-study-abroad-container" style="<?php if (!$sliders || count($sliders) == 0) {
@@ -28,26 +39,24 @@
 
     <?php if ($aImpNews && count($aImpNews) > 0) { ?>
         <!-- inner container start -->
-        <div class="inner-container">
+        <div class="inner-container" style="margin-top:25px;">
             <div class="container">
                 <div class="row service-layout">
 
                     <?php foreach ($aImpNews as $item) { ?>
 
                         <div class="col-md-4 col-sm-12">
-                            <div style="margin-top: -20px;">
+                            <div style="margin-top: -30px;">
                                 <a
                                     href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
                                     <h4 class="col-header">
                                         <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                             echo $this->lang->line('HOC_TIENG_HAN');
-                                        }
-                                        else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                        } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
-                                        }
-                                        else {
+                                        } else {
                                             echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
                                         } ?></h4>
@@ -60,8 +69,7 @@
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
-                                                        }
-                                                        else {
+                                                        } else {
                                                             echo $news_item['img_src'];
                                                         } ?>"
                                                         alt=""/>
@@ -149,7 +157,8 @@
     <?php if ($last_news && count($last_news) > 0) { ?>
         <div class="news-inner-container">
             <div class="container">
-                <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3 class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
+                <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
+                        class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
 
                 <div class="row mar-50">
                     <div class="col-sm-6">
@@ -158,12 +167,10 @@
                                 <img
                                     src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                         echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                    }
-                                    else {
+                                    } else {
                                         if (empty($last_news[0]['img_src'])) {
                                             echo base_url() . 'webresources/images/banner0.jpg';
-                                        }
-                                        else {
+                                        } else {
                                             echo base_url() . $last_news[0]['img_src'];
                                         }
                                     }
@@ -180,9 +187,9 @@
                         <div class="simple-summary">
                             <?php echo $last_news[0]['summary']; ?>
                             <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
-                                data-toggle="tooltip"
-                                data-placement="bottom"
-                                data-original-title="Xem chi tiết" >
+                               data-toggle="tooltip"
+                               data-placement="bottom"
+                               data-original-title="Xem chi tiết">
                                 <i class="ion icon ion-arrow-right-c"></i>
                             </a>
                         </div>
@@ -214,7 +221,9 @@
                     <?php } ?>
                 </div>
 
-                <div class="pull-right"><a class="btn btn-default btn-xs" href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?><i
+                <div class="pull-right"><a class="btn btn-default btn-xs"
+                                           href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                        <i
                             class="ion ion-ios-arrow-thin-right"></i></a></div>
 
             </div>
@@ -243,8 +252,7 @@
                                              style="padding-top: 5px; width: 30px;"/>
                                         <p style="text-align: left;padding-left: 37px;"><?php echo $video_image[$i]['title']; ?></p>
                                     </div>
-                                <?php }
-                                else { ?>
+                                <?php } else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
                                         <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
                                              style="padding-top: 10px;"/>
@@ -277,11 +285,9 @@
 
                     <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
                             echo $this->lang->line('MESSAGE_ERROR');
-                        }
-                        elseif ($status == 'success') {
+                        } elseif ($status == 'success') {
                             echo $this->lang->line('CONTACT_SUCCESS');
-                        }
-                        else {
+                        } else {
                             echo '';
                         } ?></p>
 

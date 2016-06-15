@@ -12,7 +12,8 @@
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
                                          style="width: 45px;"/></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCypJRV59K16kc0AEjuCPJ9Q" target="_blank" title="Youtube">
+                            <li><a href="https://www.youtube.com/channel/UCypJRV59K16kc0AEjuCPJ9Q" target="_blank"
+                                   title="Youtube">
                                     <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
                                          style="width: 45px;"/></a></li>
                             <li><a href="http://zaloapp.com/qr/p/fwc7rp42pe1x" target="_blank" title="Zalo">
@@ -36,8 +37,9 @@
                                 <i class="ion ion-ios-telephone-outline"></i> Phone: <a
                                     href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
                                 <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                                                                                                  084
-                                                                                                                  080</a><br/>
+                                    084
+                                    080</a>
+                                <br/>
                             </p>
 
                         </address>
@@ -75,14 +77,24 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/masonry.filter.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.vide.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.fittext.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.lettering.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.textillate.js"></script>
 
+<script>
+    $(function () {
+        $('.tlt').textillate({
+            in: {effect: 'flipInX'},
+            out: {effect: 'flipOutX'},
+            loop: true
+        });
+    });
+</script>
 <!--Gmaps [ OPTIONAL ]-->
 <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/gmaps/gmaps.js"></script>
 <!--Map Example [ SAMPLE ]-->
 <script src="<?php echo base_url(); ?>webresources/dm/js/demo/misc-gmaps.js"></script>
-
-
 
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -99,8 +111,26 @@
 
     ga('create', 'UA-77858450-1', 'auto');
     ga('send', 'pageview');
-
 </script>
-<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '5fafbfea-65b9-4347-8f02-d4b6215668ae', f: true }); done = true; } }; })();</script>
+
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = {
+        l: [], t: [], on: function () {
+            this.l.push(arguments);
+        }
+    };
+    (function () {
+        var done = false;
+        var script = document.createElement('script');
+        script.async = true;
+        script.type = 'text/javascript';
+        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+        document.getElementsByTagName('HEAD').item(0).appendChild(script);
+        script.onreadystatechange = script.onload = function (e) {
+            if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+                var w = new PCWidget({c: '5fafbfea-65b9-4347-8f02-d4b6215668ae', f: true});
+                done = true;
+            }
+        };
+    })();</script>
 </body>
 </html>
