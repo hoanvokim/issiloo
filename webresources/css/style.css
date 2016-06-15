@@ -769,14 +769,14 @@ video, object {
 
 .banner-title {
     position: relative;
-    left: 50%;
-    top: 50%;
+    left: 48%;
+    top: 58%;
     transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     background: rgba(255, 255, 255, 0.85);
-    padding: 40px 50px;
+    padding: 40px 30px;
     text-align: center;
     outline: 1px solid #fff;
     outline-offset: 8px;
@@ -1707,7 +1707,7 @@ blockquote {
 .widget-box {
     width: 100%;
     display: inline-block;
-    margin: 0 0 40px 0;
+    margin: 0 0 10px 0;
 }
 
 .search-container {
@@ -3159,9 +3159,8 @@ ol {
 }
 
 .slide-caption {
-    position: absolute;
     text-align: center;
-    min-height: 30px;
+    min-height: 40px;
     width: 100%;
     z-index: 2;
     background: rgba(51, 51, 51, 0.8);
@@ -3170,6 +3169,5 @@ ol {
     letter-spacing: 1px;
     line-height: 1.5rem;
     bottom: 0;
-    margin-top: 70%;
     padding-top: 4px;
 }

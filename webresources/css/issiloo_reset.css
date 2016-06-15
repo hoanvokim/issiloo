@@ -99,7 +99,12 @@
     -webkit-margin-end: 40px;
 }
 
-#detail_content table {
+#detail_content .table {
+    border: 1px solid #ddd;
+}
+
+#detail_content .table > thead > tr > th, .table > tbody > tr > td {
+    border: 1px solid #ddd;
 }
 
 #detail_content tbody {

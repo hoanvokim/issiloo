@@ -251,8 +251,7 @@
                         <div class="feature-box">
                             <div class="white-paper">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
-                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "
-                                         style="padding-bottom: 30px;"/>
+                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "/>
                                     <!--                                    <div style="padding: 10px;">-->
                                     <!--                                        <img class="pull-left"-->
                                     <!--                                             src="--><?php //echo base_url() . 'webresources/images/image-icon.png' ?><!--"-->
@@ -263,8 +262,7 @@
                                 <?php }
                                 else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
-                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""
-                                             style="padding-top: 10px;"/>
+                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""/>
                                     </a>
                                     <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
                                 <?php } ?>
