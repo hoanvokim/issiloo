@@ -7,10 +7,13 @@
         <div class="container jumbotron-v2">
             <div class="row">
                 <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
-            <span class="infoText"><i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                                                                                                     084
-                                                                                                                     080</a><br/>
-                              </span>
+                <span class="infoText">
+                    <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
+                </span>
+                <span class="flags">
+                    <img src="<?php echo base_url().'webresources/images/vn.png'?>"/>
+                    <img src="<?php echo base_url().'webresources/images/korea.png'?>"/>
+                </span>
             </div>
         </div>
     </div>
