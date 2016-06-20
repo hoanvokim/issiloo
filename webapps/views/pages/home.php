@@ -266,6 +266,7 @@
                                 else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
                                         <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""/>
+                                        <img class="youtube-play-btn" src="<?php echo base_url().'webresources/images/play-btn.png'; ?>" alt=""/>
                                     </a>
                                     <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
                                 <?php } ?>

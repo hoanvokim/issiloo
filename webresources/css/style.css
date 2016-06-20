@@ -3183,3 +3183,10 @@ ol {
     bottom: 0;
     padding-top: 4px;
 }
+
+.youtube-play-btn {
+    position: absolute;
+    width: 40px !important;
+    margin-left: 40% !important;
+    margin-top: -44%;
+}
