@@ -2666,6 +2666,10 @@ ol {
     .search-field {
         margin-top: 0px !important;
     }
+
+    .animateText {
+        margin-top: -43px;
+    }
 }
 
 /*=============================
@@ -2719,6 +2723,10 @@ ol {
 
     .search-field {
         margin-top: 0px !important;
+    }
+
+    .animateText {
+        margin-top: -43px;
     }
 }
 
@@ -2938,6 +2946,10 @@ ol {
     .search-field {
         margin-top: 0px !important;
     }
+
+    .animateText {
+        margin-top: -38px !important;
+    }
 }
 
 /* ============================= */
@@ -2956,6 +2968,16 @@ ol {
 
     .search-field {
         margin-top: 0px !important;
+    }
+
+    .animateText {
+        font-size: 20px !important;
+        font-weight: 100 !important;
+        color: #0c4c7b !important;
+        position: absolute !important;
+        margin-top: -36px !important;
+        width: 39% !important;
+        line-height: 22px !important;
     }
 }
 
@@ -3134,7 +3156,6 @@ ol {
 .jumbotron-v2 {
     margin-top: 78px;
     padding: 50px 50px 20px;
-    outline: 2px dashed #0c4c7b;
     outline-offset: -5px;
 }
 
@@ -3143,12 +3164,14 @@ ol {
     font-weight: 100;
     color: #0c4c7b;
     position: absolute;
-    margin-top: -12px;
+    margin-top: -17px;
+    width: 70%;
+    line-height: 37px;
 }
 
 .infoText {
     color: #0c4c7b;
-    font-weight: 200;
+    font-weight: 800;
     float: right;
     position: relative;
     margin: -40px -15px 0 0;
