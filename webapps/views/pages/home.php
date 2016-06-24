@@ -3,7 +3,7 @@
 
 <div class="main-container">
 
-    <div>
+    <div class="slogan">
         <div class="container jumbotron-v2">
             <div class="row">
                 <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>

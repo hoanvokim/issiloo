@@ -37,8 +37,8 @@
                                 <i class="ion ion-ios-telephone-outline"></i> Phone: <a
                                     href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
                                 <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                    084
-                                    080</a>
+                                                                                                                  084
+                                                                                                                  080</a>
                                 <br/>
                             </p>
 
@@ -84,9 +84,14 @@
 <script>
     $(function () {
         $('.tlt').textillate({
-            in: {effect: 'flipInX'},
-            out: {effect: 'flipOutX'},
-            loop: true
+            in: {
+                effect: 'bounceInLeft',
+            },
+            out: {
+                effect: 'fadeOut'
+            },
+            loop: true,
+            minDisplayTime: 3000
         });
     });
 </script>
