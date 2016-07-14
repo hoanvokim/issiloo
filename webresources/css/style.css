@@ -787,9 +787,9 @@ video, object {
 
 .banner-title h1 {
     font-size: 40px;
-    line-height: 40px;
+    line-height: 50px;
     margin: 0;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
 }
 
 .banner-title h2 {
@@ -1272,7 +1272,19 @@ ul.social-links li a:hover {
 .service-box {
     margin-bottom: 40px;
     position: relative;
-    min-height: 130px;
+    min-height: 250px;
+    border: solid 1px #2e4c95;
+    box-shadow: 7px 7px 16px rgba(152, 152, 152, 0.21);
+    padding: 10px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.service-box--main {
+    border: solid 1px #2e4c95;
+    box-shadow: 7px 7px 16px rgba(152, 152, 152, 0.21);
+    padding: 15px 5px;
+    border-radius: 5px 5px 5px 5px; 
+    margin: 10px 0px;
 }
 
 .service-box > i {
@@ -1754,6 +1766,7 @@ ul.list li {
     padding: 2px;
     border: solid 1px #2e4c95;
     box-shadow: 7px 7px 16px rgba(152, 152, 152, 0.21);
+    border-radius: 5px 5px 5px 5px;
 }
 
 ul.list li a {
@@ -3199,13 +3212,14 @@ ol {
     min-height: 40px;
     width: 100%;
     z-index: 2;
-    background: #2e4c95;
+    background: #337ab7;
     color: white;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1px;
     line-height: 1.5rem;
     bottom: 0;
     padding-top: 4px;
+    font-weight: 200;
 }
 
 .youtube-play-btn {

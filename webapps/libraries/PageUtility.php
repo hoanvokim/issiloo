@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 3/7/16
  * Time: 10:58 PM
  */
-class PageUtility{
+class Pageutility{
 
     public $limit = 1000;
 

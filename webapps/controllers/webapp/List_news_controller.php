@@ -33,14 +33,33 @@ class List_news_controller extends CI_Controller
             $contact['charset'] = $this->config->item('charset');
             $contact['mailtype'] = $this->config->item('mailtype');
             $contact['wordwrap'] = $this->config->item('wordwrap');
-            $this->email->initialize($contact);
 
             $consult_name = $this->input->post('consult_name');
             $consult_email = $this->input->post('consult_email');
             $consult_phone = $this->input->post('consult_phone');
 
             $consult_subject = $this->input->post('consult_subject');
-            $consult_content = $this->input->post('consult_content') . "\n Phone : " . $consult_phone;
+            $consult_content = "<i>Tên: " . $consult_name . "<br/>"
+                . "Email: " . $consult_email . "<br/>"
+                . "Số điện thoại: " . $consult_phone . "</i><br/>"
+                . "------------------------------------------<br/>"
+                . "<strong>Tiêu đề: " . $consult_subject . "</strong><br/><br/>"
+                . $this->input->post('consult_content');
+
+            //test
+            $config1 = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'mail.issiloo.edu.vn',
+                'smtp_port' => 25,
+                'smtp_user' => 'kr-info@issiloo.edu.vn',
+                'smtp_pass' => 'issiloo2015',
+                'mailtype' => 'html'
+            );
+
+
+            $this->load->library('email', $config1);
+            $this->email->set_newline("\r\n");
+            $this->email->initialize($contact);
 
             $this->email->from($consult_email, $consult_name);
 
@@ -53,7 +72,7 @@ class List_news_controller extends CI_Controller
             } else {
                 $data['status'] = 'success';
             }
-            $sql = "insert into user(email,name,phone) values('$consult_email','$consult_name','$consult_phone')";
+            $sql = "insert into user(email,name,phone,title,content) values('$consult_email','$consult_name','$consult_phone','$consult_subject','$consult_content')";
             $result = $this->db->query($sql);
             if ($result) {
                 $data['status'] = 'success';

@@ -3,12 +3,12 @@
 
 <div class="main-container">
 
-    <div class="slogan">
+    <div class="slogan-disabled">
         <div class="container jumbotron-v2">
             <div class="row">
                 <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
                 <span class="infoText">
-                    <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
+                    Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
                 </span>
                 <span class="flags">
                     <img src="<?php echo base_url().'webresources/images/vn.png'?>"/>
@@ -168,7 +168,7 @@
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
                         class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
 
-                <div class="row mar-50">
+                <div class="row mar-50 service-box--main">
                     <div class="col-sm-6">
                         <div class="img-responsive">
                             <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>">
@@ -246,7 +246,7 @@
             <div class="container">
                 <h3 class="col-header-color"
                     style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
-                <div class="feature-slider">
+                <div class="feature-slider" style="box-shadow: 0px 7px 16px rgba(152, 152, 152, 0.31);">
 
                     <?php for ($i = 0;
                                $i < count($video_image);

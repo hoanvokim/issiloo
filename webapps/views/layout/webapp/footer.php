@@ -85,7 +85,7 @@
     $(function () {
         $('.tlt').textillate({
             in: {
-                effect: 'bounceInLeft',
+                effect: 'fadeInRight',
             },
             out: {
                 effect: 'fadeOut'
