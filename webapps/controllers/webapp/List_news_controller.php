@@ -49,13 +49,15 @@ class List_news_controller extends CI_Controller
             //test
             $config1 = Array(
                 'protocol' => 'smtp',
+                'validate' => FALSE,
                 'smtp_host' => 'mail.issiloo.edu.vn',
                 'smtp_port' => 25,
                 'smtp_user' => 'kr-info@issiloo.edu.vn',
                 'smtp_pass' => 'issiloo2015',
-                'mailtype' => 'html'
+                'mailtype' => 'html',
+                'charset' => 'utf-8',
+                'wordwrap' => TRUE
             );
-
 
             $this->load->library('email', $config1);
             $this->email->set_newline("\r\n");
