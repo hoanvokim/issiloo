@@ -894,8 +894,9 @@ ul.list-group li:before {
 
 .slider-university-container {
     padding: 30px 0 60px 0;
-    background: #f6f6f6;
+    /*background: #f6f6f6;*/
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1) inset;
+    background-image: url('../images/parent-bg.jpg');
 }
 
 .project-img-box {
@@ -1270,18 +1271,15 @@ ul.social-links li a:hover {
 /* ============ABOUT PAGE END================= */
 /* ============SERVICE PAGE START================= */
 .service-box {
-    margin-bottom: 40px;
     position: relative;
     min-height: 250px;
     border: solid 1px #2e4c95;
-    box-shadow: 7px 7px 16px rgba(152, 152, 152, 0.21);
     padding: 10px;
     border-radius: 5px 5px 5px 5px;
 }
 
 .service-box--main {
     border: solid 1px #2e4c95;
-    box-shadow: 7px 7px 16px rgba(152, 152, 152, 0.21);
     padding: 15px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 10px 0px;
@@ -1289,7 +1287,6 @@ ul.social-links li a:hover {
 
 .service-box > i {
     font-size: 50px;
-    margin-bottom: 10px;
 }
 
 .service-layout .service-box {
@@ -3232,6 +3229,7 @@ ol {
     background: #f6f6f6;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1) inset;
 }
+
 .img-uni-logo {
     max-width: 200px;
 }
