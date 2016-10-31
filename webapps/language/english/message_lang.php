@@ -4,16 +4,15 @@
 $lang['MENU_HOME'] = 'Home';
 $lang['MENU_INTRODUCE'] = 'Introduce';
 $lang['MENU_CONTACT'] = 'Contact';
-
+$lang['REGISTER'] = 'Register';
 
 //issi
 $lang['ISSI_INTRO'] = 'Với nhiều năm kinh nghiệm và giáo viên tận tâm. Chúng tôi có thể tự hào để nói rằng chúng
                         tôi có thể giúp bạn tăng cường khả năng tiếng hàn: Nghe, nói, đọc và viết. Bạn sẽ khám phá
                         được khả năng của mình.';
-$lang['ISSI_ADDRESS_STREET'] = 'số 37 Hoa Hồng, P.2, Q.Phú Nhuận, Tp.HCM';
+$lang['ISSI_ADDRESS_STREET'] = '37 Hoa Hồng, P.2, Q.Phú Nhuận, Tp.HCM';
 $lang['ISSI_EMAIL'] = 'kr-info@issiloo.edu.vn';
 $lang['ISSI_PHONE'] = 'Phone: 08 3517 1098 - 08 3517 1099';
-
 
 //general
 $lang['READ_DETAIL'] = 'Read more';
@@ -25,7 +24,7 @@ $lang['SATURDAY'] = 'Saturday';
 $lang['MORNING_NOON'] = '9:00 - 12:00';
 $lang['READ_MORE'] = 'Read more';
 $lang['UNIVERSITY_INFO'] = 'Universities infomation';
-$lang['LASTEST_NEWS'] = 'Tin tức nổi bật';
+$lang['LASTEST_NEWS'] = 'Tin tức sự kiện';
 $lang['SOCIAL'] = 'Social networks';
 $lang['POST_DATE'] = 'Posted by';
 $lang['READ_MORE_NEWS'] = 'Read more';
@@ -34,7 +33,6 @@ $lang['NEXT_POST'] = 'Next Post';
 $lang['ADDRESS'] = 'Địa chỉ';
 $lang['SHARING_VIDEO'] = 'Chia sẽ ảnh và video';
 $lang['HOC_TIENG_HAN'] = 'Học tiếng hàn';
-
 
 //consult register
 $lang['REGISTER_CONSULT'] = 'Đăng Ký Tư Vấn';

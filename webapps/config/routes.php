@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //default controllers
 $route['default_controller'] = 'home_controller/index';
+$route['demo'] = 'demo_controller/index';
 $route['cat/(:any)'] = 'webapp/list_news_controller/index/$1/1';
 $route['cat/(:any)/(:num)'] = 'webapp/list_news_controller/index/$1/$2';
 $route['tag/(:num)'] = 'webapp/list_news_controller/tag/$1/1';

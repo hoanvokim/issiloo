@@ -165,9 +165,18 @@ $(document).ready(function ($) {
         speed: 700,
         slidesToShow: 1,
         adaptiveHeight: true,
+        touchMove: true
+    });
+    
+    $('.recent-projects-slider2').slick({
+        dots: true,
+        infinite: true,
+        speed: 2000,
+        slidesToShow: 5,
+        adaptiveHeight: true,
         touchMove: true,
         autoplay: true,
-        autoplaySpeed: 6000
+        autoplaySpeed: 2000
     });
 
     $('.projects-slider').slick({
