@@ -38,6 +38,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?php echo site_url('learning-tips-manager'); ?>">
+                                <i class="fa fa-book"></i>
+                                <span class="menu-title">Góc học tập</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo site_url('faq-manager'); ?>">
                                 <i class="fa fa-question-circle-o"></i>
                                 <span class="menu-title">Hỏi đáp</span>

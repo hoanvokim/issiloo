@@ -65,6 +65,9 @@ INSERT INTO `category` (`id`, `parent_id`, `slug`, `en_name`, `vi_name`, `is_men
 (43, 1, NULL, NULL, NULL, 0, 2, '2016-10-21 02:19:54', NULL),
 (44, 1, NULL, NULL, NULL, 0, 3, '2016-10-26 08:56:52', NULL);
 
+
+INSERT INTO `category` (`id`, `parent_id`, `slug`, `en_name`, `vi_name`, `is_menu`, `sort_index`, `created_date`, `updated_date`) VALUES (46, '14', 'goc-hoc-tap', 'Learning tips', 'Góc học tập', '1', '2', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
 -- --------------------------------------------------------
 
 --

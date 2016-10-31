@@ -130,6 +130,15 @@ $route['schedule-manager/create-schedule-cancel'] = 'dm/schedule_controller/crea
 $route['schedule-manager-update-schedule-submit'] = 'dm/schedule_controller/update_schedule_submit';
 $route['schedule-manager/update-schedule-cancel'] = 'dm/schedule_controller/update_schedule_cancel';
 
+$route['learning-tips-manager'] = 'dm/learning_tips_controller/index';
+$route['learning-tips-manager/create-learning-tips'] = 'dm/learning_tips_controller/create_learning_tips';
+$route['learning-tips-manager/update-learning-tips/:num'] = 'dm/learning_tips_controller/update_learning_tips';
+$route['learning-tips-manager/delete-learning-tips/:num'] = 'dm/learning_tips_controller/delete_learning_tips';
+$route['learning-tips-manager-create-learning-tips-submit'] = 'dm/learning_tips_controller/create_learning_tips_submit';
+$route['learning-tips-manager/create-learning-tips-cancel'] = 'dm/learning_tips_controller/create_learning_tips_cancel';
+$route['learning-tips-manager-update-learning-tips-submit'] = 'dm/learning_tips_controller/update_learning_tips_submit';
+$route['learning-tips-manager/update-learning-tips-cancel'] = 'dm/learning_tips_controller/update_learning_tips_cancel';
+
 $route['news-manager'] = 'dm/hotnews_controller/index';
 $route['news-manager/create-news'] = 'dm/hotnews_controller/create_news';
 $route['news-manager/update-news/:num'] = 'dm/hotnews_controller/update_news';

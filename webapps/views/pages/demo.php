@@ -58,12 +58,10 @@
                                         <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                             echo $this->lang->line('HOC_TIENG_HAN');
-                                        }
-                                        else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                        } else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
-                                        }
-                                        else {
+                                        } else {
                                             echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
                                         } ?></h4>
@@ -76,8 +74,7 @@
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
-                                                        }
-                                                        else {
+                                                        } else {
                                                             echo $news_item['img_src'];
                                                         } ?>"
                                                         alt=""/>
@@ -113,7 +110,7 @@
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
                         class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <div class="row service-box--main">
                             <div class="col-md-12">
                                 <div class="img-responsive">
@@ -121,60 +118,55 @@
                                         <img
                                             src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                                 echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                            }
-                                            else {
+                                            } else {
                                                 if (empty($last_news[0]['img_src'])) {
                                                     echo base_url() . 'webresources/images/banner0.jpg';
-                                                }
-                                                else {
+                                                } else {
                                                     echo base_url() . $last_news[0]['img_src'];
                                                 }
                                             }
-                                            ?>"
-                                            width="600px;">
+                                            ?>" width="100%">
                                     </a>
                                 </div>
                                 <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"><h4>
                                         <strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
                                 <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
-                                    <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i></h6>
+                                    <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i>
+                                </h6>
                                 <div class="simple-summary">
                                     <?php echo $last_news[0]['summary']; ?>
                                     <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-arrow-right-c"></i>
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông tin chi tiết</i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <?php for ($i = 1; $i < 4; $i++) { ?>
                             <?php if ($i > (count($last_news) - 1)) {
                                 break;
                             } ?>
                             <div class="service-box">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>">
                                         <img
                                             src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
                                                 echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
-                                            }
-                                            else {
+                                            } else {
                                                 if (empty($last_news[$i]['img_src'])) {
                                                     echo base_url() . 'webresources/images/banner0.jpg';
-                                                }
-                                                else {
+                                                } else {
                                                     echo base_url() . $last_news[$i]['img_src'];
                                                 }
                                             }
-                                            ?>"
-                                            width="600px;">
+                                            ?>" width="100%">
                                     </a>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"><h4>
                                             <strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
                                     <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
@@ -184,17 +176,21 @@
                                 <div class="col-md-12">
                                     <div><?php echo $last_news[$i]['summary']; ?>
                                         <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"
-                                           data-toggle="tooltip" data-placement="bottom"
-                                           data-original-title="Xem chi tiết"><i
-                                                class="ion icon ion-arrow-right-c"></i></a>
+                                           data-toggle="tooltip"
+                                           data-placement="bottom"
+                                           data-original-title="Xem chi tiết">
+                                            <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông tin chi tiết</i>
+                                        </a>
                                     </div>
+                                    <hr/>
                                 </div>
                             </div>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-default btn-xs" href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                    <a class="btn btn-default btn-xs"
+                       href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
                         <i class="ion ion-ios-arrow-thin-right"></i>
                     </a>
                 </div>
@@ -224,8 +220,7 @@
                                     <!--                                        <p style="text-align: left;padding-left: 37px;">--><!--</p>-->
                                     <!--                                    </div>-->
                                     <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
-                                <?php }
-                                else { ?>
+                                <?php } else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
                                         <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""/>
                                         <img class="youtube-play-btn"

@@ -1272,17 +1272,6 @@ ul.social-links li a:hover {
 /* ============SERVICE PAGE START================= */
 .service-box {
     position: relative;
-    min-height: 250px;
-    border: solid 1px #2e4c95;
-    padding: 10px;
-    border-radius: 5px 5px 5px 5px;
-}
-
-.service-box--main {
-    border: solid 1px #2e4c95;
-    padding: 15px 5px;
-    border-radius: 5px 5px 5px 5px;
-    margin: 10px 0px;
 }
 
 .service-box > i {
@@ -3232,4 +3221,9 @@ ol {
 
 .img-uni-logo {
     max-width: 200px;
+}
+
+.square-thumb {
+    width: 200px;
+    height: 200px;
 }

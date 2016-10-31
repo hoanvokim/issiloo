@@ -298,5 +298,4 @@ if ($(window).width() < 1051) {
         $(this).toggleClass('active');
 
     });
-}	
-
+}
