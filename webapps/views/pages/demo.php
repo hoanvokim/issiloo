@@ -150,7 +150,7 @@
                             <?php if ($i > (count($last_news) - 1)) {
                                 break;
                             } ?>
-                            <div class="service-box">
+                            <div class="service-box" style="padding: 0px !important;">
                                 <div class="col-md-4">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>">
                                         <img
@@ -210,15 +210,8 @@
                                $i < count($video_image);
                                $i++) { ?>
                         <div class="feature-box">
-                            <div class="white-paper">
+                            <div class="white-paper" style="background: url('<?php echo base_url() . $video_image[$i]['img_src']; ?>'); background-size: 300px;">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
-                                    <img src="<?php echo base_url() . $video_image[$i]['img_src']; ?> "/>
-                                    <!--                                    <div style="padding: 10px;">-->
-                                    <!--                                        <img class="pull-left"-->
-                                    <!--                                             src="--><?php //echo base_url() . 'webresources/images/image-icon.png' ?><!--"-->
-                                    <!--                                             style="padding-top: 5px; width: 30px;"/>-->
-                                    <!--                                        <p style="text-align: left;padding-left: 37px;">--><!--</p>-->
-                                    <!--                                    </div>-->
                                     <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
                                 <?php } else { ?>
                                     <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">

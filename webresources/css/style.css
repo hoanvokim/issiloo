@@ -3084,11 +3084,6 @@ ol {
     font-size: 14px;
 }
 
-.white-paper {
-    background: white;
-    border: 1px solid white;
-}
-
 .form-bg {
     width: 100%;
     padding: 8px;
@@ -3192,19 +3187,30 @@ ol {
 
 }
 
+.white-paper {
+    position: relative;
+    width: 300px;
+    height: 210px;
+    background: white;
+    border: 1px solid white;
+}
+
 .slide-caption {
+    position: absolute;
     text-align: center;
-    min-height: 40px;
     width: 100%;
     z-index: 2;
-    background: #337ab7;
     color: white;
-    font-size: 13px;
-    letter-spacing: 1px;
-    line-height: 1.5rem;
+    font-size: 14px;
+    letter-spacing: 0.3px;
     bottom: 0;
-    padding-top: 4px;
-    font-weight: 200;
+    padding: 60px 10px 10px 10px;
+    font-weight: 300;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#829eb5+0,337ab7+100&0+0,1+56 */
+    background: -moz-linear-gradient(top,  rgba(130,158,181,0) 0%, rgb(42, 100, 148) 70%, rgba(51,122,183,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(130,158,181,0) 0%,rgb(42, 100, 148) 70%,rgba(51,122,183,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(130,158,181,0) 0%,rgb(42, 100, 148) 70%,rgba(51,122,183,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00829eb5', endColorstr='#337ab7',GradientType=0 ); /* IE6-9 */
 }
 
 .youtube-play-btn {
