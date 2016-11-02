@@ -46,10 +46,8 @@
         <!-- inner container start -->
         <div class="inner-container" style="margin-top:25px;">
             <div class="container">
-                <div class="row service-layout">
-
+                <div class="row row-eq-height service-layout">
                     <?php foreach ($aImpNews as $item) { ?>
-
                         <div class="col-md-4 col-sm-12">
                             <div style="margin-top: -30px;">
                                 <a
@@ -68,9 +66,9 @@
                                 </a>
                                 <div class="widget-box">
                                     <ul class="list">
-
                                         <?php foreach ($item['related_news'] as $news_item) { ?>
-                                            <li><a href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
+                                            <li class="news-item"><a
+                                                    href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
                                                     <img
                                                         src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
@@ -94,10 +92,7 @@
                                 <?php } ?>
                             </div>
                         </div>
-
                     <?php } ?>
-
-
                 </div>
             </div>
         </div>
@@ -139,7 +134,8 @@
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông tin chi tiết</i>
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông
+                                            tin chi tiết</i>
                                     </a>
                                 </div>
                             </div>
@@ -179,7 +175,8 @@
                                            data-toggle="tooltip"
                                            data-placement="bottom"
                                            data-original-title="Xem chi tiết">
-                                            <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông tin chi tiết</i>
+                                            <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;">
+                                                Thông tin chi tiết</i>
                                         </a>
                                     </div>
                                     <hr/>
@@ -210,7 +207,8 @@
                                $i < count($video_image);
                                $i++) { ?>
                         <div class="feature-box">
-                            <div class="white-paper" style="background: url('<?php echo base_url() . $video_image[$i]['img_src']; ?>'); background-size: 300px;">
+                            <div class="white-paper"
+                                 style="background: url('<?php echo base_url() . $video_image[$i]['img_src']; ?>'); background-size: 300px;">
                                 <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
                                     <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
                                 <?php } else { ?>

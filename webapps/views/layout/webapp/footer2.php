@@ -76,7 +76,7 @@
                                 <!--contact form-->
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <input type="text" name="consult_name" class="form-control"
                                                        placeholder="<?php echo $this->lang->line('NAME'); ?> *"
@@ -91,7 +91,7 @@
                                                        required="required">
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" name="consult_phone" class="form-control"
                                                        placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
