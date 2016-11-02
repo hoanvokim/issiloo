@@ -3189,15 +3189,16 @@ ol {
 
 .white-paper {
     position: relative;
-    width: 300px;
+    width: 100%;
     height: 210px;
-    background: white;
     border: 1px solid white;
+    display: table;
 }
 
-.white-paper:hover {
-
-    background: rgba(48, 109, 160, 1);
+.white-paper:hover .slide-caption {
+    width: 100%;
+    height: 100%;
+    padding-top: 30%;
 }
 
 .slide-caption {
@@ -3233,4 +3234,8 @@ ol {
 .square-thumb {
     width: 200px;
     height: 200px;
+}
+
+hr {
+    margin-top: 10px;
 }
