@@ -58,13 +58,14 @@ function limit_text($text, $limit)
         <!-- inner container start -->
         <div class="inner-container" style="margin-top:25px;">
             <div class="container">
-                <div class="row row-eq-height service-layout">
-                    <?php foreach ($aImpNews as $item) { ?>
-                        <div class="col-md-4 col-sm-12">
-                            <div style="margin-top: -30px;">
-                                <a
-                                    href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
-                                    <h4 class="col-header">
+                <div class="table-responsive">
+                    <table class="table table-cat">
+                        <thead>
+                        <tr>
+                            <?php foreach ($aImpNews as $item) { ?>
+                                <th style="width: 33%;">
+                                    <a class="col-header"
+                                       href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
                                         <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
                                             echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
                                             echo $this->lang->line('HOC_TIENG_HAN');
@@ -76,43 +77,70 @@ function limit_text($text, $limit)
                                         else {
                                             echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
                                             echo $item['cat_name'];
-                                        } ?></h4>
-                                </a>
-                                <div class="widget-box">
-                                    <ul class="list">
-                                        <?php foreach ($item['related_news'] as $news_item) { ?>
-                                            <li class="news-item"><a
-                                                    href="<?php echo base_url() . 'news/' . $news_item['slug']; ?>">
+                                        } ?>
+                                    </a>
+                                </th>
+                            <?php } ?>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $index = 0;
+                        while ($index < 3) {
+                            ?>
+                            <tr>
+                                <?php foreach ($aImpNews as $item) { ?>
+                                    <td>
+                                        <a href="<?php echo base_url() . 'news/' . $item['related_news'][$index]['slug']; ?>">
+                                            <div class="row row-eq-height">
+                                                <div class="col-sm-5" style="padding: 0px !important;">
                                                     <img
-                                                        src="<?php echo base_url(); ?><?php if (empty($news_item['img_src'])) {
+                                                        src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$index]['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
                                                         }
                                                         else {
-                                                            echo $news_item['img_src'];
+                                                            echo $item['related_news'][$index]['img_src'];
                                                         } ?>"
                                                         alt=""/>
-                                                    <?php echo $news_item['title'] ?><br/>
-                                                    <small><?php echo date_format(new DateTime($news_item['created_date']), "F d, Y"); ?></small>
-                                                </a></li>
-                                        <?php } ?>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                <span>
+                                                    <span style="font-weight: 500;"><?php echo $item['related_news'][$index]['title'] ?></span>
+                                                    <br/>
+                                                    <small class="cat-date"><?php echo date_format(new DateTime($item['related_news'][$index]['created_date']), "F d, Y"); ?></small>
+                                                </span>
+                                                </div>
+                                            </div>
 
-                                    </ul>
-                                </div>
-                                <?php if ($item['count_news'] > 3) { ?>
-                                    <div class="pull-right"><a
-                                            href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
-                                            class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
-                                            <i
-                                                class="ion ion-ios-arrow-thin-right"></i></a></div>
+                                        </a>
+                                    </td>
                                 <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
+                            </tr>
+                            <?php
+                            $index++;
+                        }
+                        ?>
+                        <tr>
+                            <?php foreach ($aImpNews as $item) { ?>
+                                <td>
+                                    <?php if ($item['count_news'] > 3) { ?>
+                                        <div class="pull-right"><a
+                                                href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
+                                                class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
+                                                <i
+                                                    class="ion ion-ios-arrow-thin-right"></i></a></div>
+                                    <?php } ?>
+                                </td>
+                            <?php } ?>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <!-- inner container end -->
     <?php } ?>
+
 
     <?php if ($last_news && count($last_news) > 0) { ?>
         <div class="news-inner-container">

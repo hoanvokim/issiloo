@@ -1141,7 +1141,6 @@ ul.social-links li a:hover {
 
 .news-inner-container {
     padding-bottom: 30px;
-    padding-top: 35px;
     transition: height 0.3s ease-in;
     -moz-transition: height 0.3s ease-in;
     -o-transition: height 0.3s ease-in;
@@ -2462,6 +2461,30 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     font-size: 15px;
 }
 
+.table-cat > thead > tr > th {
+    color: #2e4c95 !important;
+    background-color: white !important;
+    border-bottom: 0;
+    text-transform: uppercase;
+    border-color: #fff;
+    letter-spacing: 3px;
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center !important;
+}
+
+.table-cat td:hover {
+    background: #2e4c95;
+    color: #fff;
+}
+.table-cat td:hover span{
+    color: #fff;
+}
+.table-cat td:hover small{
+    color: #fff;
+}
+
+
 .table > thead > tr > th, .table > tbody > tr > td {
     padding: 15px 20px;
     border: 0;
@@ -3004,7 +3027,7 @@ ol {
     width: 100%;
     text-align: center;
     margin-top: 50px;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .col-header-color {
@@ -3238,4 +3261,18 @@ ol {
 
 hr {
     margin-top: 10px;
+}
+
+.cat-img {
+    float: left;
+    width: 130px;
+    margin: 0 15px 0 0;
+}
+
+.cat-text {
+    position: relative;
+}
+
+.cat-date {
+    color: #139bd5; font-style: italic;
 }
