@@ -170,12 +170,12 @@ $(document).ready(function ($) {
     
     $('.recent-projects-slider2').slick({
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 2000,
-        slidesToShow: 5,
+        slidesToShow: 4,
         adaptiveHeight: true,
         touchMove: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000
     });
 

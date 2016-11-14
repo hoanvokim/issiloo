@@ -286,57 +286,45 @@ function limit_text($text, $limit)
                     <div class="col-sm-12">
                         <ul class="recent-projects-slider2">
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/koguryeo-issiloo.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/koguryeo-issiloo.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/pusan.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/yonsei-issiloo.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/yonsei-issiloo.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/pusan-woman.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan-woman.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/pusan-cathe.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan-cathe.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
-                                <div class="project-box">
-                                    <div class="row">
-                                        <a href="http://www.google.com"
-                                           target="_blank"><img class="img-uni-logo"
-                                                                src="<?php echo base_url() . '/assets/upload/images/university/deagu-cathe.png' ?>"/></a>
-                                    </div>
+                                <div>
+                                    <a href="http://www.google.com"
+                                       target="_blank"><img class="img-uni-logo"
+                                                            src="<?php echo base_url() . '/assets/upload/images/university/deagu-cathe.png' ?>"/></a>
                                 </div>
                             </li>
                         </ul>
