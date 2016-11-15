@@ -3,7 +3,7 @@
     <div class="footer-upper">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <h5><a href="#"><img src="<?php echo base_url(); ?>webresources/images/logo-line-white-2.png"
                                          alt="ISSILOO"
                                          class="footer-logo"/></a></h5>
@@ -21,41 +21,96 @@
                                          style="width: 45px;"/></a></li>
                         </ul>
                     </div>
+                    <br/><br/>
+                    <div class="fb-page" data-href="https://www.facebook.com/issiloo.edu.vn" data-tabs="timeline"
+                         data-width="400" data-height="160" data-small-header="true" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true" style="margin-top: 20px;">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/issiloo.edu.vn"><a
+                                    href="https://www.facebook.com/issiloo.edu.vn">Hàn ngữ ISSILOO</a></blockquote>
+                        </div>
+                    </div>
                     <br/>
                 </div>
-                <div class="col-md-7 col-sm-12">
-                    <div class="col-md-7 col-sm-12 text-left">
-                        <h4><?php echo $this->lang->line('CONTACT_WITH_US'); ?></h4>
-                        <address>
-                            <p>
-                                <i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?>
-                            </p>
-
-                            <p>
-                                <i class="ion ion-ios-at-outline" style="font-size: 25px;"></i> <a
-                                    href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
-                                <i class="ion ion-ios-telephone-outline"></i> Phone: <a
-                                    href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
-                                <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
-                                                                                                                  084
-                                                                                                                  080</a>
-                                <br/>
-                            </p>
-
-                        </address>
-                        <br/>
-                    </div>
-                    <div class="col-md-5 col-sm-12 text-right">
+                <div class="col-md-3 col-sm-12" style="padding-left: 25px;">
+                    <h4><?php echo $this->lang->line('MENU_CONTACT'); ?></h4>
+                    <address>
+                        <p>
+                            <i class="ion ion-ios-location-outline"></i> <?php echo $this->lang->line('ISSI_ADDRESS_STREET'); ?>
+                        </p>
+                        <p>
+                            <i class="ion ion-ios-at-outline" style="font-size: 25px;"></i> <a
+                                href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
+                            <i class="ion ion-ios-telephone-outline"></i> Phone: <a
+                                href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
+                            <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
+                                                                                                              084
+                                                                                                              080</a>
+                            <br/>
+                            <br/>
                         <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
-                        <p class="open"><i
-                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
-                            <br/><?php echo $this->lang->line('MORNING_EVENING'); ?></p>
+                        <i
+                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
+                        { <?php echo $this->lang->line('MORNING_EVENING'); ?> }<br/>
+                        <i
+                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
+                        { <?php echo $this->lang->line('MORNING_NOON'); ?> }
+                        </p>
+                    </address>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <h4 style="padding-left: 55px;"><?php echo $this->lang->line('REGISTER'); ?></h4>
 
-                        <p class="open"><i
-                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
-                            <br/><?php echo $this->lang->line('MORNING_NOON'); ?></p>
+                    <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
+                            echo $this->lang->line('MESSAGE_ERROR');
+                        } elseif ($status == 'success') {
+                            echo $this->lang->line('CONTACT_SUCCESS');
+                        } else {
+                            echo '';
+                        } ?></p>
 
-                        <br/>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <form class="contact-form" id="ContactForm" method="post"
+                                  action="<?php echo base_url(); ?>">
+                                <!--contact form-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="consult_name" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('NAME'); ?> *"
+                                                       required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" name="consult_email" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
+                                                       required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="consult_phone" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                        <textarea class="form-control" name="consult_content" rows="10"
+                                                  placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
+                                                  required="required"></textarea>
+                                            </div>
+                                            <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
+                                                   name="btn_consult_send" class="btn btn-primary"/>
+                                        </div>
+                                    </div>
+                            </form>
+                            <!--end contact form-->
+                        </div>
                     </div>
                 </div>
             </div>

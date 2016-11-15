@@ -175,7 +175,7 @@ $(document).ready(function ($) {
         slidesToShow: 4,
         adaptiveHeight: true,
         touchMove: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000
     });
 

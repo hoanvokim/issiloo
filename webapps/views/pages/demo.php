@@ -287,42 +287,42 @@ function limit_text($text, $limit)
                         <ul class="recent-projects-slider2">
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.kgrc.ac.kr/"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/koguryeo-issiloo.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.pusan.ac.kr/uPNU_homepage/kr/default.asp"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/pusan.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.yonsei.ac.kr/en_sc/"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/yonsei-issiloo.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.bwc.ac.kr/sch/index.asp"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/pusan-woman.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.univerzities.com/south-korea/catholic-university-of-pusan/"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/pusan-cathe.png' ?>"/></a>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <a href="http://www.google.com"
+                                    <a href="http://www.cu.ac.kr/"
                                        target="_blank"><img class="img-uni-logo"
                                                             src="<?php echo base_url() . '/assets/upload/images/university/deagu-cathe.png' ?>"/></a>
                                 </div>
