@@ -20,19 +20,20 @@
                                             <div class="entry-media">
                                                 <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>">
                                                     <img
-                                                        src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
-                                                            echo 'webresources/images/banner0.jpg';
-                                                        } else {
-                                                            echo $news['img_src'];
-                                                        } ?>"
-                                                        alt=""/>
+                                                            src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
+                                                                echo 'webresources/images/banner0.jpg';
+                                                            }
+                                                            else {
+                                                                echo $news['img_src'];
+                                                            } ?>"
+                                                            alt=""/>
                                                 </a>
                                             </div>
                                             <div class="entry-content">
                                                 <span class="entry-date"><a
-                                                        href="#"><?php echo date_format(new DateTime($news['created_date']), "d.m.Y"); ?></a></span>
+                                                            href="#"><?php echo date_format(new DateTime($news['created_date']), "d.m.Y"); ?></a></span>
                                                 <h4 style="padding-top: 55px;"><a
-                                                        href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><strong><?php echo $news['title']; ?></strong></a>
+                                                            href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"><strong><?php echo $news['title']; ?></strong></a>
                                                 </h4>
                                                 <div><?php echo $news['summary']; ?></div>
                                                 <br>
@@ -55,7 +56,7 @@
                                     <?php if ($total_page > 5 && $cur_page > 1) { ?>
                                         <li>
                                             <a href="<?php echo base_url() . 'cat/' . $slug . '/' . ($cur_page - 1); ?>"><i
-                                                    class="ion ion-android-arrow-back"></i></a></li>
+                                                        class="ion ion-android-arrow-back"></i></a></li>
                                     <?php } ?>
 
                                     <?php if ($total_page <= 12) {
@@ -68,7 +69,8 @@
                                             </li>
 
                                         <?php }
-                                    } else { ?>
+                                    }
+                                    else { ?>
 
                                         <?php if (($cur_page - 1) >= 1) { ?>
                                             <li <?php if ($cur_page == 1) {
@@ -87,7 +89,7 @@
                                         <?php } ?>
 
                                         <li class="active"><a
-                                                href="<?php echo base_url() . "cat/" . $slug . "/" . ($cur_page); ?>"><?php echo $cur_page; ?></a>
+                                                    href="<?php echo base_url() . "cat/" . $slug . "/" . ($cur_page); ?>"><?php echo $cur_page; ?></a>
                                         </li>
 
                                         <?php if (($cur_page + 1) < $total_page) { ?>
@@ -113,7 +115,7 @@
                                     <?php if ($total_page > 5 && $cur_page < $total_page) { ?>
                                         <li>
                                             <a href="<?php echo base_url() . 'cat/' . $slug . '/' . ($cur_page + 1); ?>"><i
-                                                    class="ion ion-android-arrow-forward"></i></a></li>
+                                                        class="ion ion-android-arrow-forward"></i></a></li>
                                     <?php } ?>
 
                                 </ul>
@@ -126,7 +128,7 @@
                 <!-- inner container end -->
 
             </div>
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-4 asidebar">
 
                 <?php if ($relatednews && count($relatednews) > 0) {
                     foreach ($relatednews as $item) { ?>
@@ -139,12 +141,13 @@
                                 <?php for ($i = 0; $i < $cnt; $i++) { ?>
                                     <li>
                                         <a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img
-                                                src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$i]['img_src'])) {
-                                                    echo 'webresources/images/img_default.jpg';
-                                                } else {
-                                                    echo $item['related_news'][$i]['img_src'];
-                                                } ?>"
-                                                alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
+                                                    src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$i]['img_src'])) {
+                                                        echo 'webresources/images/img_default.jpg';
+                                                    }
+                                                    else {
+                                                        echo $item['related_news'][$i]['img_src'];
+                                                    } ?>"
+                                                    alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
                                             <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']), "F d, Y"); ?></small>
                                         </a></li>
                                 <?php } ?>
@@ -160,68 +163,58 @@
                 <!--register form-->
                 <div class="inner-container">
                     <div class="container">
-                        <div class="form-bg-large">
-                            <div class="heading-text text-center text-uppercase"
-                                 style="padding-top: 20px; color: white;">
-                                <h3><?php echo $this->lang->line('REGISTER_CONSULT'); ?></h3>
-                            </div>
+                        <h4><?php echo $this->lang->line('REGISTER'); ?></h4>
 
-                            <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
-                                    echo $this->lang->line('MESSAGE_ERROR');
-                                } elseif ($status == 'success') {
-                                    echo $this->lang->line('CONTACT_SUCCESS');
-                                } else {
-                                    echo '';
-                                } ?></p>
+                        <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
+                                echo $this->lang->line('MESSAGE_ERROR');
+                            }
+                            elseif ($status == 'success') {
+                                echo $this->lang->line('CONTACT_SUCCESS');
+                            }
+                            else {
+                                echo '';
+                            } ?></p>
 
-                            <div class="row" style="height: 405px;">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <form class="contact-form" id="ContactForm" method="post"
-                                          action="<?php echo base_url(); ?>">
-                                        <!--contact form-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" name="consult_name" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('NAME'); ?> *"
-                                                           required="required">
-                                                </div>
+                        <div class="row">
+                            <form class="contact-form" id="ContactForm" method="post"
+                                  action="<?php echo base_url(); ?>">
+                                <!--contact form-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="consult_name" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('NAME'); ?> *"
+                                                       required="required">
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="email" name="consult_email" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
-                                                           required="required">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="consult_phone"
-                                                           placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
-                                                </div>
-                                            </div>
+                                        </div>
 
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="consult_subject" class="form-control"
-                                                           placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" name="consult_email" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
+                                                       required="required">
                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="consult_phone" class="form-control"
+                                                       placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
+                                            </div>
+                                        </div>
 
-                                            <div class="col-md-12">
-                                                <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
                                         <textarea class="form-control" name="consult_content" rows="10"
                                                   placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
                                                   required="required"></textarea>
-                                                </div>
-                                                <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
-                                                       name="btn_consult_send" class="btn btn-primary"/>
                                             </div>
+                                            <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
+                                                   name="btn_consult_send" class="btn btn-primary"/>
                                         </div>
-                                    </form>
-                                    <!--end contact form-->
-                                </div>
-                            </div>
+                                    </div>
+                            </form>
+                            <!--end contact form-->
                         </div>
                     </div>
                 </div> <!-- register consult -->

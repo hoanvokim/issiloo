@@ -94,7 +94,7 @@ function limit_text($text, $limit)
                                         <a href="<?php echo base_url() . 'news/' . $item['related_news'][$index]['slug']; ?>">
                                             <div class="row row-eq-height">
                                                 <div class="col-sm-5" style="padding: 0px !important;">
-                                                    <img
+                                                    <img class="img-curve"
                                                         src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$index]['img_src'])) {
                                                             echo 'webresources/images/banner0.jpg';
                                                         }
@@ -147,13 +147,14 @@ function limit_text($text, $limit)
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
                         class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
+                <hr class="divider"/>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row service-box--main">
                             <div class="col-md-12">
                                 <div class="img-responsive">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>">
-                                        <img
+                                        <img class="img-curve"
                                             src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                                 echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
                                             }
@@ -179,7 +180,7 @@ function limit_text($text, $limit)
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;"> Thông tin chi tiết</i>
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông tin chi tiết</i>
                                     </a>
                                 </div>
                             </div>
@@ -222,7 +223,7 @@ function limit_text($text, $limit)
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#139bd5;">
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;">
                                             Thông tin chi tiết</i>
                                     </a>
                                     <hr/>
@@ -245,8 +246,8 @@ function limit_text($text, $limit)
     <?php if ($video_image && count($video_image) > 0) { ?>
         <div class="feature-container mar-60">
             <div class="container">
-                <h3 class="col-header-color"
-                    style="margin-bottom: -1px;"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
+                <h3 class="col-header-color"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
+                <hr class="divider"/>
                 <div class="feature-slider" style="box-shadow: 0px 7px 16px rgba(152, 152, 152, 0.31);">
 
                     <?php for ($i = 0;
@@ -282,6 +283,7 @@ function limit_text($text, $limit)
         <div class="slider-university-container">
             <div class="container">
                 <h3 class="col-header-color"><?php echo $this->lang->line('UNIVERSITY_INFO'); ?></h3>
+                <hr class="divider"/>
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="recent-projects-slider2">
@@ -349,4 +351,4 @@ function limit_text($text, $limit)
         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-<?php $this->load->view('layout/webapp/footer2'); ?>
+<?php $this->load->view('layout/webapp/footer'); ?>

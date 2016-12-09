@@ -1,8 +1,6 @@
 $(window).load(function () {
     $("#loading").fadeOut();
-
 })
-
 
 $(document).ready(function ($) {
 
@@ -170,7 +168,7 @@ $(document).ready(function ($) {
     
     $('.recent-projects-slider2').slick({
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 2000,
         slidesToShow: 4,
         adaptiveHeight: true,

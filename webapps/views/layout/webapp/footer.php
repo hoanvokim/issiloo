@@ -27,7 +27,7 @@
                          data-hide-cover="false" data-show-facepile="true" style="margin-top: 20px;">
                         <div class="fb-xfbml-parse-ignore">
                             <blockquote cite="https://www.facebook.com/issiloo.edu.vn"><a
-                                    href="https://www.facebook.com/issiloo.edu.vn">Hàn ngữ ISSILOO</a></blockquote>
+                                        href="https://www.facebook.com/issiloo.edu.vn">Hàn ngữ ISSILOO</a></blockquote>
                         </div>
                     </div>
                     <br/>
@@ -40,9 +40,9 @@
                         </p>
                         <p>
                             <i class="ion ion-ios-at-outline" style="font-size: 25px;"></i> <a
-                                href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
+                                    href="mailto:kr-info@issiloo.edu.vn">kr-info@issiloo.edu.vn</a><br/>
                             <i class="ion ion-ios-telephone-outline"></i> Phone: <a
-                                href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
+                                    href="tel:(08) 3517 1099"><?php echo $this->lang->line('ISSI_PHONE'); ?></a><br/>
                             <i class="ion ion-ios-telephone-outline"></i> Hotline: <a href="tel:0898 084 080">0898
                                                                                                               084
                                                                                                               080</a>
@@ -50,10 +50,10 @@
                             <br/>
                         <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
                         <i
-                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
+                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
                         { <?php echo $this->lang->line('MORNING_EVENING'); ?> }<br/>
                         <i
-                            class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
+                                class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
                         { <?php echo $this->lang->line('MORNING_NOON'); ?> }
                         </p>
                     </address>
@@ -135,6 +135,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.fittext.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.lettering.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/jquery.textillate.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>webresources/js/theme-core.js"></script>
 
 <script>
     $(function () {

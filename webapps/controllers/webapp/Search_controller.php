@@ -47,7 +47,7 @@ class Search_controller extends CI_Controller{
         $data['menustr'] = $strMenu;
 
         $data['title_header'] = 'Searching';
-
+        $data['status'] = '';
         $this->load->view("pages/webapp/search_result",$data);
     }
 
