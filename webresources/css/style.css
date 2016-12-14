@@ -2217,7 +2217,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     color: #f1412e;
-    background-color: transparent;
+    background-color: #f6f6f6;
     border-color: #f1412e;
 }
 
@@ -3282,7 +3282,7 @@ hr {
 }
 
 .cat-date {
-    color: #f16f56;
+    color: #139bd5;
     font-style: italic;
 }
 
