@@ -1699,6 +1699,7 @@ blockquote {
 
 .single-post {
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .single-post .entry-content {

@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/webapp/header'); ?>
 
-<?php $this->load->view('components/webapp/banner_start'); ?>
+<?php //$this->load->view('components/webapp/banner_start'); ?>
 
 <!-- inner container start -->
 <div class="inner-container" style="margin-top: 30px;">
