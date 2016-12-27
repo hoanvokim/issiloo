@@ -42,8 +42,8 @@ function limit_text($text, $limit)
                             <?php foreach ($sliders as $slider) { ?>
                                 <li>
                                     <a href="<?php echo $slider['url']; ?>"><img
-                                            src="<?php echo base_url() . $slider['img_src']; ?>"
-                                            alt="<?php echo $slider['vi_content']; ?>"></a>
+                                                src="<?php echo base_url() . $slider['img_src']; ?>"
+                                                alt="<?php echo $slider['vi_content']; ?>"></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -58,83 +58,74 @@ function limit_text($text, $limit)
         <!-- inner container start -->
         <div class="inner-container" style="margin-top:25px;">
             <div class="container">
-                <div class="table-responsive">
-                    <table class="table table-cat">
-                        <thead>
-                        <tr>
-                            <?php foreach ($aImpNews as $item) { ?>
-                                <th style="width: 33%;">
-                                    <a class="col-header"
-                                       href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
-                                        <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
-                                            echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
-                                            echo $this->lang->line('HOC_TIENG_HAN');
-                                        }
-                                        else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
-                                            echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
-                                            echo $item['cat_name'];
-                                        }
-                                        else {
-                                            echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
-                                            echo $item['cat_name'];
-                                        } ?>
-                                    </a>
-                                </th>
-                            <?php } ?>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $index = 0;
-                        while ($index < 3) {
-                            ?>
-                            <tr>
-                                <?php foreach ($aImpNews as $item) { ?>
-                                    <td>
-                                        <a href="<?php echo base_url() . 'news/' . $item['related_news'][$index]['slug']; ?>">
-                                            <div class="row row-eq-height">
-                                                <div class="col-sm-5" style="padding: 0px !important;">
-                                                    <img class="img-curve"
-                                                        src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$index]['img_src'])) {
-                                                            echo 'webresources/images/banner0.jpg';
-                                                        }
-                                                        else {
-                                                            echo $item['related_news'][$index]['img_src'];
-                                                        } ?>"
-                                                        alt=""/>
-                                                </div>
-                                                <div class="col-sm-7">
+                <div class="row row-eq-height">
+                    <?php foreach ($aImpNews as $item) { ?>
+                        <div class="col-md-4 col-xs-4 col-header">
+                            <a href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
+                                <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
+                                    echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
+                                    echo $this->lang->line('HOC_TIENG_HAN');
+                                }
+                                else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
+                                    echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
+                                    echo $item['cat_name'];
+                                }
+                                else {
+                                    echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
+                                    echo $item['cat_name'];
+                                } ?>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+                <?php
+                $index = 0;
+                while ($index < 3) {
+                    ?>
+                    <div class="row row-eq-height">
+                        <?php foreach ($aImpNews as $item) { ?>
+                            <div class="col-md-4 col-xs-4 col-content">
+                                <a href="<?php echo base_url() . 'news/' . $item['related_news'][$index]['slug']; ?>">
+                                    <div class="row row-eq-height">
+                                        <div class="col-sm-5" style="padding: 0px !important;">
+                                            <img class="img-curve img-fluid"
+                                                 src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$index]['img_src'])) {
+                                                     echo 'webresources/images/banner0.jpg';
+                                                 }
+                                                 else {
+                                                     echo $item['related_news'][$index]['img_src'];
+                                                 } ?>"
+                                                 alt=""/>
+                                        </div>
+                                        <div class="col-sm-7">
                                                 <span>
                                                     <span style="font-weight: 500;"><?php echo $item['related_news'][$index]['title'] ?></span>
                                                     <br/>
                                                     <small class="cat-date"><?php echo date_format(new DateTime($item['related_news'][$index]['created_date']), "F d, Y"); ?></small>
                                                 </span>
-                                                </div>
-                                            </div>
+                                        </div>
+                                    </div>
 
-                                        </a>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                            <?php
-                            $index++;
-                        }
-                        ?>
-                        <tr>
-                            <?php foreach ($aImpNews as $item) { ?>
-                                <td>
-                                    <?php if ($item['count_news'] > 3) { ?>
-                                        <div class="pull-right"><a
-                                                href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
-                                                class="btn btn-default btn-xs"><?php echo $this->lang->line('READ_MORE'); ?>
-                                                <i
-                                                    class="ion ion-ios-arrow-thin-right"></i></a></div>
-                                    <?php } ?>
-                                </td>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <?php
+                    $index++;
+                }
+                ?>
+                <div class="row row-eq-height">
+                    <?php foreach ($aImpNews as $item) { ?>
+                        <div class="col-md-4 col-xs-4">
+                            <?php if ($item['count_news'] > 3) { ?>
+                                <div class="pull-right"><a
+                                            href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
+                                            class="btn btn-default btn-sm"><?php echo $this->lang->line('READ_MORE'); ?>
+                                        <i
+                                                class="ion ion-ios-arrow-thin-right"></i></a></div>
                             <?php } ?>
-                        </tr>
-                        </tbody>
-                    </table>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -146,7 +137,7 @@ function limit_text($text, $limit)
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
-                        class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
+                            class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
                 <hr class="divider"/>
                 <div class="row">
                     <div class="col-md-6">
@@ -154,19 +145,19 @@ function limit_text($text, $limit)
                             <div class="col-md-12">
                                 <div class="img-responsive">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>">
-                                        <img class="img-curve"
-                                            src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
-                                                echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                            }
-                                            else {
-                                                if (empty($last_news[0]['img_src'])) {
-                                                    echo base_url() . 'webresources/images/banner0.jpg';
-                                                }
-                                                else {
-                                                    echo base_url() . $last_news[0]['img_src'];
-                                                }
-                                            }
-                                            ?>" width="100%">
+                                        <img class="img-curve img-fluid"
+                                             src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
+                                                 echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
+                                             }
+                                             else {
+                                                 if (empty($last_news[0]['img_src'])) {
+                                                     echo base_url() . 'webresources/images/banner0.jpg';
+                                                 }
+                                                 else {
+                                                     echo base_url() . $last_news[0]['img_src'];
+                                                 }
+                                             }
+                                             ?>" width="100%">
                                     </a>
                                 </div>
                                 <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"><h4>
@@ -194,19 +185,19 @@ function limit_text($text, $limit)
                             <div class="service-box" style="padding: 0px !important;">
                                 <div class="col-md-4">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>">
-                                        <img
-                                            src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
-                                                echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
-                                            }
-                                            else {
-                                                if (empty($last_news[$i]['img_src'])) {
-                                                    echo base_url() . 'webresources/images/banner0.jpg';
+                                        <img  class="img-fluid"
+                                                src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
+                                                    echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
                                                 }
                                                 else {
-                                                    echo base_url() . $last_news[$i]['img_src'];
+                                                    if (empty($last_news[$i]['img_src'])) {
+                                                        echo base_url() . 'webresources/images/banner0.jpg';
+                                                    }
+                                                    else {
+                                                        echo base_url() . $last_news[$i]['img_src'];
+                                                    }
                                                 }
-                                            }
-                                            ?>" width="100%">
+                                                ?>" width="100%">
                                     </a>
                                 </div>
                                 <div class="col-md-8" style="margin-bottom: -14px;">

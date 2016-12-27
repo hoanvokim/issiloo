@@ -2176,7 +2176,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 /*Buttons*/
 .btn {
     border-radius: 0;
-    padding: 11px 20px;
+    padding: 10px;
     margin: 2px 0;
     font-size: 14px;
     font-weight: 500 !important;
@@ -3020,11 +3020,15 @@ ol {
 .col-header {
     color: #2e4c95;
     background-color: transparent;
-    width: 100%;
     text-align: center;
     margin-top: 50px;
     font-weight: 800;
     font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.col-content {
+    padding: 10px;
 }
 
 .col-header-color-center {
