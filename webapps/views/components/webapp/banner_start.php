@@ -8,8 +8,5 @@
     }
     ?>
      ">
-    <div class="banner-title">
-        <h1><?php echo $banner_title; ?></h1>
-    </div>
 </div>
 <!--banner-container end-->
