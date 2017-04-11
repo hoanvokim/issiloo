@@ -530,4 +530,5 @@ $config['faq'] = 19;
 $config['introduce'] = 1;
 $config['hoc_tieng_han'] = 14;
 $config['hoc_bong'] = 21;
+$config['tuyen_dung'] = 51;
 $config['du_hoc_han_quoc'] = 11;

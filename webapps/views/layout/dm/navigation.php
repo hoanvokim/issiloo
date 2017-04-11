@@ -89,6 +89,14 @@
                                 <span class="menu-title">Viết bài cho phân nhóm phụ</span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="<?php echo site_url('recruitment-manager'); ?>">
+                                <i class="fa fa-binoculars"></i>
+                                <span class="menu-title">Tuyển dụng</span>
+                            </a>
+                        </li>
+
                         <li class="list-divider"></li>
                         <li class="list-header">Du Học</li>
                         <li>

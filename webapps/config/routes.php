@@ -200,6 +200,12 @@ $route['scholarship-manager/delete-scholarship/:num'] = 'dm/scholarship_controll
 $route['scholarship-manager-create-scholarship-submit'] = 'dm/scholarship_controller/create_scholarship_submit';
 $route['scholarship-manager-update-scholarship-submit'] = 'dm/scholarship_controller/update_scholarship_submit';
 
+$route['recruitment-manager'] = 'dm/recruitment_controller/index';
+$route['recruitment-manager/create-recruitment'] = 'dm/recruitment_controller/create_recruitment';
+$route['recruitment-manager/update-recruitment/:num'] = 'dm/recruitment_controller/update_recruitment';
+$route['recruitment-manager/delete-recruitment/:num'] = 'dm/recruitment_controller/delete_recruitment';
+$route['recruitment-manager-create-recruitment-submit'] = 'dm/recruitment_controller/create_recruitment_submit';
+$route['recruitment-manager-update-recruitment-submit'] = 'dm/recruitment_controller/update_recruitment_submit';
 
 $route['gallery-manager'] = 'dm/gallery_controller/index';
 $route['gallery-manager/create-gallery'] = 'dm/gallery_controller/create_gallery';
