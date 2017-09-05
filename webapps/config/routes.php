@@ -211,3 +211,7 @@ $route['gallery-manager'] = 'dm/gallery_controller/index';
 $route['gallery-manager/create-gallery'] = 'dm/gallery_controller/create_gallery';
 $route['gallery-manager/delete-gallery/:num'] = 'dm/gallery_controller/delete_gallery';
 $route['gallery-manager-create-gallery-submit'] = 'dm/gallery_controller/create_gallery_submit';
+
+
+$route['slogan-manager'] = 'dm/slogan_controller/index';
+$route['slogan-manager/update-slogan'] = 'dm/slogan_controller/create_slogan';
