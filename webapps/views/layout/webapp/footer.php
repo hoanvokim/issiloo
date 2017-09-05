@@ -51,10 +51,10 @@
                         <h4><?php echo $this->lang->line('WORKING_TIME'); ?></h4>
                         <i
                                 class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('MONDAY_FRIDAY'); ?>
-                        { <?php echo $this->lang->line('MORNING_EVENING'); ?> }<br/>
+                        [ <?php echo $this->lang->line('MORNING_EVENING'); ?> ]<br/>
                         <i
                                 class="ion ion-ios-alarm-outline"></i> <?php echo $this->lang->line('SATURDAY'); ?>
-                        { <?php echo $this->lang->line('MORNING_NOON'); ?> }
+                        [ <?php echo $this->lang->line('MORNING_NOON'); ?> ]
                         </p>
                     </address>
                 </div>
@@ -151,27 +151,18 @@
         });
     });
 </script>
-<!--Gmaps [ OPTIONAL ]-->
-<script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-<script src="<?php echo base_url(); ?>webresources/plugins/gmaps/gmaps.js"></script>
-<!--Map Example [ SAMPLE ]-->
-<script src="<?php echo base_url(); ?>webresources/dm/js/demo/misc-gmaps.js"></script>
-
+<div id="fb-root"></div>
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-77858450-1', 'auto');
-    ga('send', 'pageview');
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <script type='text/javascript' data-cfasync='false'>window.purechatApi = {

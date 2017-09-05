@@ -14,7 +14,6 @@ function limit_text($text, $limit)
 <!-- main container start -->
 
 <div class="main-container">
-
     <div class="slogan-disabled">
         <div class="container jumbotron-v2">
             <div class="row">
@@ -29,7 +28,6 @@ function limit_text($text, $limit)
             </div>
         </div>
     </div>
-
     <!-- slider container start -->
     <div class="slider-study-abroad-container" style="<?php if (!$sliders || count($sliders) == 0) {
         echo 'padding-top:0px';
@@ -53,98 +51,64 @@ function limit_text($text, $limit)
         <?php } ?>
     </div>
     <!-- slider container end -->
-
-    <?php if ($aImpNews && count($aImpNews) > 0) { ?>
-        <!-- inner container start -->
-        <div class="inner-container" style="margin-top:25px;">
-            <div class="container">
-                <div class="row row-eq-height">
-                    <?php foreach ($aImpNews as $item) { ?>
-                        <div class="col-md-4 col-xs-4 col-header">
-                            <a href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>">
-                                <?php if ($item['cat_id'] == $this->config->item('hoc_tieng_han')) {
-                                    echo '<img src="' . base_url() . 'webresources/images/hoctienghan.png" style="width: 50px;" />   ';
-                                    echo $this->lang->line('HOC_TIENG_HAN');
-                                }
-                                else if ($item['cat_id'] == $this->config->item('hoc_bong')) {
-                                    echo '<img src="' . base_url() . 'webresources/images/hocbong.png" style="width: 50px;" />   ';
-                                    echo $item['cat_name'];
-                                }
-                                else {
-                                    echo '<img src="' . base_url() . 'webresources/images/duhoc.png" style="width: 50px;" />   ';
-                                    echo $item['cat_name'];
-                                } ?>
-                            </a>
-                        </div>
-                    <?php } ?>
-                </div>
-                <?php
-                $index = 0;
-                while ($index < 3) {
-                    ?>
-                    <div class="row row-eq-height">
-                        <?php foreach ($aImpNews as $item) { ?>
-                            <div class="col-md-4 col-xs-4 col-content">
-                                <a href="<?php echo base_url() . 'news/' . $item['related_news'][$index]['slug']; ?>">
-                                    <div class="row row-eq-height">
-                                        <div class="col-sm-5" style="padding: 0px !important;">
-                                            <img class="img-curve img-fluid"
-                                                 src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$index]['img_src'])) {
-                                                     echo 'webresources/images/banner0.jpg';
-                                                 }
-                                                 else {
-                                                     echo $item['related_news'][$index]['img_src'];
-                                                 } ?>"
-                                                 alt=""/>
-                                        </div>
-                                        <div class="col-sm-7">
-                                                <span>
-                                                    <span style="font-weight: 500;"><?php echo $item['related_news'][$index]['title'] ?></span>
-                                                    <br/>
-                                                    <small class="cat-date"><?php echo date_format(new DateTime($item['related_news'][$index]['created_date']), "F d, Y"); ?></small>
-                                                </span>
-                                        </div>
+    <div class="inner-container" style="margin-top:25px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 blog_news">
+                    <!-- blog content start -->
+                    <div class="col-md-12 blog_content">
+                        <!-- single news area start -->
+                        <div class="news col-md-6">
+                            <div class="news_img">
+                                <img src="<?php echo $duhochanquoc['img'] ?>" alt="<?php echo $duhochanquoc['vi_name'] ?>" class="image img-responsive">
+                                <div class="overlay">
+                                    <div class="text">
+                                        <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
+                                        <a href="<?php echo base_url() . 'cat/' . $duhochanquoc['slug']; ?>">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
-
-                                </a>
+                                </div>
                             </div>
-                        <?php } ?>
-                    </div>
-                    <?php
-                    $index++;
-                }
-                ?>
-                <div class="row row-eq-height">
-                    <?php foreach ($aImpNews as $item) { ?>
-                        <div class="col-md-4 col-xs-4">
-                            <?php if ($item['count_news'] > 3) { ?>
-                                <div class="pull-right"><a
-                                            href="<?php echo base_url() . 'cat/' . $item['cat_slug']; ?>"
-                                            class="btn btn-default btn-sm"><?php echo $this->lang->line('READ_MORE'); ?>
-                                        <i
-                                                class="ion ion-ios-arrow-thin-right"></i></a></div>
-                            <?php } ?>
                         </div>
-                    <?php } ?>
+                        <!-- single news area end -->
+                        <!-- single news area start -->
+                        <div class="news col-md-6">
+                            <div class="news_img">
+                                <img src="<?php echo $daotaohanngu['img'] ?>" alt="<?php echo $daotaohanngu['vi_name'] ?>" class="image img-responsive">
+                                <div class="overlay">
+                                    <div class="text">
+                                        <h3><?php echo $daotaohanngu['vi_name'] ?></h3>
+                                        <a href="<?php echo base_url() . 'cat/' . $daotaohanngu['slug']; ?>">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single news area end -->
+                    </div>
+                    <!-- blog content end -->
                 </div>
             </div>
         </div>
-        <!-- inner container end -->
-    <?php } ?>
-
+    </div>
 
     <?php if ($features && count($features) > 0) { ?>
         <!-- feature container start -->
         <div class="inner-container" style="margin-top:25px;">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="margin_bottom">
+                            <h3><?php echo $featureslogan['value'] ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <?php foreach ($features as $feature) { ?>
                         <div class="col-md-<?php echo $featureCount; ?> col-sm-<?php echo $featureCount; ?> col-xs-12 text-center">
                             <div class="feature_detail">
-                                <div class="feature_tag">
-                                    <img src="<?php echo $feature['img']; ?>"/>
+                                <div>
+                                    <img src="<?php echo $feature['img']; ?>" style="margin-top: 20px;"/>
                                 </div>
-                                <h3><?php echo $feature['vi_des']; ?></h3>
+                                <h5  style="margin-top: 20px;"><?php echo $feature['vi_des']; ?></h5>
                             </div>
                         </div>
                     <?php } ?>
@@ -256,41 +220,6 @@ function limit_text($text, $limit)
         <!-- inner container end -->
     <?php } ?>
 
-    <?php if ($video_image && count($video_image) > 0) { ?>
-        <div class="feature-container mar-60">
-            <div class="container">
-                <h3 class="col-header-color"><?php echo $this->lang->line('SHARING_VIDEO'); ?></h3>
-                <hr class="divider"/>
-                <div class="feature-slider" style="box-shadow: 0px 7px 16px rgba(152, 152, 152, 0.31);">
-
-                    <?php for ($i = 0;
-                               $i < count($video_image);
-                               $i++) { ?>
-                        <div class="feature-box">
-                            <div class="white-paper"
-                                 style="background: url('<?php echo base_url() . $video_image[$i]['img_src']; ?>'); background-size: 300px;">
-                                <?php if (strpos($video_image[$i]['img_src'], 'youtube') == false) { ?>
-                                    <div class="slide-caption"><span><?php echo $video_image[$i]['title']; ?></span></div>
-                                <?php }
-                                else { ?>
-                                    <a href="<?php echo $video_image[$i]['img_src']; ?>" target="_blank">
-                                        <img src="<?php echo $video_image[$i]['youtube']; ?>" alt=""/>
-                                        <img class="youtube-play-btn"
-                                             src="<?php echo base_url() . 'webresources/images/play-btn.png'; ?>"
-                                             alt=""/>
-                                    </a>
-                                    <div class="slide-caption"><?php echo $video_image[$i]['title']; ?></div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-
-                </div>
-            </div>
-        </div>
-
-    <?php } ?>
-
     <?php if ($universities && count($universities) > 0) { ?>
         <!-- slider container start -->
         <div class="slider-university-container">
@@ -352,16 +281,4 @@ function limit_text($text, $limit)
 
 </div>
 <!-- main container end -->
-
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 <?php $this->load->view('layout/webapp/footer'); ?>

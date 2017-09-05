@@ -40,38 +40,10 @@
     <link href="<?php echo base_url(); ?>webresources/css/slick-theme.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url(); ?>webresources/css/style.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url(); ?>webresources/css/animate.css" rel="stylesheet">
-
-    <script src="<?php echo base_url(); ?>webresources/js/jquery.min.js"></script>
-    <link href="<?php echo base_url(); ?>webresources/css/animate.css" rel="stylesheet">
-    <script src="/js/jquery.min.js"></script>
-
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".message").fadeOut(5000);
-            $('#nav').affix({
-                offset: {
-                    top: $('#banner-ad').height()
-                }
-            });
-            $('#search_keyword').keydown(function (event) {
-                var keypressed = event.keyCode || event.which;
-                if (keypressed == 13) {
-                    var action_str = $(this).closest('form').attr('action');
-                    var keyword_str = $(this).val();
-                    var updated_link = action_str + keyword_str;
-                    $(this).closest('form').attr('action', updated_link);
-                    $(this).closest('form').submit();
-                }
-            });
-
-        });
-    </script>
-
     <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -103,17 +75,25 @@
                    src="https://www.facebook.com/tr?id=126616871073518&ev=PageView&noscript=1"
         /></noscript>
     <!-- End Facebook Pixel Code -->
-    <!---->
+
+    <!--    Google analytics-->
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-89380943-1', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-89380943-1', 'auto');
+        ga('send', 'pageview');
 
-</script>
+    </script>
 </head>
 <body class="home">
 <?php $this->load->view('layout/webapp/menu'); ?>

@@ -108,6 +108,15 @@ class Category_Model extends CI_Model
         $this->db->update('category', $data);
     }
 
+    public function updateImage($catId, $img)
+    {
+        $data = array(
+            'img' => $img
+        );
+        $this->db->where('id', $catId);
+        $this->db->update('category', $data);
+    }
+
     public function updateWithParent($catId,$slug, $vi_name)
     {
         $data = array(

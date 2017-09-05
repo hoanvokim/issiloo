@@ -221,3 +221,6 @@ $route['feature-manager/update-feature/:num'] = 'dm/feature_controller/update';
 $route['feature-manager/delete-feature/:num'] = 'dm/feature_controller/delete';
 $route['create-feature-submit'] = 'dm/feature_controller/createSubmit';
 $route['update-feature-submit'] = 'dm/feature_controller/updateSubmit';
+
+$route['main-feature-manager'] = 'dm/mainfeature_controller/index';
+$route['update-mainfeature-submit'] = 'dm/mainfeature_controller/updateSubmit';

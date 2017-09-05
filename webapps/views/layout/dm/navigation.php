@@ -25,15 +25,21 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('manage-intro'); ?>">
+                            <a href="<?php echo site_url('main-feature-manager'); ?>">
                                 <i class="fa fa-info-circle"></i>
-                                <span class="menu-title">Giới thiệu</span>
+                                <span class="menu-title">Du học và Trung tâm</span>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo site_url('feature-manager'); ?>">
                                 <i class="fa fa-info-circle"></i>
                                 <span class="menu-title">Điểm nổi bật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url('manage-intro'); ?>">
+                                <i class="fa fa-info-circle"></i>
+                                <span class="menu-title">Giới thiệu</span>
                             </a>
                         </li>
 
@@ -118,8 +124,8 @@
                         <li class="list-header">Mở rộng</li>
                         <li>
                             <a href="<?php echo site_url('setting-manager'); ?>">
-                                <i class="fa fa-search"></i>
-                                <span class="menu-title">Cài đặt</span>
+                                <i class="fa fa-gear"></i>
+                                <span class="menu-title">Cấu hình hệ thống</span>
                             </a>
                         </li>
                         <li>

@@ -2,7 +2,14 @@
 
     <!--banner-container start-->
     <div class="inner-banner-container mar-20"
-         style="background-image:url(<?php echo base_url().'webresources/images/banner0.jpg'?>)">
+         style="<?php
+         if (empty($defaultbanner['value'])) {
+             echo 'background-image:url(' . base_url() . 'webresources/images/banner0-header.jpg)';
+         }
+         else {
+             echo 'background-image:url(' . base_url() . $defaultbanner['value'] . ')';
+         }
+         ?>">
         <div class="banner-title">
             <h1><?php echo $this->lang->line('CONTACT_BANNER_TITLE'); ?></h1>
             <h2><?php echo $this->lang->line('CONTACT_MESSAGE'); ?></h2>
@@ -110,9 +117,9 @@
     <!-- map container end -->
 
     <div id="issiloo-map" style="text-align: center">
-        <h3><?php echo $this->lang->line('GOOGLE_MAP_TITLE'); ?></h3>
-        <div class="overlay" onClick="style.pointerEvents='none'"></div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.19507362845!2d106.68890111480086!3d10.796366392307974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528ce8a97d779%3A0x730207db5fe33c40!2zMzcgSG9hIEjhu5NuZywgcGjGsOG7nW5nIDIsIFBow7ogTmh14bqtbiwgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1464600882712" width="75%" height="450px" frameborder="1" style="border:none;" allowfullscreen></iframe>
+        <h3>SƠ ĐỒ ĐƯỜNG ĐI</h3>
+        <div class="overlay" onclick="style.pointerEvents='none'"></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8712223826365!2d106.76981495080219!3d10.821165761286451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x582a5580cd585a9f!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEvhu7kgbmdo4buHIElJ!5e0!3m2!1sen!2s!4v1500431820435" width="75%" height="450px" frameborder="0" style="border:none" allowfullscreen=""></iframe>
     </div>
 
 

@@ -10,7 +10,7 @@ $lang['REGISTER'] = 'Đăng ký';
 $lang['ISSI_INTRO'] = 'Với nhiều năm kinh nghiệm và giáo viên tận tâm. Chúng tôi có thể tự hào để nói rằng chúng
                         tôi có thể giúp bạn tăng cường khả năng tiếng hàn: Nghe, nói, đọc và viết. Bạn sẽ khám phá
                         được khả năng của mình.';
-$lang['ISSI_ADDRESS_STREET'] = '37 Hoa Hồng, P.2, Q.Phú Nhuận, Tp.HCM';
+$lang['ISSI_ADDRESS_STREET'] = 'Lầu 5 (toà nhà mới), Trường CĐ Kỹ Nghệ II, 502 Đỗ Xuân Hợp, Quận 9, Tp. HCM';
 $lang['ISSI_EMAIL'] = 'kr-info@issiloo.edu.vn';
 $lang['ISSI_PHONE'] = '08 3517 1098 - 08 3517 1099';
 

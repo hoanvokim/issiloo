@@ -92,38 +92,47 @@ class Home_controller extends CI_Controller
         //get slider
         $data['sliders'] = $this->Slider_model->getAll();
         $data['slogan'] = $this->Setting_model->getSlogan();
+        $data['featureslogan'] = $this->Setting_model->getValueFromKey('featureslogan');
         $data['features'] = $this->Feature_model->getAll();
         $data['featureCount'] = 12/count($data['features']);
 
         //get widget news
-
-        //HARDCODE
-        $aImportantMenu = $this->config->item('homepage_widget_news');
-        $cnt = 0;
-        $aImpNews = array();
-        foreach ($aImportantMenu as $item) {
-            //get sub menu of each item.
-            $aCat = array();
-            $aCat[] = $item;
-            $this->Category_model->getAllSubMenu($item, $aCat);
-
-            $aTemp = $this->News_model->getNewsByArrCat($aCat);
-            if (count($aTemp) == 0) {
-                continue;
-            }
-
-            $imp_cat_info = $this->Category_model->getInfoFromId($item);
-            $aImpNews[$cnt]['cat_name'] = $this->Category_model->getName($item);
-            $aImpNews[$cnt]['cat_id'] = $item;
-            $aImpNews[$cnt]['cat_slug'] = $imp_cat_info['slug'];
-            $aImpNews[$cnt]['count_news'] = count($aTemp);
-            $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
-            $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp, $max_news);
-            $cnt++;
-            $aCat = null;
+        $duhochanquoc = $this->Category_model->findById($this->config->item('duhochanquoc'));
+        foreach ($duhochanquoc as $duhoc) {
+            $data['duhochanquoc'] = $duhoc;
         }
 
-        $data['aImpNews'] = $aImpNews;
+        $daotaohanngu = $this->Category_model->findById($this->config->item('daotaohanngu'));
+        foreach ($daotaohanngu as $daotao) {
+            $data['daotaohanngu'] = $daotao;
+        }
+//        //HARDCODE
+//        $aImportantMenu = $this->config->item('homepage_widget_news');
+//        $cnt = 0;
+//        $aImpNews = array();
+//        foreach ($aImportantMenu as $item) {
+//            //get sub menu of each item.
+//            $aCat = array();
+//            $aCat[] = $item;
+//            $this->Category_model->getAllSubMenu($item, $aCat);
+//
+//            $aTemp = $this->News_model->getNewsByArrCat($aCat);
+//            if (count($aTemp) == 0) {
+//                continue;
+//            }
+//
+//            $imp_cat_info = $this->Category_model->getInfoFromId($item);
+//            $aImpNews[$cnt]['cat_name'] = $this->Category_model->getName($item);
+//            $aImpNews[$cnt]['cat_id'] = $item;
+//            $aImpNews[$cnt]['cat_slug'] = $imp_cat_info['slug'];
+//            $aImpNews[$cnt]['count_news'] = count($aTemp);
+//            $max_news = count($aTemp) > 4 ? 4 : count($aTemp);
+//            $aImpNews[$cnt]['related_news'] = $this->News_model->resizeNewsArray($aTemp, $max_news);
+//            $cnt++;
+//            $aCat = null;
+//        }
+//
+//        $data['aImpNews'] = $aImpNews;
 
         //get university.
         $temp = $this->University_model->getAll();
@@ -143,18 +152,6 @@ class Home_controller extends CI_Controller
 
         //get lastest news.
         $data['last_news'] = $this->News_model->getLastNews();
-
-        //get video and images.
-        $data['video_image'] = $this->Gallery_model->getGalleryCorner();
-        $video_images = array();
-        foreach ($data['video_image'] as $item) {
-            array_push($video_images, array(
-                'img_src' => $item['img_src'],
-                'title' => $item['title'],
-                'youtube' => $this->getThumbnailFromYoutubeLink($item['img_src'])
-            ));
-        }
-        $data['video_image'] = $video_images;
 
         $data['title_header'] = $this->lang->line('MENU_HOME');
 

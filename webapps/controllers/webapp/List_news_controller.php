@@ -18,9 +18,9 @@ class List_news_controller extends CI_Controller
         $this->load->model('Category_model');
         $this->load->model('News_model');
         $this->load->model('Tag_model');
+        $this->load->model('Setting_model');
         $this->load->library('pageutility');
         $this->load->model('Faq_model');
-
         $this->load->library('email');
     }
 
@@ -70,14 +70,16 @@ class List_news_controller extends CI_Controller
             $this->email->message($consult_content);
             if (!$this->email->send()) {
                 $data['status'] = 'error';
-            } else {
+            }
+            else {
                 $data['status'] = 'success';
             }
             $sql = "insert into user(email,name,phone,title,content) values('$consult_email','$consult_name','$consult_phone','$consult_subject','$consult_content')";
             $result = $this->db->query($sql);
             if ($result) {
                 $data['status'] = 'success';
-            } else {
+            }
+            else {
                 $data['status'] = 'error';
             }
         }
@@ -89,6 +91,7 @@ class List_news_controller extends CI_Controller
 
         $category_id = $this->Category_model->getIdFromSlug($slug);
         $data['banner_title'] = $this->Category_model->getName($category_id);
+        $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
         $data['title_header'] = $data['banner_title'];
 
         $aMenu = array();
@@ -104,60 +107,60 @@ class List_news_controller extends CI_Controller
         $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu, $curpage, $this->pageutility->limit);
         $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
-        if(count($data['relatednews']) == 0){
-            $data['relatednews'] = $this->News_model->getNewsByCategoryConfig('sidebar',false); // get from category_config not care about is_enable
-        }else{
-            $aTemp = $this->News_model->getNewsByCategoryConfig('sidebar',true);
-            if(count($aTemp)>0){
+        if (count($data['relatednews']) == 0) {
+            $data['relatednews'] = $this->News_model->getNewsByCategoryConfig('sidebar', false); // get from category_config not care about is_enable
+        }
+        else {
+            $aTemp = $this->News_model->getNewsByCategoryConfig('sidebar', true);
+            if (count($aTemp) > 0) {
                 $data['relatednews'] = $aTemp;
             }
         }
 
         $category_info = $this->Category_model->getInfoFromId($category_id);   //if not return -1
 
-       if($category_info != -1 && ($category_id==$this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')){
+        if ($category_info != -1 && ($category_id == $this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
 
             $arr_news = array();
             $cnt = 0;
-            foreach($data['anews'] as $item){
+            foreach ($data['anews'] as $item) {
                 $arr_news[$cnt]['id'] = $item['id'];
                 $arr_news[$cnt]['category_id'] = $item['category_id'];
                 $arr_news[$cnt]['img_src'] = $item['img_src'];
                 $arr_news[$cnt]['slug'] = $item['slug'];
                 $arr_news[$cnt]['title'] = $item['title'];
-                if(strripos($item['img_src'],'embed/') !== false || strripos($item['img_src'],'watch?v=') !== false){
+                if (strripos($item['img_src'], 'embed/') !== false || strripos($item['img_src'], 'watch?v=') !== false) {
                     //is video
                     $arr_news[$cnt]['youtube_thumbnail'] = getThumbnailFromYoutubeLink($item['img_src']);
-                }else{
+                }
+                else {
                     $arr_news[$cnt]['youtube_thumbnail'] = false;
                 }
                 $cnt++;
             }
             $data['anews'] = $arr_news;
-            $this->load->view('pages/webapp/share_corner',$data);
+            $this->load->view('pages/webapp/share_corner', $data);
 
-        }elseif($category_info != -1 && ($category_id==$this->config->item('faq') || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs')){
-
-           $data['faqs'] = $this->Faq_model->getAll();
-           $this->load->view('pages/webapp/faq',$data);
-
-        } elseif ($category_info != -1 && ($category_id == $this->config->item('introduce') || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce')) {
-
-           $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
-           $this->load->view('pages/webapp/intro', $data);
-
-       } else{
-
-               $this->load->view("pages/webapp/list_news",$data);
-
-       }
+        }
+        elseif ($category_info != -1 && ($category_id == $this->config->item('faq') || $category_info['vi_name'] == 'Hỏi đáp' || $category_info['en_name'] == 'FAQs')) {
+            $data['faqs'] = $this->Faq_model->getAll();
+            $this->load->view('pages/webapp/faq', $data);
+        }
+        elseif ($category_info != -1 && ($category_id == $this->config->item('introduce') || $category_info['vi_name'] == 'Giới thiệu' || $category_info['en_name'] == 'Introduce')) {
+            $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
+            $this->load->view('pages/webapp/intro', $data);
+        }
+        else {
+            $this->load->view("pages/webapp/list_news", $data);
+        }
     }
 
-    public function belongToStudyAbroad($category_id){
+    public function belongToStudyAbroad($category_id)
+    {
         $aStudyAbroadMenu = array();
-        $this->Category_model->getAllSubMenu(10,$aStudyAbroadMenu);
-        foreach($aStudyAbroadMenu as $item){
-            if($category_id == $item){
+        $this->Category_model->getAllSubMenu(10, $aStudyAbroadMenu);
+        foreach ($aStudyAbroadMenu as $item) {
+            if ($category_id == $item) {
                 return true;
             }
         }
@@ -171,8 +174,8 @@ class List_news_controller extends CI_Controller
         $this->Category_model->getMainMenu(null, $strMenu);
         $data['menustr'] = $strMenu;
 
-        $tag_name =  $this->Tag_model->getNameById($tag_id);
-        $data['title_header'] = $tag_name !=-1 ? $tag_name : '';
+        $tag_name = $this->Tag_model->getNameById($tag_id);
+        $data['title_header'] = $tag_name != -1 ? $tag_name : '';
 
         //limit = 10
         $this->pageutility->setData($this->News_model->getTotalRowByTagId($tag_id), 10);

@@ -13,7 +13,7 @@ class Setting_Model extends CI_Model
     {
         try{
 
-            $sql = "select * from setting";
+            $sql = "select * from setting where setting.key != 'defaultbanner'";
             return $this->db->query($sql)->result_array();
 
         }catch(Exception $e){
