@@ -18,11 +18,29 @@
             <!--Page content-->
             <!--===================================================-->
             <div id="page-content">
-                <div claass="row">
-
-
-
+                <?php echo form_open('setting-manager-update-submit'); ?>
+                <div class="row">
+                    <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th width="30%"> Tên</th>
+                            <th width="70%"> Giá trị</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($settings as $setting) { ?>
+                            <tr>
+                                <td><strong><?php echo $setting['key']; ?></strong></td>
+                                <td><input type="text" name="<?php echo $setting['key']; ?>" value="<?php echo $setting['value']; ?>" style="width: 600px;"/></td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-save"></i> Lưu</button>
+                </div>
+                </form>
             </div>
             <!--===================================================-->
             <!--End page content-->

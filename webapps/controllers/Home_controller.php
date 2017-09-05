@@ -18,13 +18,14 @@ class Home_controller extends CI_Controller
         $this->load->model('News_model');
         $this->load->model('University_model');
         $this->load->model('Gallery_model');
+        $this->load->model('Setting_model');
+        $this->load->model('Feature_model');
     }
 
     public function index()
     {
         $data['status'] = '';
         try {
-
             if ($this->input->post('btn_consult_send')) {
                 $contact['protocol'] = $this->config->item('protocol');
                 $contact['charset'] = $this->config->item('charset');
@@ -90,6 +91,9 @@ class Home_controller extends CI_Controller
 
         //get slider
         $data['sliders'] = $this->Slider_model->getAll();
+        $data['slogan'] = $this->Setting_model->getSlogan();
+        $data['features'] = $this->Feature_model->getAll();
+        $data['featureCount'] = 12/count($data['features']);
 
         //get widget news
 

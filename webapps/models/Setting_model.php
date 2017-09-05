@@ -9,7 +9,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  */
 class Setting_Model extends CI_Model
 {
-    public function getAll()
+    public function getSettingData()
     {
         try{
 
@@ -17,12 +17,43 @@ class Setting_Model extends CI_Model
             return $this->db->query($sql)->result_array();
 
         }catch(Exception $e){
-
             return false;
-
         }
     }
 
+    public function getSlogan()
+    {
+        try {
+            $sql = "select * from setting where setting.key='slogan'";
+            $list = $this->db->query($sql)->result_array();
+            if (count($list > 0)) {
+                foreach ($list as $item) {
+                    return $item;
+                }
+            }
+            return -1;
+        }
+        catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getValueFromKey($key)
+    {
+        try {
+            $sql = "select * from setting where setting.key='$key'";
+            $list = $this->db->query($sql)->result_array();
+            if (count($list > 0)) {
+                foreach ($list as $item) {
+                    return $item;
+                }
+            }
+            return -1;
+        }
+        catch (Exception $e) {
+            return false;
+        }
+    }
     public function update($key, $value)
     {
         $data = array(

@@ -18,7 +18,7 @@ function limit_text($text, $limit)
     <div class="slogan-disabled">
         <div class="container jumbotron-v2">
             <div class="row">
-                <span class="tlt animateText">Chắp cánh cho giấc mơ du học của chính bạn</span>
+                <span class="tlt animateText"><?php echo $slogan['value'] ?></span>
                 <span class="infoText">
                     Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
                 </span>
@@ -130,6 +130,28 @@ function limit_text($text, $limit)
             </div>
         </div>
         <!-- inner container end -->
+    <?php } ?>
+
+
+    <?php if ($features && count($features) > 0) { ?>
+        <!-- feature container start -->
+        <div class="inner-container" style="margin-top:25px;">
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($features as $feature) { ?>
+                        <div class="col-md-<?php echo $featureCount; ?> col-sm-<?php echo $featureCount; ?> col-xs-12 text-center">
+                            <div class="feature_detail">
+                                <div class="feature_tag">
+                                    <img src="<?php echo $feature['img']; ?>"/>
+                                </div>
+                                <h3><?php echo $feature['vi_des']; ?></h3>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <!-- feature container end -->
     <?php } ?>
 
 

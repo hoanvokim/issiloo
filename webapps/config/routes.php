@@ -212,6 +212,12 @@ $route['gallery-manager/create-gallery'] = 'dm/gallery_controller/create_gallery
 $route['gallery-manager/delete-gallery/:num'] = 'dm/gallery_controller/delete_gallery';
 $route['gallery-manager-create-gallery-submit'] = 'dm/gallery_controller/create_gallery_submit';
 
+$route['setting-manager'] = 'dm/setting_controller/index';
+$route['setting-manager-update-submit'] = 'dm/setting_controller/updateSettingSubmit';
 
-$route['slogan-manager'] = 'dm/slogan_controller/index';
-$route['slogan-manager/update-slogan'] = 'dm/slogan_controller/create_slogan';
+$route['feature-manager'] = 'dm/feature_controller/index';
+$route['feature-manager/create-feature'] = 'dm/feature_controller/create';
+$route['feature-manager/update-feature/:num'] = 'dm/feature_controller/update';
+$route['feature-manager/delete-feature/:num'] = 'dm/feature_controller/delete';
+$route['create-feature-submit'] = 'dm/feature_controller/createSubmit';
+$route['update-feature-submit'] = 'dm/feature_controller/updateSubmit';

@@ -30,6 +30,12 @@
                                 <span class="menu-title">Giới thiệu</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('feature-manager'); ?>">
+                                <i class="fa fa-info-circle"></i>
+                                <span class="menu-title">Điểm nổi bật</span>
+                            </a>
+                        </li>
 
                         <!-- Group -->
                         <li class="list-divider"></li>
@@ -111,15 +117,15 @@
                         <li class="list-divider"></li>
                         <li class="list-header">Mở rộng</li>
                         <li>
-                            <a href="<?php echo site_url('tag-manager'); ?>">
+                            <a href="<?php echo site_url('setting-manager'); ?>">
                                 <i class="fa fa-search"></i>
-                                <span class="menu-title">Từ khoá tìm kiếm</span>
+                                <span class="menu-title">Cài đặt</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('slogan-manager'); ?>">
+                            <a href="<?php echo site_url('tag-manager'); ?>">
                                 <i class="fa fa-search"></i>
-                                <span class="menu-title">Slogan</span>
+                                <span class="menu-title">Từ khoá tìm kiếm</span>
                             </a>
                         </li>
                         <li>

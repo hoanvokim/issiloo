@@ -3446,3 +3446,54 @@ html.webkit header div.search-input .btn {
 .asidebar {
     border-left: solid 1px #EBEBEB;
 }
+
+/* ---------- Feature CSS --------- */
+.feature_tag {
+    display: inline-block;
+    border-radius: 50%;
+    border: 4px solid #f3f3f3;
+    height: 90px;
+    width: 90px;
+    line-height: 79px;
+    color: #0c4c7b;
+    font-size: 30px;
+    transition: all 0.3s ease 0s;
+}
+
+.feature_detail > h3 {
+    color: #022940;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 25px 0;
+    position: relative;
+}
+
+.feature_detail > h3::after {
+    background: #022940;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    top: 90%;
+    transform: translate(-50%, -10%);
+    width: 100px;
+}
+
+.feature_detail > p {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.feature_detail:hover .feature_tag {
+    cursor: pointer;
+}
+
+.feature_detail:hover h3 {
+    color: #0c4c7b;
+    cursor: pointer;
+}
+
+.feature_detail:hover h3:after {
+    background: #0c4c7b;
+}
