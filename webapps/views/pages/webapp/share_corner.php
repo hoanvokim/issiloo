@@ -124,70 +124,61 @@
                         <!-- widget end -->
                     <?php } ?>
 
-                    <!--form-->
+                    <!--register form-->
                     <div class="inner-container">
                         <div class="container">
-                            <div class="form-bg-large">
-                                <div class="heading-text text-center text-uppercase" style="padding-top: 20px; color: white;">
-                                    <h3><?php echo $this->lang->line('REGISTER_CONSULT'); ?></h3>
-                                </div>
+                            <h4><?php echo $this->lang->line('REGISTER'); ?></h4>
 
-                                <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
-                                        echo $this->lang->line('MESSAGE_ERROR');
-                                    } elseif ($status == 'success') {
-                                        echo $this->lang->line('CONTACT_SUCCESS');
-                                    } else {
-                                        echo '';
-                                    } ?></p>
+                            <p class="message <?php echo $status; ?>"><?php if ($status == 'error') {
+                                    echo $this->lang->line('MESSAGE_ERROR');
+                                }
+                                elseif ($status == 'success') {
+                                    echo $this->lang->line('CONTACT_SUCCESS');
+                                }
+                                else {
+                                    echo '';
+                                } ?></p>
 
-                                <div class="row" style="height: 450px;">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <form class="contact-form" id="ContactForm" method="post"
-                                              action="<?php echo base_url(); ?>">
-                                            <!--contact form-->
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" name="consult_name" class="form-control"
-                                                               placeholder="<?php echo $this->lang->line('NAME'); ?> *"
-                                                               required="required">
-                                                    </div>
+                            <div class="row">
+                                <form class="contact-form" id="ContactForm" method="post"
+                                      action="<?php echo base_url(); ?>">
+                                    <!--contact form-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="consult_name" class="form-control"
+                                                           placeholder="<?php echo $this->lang->line('NAME'); ?> *"
+                                                           required="required">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="email" name="consult_email" class="form-control"
-                                                               placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
-                                                               required="required">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="consult_phone"
-                                                               placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
-                                                    </div>
-                                                </div>
+                                            </div>
 
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input type="text" name="consult_subject" class="form-control"
-                                                               placeholder="<?php echo $this->lang->line('TITLE'); ?> *">
-                                                    </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="email" name="consult_email" class="form-control"
+                                                           placeholder="<?php echo $this->lang->line('EMAIL'); ?> *"
+                                                           required="required">
                                                 </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="consult_phone" class="form-control"
+                                                           placeholder="<?php echo $this->lang->line('PHONE'); ?> *">
+                                                </div>
+                                            </div>
 
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
                                         <textarea class="form-control" name="consult_content" rows="10"
                                                   placeholder="<?php echo $this->lang->line('CONTENT'); ?> *"
                                                   required="required"></textarea>
-                                                    </div>
-                                                    <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
-                                                           name="btn_consult_send" class="btn btn-primary"/>
                                                 </div>
+                                                <input type="submit" value="<?php echo $this->lang->line('SEND'); ?>"
+                                                       name="btn_consult_send" class="btn btn-primary"/>
                                             </div>
-                                        </form>
-                                        <!--end contact form-->
-                                    </div>
-                                </div>
+                                        </div>
+                                </form>
+                                <!--end contact form-->
                             </div>
                         </div>
                     </div> <!-- register consult -->

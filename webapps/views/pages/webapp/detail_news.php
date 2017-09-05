@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/webapp/header'); ?>
 
-<?php //$this->load->view('components/webapp/banner_start'); ?>
+<?php $this->load->view('components/webapp/banner_start'); ?>
 
 <!-- inner container start -->
 <div class="inner-container" style="margin-top: 30px;">
@@ -21,47 +21,22 @@
                         </div>
                     <?php } ?>
                 </div>
-                <!-- blog item end -->
 
-                <!-- author details start -->
-                <!--<div class="blog-author">
-                    <div class="desc">
-                        <p class="author-socials pull-right">
-                            <a target="_blank" href="#" title="Facebook" data-toggle="tooltip" data-placement="top"><i
-                                    class="ion ion-social-facebook"></i></a>
-                            <a target="_blank" href="#" title="Twitter" data-toggle="tooltip"
-                               data-placement="top"><i class="ion ion-social-twitter"></i></a>
-                            <a target="_blank" href="#" title="Pinterest" data-toggle="tooltip"
-                               data-placement="top"><i class="ion ion-social-pinterest"></i></a>
-                            <a target="_blank" href="#" title="Google Plus" data-toggle="tooltip"
-                               data-placement="top"><i class="ion ion-social-googleplus"></i></a>
-                            <a target="_blank" href="#" title="Dribble" data-toggle="tooltip"
-                               data-placement="top"><i class="ion ion-social-dribbble"></i></a>
-                            <a target="_blank" href="#" title="Instagram" data-toggle="tooltip"
-                               data-placement="top"><i class="ion ion-social-instagram"></i></a>
-
-                        </p>
-
-
-                    </div>
-                </div>-->
-                <!-- author details end -->
-
-                <!-- post nav start -->
                 <div class="post-nav">
                     <?php if ($cur_post > 0) { ?>
                         <h4 class="prev-post"><a
-                                href="<?php echo base_url() . 'news/' . $lst_post[$cur_post - 1]['slug']; ?>"
-                                class="btn btn-primary btn-block"><i
-                                    class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?></a>
+                                    href="<?php echo base_url() . 'news/' . $lst_post[$cur_post - 1]['slug']; ?>"
+                                    class="btn btn-primary btn-block"><i
+                                        class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?>
+                            </a>
                         </h4>
                     <?php } ?>
 
                     <?php if ($cur_post < $max_post) { ?>
                         <h4 class="next-post"><a
-                                href="<?php echo base_url() . 'news/' . $lst_post[$cur_post + 1]['slug']; ?>"
-                                class="btn btn-primary btn-block"><?php echo $this->lang->line('NEXT_POST'); ?> <i
-                                    class="ion ion-ios-redo"></i></a></h4>
+                                    href="<?php echo base_url() . 'news/' . $lst_post[$cur_post + 1]['slug']; ?>"
+                                    class="btn btn-primary btn-block"><?php echo $this->lang->line('NEXT_POST'); ?> <i
+                                        class="ion ion-ios-redo"></i></a></h4>
                     <?php } ?>
 
                 </div>
@@ -96,16 +71,16 @@
                         <?php for ($i = 0; $i < $cnt; $i++) { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>news/<?php echo $relatednews[$i]['slug']; ?>"><img
-                                        src="
+                                            src="
                                             <?php
-                                        if (empty($relatednews[$i]['img_src'])) {
-                                            echo base_url() . 'webresources/images/banner0.jpg';
-                                        } else {
-                                            echo  base_url() . $relatednews[$i]['img_src'];
-                                        }
-                                        ?>
+                                            if (empty($relatednews[$i]['img_src'])) {
+                                                echo base_url() . 'webresources/images/banner0.jpg';
+                                            } else {
+                                                echo base_url() . $relatednews[$i]['img_src'];
+                                            }
+                                            ?>
                                             "
-                                        alt=""/><?php echo $relatednews[$i]['title']; ?><br/>
+                                            alt=""/><?php echo $relatednews[$i]['title']; ?><br/>
                                     <small><?php echo date_format(new DateTime($relatednews[$i]['created_date']), "F d, Y"); ?></small>
                                 </a></li>
                         <?php } ?>

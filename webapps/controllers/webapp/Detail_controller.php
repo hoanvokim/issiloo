@@ -19,6 +19,7 @@ class Detail_controller extends CI_Controller
         $this->load->model('News_model');
         $this->load->model('Tag_model');
         $this->load->model('Gallery_model');
+        $this->load->model('Setting_model');
     }
 
     public function index($slug)
@@ -88,6 +89,8 @@ class Detail_controller extends CI_Controller
         $strMenu = '';
         $this->Category_model->getMainMenu(null, $strMenu);
         $data['menustr'] = $strMenu;
+
+        $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
 
         $news_id = $this->News_model->getIdFromSlug($slug); //if not return -1
         $data['detail'] = $this->News_model->getNewsById($news_id);    //array of a news.    if not return -1

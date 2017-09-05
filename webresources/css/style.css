@@ -208,6 +208,10 @@ p strong {
     font-weight: 700;
 }
 
+.main-container {
+    margin-top: -80px;
+}
+
 .main-container p a:not(.btn), .inner-container p a:not(.btn) {
     border-bottom: dotted 1px;
 }
@@ -551,6 +555,7 @@ nav > ul > li > a > span {
 /*sub-menu*/
 nav ul > li ul {
     opacity: 0;
+    z-index: 100;
     position: absolute;
     top: 47px;
     visibility: hidden;
@@ -651,7 +656,7 @@ nav ul > li > ul > li > a:hover {
 
 .inner-banner-container {
     width: 100%;
-    height: 400px;
+    height: 300px;
     background-size: cover;
     position: relative;
     background-repeat:   no-repeat;

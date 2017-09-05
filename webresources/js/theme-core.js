@@ -42,28 +42,6 @@
                 }, 250);
             });
 
-            $("#headerSearchForm").validate({
-                rules: {
-                    q: {
-                        required: true
-                    }
-                },
-                errorPlacement: function (error, element) {
-
-                },
-                highlight: function (element) {
-                    $(element)
-						.closest(".control-group")
-						.removeClass("success")
-						.addClass("error");
-                },
-                success: function (element) {
-                    $(element)
-						.closest(".control-group")
-						.removeClass("error")
-						.addClass("success");
-                }
-            });
 
             searchSubmit.on("click", function (e) {
                 $("#headerSearchForm").submit();
