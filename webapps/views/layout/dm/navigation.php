@@ -26,13 +26,13 @@
                         </li>
                         <li>
                             <a href="<?php echo site_url('main-feature-manager'); ?>">
-                                <i class="fa fa-info-circle"></i>
-                                <span class="menu-title">Du học và Trung tâm</span>
+                                <i class="fa fa-file-image-o"></i>
+                                <span class="menu-title">Thay hình ảnh</span>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo site_url('feature-manager'); ?>">
-                                <i class="fa fa-info-circle"></i>
+                                <i class="fa fa-cubes"></i>
                                 <span class="menu-title">Điểm nổi bật</span>
                             </a>
                         </li>

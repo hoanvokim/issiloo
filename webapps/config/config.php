@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/issiloo/';
+$config['base_url'] = 'http://localhost:1024/';
 //$config['base_url'] = 'http://issiloo.edu.vn/';
 
 /*
@@ -371,8 +371,7 @@ $config['encryption_key'] = '50701735290789';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-//$config['sess_save_path'] = sys_get_temp_dir();
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = sys_get_temp_dir();
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -525,10 +524,10 @@ $config['wordwrap'] = TRUE;
 //HARDCODE
 $config['homepage_widget_news'] = array(11,21,14); //du hoc han quoc | hoc bong | hoc tieng han (trung tam han ngu)
 $config['news_and_event'] = 7;
-$config['sharing_corner'] = 8;
+$config['sharing_corner'] = 60;
 $config['faq'] = 19;
 $config['introduce'] = 1;
 $config['duhochanquoc'] = 10;
 $config['daotaohanngu'] = 14;
-$config['hoc_bong'] = 21;
+$config['hoc_bong'] = 8;
 $config['tuyen_dung'] = 51;
