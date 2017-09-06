@@ -135,20 +135,7 @@ class Home_controller extends CI_Controller
 //        $data['aImpNews'] = $aImpNews;
 
         //get university.
-        $temp = $this->University_model->getAll();
-        $universities = array();
-        $cnt = 0;
-        foreach ($temp as $item) {
-            $universities[$cnt]['university_id'] = $item['university_id'];
-            $universities[$cnt]['title'] = $item['title'];
-            $universities[$cnt]['description'] = $item['description'];
-            $universities[$cnt]['url'] = $item['url'];
-            $images = $this->Gallery_model->getGalleryByUniverity($item['university_id']);
-            $universities[$cnt]['gallery'] = $images;
-            $cnt++;
-        }
-
-        $data['universities'] = $universities;
+        $data['universities'] = $this->University_model->getAll();
 
         //get lastest news.
         $data['last_news'] = $this->News_model->getLastNews();

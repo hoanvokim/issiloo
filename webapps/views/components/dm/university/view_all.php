@@ -9,7 +9,6 @@
             <thead>
             <tr>
                 <th width="5%">Id</th>
-                <th width="20%">Tên trường</th>
                 <th width="20%">Url</th>
                 <th width="23%">Tác vụ</th>
             </tr>
@@ -17,13 +16,12 @@
             <tbody>
             <?php foreach ($universities as $university) { ?>
                 <tr>
-                    <td><?php echo $university['university_id']; ?></td>
-                    <td><?php echo $university['title']; ?></td>
+                    <td><?php echo $university['id']; ?></td>
                     <td><?php echo $university['url']; ?></td>
                     <td>
-                        <a href="<?php echo base_url() . "university-manager/update-university/" . $university['university_id']; ?>"
+                        <a href="<?php echo base_url() . "university-manager/update-university/" . $university['id']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
-                        <a href="<?php echo base_url() . "university-manager/delete-university/" . $university['university_id']; ?>"
+                        <a href="<?php echo base_url() . "university-manager/delete-university/" . $university['id']; ?>"
                            class="btn btn-danger btn-xs pull-right" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
                     </td>
                 </tr>

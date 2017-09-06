@@ -9,42 +9,33 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  */
 class University_Model extends CI_Model
 {
-    public $title = "vi_title";
-    public $description = "vi_description";
 
     public function __construct()
     {
-        $this->title = $_SESSION["activeLanguage"] == "vi" ? "vi_title" : "en_title";
-        $this->description = $_SESSION["activeLanguage"] == "vi" ? "vi_description" : "en_description";
     }
 
     public function getAll()
     {
-        $title = $this->title;
-        $description = $this->description;
-        $sql = "select id as university_id, $title as title, $description as description, url from university order by university_id desc";
+        $sql = "select * from university";
         return $this->db->query($sql)->result_array();
     }
 
-    public function getById($uniId)
+    public function getById($id)
     {
-        $title = $this->title;
-        $description = $this->description;
-        $sql = "select id as university_id, $title as title, $description as description, url from university where id = $uniId";
-        $list = $this->db->query($sql)->result_array();
-        if(count($list > 0)) {
-	        foreach ($list as $item) {
-		     return $item;
-		}
-	}
+        $this->db->where('id', $id);
+        $features = $this->db->get("university")->result_array();
+        if(count($features > 0)) {
+            foreach ($features as $feature) {
+                return $feature;
+            }
+        }
         return -1;
     }
 
-    public function insert($uniTitle, $uniDes, $url)
+    public function insert($img, $url)
     {
         $data = array(
-            'vi_title' => $uniTitle,
-            'vi_description' => $uniDes,
+            'img_src' => $img,
             'url' => $url
         );
 
@@ -53,11 +44,10 @@ class University_Model extends CI_Model
         return $insert_id;
     }
 
-    public function update($uniId, $uniTitle, $uniDes, $url)
+    public function update($uniId, $img, $url)
     {
         $data = array(
-            'vi_title' => $uniTitle,
-            'vi_description' => $uniDes,
+            'img_src' => $img,
             'url' => $url
         );
         $this->db->where('id', $uniId);

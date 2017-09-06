@@ -60,11 +60,13 @@ function limit_text($text, $limit)
                         <!-- single news area start -->
                         <div class="news col-md-6">
                             <div class="news_img">
-                                <img src="<?php echo $duhochanquoc['img'] ?>" alt="<?php echo $duhochanquoc['vi_name'] ?>" class="image img-responsive">
+                                <img src="<?php echo $duhochanquoc['img'] ?>"
+                                     alt="<?php echo $duhochanquoc['vi_name'] ?>" class="image img-responsive">
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . 'cat/' . $duhochanquoc['slug']; ?>">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="<?php echo base_url() . 'cat/' . $duhochanquoc['slug']; ?>">Xem thêm <i
+                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -73,11 +75,13 @@ function limit_text($text, $limit)
                         <!-- single news area start -->
                         <div class="news col-md-6">
                             <div class="news_img">
-                                <img src="<?php echo $daotaohanngu['img'] ?>" alt="<?php echo $daotaohanngu['vi_name'] ?>" class="image img-responsive">
+                                <img src="<?php echo $daotaohanngu['img'] ?>"
+                                     alt="<?php echo $daotaohanngu['vi_name'] ?>" class="image img-responsive">
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $daotaohanngu['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . 'cat/' . $daotaohanngu['slug']; ?>">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="<?php echo base_url() . 'cat/' . $daotaohanngu['slug']; ?>">Xem thêm <i
+                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +112,7 @@ function limit_text($text, $limit)
                                 <div>
                                     <img src="<?php echo $feature['img']; ?>" style="margin-top: 20px;"/>
                                 </div>
-                                <h5  style="margin-top: 20px;"><?php echo $feature['vi_des']; ?></h5>
+                                <h5 style="margin-top: 20px;"><?php echo $feature['vi_des']; ?></h5>
                             </div>
                         </div>
                     <?php } ?>
@@ -134,12 +138,10 @@ function limit_text($text, $limit)
                                         <img class="img-curve img-fluid"
                                              src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
                                                  echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                             }
-                                             else {
+                                             } else {
                                                  if (empty($last_news[0]['img_src'])) {
                                                      echo base_url() . 'webresources/images/banner0.jpg';
-                                                 }
-                                                 else {
+                                                 } else {
                                                      echo base_url() . $last_news[0]['img_src'];
                                                  }
                                              }
@@ -157,7 +159,8 @@ function limit_text($text, $limit)
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông tin chi tiết</i>
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông
+                                            tin chi tiết</i>
                                     </a>
                                 </div>
                             </div>
@@ -171,19 +174,17 @@ function limit_text($text, $limit)
                             <div class="service-box" style="padding: 0px !important;">
                                 <div class="col-md-4">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>">
-                                        <img  class="img-fluid"
-                                                src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
-                                                    echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
-                                                }
-                                                else {
-                                                    if (empty($last_news[$i]['img_src'])) {
-                                                        echo base_url() . 'webresources/images/banner0.jpg';
-                                                    }
-                                                    else {
-                                                        echo base_url() . $last_news[$i]['img_src'];
-                                                    }
-                                                }
-                                                ?>" width="100%">
+                                        <img class="img-fluid"
+                                             src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
+                                                 echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
+                                             } else {
+                                                 if (empty($last_news[$i]['img_src'])) {
+                                                     echo base_url() . 'webresources/images/banner0.jpg';
+                                                 } else {
+                                                     echo base_url() . $last_news[$i]['img_src'];
+                                                 }
+                                             }
+                                             ?>" width="100%">
                                     </a>
                                 </div>
                                 <div class="col-md-8" style="margin-bottom: -14px;">
@@ -229,49 +230,16 @@ function limit_text($text, $limit)
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="recent-projects-slider2">
-                            <li>
-                                <div>
-                                    <a href="http://www.kgrc.ac.kr/"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/koguryeo-issiloo.png' ?>"/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="http://www.pusan.ac.kr/uPNU_homepage/kr/default.asp"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan.png' ?>"/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="http://www.yonsei.ac.kr/en_sc/"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/yonsei-issiloo.png' ?>"/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="http://www.bwc.ac.kr/sch/index.asp"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan-woman.png' ?>"/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="http://www.univerzities.com/south-korea/catholic-university-of-pusan/"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/pusan-cathe.png' ?>"/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="http://www.cu.ac.kr/"
-                                       target="_blank"><img class="img-uni-logo"
-                                                            src="<?php echo base_url() . '/assets/upload/images/university/deagu-cathe.png' ?>"/></a>
-                                </div>
-                            </li>
-                        </ul>
+                            <?php foreach ($universities as $university) { ?>
+                                <li>
+                                    <div>
+                                        <a href="<?php echo $university['url']; ?>"
+                                           target="_blank"><img class="img-uni-logo"
+                                                                src="<?php echo base_url() . $university['img_src']; ?>"/></a>
+                                    </div>
+                                </li>
+                            <?php } ?>
+¬                        </ul>
                     </div>
                 </div>
             </div>

@@ -42,6 +42,12 @@
                                 <span class="menu-title">Giới thiệu</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('university-manager'); ?>">
+                                <i class="fa fa-briefcase"></i>
+                                <span class="menu-title">Trường đại học</span>
+                            </a>
+                        </li>
 
                         <!-- Group -->
                         <li class="list-divider"></li>
