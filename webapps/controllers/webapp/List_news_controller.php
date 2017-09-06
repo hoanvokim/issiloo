@@ -150,6 +150,9 @@ class List_news_controller extends CI_Controller
             $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
             $this->load->view('pages/webapp/intro', $data);
         }
+        elseif ($category_info != -1 && ($category_id == $this->config->item('duhochanquoc') || $category_id == 11 || $category_id == 58 || $category_id == 59 || $category_id == 60)) {
+            $this->load->view("pages/webapp/list_news_grid", $data);
+        }
         else {
             $this->load->view("pages/webapp/list_news", $data);
         }
