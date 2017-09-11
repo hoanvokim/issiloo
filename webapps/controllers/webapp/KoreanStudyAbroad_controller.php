@@ -57,7 +57,7 @@ class Contact_controller extends CI_Controller{
 
         $data['title_header'] = 'Contact';
 
-        $this->load->view('pages/webapp/contact',$data);
+        $this->load->view('pages/webapp/koreanstudyabroad',$data);
 
     }
 

@@ -129,6 +129,12 @@
                         <li class="list-divider"></li>
                         <li class="list-header">Mở rộng</li>
                         <li>
+                            <a href="<?php echo site_url('gallery-manager'); ?>">
+                                <i class="fa fa-image"></i>
+                                <span class="menu-title">Thư mục ảnh</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo site_url('setting-manager'); ?>">
                                 <i class="fa fa-gear"></i>
                                 <span class="menu-title">Cấu hình hệ thống</span>
