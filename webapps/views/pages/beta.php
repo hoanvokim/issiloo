@@ -1,16 +1,4 @@
-<?php $this->load->view('layout/webapp/header');
-
-function limit_text($text, $limit)
-{
-    if (str_word_count($text, 0) > $limit) {
-        $words = str_word_count($text, 2);
-        $pos = array_keys($words);
-        $text = substr($text, 0, $pos[$limit]) . '...';
-    }
-    return $text;
-}
-
-?>
+<?php $this->load->view('layout/webapp/header'); ?>
 <!-- main container start -->
 
 <div class="main-container">
@@ -40,8 +28,8 @@ function limit_text($text, $limit)
                             <?php foreach ($sliders as $slider) { ?>
                                 <li>
                                     <a href="<?php echo $slider['url']; ?>"><img
-                                            src="<?php echo base_url() . $slider['img_src']; ?>"
-                                            alt="<?php echo $slider['vi_content']; ?>"></a>
+                                                src="<?php echo base_url() . $slider['img_src']; ?>"
+                                                alt="<?php echo $slider['vi_content']; ?>"></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -65,8 +53,8 @@ function limit_text($text, $limit)
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . $duhochanquoc['slug']; ?>">Xem thêm <i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="<?php echo base_url() . $duhochanquoc['slug'] . '/1'; ?>">Xem thêm <i
+                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -80,8 +68,8 @@ function limit_text($text, $limit)
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $daotaohanngu['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . 'cat/' . $daotaohanngu['slug']; ?>">Xem thêm <i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="<?php echo base_url() . $daotaohanngu['slug'] . '/2'; ?>">Xem thêm <i
+                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +98,7 @@ function limit_text($text, $limit)
                         <div class="col-md-<?php echo $featureCount; ?> col-sm-<?php echo $featureCount; ?> col-xs-12 text-center">
                             <div class="feature_detail">
                                 <div>
-                                    <img src="<?php echo $feature['img']; ?>" style="margin-top: 20px;"/>
+                                    <img src="<?php echo $feature['img']; ?>" style="margin-top: 20px; width: 90px;"/>
                                 </div>
                                 <h5 style="margin-top: 20px;"><?php echo $feature['vi_des']; ?></h5>
                             </div>
@@ -122,12 +110,11 @@ function limit_text($text, $limit)
         <!-- feature container end -->
     <?php } ?>
 
-
     <?php if ($last_news && count($last_news) > 0) { ?>
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
-                        class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
+                            class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
                 <hr class="divider"/>
                 <div class="row">
                     <div class="col-md-6">
@@ -160,7 +147,7 @@ function limit_text($text, $limit)
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
                                         <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông
-                                                                                                                 tin chi tiết</i>
+                                            tin chi tiết</i>
                                     </a>
                                 </div>
                             </div>
@@ -189,20 +176,21 @@ function limit_text($text, $limit)
                                 </div>
                                 <div class="col-md-8" style="margin-bottom: -14px;">
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"><h4>
-                                            <strong><?php echo $last_news[$i]['title']; ?></strong></h4></a>
+                                            <strong><?php echo $last_news[$i]['title']; ?></strong></h4>
+                                    </a>
                                     <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
                                         <i><?php echo date_format(new DateTime($last_news[$i]['created_date']), "d/m/Y"); ?></i>
                                     </h6>
                                 </div>
                                 <div class="col-md-12">
-                                    <div><?php echo limit_text($last_news[$i]['summary'], 50); ?>
-                                    </div>
+                                    <span><?php echo $last_news[$i]['summary']; ?></span>
+                                    <br/>
                                     <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"
                                        data-toggle="tooltip"
                                        data-placement="bottom"
                                        data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;">
-                                            Thông tin chi tiết</i>
+                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông
+                                            tin chi tiết</i>
                                     </a>
                                     <hr/>
                                 </div>
@@ -239,7 +227,7 @@ function limit_text($text, $limit)
                                     </div>
                                 </li>
                             <?php } ?>
-                            ¬                        </ul>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@
                                 <tbody>
                                 <?php foreach ($features as $feature) { ?>
                                     <tr>
-                                        <td><img src="<?php echo $feature['img']; ?>"/></td>
+                                        <td><img src="<?php echo $feature['img']; ?>" style="width: 100px;"/></td>
                                         <td><?php echo $feature['vi_des']; ?></td>
                                         <td>
                                             <a href="<?php echo base_url() . "feature-manager/update-feature/" . $feature['id']; ?>"

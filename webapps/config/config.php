@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:1024/';
+$config['base_url'] = 'http://localhost/issiloo';
 //$config['base_url'] = 'http://issiloo.edu.vn/';
 
 /*
@@ -371,7 +371,8 @@ $config['encryption_key'] = '50701735290789';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = sys_get_temp_dir();
+//$config['sess_save_path'] = sys_get_temp_dir();
+$config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -534,13 +535,10 @@ $config['duhochanquoc'] = 10;
 
 $config['duhoctieng'] = 11;
 $config['baiviet_duhoctieng'] = 172;
-
 $config['duhocnganh'] = 58;
 $config['baiviet_duhocnganh'] = 173;
-
 $config['duhocnghe'] = 59;
 $config['baiviet_duhocnghe'] = 174;
-
 $config['baiviet_duhoc'] = array(172, 173, 174);
 $config['cat_duhoc'] = array(11, 58, 59);
 
@@ -551,3 +549,10 @@ $config['chuongtrinhdaotao'] = 15;
 $config['thoikhoabieu'] = 16;
 $config['gochoctap'] = 46;
 $config['defaultbanner'] = 'defaultbanner';
+//chuong trinh dao tao
+$config['tienghansocap'] = 61;
+$config['tienghantrungcap'] = 62;
+$config['luyenthitopik'] = 63;
+$config['luyenthieps'] = 64;
+$config['lichkhaigiang'] = 65;
+$config['cat_chuongtrinhdaotao'] = array(61,62,63,64,65);

@@ -43,12 +43,19 @@ class Category_Model extends CI_Model
         return 'no item found';
     }
 
-
     public function findById($catId)
     {
         $this->db->select('*');
         $this->db->from('category');
         $this->db->where('id =', $catId);
+        return $this->db->get()->result_array();
+    }
+
+    public function findByIds($catId)
+    {
+        $this->db->select('*');
+        $this->db->from('category');
+        $this->db->where('id in', $catId);
         return $this->db->get()->result_array();
     }
 

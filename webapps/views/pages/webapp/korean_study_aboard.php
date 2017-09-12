@@ -9,51 +9,24 @@
             <div class="col-md-12 blog_news">
                 <!-- blog content start -->
                 <div class="col-md-12 blog_content">
-                    <!-- single news area start -->
-                    <div class="news col-md-4">
-                        <div class="news_img">
-                            <img src="<?php echo $duhoctieng['img']; ?>"
-                                 alt="<?php echo $duhoctieng['vi_name']; ?>" class="image img-responsive">
-                            <div class="overlay">
-                                <div class="text">
-                                    <h3><?php echo $duhoctieng['vi_name'] ?></h3>
-                                    <a href="<?php echo base_url() . $duhochanquoc['slug'] . '/' . $duhoctieng['slug']; ?>">Xem thêm <i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <?php foreach ($categories as $category) { ?>
+                        <!-- single news area start -->
+                        <div class="col-md-4">
+                            <div class="news_img">
+                                <img src="<?php echo base_url() . $category['img']; ?>"
+                                     alt="<?php echo $category['vi_name']; ?>" class="image img-responsive">
+                                <div class="overlay">
+                                    <div class="text">
+                                        <h3><?php echo $category['vi_name'] ?></h3>
+                                        <a href="<?php echo base_url() . $category['slug'] . '/' . $category['slug']; ?>">Xem
+                                            thêm <i
+                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- single news area end -->
-                    <!-- single news area start -->
-                    <div class="news col-md-4">
-                        <div class="news_img">
-                            <img src="<?php echo $duhocnganh['img'] ?>"
-                                 alt="<?php echo $duhocnganh['vi_name'] ?>" class="image img-responsive">
-                            <div class="overlay">
-                                <div class="text">
-                                    <h3><?php echo $duhocnganh['vi_name'] ?></h3>
-                                    <a href="<?php echo base_url() . $duhochanquoc['slug'] . '/' . $duhocnganh['slug']; ?>">Xem thêm <i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single news area end -->
-                    <!-- single news area start -->
-                    <div class="news col-md-4">
-                        <div class="news_img">
-                            <img src="<?php echo $duhocnghe['img'] ?>"
-                                 alt="<?php echo $duhocnghe['vi_name'] ?>" class="image img-responsive">
-                            <div class="overlay">
-                                <div class="text">
-                                    <h3><?php echo $duhocnghe['vi_name'] ?></h3>
-                                    <a href="<?php echo base_url() . $duhochanquoc['slug'] . '/' . $duhocnghe['slug']; ?>">Xem thêm <i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single news area end -->
+                        <!-- single news area end -->
+                    <?php } ?>
                 </div>
                 <!-- blog content end -->
             </div>

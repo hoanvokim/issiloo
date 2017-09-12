@@ -98,10 +98,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'dlokal',
-	'database' => 'issiloo',
+	'hostname' => '112.78.2.46',
+	'username' => 'issadf6b_issiloo',
+	'password' => 'TihHon@16LH',
+	'database' => 'issadf6b_primary',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
