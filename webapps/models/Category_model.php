@@ -163,7 +163,17 @@ class Category_Model extends CI_Model
         if (count($arr_result) > 0) {
 
             foreach ($arr_result as $item) {
-                $url = base_url() . "cat/" . $item['slug'];
+                //NOTED
+                $url = null;
+                switch ($item['slug']) {
+                    case "du-hoc-tieng":
+                    case "du-hoc-nganh":
+                    case "du-hoc-nghe":
+                        $url = base_url() . "du-hoc-han-quoc/" . $item['slug'];
+                        break;
+                    default:
+                        $url = base_url() . "cat/" . $item['slug'];
+                }
                 $strMenu = $strMenu . "<li><a href=";//"''>" . $item[$temp_name];
                 if ($this->hasSubMenu($item['id'])) {
                     $strMenu = $strMenu . "'#'>";

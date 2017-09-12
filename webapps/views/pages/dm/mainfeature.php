@@ -26,81 +26,72 @@
                             </div>
                         </div>
                         <hr>
-
-                        <?php echo form_open_multipart('update-mainfeature-submit'); ?>
-                        <div class="row">
-                            <div class="col-xs-6">
-
-                                <h3>Du học Hàn Quốc</h3>
-                                <?php if ($duhochanquocHasImg == 0) { ?>
-                                    <div class="form-group">
-                                        <label for="upload_file">File upload</label>
-                                        <input type='file' name='userfileDuhoc' size='30'/>
-                                        <br/>
-                                        <i>Lưu ý: Hình ảnh size chuẩn: 200px * 200px</i>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="form-group">
-                                        <label for="demo-vs-definput" class="control-label">Hình ảnh</label>
-                                        <br/>
-                                        <img src="<?php echo base_url() . $duhochanquoc['img']; ?>" style="height: 100px;"/>
-                                        <input type="hidden" id="hide" name="duhochanquocimg" value="<?php echo $duhochanquoc['img']; ?>"/>
-                                        <button type="submit" class="btn btn-danger btn-xs" name="delete-img-duhoc" style="margin-left: 15px;"><i
-                                                    class="fa fa-close"></i> Xoá ảnh
-                                        </button>
-                                    </div>
-                                <?php } ?>
-                                <button type="submit" class="btn btn-success" name="save-duhoc"><i class="fa fa-save"></i> Lưu</button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3>Đào tạo hàn ngữ</h3>
-                                <?php if ($daotaohannguHasImg == 0) { ?>
-                                    <div class="form-group">
-                                        <label for="upload_file">File upload</label>
-                                        <input type='file' name='userfileDaotao' size='30'/>
-                                        <br/>
-                                        <i>Lưu ý: Hình ảnh size chuẩn: 200px * 200px</i>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="form-group">
-                                        <label for="demo-vs-definput" class="control-label">Hình ảnh</label>
-                                        <br/>
-                                        <img src="<?php echo base_url() . $daotaohanngu['img']; ?>" style="height: 100px;"/>
-                                        <input type="hidden" id="hide" name="daotaohannguimg" value="<?php echo $daotaohanngu['img']; ?>"/>
-                                        <button type="submit" class="btn btn-danger btn-xs" name="delete-img-daotao" style="margin-left: 15px;"><i
-                                                    class="fa fa-close"></i> Xoá ảnh
-                                        </button>
-                                    </div>
-                                <?php } ?>
-                                <button type="submit" class="btn btn-success" name="save-daotao"><i class="fa fa-save"></i> Lưu</button>
-
-                            </div>
-                            <hr/>
-                            <div class="col-xs-6">
-                                <h3>Banner mặc định</h3>
-                                <?php if ($defaultbannerHasImg == 0) { ?>
-                                    <div class="form-group">
-                                        <label for="upload_file">File upload</label>
-                                        <input type='file' name='userfileDefaultbanner' size='30'/>
-                                        <br/>
-                                        <i>Lưu ý: Hình ảnh size chuẩn: 200px * 200px</i>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="form-group">
-                                        <label for="demo-vs-definput" class="control-label">Hình ảnh</label>
-                                        <br/>
-                                        <img src="<?php echo base_url() . $defaultbanner['value']; ?>" style="height: 100px;"/>
-                                        <input type="hidden" id="hide" name="defaultbannerimg" value="<?php echo $defaultbanner['value']; ?>"/>
-                                        <button type="submit" class="btn btn-danger btn-xs" name="delete-img-defaultbanner" style="margin-left: 15px;"><i
-                                                    class="fa fa-close"></i> Xoá ảnh
-                                        </button>
-                                    </div>
-                                <?php } ?>
-                                <button type="submit" class="btn btn-success" name="save-defaultbanner"><i class="fa fa-save"></i> Lưu</button>
-
+                        <div class="panel">
+                            <div class="panel-body">
+                                <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th width="15%">Tiêu đề</th>
+                                        <th width="15%">Ảnh</th>
+                                        <th width="15%">Tác vụ</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><h3>Banner mặc định</h3></td>
+                                        <td><img src="<?php echo base_url() . $defaultbanner['value']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('defaultbanner'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Category -->
+                                    <tr>
+                                        <td><h3>Du học Hàn quốc</h3></td>
+                                        <td><img src="<?php echo base_url() . $duhochanquoc['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhochanquoc'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Category -->
+                                    <tr>
+                                        <td><h3>-->Du học tiếng</h3></td>
+                                        <td><img src="<?php echo base_url() . $duhoctieng['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhoctieng'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h3>-->Du học ngành</h3></td>
+                                        <td><img src="<?php echo base_url() . $duhocnganh['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhocnganh'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h3>-->Du học nghề</h3></td>
+                                        <td><img src="<?php echo base_url() . $duhocnghe['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhocnghe'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h3>Đào tạo hàn ngữ</h3></td>
+                                        <td><img src="<?php echo base_url() . $daotaohanngu['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('daotaohanngu'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
                 <!--===================================================-->

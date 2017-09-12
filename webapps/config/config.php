@@ -525,10 +525,29 @@ $config['wordwrap'] = TRUE;
 $config['homepage_widget_news'] = array(11,21,14); //du hoc han quoc | hoc bong | hoc tieng han (trung tam han ngu)
 $config['homepage'] = array(15,7,14); //du hoc han quoc | hoc bong | hoc tieng han (trung tam han ngu)
 $config['news_and_event'] = 7;
-$config['sharing_corner'] = 60;
 $config['faq'] = 19;
 $config['introduce'] = 1;
-$config['duhochanquoc'] = 10;
-$config['daotaohanngu'] = 14;
 $config['hoc_bong'] = 8;
 $config['tuyen_dung'] = 51;
+//
+$config['duhochanquoc'] = 10;
+
+$config['duhoctieng'] = 11;
+$config['baiviet_duhoctieng'] = 172;
+
+$config['duhocnganh'] = 58;
+$config['baiviet_duhocnganh'] = 173;
+
+$config['duhocnghe'] = 59;
+$config['baiviet_duhocnghe'] = 174;
+
+$config['baiviet_duhoc'] = array(172, 173, 174);
+$config['cat_duhoc'] = array(11, 58, 59);
+
+$config['gocchiase'] = 60;
+//
+$config['daotaohanngu'] = 14;
+$config['chuongtrinhdaotao'] = 15;
+$config['thoikhoabieu'] = 16;
+$config['gochoctap'] = 46;
+$config['defaultbanner'] = 'defaultbanner';

@@ -28,6 +28,18 @@ class Mainfeature_controller extends CI_Controller
         $data['title'] = 'Cập nhật Banner';
         $data = $this->loadDuHocHanQuoc($data);
         $data = $this->loadDaoTaoHanNgu($data);
+        $duhoctieng = $this->Category_model->findById($this->config->item('duhoctieng'));
+        foreach ($duhoctieng as $duhoc) {
+            $data['duhoctieng'] = $duhoc;
+        }
+        $duhocnganh = $this->Category_model->findById($this->config->item('duhocnganh'));
+        foreach ($duhocnganh as $duhoc) {
+            $data['duhocnganh'] = $duhoc;
+        }
+        $duhocnghe = $this->Category_model->findById($this->config->item('duhocnghe'));
+        foreach ($duhocnghe as $duhoc) {
+            $data['duhocnghe'] = $duhoc;
+        }
         $data = $this->loadDefaultBanner($data);
         $this->load->view('pages/dm/mainfeature', $data);
     }
@@ -163,12 +175,6 @@ class Mainfeature_controller extends CI_Controller
     {
         $duhochanquoc = $this->Category_model->findById($this->config->item('duhochanquoc'));
         foreach ($duhochanquoc as $duhoc) {
-            if (strlen($duhoc['img']) > 0) {
-                $data['duhochanquocHasImg'] = 1;
-            }
-            else {
-                $data['duhochanquocHasImg'] = 0;
-            }
             $data['duhochanquoc'] = $duhoc;
         }
         return $data;
@@ -182,12 +188,6 @@ class Mainfeature_controller extends CI_Controller
     {
         $daotaohanngu = $this->Category_model->findById($this->config->item('daotaohanngu'));
         foreach ($daotaohanngu as $daotao) {
-            if (strlen($daotao['img']) > 0) {
-                $data['daotaohannguHasImg'] = 1;
-            }
-            else {
-                $data['daotaohannguHasImg'] = 0;
-            }
             $data['daotaohanngu'] = $daotao;
         }
         return $data;
@@ -200,12 +200,6 @@ class Mainfeature_controller extends CI_Controller
     public function loadDefaultBanner($data)
     {
         $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
-        if (strlen($data['defaultbanner']['value']) > 0) {
-            $data['defaultbannerHasImg'] = 1;
-        }
-        else {
-            $data['defaultbannerHasImg'] = 0;
-        }
         return $data;
     }
 

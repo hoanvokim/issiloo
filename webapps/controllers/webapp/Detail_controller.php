@@ -108,7 +108,7 @@ class Detail_controller extends CI_Controller
         $data['max_post'] = count($data['lst_post']) - 1;
 
         $data['is_video'] = false;
-        if ($category_info != -1 && ($category_id == $this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
+        if ($category_info != -1 && ($category_id == $this->config->item('gocchiase') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
             if (strpos($data['detail']['img_src'], 'youtube') == false) {
                 $data['is_video'] = false;
             }

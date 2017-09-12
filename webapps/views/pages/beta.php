@@ -65,7 +65,7 @@ function limit_text($text, $limit)
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . 'cat/' . $duhochanquoc['slug']; ?>">Xem thêm <i
+                                        <a href="<?php echo base_url() . $duhochanquoc['slug']; ?>">Xem thêm <i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>

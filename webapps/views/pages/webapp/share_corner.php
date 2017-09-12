@@ -113,7 +113,16 @@
 
                                 <?php $cnt = count($item['related_news']) >= 4 ? 4:count($item['related_news']);  ?>
                                 <?php for($i=0;$i<$cnt;$i++){ ?>
-                                    <li><a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>"><img src="<?php echo base_url(); ?><?php echo $item['related_news'][$i]['img_src']; ?>" alt=""/><?php echo $item['related_news'][$i]['title']; ?><br/>
+                                    <li><a href="<?php echo base_url(); ?>news/<?php echo $item['related_news'][$i]['slug']; ?>">
+                                            <img src="<?php echo base_url(); ?><?php if (empty($item['related_news'][$i]['img_src'])) {
+                                                     echo 'webresources/images/banner0.jpg';
+                                                 }
+                                                 else {
+                                                     echo $item['related_news'][$i]['img_src'];
+                                                 } ?>"
+                                            />
+
+                                            <?php echo $item['related_news'][$i]['title']; ?><br/>
                                             <small><?php echo date_format(new DateTime($item['related_news'][$i]['created_date']),"F d, Y");?></small>
                                         </a></li>
                                 <?php } ?>

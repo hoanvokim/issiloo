@@ -61,6 +61,8 @@ $route['contact'] = 'webapp/contact_controller/index';
 $route['contact/send'] = 'webapp/contact_controller/send';
 $route['search/(:any)'] = 'webapp/search_controller/find/$1/1';
 $route['search/(:any)/(:num)'] = 'webapp/search_controller/find/$1/$2';
+$route['du-hoc-han-quoc'] = 'webapp/koreanstudyabroad_controller/index';
+$route['du-hoc-han-quoc/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';
@@ -210,7 +212,9 @@ $route['recruitment-manager-update-recruitment-submit'] = 'dm/recruitment_contro
 $route['gallery-manager'] = 'dm/gallery_controller/index';
 $route['gallery-manager/create-gallery'] = 'dm/gallery_controller/create_gallery';
 $route['gallery-manager/delete-gallery/:num'] = 'dm/gallery_controller/delete_gallery';
+$route['gallery-manager/update-gallery/(:any)'] = 'dm/gallery_controller/update_gallery/$1';
 $route['gallery-manager-create-gallery-submit'] = 'dm/gallery_controller/create_gallery_submit';
+$route['gallery-manager-update-gallery-submit'] = 'dm/gallery_controller/update_gallery_submit';
 
 $route['setting-manager'] = 'dm/setting_controller/index';
 $route['setting-manager-update-submit'] = 'dm/setting_controller/updateSettingSubmit';

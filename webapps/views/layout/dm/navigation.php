@@ -76,6 +76,24 @@
                                 <span class="menu-title">Viết bài mới</span>
                             </a>
                         </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "news-manager/update-study-news/" . $this->config->item('baiviet_duhoctieng'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Du học tiếng</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "news-manager/update-study-news/" . $this->config->item('baiviet_duhocnganh'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Du học ngành</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "news-manager/update-study-news/" . $this->config->item('baiviet_duhocnghe'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Du học nghề</span>
+                            </a>
+                        </li>
 
                         <li class="list-divider"></li>
                         <li class="list-header">Trung tâm Hàn Ngữ</li>

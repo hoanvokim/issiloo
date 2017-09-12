@@ -17,6 +17,8 @@ class Gallery_controller extends CI_Controller
             $_SESSION["activeLanguage"] = "vi";
         }
         $this->load->model('Gallery_model');
+        $this->load->model('Category_model');
+        $this->load->model('Setting_model');
     }
 
     public function index()
@@ -86,6 +88,105 @@ class Gallery_controller extends CI_Controller
         redirect('gallery-manager', 'refresh');
     }
 
+    public function update_gallery($param = null)
+    {
+        $data['title'] = 'Cập nhật hình ảnh';
+        $data['hasImg'] = 0;
+        if ($param == $this->config->item('defaultbanner')) {
+            $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
+            if (strlen($data['defaultbanner']['value']) > 0) {
+                $data['hasImg'] = 1;
+            }
+        }
+        else {
+            $categories = $this->Category_model->findById($param);
+            foreach ($categories as $cat) {
+                $cat['value'] = $cat['img'];
+                $cat['key'] = $cat['id'];
+                $data['defaultbanner'] = $cat;
+                if (strlen($data['defaultbanner']['img']) > 0) {
+                    $data['hasImg'] = 1;
+                }
+            }
+        }
+        $this->load->view('pages/dm/manage_gallery/edit', $data);
+    }
+
+    public function update_gallery_submit()
+    {
+        $data['title'] = 'Cập nhật hình ảnh';
+        $data['hasImg'] = 0;
+        if ($this->input->post('param') == $this->config->item('defaultbanner')) {
+            if (isset($_POST["save-defaultbanner"])) {
+                $this->load->library('upload', $this->set_upload_options());
+                if ($this->upload->do_upload('userfileDefaultbanner')) {
+                    $upload_files = $this->upload->data();
+                    $file_path = 'assets/upload/images/gallery/' . $upload_files['file_name'];
+
+                    $this->Setting_model->update(
+                        'defaultbanner',
+                        $file_path
+                    );
+                }
+                else {
+                    $this->Setting_model->update(
+                        'defaultbanner',
+                        $this->input->post('defaultbannerimg')
+                    );
+                }
+            }
+            if (isset($_POST["delete-img-defaultbanner"])) {
+                $defaultbanner = $this->Setting_model->getValueFromKey('defaultbanner');
+                if (!is_null($defaultbanner['value'])) {
+                    unlink('./' . $defaultbanner['value']);
+                }
+                $this->Setting_model->update(
+                    'defaultbanner',
+                    ''
+                );
+                $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
+                if (strlen($data['defaultbanner']['value']) > 0) {
+                    $data['defaultbannerHasImg'] = 1;
+                }
+                else {
+                    $data['defaultbannerHasImg'] = 0;
+                }
+                $this->load->view('pages/dm/mainfeature', $data);
+            }
+        }
+        else {
+            if (isset($_POST["save-defaultbanner"])) {
+                $this->load->library('upload', $this->set_upload_options());
+                if ($this->upload->do_upload('userfileDefaultbanner')) {
+                    $upload_files = $this->upload->data();
+                    $file_path = 'assets/upload/images/gallery/' . $upload_files['file_name'];
+                    $this->Category_model->updateImage(
+                        $this->input->post('param'),
+                        $file_path
+                    );
+                }
+                else {
+                    $this->Category_model->updateImage(
+                        $this->input->post('param'),
+                        $this->input->post('defaultbannerimg')
+                    );
+                }
+            }
+            if (isset($_POST["delete-img-defaultbanner"])) {
+                $duhochanquoc = $this->Category_model->findById($this->input->post('param'));
+                foreach ($duhochanquoc as $duhoc) {
+                    if (!is_null($duhoc['img'])) {
+                        unlink('./' . $duhoc['img']);
+                    }
+                    $this->Category_model->updateImage(
+                        $this->input->post('param'),
+                        ''
+                    );
+                }
+            }
+        }
+        redirect('main-feature-manager', 'refresh');
+    }
 
     private function set_upload_options()
     {

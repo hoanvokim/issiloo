@@ -36,14 +36,16 @@ class News_controller extends CI_Controller
         $news = $this->News_model->getNewsByCatCollectionWithoutLimit($categories);
         $news_list = array();
         foreach ($news as $item) {
-            array_push($news_list, array(
-                'id' => $item['id'],
-                'category' => $this->Category_model->findCategoryNameFromId($item['category_id']),
-                'title' => $item['title'],
-                'summary' => $item['summary'],
-                'created_date' => $item['created_date'],
-                'updated_date' => $item['updated_date']
-            ));
+            if (!in_array($item['id'], $this->config->item('cat_duhoc'))) {
+                array_push($news_list, array(
+                    'id' => $item['id'],
+                    'category' => $this->Category_model->findCategoryNameFromId($item['category_id']),
+                    'title' => $item['title'],
+                    'summary' => $item['summary'],
+                    'created_date' => $item['created_date'],
+                    'updated_date' => $item['updated_date']
+                ));
+            }
         }
         $data['news_list'] = $news_list;
         $data['title'] = 'Các bài viết';
@@ -180,7 +182,7 @@ class News_controller extends CI_Controller
                 $this->load->model('News_model');
                 $can_be_write = $this->Category_model->hasChild($category['id']);
 
-                if (!$can_be_write) {
+                if (!$can_be_write && !in_array($category['id'], $this->config->item('cat_duhoc'))) {
                     array_push($categories, array(
                         'id' => $category['id'],
                         'vi_name' => $category['vi_name'],

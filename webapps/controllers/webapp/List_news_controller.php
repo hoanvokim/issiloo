@@ -119,7 +119,7 @@ class List_news_controller extends CI_Controller
 
         $category_info = $this->Category_model->getInfoFromId($category_id);   //if not return -1
 
-        if ($category_info != -1 && ($category_id == $this->config->item('sharing_corner') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
+        if ($category_info != -1 && ($category_id == $this->config->item('gocchiase') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
 
             $arr_news = array();
             $cnt = 0;
@@ -150,8 +150,9 @@ class List_news_controller extends CI_Controller
             $data['intros'] = $this->News_model->getIntroduces($this->config->item('introduce'));
             $this->load->view('pages/webapp/intro', $data);
         }
-        elseif ($category_info != -1 && ($category_id == $this->config->item('duhochanquoc') || $category_id == 11 || $category_id == 58 || $category_id == 59 || $category_id == 60)) {
-            $this->load->view("pages/webapp/list_news_grid", $data);
+        elseif ($category_info != -1 && $category_id == $this->config->item('duhochanquoc')) {
+            //especially for study aboard
+            $this->load->view("pages/webapp/korean_study_aboard", $data);
         }
         else {
             $this->load->view("pages/webapp/list_news", $data);
