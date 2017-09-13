@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/issiloo';
+$config['base_url'] = 'http://localhost:1024/';
 //$config['base_url'] = 'http://issiloo.edu.vn/';
 
 /*
@@ -371,8 +371,8 @@ $config['encryption_key'] = '50701735290789';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-//$config['sess_save_path'] = sys_get_temp_dir();
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = sys_get_temp_dir();
+//$config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -551,8 +551,13 @@ $config['gochoctap'] = 46;
 $config['defaultbanner'] = 'defaultbanner';
 //chuong trinh dao tao
 $config['tienghansocap'] = 61;
+$config['baiviet_tienghansocap'] = 176;
 $config['tienghantrungcap'] = 62;
+$config['baiviet_tienghantrungcap'] = 177;
 $config['luyenthitopik'] = 63;
+$config['baiviet_luyenthitopik'] = 178;
 $config['luyenthieps'] = 64;
+$config['baiviet_luyenthieps'] = 179;
 $config['lichkhaigiang'] = 65;
+$config['baiviet_lichkhaigiang'] = 180;
 $config['cat_chuongtrinhdaotao'] = array(61,62,63,64,65);

@@ -66,6 +66,54 @@ class Koreanstudyabroad_controller extends CI_Controller
         } else {
             $this->loadDaoTao($slug_url, $data);
         }
+        if ($slug_url != null) {
+            $newsId = null;
+            switch ($slug_url) {
+                case 'du-hoc-tieng' :
+                    $newsId = $this->config->item('baiviet_duhoctieng');
+                    break;
+                case 'du-hoc-nganh' :
+                    $newsId = $this->config->item('baiviet_duhocnganh');
+                    break;
+                case 'du-hoc-nghe' :
+                    $newsId = $this->config->item('baiviet_duhocnghe');
+                    break;
+                case 'tieng-han-so-cap' :
+                    $newsId = $this->config->item('baiviet_tienghansocap');
+                    break;
+                case 'tieng-han-trung-cap' :
+                    $newsId = $this->config->item('baiviet_tienghantrungcap');
+                    break;
+                case 'luyen-thi-topik-klat' :
+                    $newsId = $this->config->item('baiviet_luyenthitopik');
+                    break;
+                case 'luyen-thi-eps-xuat-khau-lao-dong' :
+                    $newsId = $this->config->item('baiviet_luyenthieps');
+                    break;
+                case 'lich-khai-giang' :
+                    $newsId = $this->config->item('baiviet_lichkhaigiang');
+                    break;
+            }
+
+            $data['detail'] = $this->News_model->getNewsById($newsId);    //array of a news.    if not return -1
+            $data['banner_title'] = $data['detail'] != -1 ? $data['detail']['title'] : '';
+            $data['banner_bg'] = $data['detail'] != -1 ? $data['detail']['img_src'] : '';
+            $data['title_header'] = $data['banner_title'];
+
+            $category_id = $data['detail'] != -1 ? $data['detail']['category_id'] : -1;
+            $category_info = $this->Category_model->getInfoFromId($category_id);  //a category row. if not return -1
+
+            $data['category_info'] = $category_info;
+
+            $data['lst_post'] = $this->News_model->getNewsByCatId($category_id);
+            $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'], $newsId);
+            $data['max_post'] = count($data['lst_post']) - 1;
+
+            $data['relatednews'] = $this->News_model->getRelatedNewsById($newsId);
+            $data['tagnews'] = $this->Tag_model->getTagByNewsId($newsId);
+            $this->load->view('pages/webapp/detail_news', $data);
+
+        }
     }
 
     public function getIndexFromLstPost($aNews, $news_id)
@@ -90,55 +138,13 @@ class Koreanstudyabroad_controller extends CI_Controller
         $duhochanquoc = $this->Category_model->findById($this->config->item('duhochanquoc'));
         foreach ($duhochanquoc as $duhoc) {
             $data['title_header'] = $duhoc['vi_name'];
+            $data['parent'] = $duhoc;
         }
 
         if ($slug_url == null) {
             $categories =  $this->Category_model->findByIds($this->config->item('cat_duhoc'));
             $data['categories'] = $categories;
             $this->load->view('pages/webapp/korean_study_aboard', $data);
-        } else {
-            $newsId = null;
-            switch ($slug_url) {
-                case 'du-hoc-tieng' :
-                    $newsId = $this->config->item('baiviet_duhoctieng');
-                    break;
-                case 'du-hoc-nganh' :
-                    $newsId = $this->config->item('baiviet_duhocnganh');
-                    break;
-                case 'du-hoc-nghe' :
-                    $newsId = $this->config->item('baiviet_duhocnghe');
-                    break;
-            }
-
-            $data['detail'] = $this->News_model->getNewsById($newsId);    //array of a news.    if not return -1
-            $data['banner_title'] = $data['detail'] != -1 ? $data['detail']['title'] : '';
-            $data['banner_bg'] = $data['detail'] != -1 ? $data['detail']['img_src'] : '';
-            $data['title_header'] = $data['banner_title'];
-
-            $category_id = $data['detail'] != -1 ? $data['detail']['category_id'] : -1;
-            $category_info = $this->Category_model->getInfoFromId($category_id);  //a category row. if not return -1
-
-            $data['category_info'] = $category_info;
-
-            $data['lst_post'] = $this->News_model->getNewsByCatId($category_id);
-            $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'], $newsId);
-            $data['max_post'] = count($data['lst_post']) - 1;
-
-            $data['is_video'] = false;
-            if ($category_info != -1 && ($category_id == $this->config->item('gocchiase') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
-                if (strpos($data['detail']['img_src'], 'youtube') == false) {
-                    $data['is_video'] = false;
-                } else {
-                    $data['is_video'] = true;
-                    $data['link_embed'] = strpos($data['detail']['img_src'], 'embed') == false ? str_replace('watch?v=', 'embed/', $data['detail']['img_src']) : $data['detail']['img_src'];
-                }
-                $data['img_galleries'] = $this->Gallery_model->getGalleryByNewsId($newsId);
-                $this->load->view('pages/webapp/share_corner_detail', $data);
-            } else {
-                $data['relatednews'] = $this->News_model->getRelatedNewsById($newsId);
-                $data['tagnews'] = $this->Tag_model->getTagByNewsId($newsId);
-                $this->load->view('pages/webapp/detail_news', $data);
-            }
         }
     }
 
@@ -147,55 +153,13 @@ class Koreanstudyabroad_controller extends CI_Controller
         $chuongtrinhdaotao = $this->Category_model->findById($this->config->item('chuongtrinhdaotao'));
         foreach ($chuongtrinhdaotao as $duhoc) {
             $data['title_header'] = $duhoc['vi_name'];
+            $data['parent'] = $duhoc;
         }
 
         if ($slug_url == null) {
             $categories =  $this->Category_model->findByIds($this->config->item('cat_chuongtrinhdaotao'));
             $data['categories'] = $categories;
             $this->load->view('pages/webapp/korean_study_aboard', $data);
-        } else {
-            $newsId = null;
-            switch ($slug_url) {
-                case 'du-hoc-tieng' :
-                    $newsId = $this->config->item('baiviet_duhoctieng');
-                    break;
-                case 'du-hoc-nganh' :
-                    $newsId = $this->config->item('baiviet_duhocnganh');
-                    break;
-                case 'du-hoc-nghe' :
-                    $newsId = $this->config->item('baiviet_duhocnghe');
-                    break;
-            }
-
-            $data['detail'] = $this->News_model->getNewsById($newsId);    //array of a news.    if not return -1
-            $data['banner_title'] = $data['detail'] != -1 ? $data['detail']['title'] : '';
-            $data['banner_bg'] = $data['detail'] != -1 ? $data['detail']['img_src'] : '';
-            $data['title_header'] = $data['banner_title'];
-
-            $category_id = $data['detail'] != -1 ? $data['detail']['category_id'] : -1;
-            $category_info = $this->Category_model->getInfoFromId($category_id);  //a category row. if not return -1
-
-            $data['category_info'] = $category_info;
-
-            $data['lst_post'] = $this->News_model->getNewsByCatId($category_id);
-            $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'], $newsId);
-            $data['max_post'] = count($data['lst_post']) - 1;
-
-            $data['is_video'] = false;
-            if ($category_info != -1 && ($category_id == $this->config->item('gocchiase') || $category_info['vi_name'] == 'Góc chia sẻ' || $category_info['en_name'] == 'Sharing')) {
-                if (strpos($data['detail']['img_src'], 'youtube') == false) {
-                    $data['is_video'] = false;
-                } else {
-                    $data['is_video'] = true;
-                    $data['link_embed'] = strpos($data['detail']['img_src'], 'embed') == false ? str_replace('watch?v=', 'embed/', $data['detail']['img_src']) : $data['detail']['img_src'];
-                }
-                $data['img_galleries'] = $this->Gallery_model->getGalleryByNewsId($newsId);
-                $this->load->view('pages/webapp/share_corner_detail', $data);
-            } else {
-                $data['relatednews'] = $this->News_model->getRelatedNewsById($newsId);
-                $data['tagnews'] = $this->Tag_model->getTagByNewsId($newsId);
-                $this->load->view('pages/webapp/detail_news', $data);
-            }
         }
     }
 }

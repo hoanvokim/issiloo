@@ -18,7 +18,7 @@
                                 <div class="overlay">
                                     <div class="text">
                                         <h3><?php echo $category['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . $category['slug'] . '/' . $category['slug']; ?>">Xem
+                                        <a href="<?php echo base_url() . $parent['slug'] . '/1/' . $category['slug']; ?>">Xem
                                             thêm <i
                                                     class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>

@@ -115,7 +115,36 @@
                                 <span class="menu-title">Thời khoá biểu</span>
                             </a>
                         </li>
-
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_tienghansocap'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Tiếng hàn sơ cấp</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_tienghantrungcap'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Tiếng hàn trung cấp</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_luyenthitopik'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Luyện thi TOPIK</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_luyenthieps'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Luyện thi EPS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_lichkhaigiang'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Lịch khai giảng</span>
+                            </a>
+                        </li>
                         <!-- Group -->
                         <li class="list-divider"></li>
                         <li class="list-header">Tin tức</li>

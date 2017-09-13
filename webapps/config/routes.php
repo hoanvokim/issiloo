@@ -64,7 +64,7 @@ $route['search/(:any)/(:num)'] = 'webapp/search_controller/find/$1/$2';
 $route['du-hoc-han-quoc/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1';
 $route['du-hoc-han-quoc/(:any)/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1/$2';
 $route['dao-tao-han-ngu/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1';
-$route['dao-tao-han-ngu/(:any)/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1/$2';
+$route['chuong-trinh-dao-tao/(:any)/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1/$2';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';

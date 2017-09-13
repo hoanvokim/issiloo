@@ -51,12 +51,15 @@ class Category_Model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function findByIds($catId)
+    public function findByIds($arr)
     {
-        $this->db->select('*');
-        $this->db->from('category');
-        $this->db->where('id in', $catId);
-        return $this->db->get()->result_array();
+        $sql = "select * from category where id in (";
+        $cnt = count($arr);
+        for ($i = 0; $i < $cnt - 1; $i++) {
+            $sql = $sql . $arr[$i] . ",";
+        }
+        $sql = $sql . $arr[$cnt - 1] . ")";
+        return $this->db->query($sql)->result_array();
     }
 
     public function insert($vi_name)
