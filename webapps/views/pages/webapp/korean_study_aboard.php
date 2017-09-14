@@ -15,7 +15,7 @@
                             <div class="news_img">
                                 <img src="<?php echo base_url() . $category['img']; ?>"
                                      alt="<?php echo $category['vi_name']; ?>" class="image img-responsive">
-                                <div class="overlay">
+                                <div class="overlay_news">
                                     <div class="text">
                                         <h3><?php echo $category['vi_name'] ?></h3>
                                         <a href="<?php echo base_url() . $parent['slug'] . '/1/' . $category['slug']; ?>">Xem
