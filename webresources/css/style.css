@@ -1030,7 +1030,7 @@ ul.list-group li:before {
 }
 
 footer {
-    background: url('../images/bg.jpg') repeat left top;
+    background-color: #2e4c95;
     color: #ffffff;
     font-size: 16px;
     line-height: 21px;
@@ -3510,7 +3510,7 @@ html.webkit header div.search-input .btn {
 ------------------------------*/
 
 .blog_news {
-    padding: 80px 0;
+    padding: 0;
 }
 
 .blog_title > h2 {

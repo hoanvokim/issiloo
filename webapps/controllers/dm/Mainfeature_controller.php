@@ -40,6 +40,27 @@ class Mainfeature_controller extends CI_Controller
         foreach ($duhocnghe as $duhoc) {
             $data['duhocnghe'] = $duhoc;
         }
+
+        $duhoctieng = $this->Category_model->findById($this->config->item('tienghansocap'));
+        foreach ($duhoctieng as $duhoc) {
+            $data['tienghansocap'] = $duhoc;
+        }
+        $duhocnganh = $this->Category_model->findById($this->config->item('tienghantrungcap'));
+        foreach ($duhocnganh as $duhoc) {
+            $data['tienghantrungcap'] = $duhoc;
+        }
+        $duhocnghe = $this->Category_model->findById($this->config->item('luyenthitopik'));
+        foreach ($duhocnghe as $duhoc) {
+            $data['luyenthitopik'] = $duhoc;
+        }
+        $duhocnghe = $this->Category_model->findById($this->config->item('luyenthieps'));
+        foreach ($duhocnghe as $duhoc) {
+            $data['luyenthieps'] = $duhoc;
+        }
+        $duhocnghe = $this->Category_model->findById($this->config->item('lichkhaigiang'));
+        foreach ($duhocnghe as $duhoc) {
+            $data['lichkhaigiang'] = $duhoc;
+        }
         $data = $this->loadDefaultBanner($data);
         $this->load->view('pages/dm/mainfeature', $data);
     }

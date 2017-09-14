@@ -56,7 +56,7 @@
                                     </tr>
                                     <!-- Category -->
                                     <tr>
-                                        <td><h3>-->Du học tiếng</h3></td>
+                                        <td><h5>Du học tiếng</h5></td>
                                         <td><img src="<?php echo base_url() . $duhoctieng['img']; ?>" width="150px"/></td>
                                         <td>
                                             <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhoctieng'); ?>"
@@ -64,7 +64,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><h3>-->Du học ngành</h3></td>
+                                        <td><h5>Du học ngành</h5></td>
                                         <td><img src="<?php echo base_url() . $duhocnganh['img']; ?>" width="150px"/></td>
                                         <td>
                                             <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhocnganh'); ?>"
@@ -72,7 +72,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><h3>-->Du học nghề</h3></td>
+                                        <td><h5>Du học nghề</h5></td>
                                         <td><img src="<?php echo base_url() . $duhocnghe['img']; ?>" width="150px"/></td>
                                         <td>
                                             <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('duhocnghe'); ?>"
@@ -84,6 +84,47 @@
                                         <td><img src="<?php echo base_url() . $daotaohanngu['img']; ?>" width="150px"/></td>
                                         <td>
                                             <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('daotaohanngu'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Tiếng hàn sơ cấp</h5></td>
+                                        <td><img src="<?php echo base_url() . $tienghansocap['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('tienghansocap'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Category -->
+                                    <tr>
+                                        <td><h5>Tiếng hàn trung cấp</h5></td>
+                                        <td><img src="<?php echo base_url() . $tienghantrungcap['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('tienghantrungcap'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Luyện thi TOPIK</h5></td>
+                                        <td><img src="<?php echo base_url() . $luyenthitopik['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('luyenthitopik'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Luyện thi EPS</h5></td>
+                                        <td><img src="<?php echo base_url() . $luyenthieps['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('luyenthieps'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Lịch khai giảng</h5></td>
+                                        <td><img src="<?php echo base_url() . $lichkhaigiang['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('lichkhaigiang'); ?>"
                                                class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
                                         </td>
                                     </tr>
