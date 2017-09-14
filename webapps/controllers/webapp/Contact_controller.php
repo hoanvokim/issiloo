@@ -14,6 +14,7 @@ class Contact_controller extends CI_Controller{
 
         //load models for home page.
         $this->load->model('Category_model');
+        $this->load->model('Setting_model');
         $this->load->library('email');
         $this->load->helper('form');
     }
@@ -55,7 +56,8 @@ class Contact_controller extends CI_Controller{
         $this->Category_model->getMainMenu(null,$strMenu);
         $data['menustr'] = $strMenu;
 
-        $data['title_header'] = 'Contact';
+        $data['title_header'] = 'Liên hệ';
+        $data['defaultbanner'] = $this->Setting_model->getValueFromKey('defaultbanner');
 
         $this->load->view('pages/webapp/contact',$data);
 

@@ -50,7 +50,7 @@
                             <div class="news_img">
                                 <img src="<?php echo $duhochanquoc['img'] ?>"
                                      alt="<?php echo $duhochanquoc['vi_name'] ?>" class="image img-responsive">
-                                <div class="overlay">
+                                <div class="overlay_news">
                                     <div class="text">
                                         <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
                                         <a href="<?php echo base_url() . $duhochanquoc['slug'] . '/1'; ?>">Xem thêm <i
@@ -65,7 +65,7 @@
                             <div class="news_img">
                                 <img src="<?php echo $daotaohanngu['img'] ?>"
                                      alt="<?php echo $daotaohanngu['vi_name'] ?>" class="image img-responsive">
-                                <div class="overlay">
+                                <div class="overlay_news">
                                     <div class="text">
                                         <h3><?php echo $daotaohanngu['vi_name'] ?></h3>
                                         <a href="<?php echo base_url() . $daotaohanngu['slug'] . '/2'; ?>">Xem thêm <i

@@ -34,7 +34,7 @@
                                                     alt=""
                                                     class="image img-responsive"/>
                                         </a>
-                                        <div class="overlay">
+                                        <div class="overlay_news">
                                             <div class="text">
                                                 <h5><?php echo $news['title']; ?></h5>
                                                 <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>

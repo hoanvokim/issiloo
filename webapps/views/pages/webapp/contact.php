@@ -1,21 +1,6 @@
 <?php $this->load->view('layout/webapp/header'); ?>
 
-    <!--banner-container start-->
-    <div class="inner-banner-container mar-20"
-         style="<?php
-         if (empty($defaultbanner['value'])) {
-             echo 'background-image:url(' . base_url() . 'webresources/images/banner0-header.jpg)';
-         }
-         else {
-             echo 'background-image:url(' . base_url() . $defaultbanner['value'] . ')';
-         }
-         ?>">
-        <div class="banner-title">
-            <h1><?php echo $this->lang->line('CONTACT_BANNER_TITLE'); ?></h1>
-            <h2><?php echo $this->lang->line('CONTACT_MESSAGE'); ?></h2>
-        </div>
-    </div>
-    <!--banner-container end-->
+<?php $this->load->view('components/webapp/banner_start'); ?>
 
     <!-- main container start -->
     <div class="inner-container">
