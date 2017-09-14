@@ -12,18 +12,17 @@
                     <?php foreach ($categories as $category) { ?>
                         <!-- single news area start -->
                         <div class="col-md-4">
-                            <div class="news_img">
-                                <img src="<?php echo base_url() . $category['img']; ?>"
-                                     alt="<?php echo $category['vi_name']; ?>" class="image img-responsive">
-                                <div class="overlay_news">
-                                    <div class="text">
+                            <div class="banner-block">
+                                <a href="<?php echo base_url() . $parent['slug'] . '/1/' . $category['slug']; ?>"> <img
+                                            src="<?php echo base_url() . $category['img']; ?>"
+                                            alt="<?php echo $category['vi_name']; ?>"> </a>
+                                <div class="text-des-container">
+                                    <div class="text-des">
                                         <h3><?php echo $category['vi_name'] ?></h3>
-                                        <a href="<?php echo base_url() . $parent['slug'] . '/1/' . $category['slug']; ?>">Xem
-                                            thêm <i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <!-- single news area end -->
                     <?php } ?>

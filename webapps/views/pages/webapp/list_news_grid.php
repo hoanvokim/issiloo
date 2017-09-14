@@ -22,25 +22,22 @@
                             <div class="blog_content">
                                 <!-- single news area start -->
                                 <div class="news col-md-4">
-                                    <div class="news_img">
-                                        <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>">
-                                            <img
+                                    <div class="banner-block">
+                                        <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>"> <img
                                                     src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
                                                         echo 'webresources/images/banner0.jpg';
                                                     }
                                                     else {
                                                         echo $news['img_src'];
                                                     } ?>"
-                                                    alt=""
-                                                    class="image img-responsive"/>
-                                        </a>
-                                        <div class="overlay_news">
-                                            <div class="text">
-                                                <h5><?php echo $news['title']; ?></h5>
-                                                <a href="<?php echo base_url(); ?>news/<?php echo $news['slug']; ?>" class="btn btn-primary btn-xs"><?php echo $this->lang->line('READ_DETAIL'); ?></a>
+                                                    alt="<?php echo $news['title']; ?>"> </a>
+                                        <div class="text-des-container">
+                                            <div class="text-des">
+                                                <h3><?php echo $news['title']; ?></h3>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <!-- single news area end -->
                             </div>
