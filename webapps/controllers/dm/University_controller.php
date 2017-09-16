@@ -107,7 +107,7 @@ class University_controller extends CI_Controller
         if (isset($_POST["delete"])) {
             $news = $this->University_model->getById($this->input->post('id'));
             if (strlen($news['img_src']) > 0) {
-                unlink('./' . $news['img']);
+                unlink('./' . $news['img_src']);
             }
             $this->University_model->delete($this->input->post('id'));
             redirect('university-manager', 'refresh');
@@ -119,7 +119,7 @@ class University_controller extends CI_Controller
         if (isset($_POST["delete-img"])) {
             $news = $this->University_model->getById($this->input->post('id'));
             if(!is_null($news['img_src'])) {
-                unlink('./' . $news['img']);
+                unlink('./' . $news['img_src']);
             }
             $this->University_model->update(
                 $this->input->post('uniId'),
@@ -139,8 +139,8 @@ class University_controller extends CI_Controller
     public function delete_university()
     {
         $news = $this->University_model->getById($this->uri->segment(3));
-        if (strlen($news['img']) > 0) {
-            unlink('./' . $news['img']);
+        if (strlen($news['img_src']) > 0) {
+            unlink('./' . $news['img_src']);
         }
         $this->University_model->delete($this->input->post('id'));
         redirect('university-manager', 'refresh');

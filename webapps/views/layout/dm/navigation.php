@@ -110,12 +110,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url('schedule-manager'); ?>">
-                                <i class="fa fa-calendar"></i>
-                                <span class="menu-title">Thời khoá biểu</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_tienghansocap'); ?>">
                                 <i class="fa fa-plus-circle"></i>
                                 <span class="menu-title">Tiếng hàn sơ cấp</span>
@@ -131,6 +125,12 @@
                             <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_luyenthitopik'); ?>">
                                 <i class="fa fa-plus-circle"></i>
                                 <span class="menu-title">Luyện thi TOPIK</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_luyenthiklat'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Luyện thi KLAT</span>
                             </a>
                         </li>
                         <li>

@@ -68,33 +68,51 @@ class Koreanstudyabroad_controller extends CI_Controller
         }
         if ($slug_url != null) {
             $newsId = null;
+            $relatedNewsArr = array();
             switch ($slug_url) {
                 case 'du-hoc-tieng' :
                     $newsId = $this->config->item('baiviet_duhoctieng');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_duhocnganh'), $this->config->item('baiviet_duhocnghe'));
                     break;
                 case 'du-hoc-nganh' :
                     $newsId = $this->config->item('baiviet_duhocnganh');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_duhoctieng'), $this->config->item('baiviet_duhocnghe'));
                     break;
                 case 'du-hoc-nghe' :
                     $newsId = $this->config->item('baiviet_duhocnghe');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_duhoctieng'), $this->config->item('baiviet_duhocnganh'));
                     break;
                 case 'tieng-han-so-cap' :
                     $newsId = $this->config->item('baiviet_tienghansocap');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghantrungcap'), $this->config->item('baiviet_luyenthitopik'),
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
                     break;
                 case 'tieng-han-trung-cap' :
                     $newsId = $this->config->item('baiviet_tienghantrungcap');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_luyenthitopik'),
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
                     break;
-                case 'luyen-thi-topik-klat' :
+                case 'luyen-thi-topik' :
                     $newsId = $this->config->item('baiviet_luyenthitopik');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
                     break;
-                case 'luyen-thi-eps-xuat-khau-lao-dong' :
+                case 'luyen-thi-klat' :
+                    $newsId = $this->config->item('baiviet_luyenthiklat');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthieps'));
+                    break;
+                case 'luyen-thi-eps' :
                     $newsId = $this->config->item('baiviet_luyenthieps');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'));
                     break;
                 case 'lich-khai-giang' :
                     $newsId = $this->config->item('baiviet_lichkhaigiang');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'), $this->config->item('baiviet_luyenthieps'));
                     break;
             }
-
             $data['detail'] = $this->News_model->getNewsById($newsId);    //array of a news.    if not return -1
             $data['banner_title'] = $data['detail'] != -1 ? $data['detail']['title'] : '';
             $data['banner_bg'] = $data['detail'] != -1 ? $data['detail']['img_src'] : '';
@@ -109,10 +127,10 @@ class Koreanstudyabroad_controller extends CI_Controller
             $data['cur_post'] = $this->getIndexFromLstPost($data['lst_post'], $newsId);
             $data['max_post'] = count($data['lst_post']) - 1;
 
-            $data['relatednews'] = $this->News_model->getRelatedNewsById($newsId);
+
+            $data['relatednews'] = $this->News_model->getNewsByIds($relatedNewsArr);
             $data['tagnews'] = $this->Tag_model->getTagByNewsId($newsId);
             $this->load->view('pages/webapp/detail_news', $data);
-
         }
     }
 
@@ -142,7 +160,7 @@ class Koreanstudyabroad_controller extends CI_Controller
         }
 
         if ($slug_url == null) {
-            $categories =  $this->Category_model->findByIds($this->config->item('cat_duhoc'));
+            $categories = $this->Category_model->findByIds($this->config->item('cat_duhoc'));
             $data['categories'] = $categories;
             $this->load->view('pages/webapp/korean_study_aboard', $data);
         }
@@ -157,7 +175,7 @@ class Koreanstudyabroad_controller extends CI_Controller
         }
 
         if ($slug_url == null) {
-            $categories =  $this->Category_model->findByIds($this->config->item('cat_chuongtrinhdaotao'));
+            $categories = $this->Category_model->findByIds($this->config->item('cat_chuongtrinhdaotao'));
             $data['categories'] = $categories;
             $this->load->view('pages/webapp/korean_study_aboard', $data);
         }

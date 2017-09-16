@@ -45,7 +45,7 @@ class Faq_controller extends CI_Controller
     {
         $this->Faq_model->insert(
             $this->input->post('faqQuestion'),
-            $this->input->post('faqAnswer')
+            $this->input->post('contenteditor')
         );
         redirect('faq-manager', 'refresh');
     }
@@ -75,7 +75,7 @@ class Faq_controller extends CI_Controller
         $this->Faq_model->update(
             $this->input->post('faqId'),
             $this->input->post('faqQuestion'),
-            $this->input->post('faqAnswer')
+            $this->input->post('contenteditor')
         );
 
         redirect('faq-manager', 'refresh');

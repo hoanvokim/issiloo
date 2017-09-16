@@ -53,6 +53,10 @@ class Mainfeature_controller extends CI_Controller
         foreach ($duhocnghe as $duhoc) {
             $data['luyenthitopik'] = $duhoc;
         }
+        $duhocnghe = $this->Category_model->findById($this->config->item('luyenthiklat'));
+        foreach ($duhocnghe as $duhoc) {
+            $data['luyenthiklat'] = $duhoc;
+        }
         $duhocnghe = $this->Category_model->findById($this->config->item('luyenthieps'));
         foreach ($duhocnghe as $duhoc) {
             $data['luyenthieps'] = $duhoc;

@@ -20,7 +20,7 @@
 <script src="<?php echo base_url(); ?>webresources/plugins/datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
 <script
-    src="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+        src="<?php echo base_url(); ?>webresources/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/skycons/skycons.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/jquery-steps/jquery-steps.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/masked-input/bootstrap-inputmask.min.js"></script>
@@ -36,6 +36,22 @@
 <script src="<?php echo base_url(); ?>webresources/plugins/dropzone/dropzone.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/ion-rangeslider/ion.rangeSlider.min.js"></script>
 <script src="<?php echo base_url(); ?>webresources/plugins/select2/js/select2.js" type="text/javascript"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+<!-- Include Editor JS files. -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.6/js/froala_editor.pkgd.min.js"></script>
+
+<script> $(function () {
+        $('textarea[name="contenteditor"]').froalaEditor({
+            heightMin: 400,
+            heightMax: 1200
+        })
+    });
+</script>
 <script>
     $(document).ready(function () {
         $("#tags_dropdown").select2({
@@ -47,18 +63,4 @@
         $('.message').fadeOut(7000);
 
     });
-</script>
-<script>
-    $(document).ready(function () {
-        $('.summernote').summernote({
-            height: 600,                 // set editor height
-            minHeight: 400
-        });
-    });
-
-    var postForm = function () {
-        $('textarea[name="visummary"]').html($('#sumsummernote').code());
-        $('textarea[name="vicontent"]').html($('#contentsummernote').code());
-        $('textarea[name="faqAnswer"]').html($('#summernote').code());
-    }
 </script>

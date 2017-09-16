@@ -83,8 +83,8 @@
         <div id="demo-lft-tab-2" class="tab-pane fade">
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Tóm tắt</label>
-                <textarea name="visummary" id="sumsummernote"
-                          class="summernote"><p>Nhập nội dung rút gọn...</p></textarea>
+                <br/>
+                <textarea name="summaryeditor" class="form-control" style="min-height: 300px;">Nhập nội dung rút gọn...</textarea>
             </div>
 
         </div>
@@ -97,7 +97,7 @@
 
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Nội dung bài viết</label>
-                <textarea name="vicontent" id="contentsummernote" class="summernote"><p>Nhập nội dung...</p></textarea>
+                <textarea name="contenteditor">Nhập nội dung...</textarea>
             </div>
         </div>
     </div>

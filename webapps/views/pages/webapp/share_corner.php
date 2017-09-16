@@ -30,7 +30,12 @@
 
                                             <div data-filter="one" class="col-md-4 col-sm-6 grid-item">
                                                 <?php if($news['youtube_thumbnail']===false){ ?>
-                                                    <img src="<?php echo base_url().$news['img_src']; ?>" alt="" style="min-height: 200px;min-width:200px;"/>
+                                                    <img src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
+                                                        echo 'webresources/images/banner0.jpg';
+                                                    }
+                                                    else {
+                                                        echo $news['img_src'];
+                                                    } ?>" alt="" style="min-height: 200px;min-width:200px;"/>
                                                 <?php }else{ ?>
                                                     <img src="<?php echo $news['youtube_thumbnail']; ?>" alt="" style="min-height: 200px;min-width:200px;"/>
                                                 <?php } ?>

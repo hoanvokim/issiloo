@@ -58,8 +58,8 @@ class Learning_tips_controller extends CI_Controller
                 $this->input->post('description_header'),
                 $this->input->post('keyword_header'),
                 $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
+                $this->input->post('contenteditor'),
+                $this->input->post('summaryeditor')
             );
         } else {
             $insertId = $this->News_model->insert_full(
@@ -70,8 +70,8 @@ class Learning_tips_controller extends CI_Controller
                 $this->input->post('description_header'),
                 $this->input->post('keyword_header'),
                 $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
+                $this->input->post('contenteditor'),
+                $this->input->post('summaryeditor')
             );
         }
         $tags = $this->input->post('tags');
@@ -128,8 +128,8 @@ class Learning_tips_controller extends CI_Controller
                     $this->input->post('description_header'),
                     $this->input->post('keyword_header'),
                     $this->input->post('vititle'),
-                    $this->input->post('vicontent'),
-                    $this->input->post('visummary')
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
                 );
             } else {
                 $this->News_model->update_full(
@@ -141,8 +141,8 @@ class Learning_tips_controller extends CI_Controller
                     $this->input->post('description_header'),
                     $this->input->post('keyword_header'),
                     $this->input->post('vititle'),
-                    $this->input->post('vicontent'),
-                    $this->input->post('visummary')
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
                 );
             }
 
@@ -167,8 +167,8 @@ class Learning_tips_controller extends CI_Controller
             $data['description_header'] = $this->input->post('description_header');
             $data['keyword_header'] = $this->input->post('keyword_header');
             $data['vititle'] = $this->input->post('vititle');
-            $data['vicontent'] = $this->input->post('vicontent');
-            $data['visummary'] = $this->input->post('visummary');
+            $data['vicontent'] = $this->input->post('contenteditor');
+            $data['visummary'] = $this->input->post('summaryeditor');
             $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
             $this->load->view('pages/dm/learning_tips/edit', $data);
 

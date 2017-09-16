@@ -113,6 +113,14 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td><h5>Luyện thi KLAT</h5></td>
+                                        <td><img src="<?php echo base_url() . $luyenthiklat['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('luyenthiklat'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td><h5>Luyện thi EPS</h5></td>
                                         <td><img src="<?php echo base_url() . $luyenthieps['img']; ?>" width="150px"/></td>
                                         <td>

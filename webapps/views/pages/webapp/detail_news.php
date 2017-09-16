@@ -76,7 +76,7 @@
                 <div class="widget-box">
 
                     <?php if ($relatednews && count($relatednews) > 0) { ?>
-                        <h4><?php echo $category_info['vi_name']; ?></h4>
+                        <h4>Bài viết liên quan</h4>
                     <?php } ?>
                     <ul class="list">
 

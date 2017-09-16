@@ -45,6 +45,17 @@ class News_Model extends CI_Model
         return -1;
     }
 
+    public function getNewsByIds($ids)
+    {
+        $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary from news where id in (";
+        $cnt = count($ids);
+        for ($i = 0; $i < $cnt - 1; $i++) {
+            $sql = $sql . $ids[$i] . ",";
+        }
+        $sql = $sql . $ids[$cnt - 1] . ")";
+        return $this->db->query($sql)->result_array();
+    }
+
     public function getNewsByCatId($catId)
     {
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, $this->summary as summary, created_date, updated_date from news where category_id = $catId order by created_date DESC";

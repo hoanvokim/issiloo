@@ -45,8 +45,9 @@ class Intro_controller extends CI_Controller
 
     public function create_add()
     {
+        print_r($this->input->post('contenteditor'));
         $category_inserted = $this->Category_model->insert($this->input->post('viTabName'));
-        $this->News_model->insert($category_inserted, $this->input->post('vicontent'));
+        $this->News_model->insert($category_inserted, $this->input->post('contenteditor'));
         redirect('manage-intro', 'refresh');
     }
 
@@ -54,7 +55,6 @@ class Intro_controller extends CI_Controller
     {
         redirect('manage-intro', 'refresh');
     }
-
 
     public function update()
     {
@@ -71,7 +71,7 @@ class Intro_controller extends CI_Controller
     public function update_add()
     {
         $this->Category_model->update($this->input->post('catId'),'', $this->input->post('viTabName'));
-        $this->News_model->update($this->input->post('catId'), $this->input->post('vicontent'));
+        $this->News_model->update($this->input->post('catId'), $this->input->post('contenteditor'));
         redirect('manage-intro', 'refresh');
 
     }

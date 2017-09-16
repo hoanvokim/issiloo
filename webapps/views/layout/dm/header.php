@@ -43,3 +43,8 @@
 <link href="<?php echo base_url(); ?>webresources/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 
 <link href="<?php echo base_url(); ?>webresources/plugins/pace/pace.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+<!-- Include Editor style. -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.6/css/froala_style.min.css" rel="stylesheet" type="text/css" />

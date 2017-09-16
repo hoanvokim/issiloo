@@ -105,6 +105,7 @@ class List_news_controller extends CI_Controller
         $data['cur_page'] = $curpage == null ? 1 : $curpage;
         $data['slug'] = $slug;
         $data['anews'] = $this->News_model->getNewsByCatCollection($aMenu, $curpage, $this->pageutility->limit);
+        print_r($category_id);
         $data['relatednews'] = $this->News_model->getRelatedNewsByCatId($category_id);
 
         if (count($data['relatednews']) == 0) {
