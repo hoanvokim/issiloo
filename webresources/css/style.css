@@ -3663,3 +3663,7 @@ html.webkit header div.search-input .btn {
     margin-bottom: 5px;
     color: #fff;
 }
+/*Hyperlink effects*/
+#detail_content a {
+    color: #f1412e;
+}

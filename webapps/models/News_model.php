@@ -230,7 +230,7 @@ class News_Model extends CI_Model
         }
 
         $sql = "select id, category_id, img_src, slug, title_header, description_header, keyword_header, $this->title as title, $this->content as content, created_date, $this->summary as summary ";
-        $sql = $sql . "from news where category_id = $category_id and id <> $news_id limit 0,5";
+        $sql = $sql . "from news where category_id = $category_id and id <> $news_id order by id desc limit 0,5";
 
         return $this->db->query($sql)->result_array();
     }

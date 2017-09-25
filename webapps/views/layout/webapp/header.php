@@ -26,7 +26,6 @@
     <meta property="og:image:height" content="360"/>
     <!--    End Facebook sharecode-->
 
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <title><?php echo $title_header; ?> | ISSILOO</title>
 
     <!--    CSS-->
