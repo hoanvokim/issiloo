@@ -61,10 +61,10 @@ $route['contact'] = 'webapp/contact_controller/index';
 $route['contact/send'] = 'webapp/contact_controller/send';
 $route['search'] = 'webapp/search_controller/find/1';
 $route['search/(:num)'] = 'webapp/search_controller/find/$1';
-$route['du-hoc-han-quoc/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1';
-$route['du-hoc-han-quoc/(:any)/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1/$2';
-$route['dao-tao-han-ngu/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1';
-$route['chuong-trinh-dao-tao/(:any)/(:any)'] = 'webapp/koreanstudyabroad_controller/index/$1/$2';
+$route['du-hoc-han-quoc'] = 'webapp/koreanstudyabroad_controller/index/1';
+$route['du-hoc-han-quoc/(:any)'] = 'webapp/koreanstudyabroad_controller/index/1/$1';
+$route['dao-tao-han-ngu'] = 'webapp/koreanstudyabroad_controller/index/2';
+$route['chuong-trinh-dao-tao/(:any)'] = 'webapp/koreanstudyabroad_controller/index/2/$1';
 
 //admin
 $route['admin'] = 'dm/admin_controller/index';

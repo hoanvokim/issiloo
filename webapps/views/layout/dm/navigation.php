@@ -140,6 +140,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_daotaodoanhnghiep'); ?>">
+                                <i class="fa fa-plus-circle"></i>
+                                <span class="menu-title">Đào tạo doanh nghiệp</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href=" <?php echo base_url() . "program-manager/update-program/" . $this->config->item('baiviet_lichkhaigiang'); ?>">
                                 <i class="fa fa-plus-circle"></i>
                                 <span class="menu-title">Lịch khai giảng</span>

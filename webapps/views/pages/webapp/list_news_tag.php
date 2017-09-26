@@ -25,7 +25,6 @@
 
                                     <?php foreach ($anews as $news) { ?>
                                         <!-- blog item start -->
-
                                         <div class="col-md-12 grid-item">
                                             <div class="blog-item">
                                                 <div class="entry-media">

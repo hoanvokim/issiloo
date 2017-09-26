@@ -24,10 +24,10 @@
                             <div class="search" id="headerSearch">
                                 <a href="#" id="headerSearchOpen"><i class="fa fa-search"></i></a>
                                 <div class="search-input">
-                                    <form id="headerSearchForm" method="post"
+                                    <form id="headerSearchForm" method="get"
                                           action="<?php echo base_url() . 'search' ?>">
                                         <div class="input-group">
-                                            <input type="text" class="form-control search" name="q" id="searchValue"
+                                            <input type="text" class="form-control search" name="searchValue" id="searchValue"
                                                    placeholder="Tìm kiếm...">
                                             <span class="input-group-btn">
                                         <button class="btn btn-primary" type="button"><i

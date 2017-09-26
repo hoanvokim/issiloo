@@ -85,32 +85,37 @@ class Koreanstudyabroad_controller extends CI_Controller
                 case 'tieng-han-so-cap' :
                     $newsId = $this->config->item('baiviet_tienghansocap');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghantrungcap'), $this->config->item('baiviet_luyenthitopik'),
-                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'), $this->config->item('baiviet_daotaodoanhnghiep'));
                     break;
                 case 'tieng-han-trung-cap' :
                     $newsId = $this->config->item('baiviet_tienghantrungcap');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_luyenthitopik'),
-                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'), $this->config->item('baiviet_daotaodoanhnghiep'));
                     break;
                 case 'luyen-thi-topik' :
                     $newsId = $this->config->item('baiviet_luyenthitopik');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
-                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'));
+                        $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_lichkhaigiang'), $this->config->item('baiviet_daotaodoanhnghiep'));
                     break;
                 case 'luyen-thi-klat' :
                     $newsId = $this->config->item('baiviet_luyenthiklat');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
-                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthieps'));
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_daotaodoanhnghiep'));
                     break;
                 case 'luyen-thi-eps' :
                     $newsId = $this->config->item('baiviet_luyenthieps');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
-                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'));
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'), $this->config->item('baiviet_daotaodoanhnghiep'));
+                    break;
+                case 'dao-tao-doanh-nghiep' :
+                    $newsId = $this->config->item('baiviet_daotaodoanhnghiep');
+                    array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'), $this->config->item('baiviet_lichkhaigiang'));
                     break;
                 case 'lich-khai-giang' :
                     $newsId = $this->config->item('baiviet_lichkhaigiang');
                     array_push($relatedNewsArr, $this->config->item('baiviet_tienghansocap'), $this->config->item('baiviet_tienghantrungcap'),
-                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'), $this->config->item('baiviet_luyenthieps'));
+                        $this->config->item('baiviet_luyenthitopik'), $this->config->item('baiviet_luyenthiklat'), $this->config->item('baiviet_luyenthieps'), $this->config->item('baiviet_daotaodoanhnghiep'));
                     break;
             }
             $data['detail'] = $this->News_model->getNewsById($newsId);    //array of a news.    if not return -1

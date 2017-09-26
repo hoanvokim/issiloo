@@ -559,7 +559,11 @@ $config['luyenthiklat'] = 67;
 $config['baiviet_luyenthiklat'] = 183;
 $config['luyenthieps'] = 68;
 $config['baiviet_luyenthieps'] = 184;
+$config['luyenthieps'] = 68;
+$config['baiviet_luyenthieps'] = 184;
+$config['daotaodoanhnghiep'] = 70;
+$config['baiviet_daotaodoanhnghiep'] = 199;
 $config['lichkhaigiang'] = 65;
 $config['baiviet_lichkhaigiang'] = 180;
 
-$config['cat_chuongtrinhdaotao'] = array(61,62,63,67,68);
+$config['cat_chuongtrinhdaotao'] = array(61,62,63,67,68,70);

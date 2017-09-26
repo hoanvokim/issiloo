@@ -179,13 +179,13 @@ class Category_Model extends CI_Model
                     case "du-hoc-tieng":
                     case "du-hoc-nganh":
                     case "du-hoc-nghe":
-                        $url = base_url() . "du-hoc-han-quoc/1/" . $item['slug'];
+                        $url = base_url() . "du-hoc-han-quoc/" . $item['slug'];
                         break;
                     case "chuong-trinh-dao-tao":
-                        $url = base_url() . "dao-tao-han-ngu/2";
+                        $url = base_url() . "dao-tao-han-ngu";
                         break;
                     case "lich-khai-giang":
-                        $url = base_url() . "chuong-trinh-dao-tao/1/lich-khai-giang";
+                        $url = base_url() . "chuong-trinh-dao-tao/lich-khai-giang";
                         break;
                     default:
                         $url = base_url() . "cat/" . $item['slug'];

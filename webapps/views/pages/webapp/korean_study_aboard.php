@@ -13,7 +13,7 @@
                         <!-- single news area start -->
                         <div class="col-md-4">
                             <div class="banner-block">
-                                <a href="<?php echo base_url() . $parent['slug'] . '/1/' . $category['slug']; ?>"> <img
+                                <a href="<?php echo base_url() . $parent['slug'] .'/'. $category['slug']; ?>"> <img
                                             src="<?php echo base_url() . $category['img']; ?>"
                                             alt="<?php echo $category['vi_name']; ?>"> </a>
                                 <div class="text-des-container">
