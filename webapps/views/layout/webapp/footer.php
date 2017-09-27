@@ -12,7 +12,7 @@
                             <li><a href="https://www.facebook.com/issiloo.edu.vn/" target="_blank" title="Facebook">
                                     <img src="<?php echo base_url() . 'webresources/images/fb.png' ?>"
                                          style="width: 45px;"/></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCypJRV59K16kc0AEjuCPJ9Q" target="_blank"
+                            <li><a href="https://www.youtube.com/channel/UCxSwrePN-rYK7AUtoKi2gfg?view_as=subscriber" target="_blank"
                                    title="Youtube">
                                     <img src="<?php echo base_url() . 'webresources/images/youtube.png' ?>"
                                          style="width: 45px;"/></a></li>

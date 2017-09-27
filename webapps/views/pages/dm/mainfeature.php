@@ -129,6 +129,14 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td><h5>Đào tạo doanh nghiệp</h5></td>
+                                        <td><img src="<?php echo base_url() . $daotaodoanhnghiep['img']; ?>" width="150px"/></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . "gallery-manager/update-gallery/" . $this->config->item('daotaodoanhnghiep'); ?>"
+                                               class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td><h5>Lịch khai giảng</h5></td>
                                         <td><img src="<?php echo base_url() . $lichkhaigiang['img']; ?>" width="150px"/></td>
                                         <td>
