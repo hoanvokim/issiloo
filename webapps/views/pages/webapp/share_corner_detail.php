@@ -15,7 +15,7 @@
                             <div class="col-md-4">
                                 <div class="project-sidebar-widget">
                                     <h3><?php echo $detail['title']; ?></h3>
-                                    <p><?php echo $detail['summary']; ?></p>
+                                    <p><?php echo $detail['content']; ?></p>
                                 </div>
 
 

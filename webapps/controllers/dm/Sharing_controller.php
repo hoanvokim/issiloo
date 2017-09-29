@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Sharing_controller extends CI_Controller
 {
 
-    public $scheduleId = 8;
+    public $scheduleId = 60;
 
     public function __construct()
     {
@@ -77,8 +77,8 @@ class Sharing_controller extends CI_Controller
                 $this->input->post('description_header'),
                 $this->input->post('keyword_header'),
                 $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
+                $this->input->post('contenteditor'),
+                $this->input->post('summaryeditor')
             );
         } else {
             $insertId = $this->News_model->insert_full(
@@ -89,8 +89,8 @@ class Sharing_controller extends CI_Controller
                 $this->input->post('description_header'),
                 $this->input->post('keyword_header'),
                 $this->input->post('vititle'),
-                $this->input->post('vicontent'),
-                $this->input->post('visummary')
+                $this->input->post('contenteditor'),
+                $this->input->post('summaryeditor')
             );
         }
 
@@ -171,8 +171,8 @@ class Sharing_controller extends CI_Controller
                     $this->input->post('description_header'),
                     $this->input->post('keyword_header'),
                     $this->input->post('vititle'),
-                    $this->input->post('vicontent'),
-                    $this->input->post('visummary')
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
                 );
             } else {
                 $this->News_model->update_full(
@@ -184,8 +184,8 @@ class Sharing_controller extends CI_Controller
                     $this->input->post('description_header'),
                     $this->input->post('keyword_header'),
                     $this->input->post('vititle'),
-                    $this->input->post('vicontent'),
-                    $this->input->post('visummary')
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
                 );
             }
             $this->Tag_model->deleteByNews($this->input->post('newsId'));
@@ -209,8 +209,8 @@ class Sharing_controller extends CI_Controller
             $data['description_header'] = $this->input->post('description_header');
             $data['keyword_header'] = $this->input->post('keyword_header');
             $data['vititle'] = $this->input->post('vititle');
-            $data['vicontent'] = $this->input->post('vicontent');
-            $data['visummary'] = $this->input->post('visummary');
+            $data['vicontent'] = $this->input->post('contenteditor');
+            $data['visummary'] = $this->input->post('summaryeditor');
             $data['youtube_thumbnail'] = '';
             $data['images'] = $this->Gallery_model->getGalleryByNewsId($this->input->post('newsId'));
             $data['title'] = 'Cập nhật trường đại học';
@@ -248,8 +248,8 @@ class Sharing_controller extends CI_Controller
             $data['description_header'] = $this->input->post('description_header');
             $data['keyword_header'] = $this->input->post('keyword_header');
             $data['vititle'] = $this->input->post('vititle');
-            $data['vicontent'] = $this->input->post('vicontent');
-            $data['visummary'] = $this->input->post('visummary');
+            $data['vicontent'] = $this->input->post('contenteditor');
+            $data['visummary'] = $this->input->post('summaryeditor');
             $data['youtube_thumbnail'] = $this->getThumbnailFromYoutubeLink($this->input->post('img_src'));
             $data['images'] = $this->Gallery_model->getGalleryByNewsId($this->input->post('newsId'));
             $data['title'] = 'Cập nhật trường đại học';
@@ -280,8 +280,8 @@ class Sharing_controller extends CI_Controller
             $data['description_header'] = $this->input->post('description_header');
             $data['keyword_header'] = $this->input->post('keyword_header');
             $data['vititle'] = $this->input->post('vititle');
-            $data['vicontent'] = $this->input->post('vicontent');
-            $data['visummary'] = $this->input->post('visummary');
+            $data['vicontent'] = $this->input->post('contenteditor');
+            $data['visummary'] = $this->input->post('summaryeditor');
             $data['youtube_thumbnail'] = $this->getThumbnailFromYoutubeLink($this->input->post('img_src'));
             $data['images'] = $this->Gallery_model->getGalleryByNewsId($this->input->post('newsId'));
             $data['title'] = 'Cập nhật trường đại học';

@@ -48,6 +48,12 @@
                                 <span class="menu-title">Trường đại học</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('sharing-manager'); ?>">
+                                <i class="fa fa-share-alt"></i>
+                                <span class="menu-title">Góc chia sẻ</span>
+                            </a>
+                        </li>
 
                         <!-- Group -->
                         <li class="list-divider"></li>
