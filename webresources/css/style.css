@@ -84,10 +84,6 @@ body {
     background-color: #fff;
     font-weight: 500;
     font-style: normal;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select: none;
 }
 
 .container {
