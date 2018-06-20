@@ -66,12 +66,39 @@ class News_Model extends CI_Model
     {
         //HARDCODE
         try{
-
             $news_and_event = $this->config->item('news_and_event') != 0 ? $this->config->item('news_and_event') : 0;
             $recruitment = $this->config->item('tuyen_dung') != 0 ? $this->config->item('tuyen_dung') : 0;
             $sharing_corner = $this->config->item('gocchiase') != 0 ? $this->config->item('gocchiase') : 0;
             $scholarship = $this->config->item('hoc_bong') != 0 ? $this->config->item('hoc_bong') : 0;
             $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($news_and_event, $sharing_corner, $recruitment, $scholarship) order by created_date desc limit 0,4";
+            $aData = $this->db->query($sql)->result_array();
+            $aResult = array();
+            $cnt = 0;
+            if(count($aData)>0){
+
+                foreach ($aData as $item) {
+                    $aResult[$cnt]['id'] = $item['id'];
+                    $aResult[$cnt]['category_id'] = $item['category_id'];
+                    $aResult[$cnt]['title'] = $item['title'];
+                    $aResult[$cnt]['slug'] = $item['slug'];
+                    $aResult[$cnt]['img_src'] = $item['img_src'];
+                    $aResult[$cnt]['created_date'] = $item['created_date'];
+                    $aResult[$cnt]['summary'] = $item['summary'];
+                    $cnt++;
+                }
+            }
+            return $aResult;
+
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function getLastNewsByCatId($catId)
+    {
+        //HARDCODE
+        try{
+            $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($catId) order by created_date desc limit 0,4";
             $aData = $this->db->query($sql)->result_array();
             $aResult = array();
             $cnt = 0;

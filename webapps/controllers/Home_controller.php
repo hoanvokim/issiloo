@@ -38,7 +38,7 @@ class Home_controller extends CI_Controller
 
                 $consult_subject = $this->input->post('consult_subject');
                 $consult_content = "<i>Tên: " . $consult_name . "<br/>"
-                    . "Email: ". $consult_email . "<br/>"
+                    . "Email: " . $consult_email . "<br/>"
                     . "Số điện thoại: " . $consult_phone . "</i><br/>"
                     . "------------------------------------------<br/>"
                     . "<strong>Tiêu đề: " . $consult_subject . "</strong><br/><br/>"
@@ -94,7 +94,7 @@ class Home_controller extends CI_Controller
         $data['slogan'] = $this->Setting_model->getSlogan();
         $data['featureslogan'] = $this->Setting_model->getValueFromKey('featureslogan');
         $data['features'] = $this->Feature_model->getAll();
-        $data['featureCount'] = 12/count($data['features']);
+        $data['featureCount'] = 12 / count($data['features']);
 
         //get widget news
         $duhochanquoc = $this->Category_model->findById($this->config->item('duhochanquoc'));
@@ -111,7 +111,10 @@ class Home_controller extends CI_Controller
         $data['universities'] = $this->University_model->getAll();
 
         //get lastest news.
-        $data['last_news'] = $this->News_model->getLastNews();
+        $data['last_news'] = $this->News_model->getLastNewsByCatId($this->config->item('news_and_event') != 0 ? $this->config->item('news_and_event') : 0);
+        $data['studyabroad_news'] = $this->News_model->getLastNewsByCatId($this->config->item('studyabroad') != 0 ? $this->config->item('studyabroad') : 0);
+        $data['uni_news'] = $this->News_model->getLastNewsByCatId($this->config->item('univers') != 0 ? $this->config->item('univers') : 0);
+        $data['learning_corner_news'] = $this->News_model->getLastNewsByCatId($this->config->item('gochoctap') != 0 ? $this->config->item('gochoctap') : 0);
 
         $data['title_header'] = $this->lang->line('MENU_HOME');
 

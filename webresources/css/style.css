@@ -1631,6 +1631,8 @@ ul.project-category li a:hover, ul.project-category li a.active {
 .entry-content {
     padding: 0px 20px 20px;
     position: relative;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .entry-date {
@@ -3661,6 +3663,17 @@ html.webkit header div.search-input .btn {
     width: 100%;
     z-index: 1;
     background: rgba(21, 11, 155, 0.57);
+}
+
+.text-des-container-news-no-stack {
+    font-size: 14px;
+    padding-top: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.text-des-container-news-no-stack h6 {
+    color: #2e4c95;
 }
 
 .text-des-container-news h6 {
