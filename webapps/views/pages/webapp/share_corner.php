@@ -28,7 +28,7 @@
 
                                         <?php foreach($anews as $news){ ?>
 
-                                            <div data-filter="one" class="col-md-4 col-sm-6 grid-item">
+                                            <div data-filter="one" class="col-md-6 col-sm-6 grid-item">
                                                 <?php if($news['youtube_thumbnail']===false){ ?>
                                                     <img src="<?php echo base_url(); ?><?php if (empty($news['img_src'])) {
                                                         echo 'webresources/images/banner0.jpg';
@@ -41,7 +41,7 @@
                                                 <?php } ?>
                                                 <a href="<?php echo base_url().'news/'.$news['slug']; ?>" class="portfolio-hover">
                                                     <div class="portfolio-hover-content">
-                                                        <h4 style="text-transform: lowercase;letter-spacing: 1px;"><?php echo $news['title']; ?></h4>
+                                                        <h4 style="letter-spacing: 1px; margin-bottom: 0px; padding: 10px;"><?php echo $news['title']; ?></h4>
                                                     </div>
                                                 </a>
                                             </div>

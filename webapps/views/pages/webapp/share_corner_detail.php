@@ -12,62 +12,61 @@
                 <div class="inner-container">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="project-sidebar-widget">
-                                    <h3><?php echo $detail['title']; ?></h3>
-                                    <p><?php echo $detail['content']; ?></p>
-                                </div>
+                            <div class="col-md-12">
+
+                                <h3><?php echo $detail['title']; ?></h3>
+                                <!-- -->
+                                <div class="sharing_slider">
+                                    <?php if ($is_video == false) { ?>
+                                        <div class="project-screens screen-slider">
+                                            <?php foreach ($img_galleries as $item) { ?>
+                                                <img src="<?php echo base_url() . $item['img_src']; ?>" alt=""/>
+                                            <?php } ?>
+                                        </div>
 
 
-                               <!-- <div class="project-sidebar-widget">
-                                    <h4>Website</h4>
-                                    <h6><a href="#" target="_blank">www.website-url.com</a></h6>
-                                </div>
+                                    <?php } else { ?>
 
-                                <div class="project-sidebar-widget">
-                                    <h4>Our Approach</h4>
-                                    <p>Duis laoreet est nec molestie volutpat. Pellentesque eu condimentum turpis.
-                                        Praesent fringilla ex at massa consectetur finibus. Nulla facilisi.Nulla
-                                        rutrum nibh in accumsan venenatis. Duis laoreet est nec molestie
-                                        volutpat.</p>
-                                </div> -->
+                                        <iframe width="100%" height="450"
+                                                src="<?php echo $link_embed; ?>">
+                                        </iframe>
 
+                                    <?php } ?>
 
-                            </div>
-
-
-                            <div class="col-md-8">
-                                <?php if($is_video==false){ ?>
-                                    <div class="project-screens screen-slider">
-                                        <?php foreach($img_galleries as $item){ ?>
-                                            <img src="<?php echo base_url().$item['img_src']; ?>" alt="" />
+                                    <div class="project-nav">
+                                        <?php if ($cur_post > 0) { ?>
+                                            <a href="<?php echo base_url() . 'news/' . $lst_post[$cur_post - 1]['slug']; ?>" class="prev-project btn btn-primary">
+                                                <i class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?></a>
                                         <?php } ?>
+
+                                        <?php if ($cur_post < $max_post) { ?>
+                                            <a href="<?php echo base_url() . 'news/' . $lst_post[$cur_post + 1]['slug']; ?>" class="next-project btn btn-primary"><?php echo $this->lang->line('NEXT_POST'); ?>
+                                                <i class="ion ion-ios-redo"></i></a>
+                                        <?php } ?>
+
                                     </div>
 
-
-                                <?php }else{ ?>
-
-                                    <iframe width="100%" height="450"
-                                            src="<?php echo $link_embed; ?>">
-                                    </iframe>
-
-                                <?php } ?>
-
-                                <div class="project-nav">
-                                    <?php if($cur_post>0){ ?>
-                                        <a href="<?php echo base_url().'news/'.$lst_post[$cur_post-1]['slug']; ?>" class="prev-project btn btn-primary">
-                                            <i class="ion ion-ios-undo"></i> <?php echo $this->lang->line('PREVIOUS_POST'); ?></a>
-                                    <?php } ?>
-
-                                    <?php if($cur_post < $max_post){ ?>
-                                        <a href="<?php echo base_url().'news/'.$lst_post[$cur_post+1]['slug']; ?>" class="next-project btn btn-primary"><?php echo $this->lang->line('NEXT_POST'); ?>
-                                            <i class="ion ion-ios-redo"></i></a>
-                                    <?php } ?>
-
                                 </div>
+                                <!-- -->
+                                <div class="project-sidebar-widget">
+                                    <p><?php echo $detail['content']; ?></p>
+                                </div>
+                                <!-- FACEBOOK -->
+                                <div id="fb-root"></div>
+                                <script>(function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) {
+                                        return;
+                                    }
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));</script>
 
+                                <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-mobile="auto-detect"
+                                     data-numposts="100"></div>
                             </div>
-
                         </div>
                     </div>
                 </div>

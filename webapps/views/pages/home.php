@@ -7,7 +7,7 @@
             <div class="row">
                 <span class="tlt animateText"><?php echo $slogan['value'] ?></span>
                 <span class="infoText">
-                    Hotline: <a href="tel:0898 084 080">0898 084 080</a><br/>
+                    Hotline: <a href="tel:0901 879 877"> 0901 879 877</a><br/>
                 </span>
                 <span class="flags">
                     <img src="<?php echo base_url() . 'webresources/images/vn.png' ?>"/>

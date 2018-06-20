@@ -1548,7 +1548,7 @@ ul.project-category li a:hover, ul.project-category li a.active {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.6);
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease-in;
@@ -1590,10 +1590,6 @@ ul.project-category li a:hover, ul.project-category li a.active {
 
 .project-sidebar-widget h3, .project-sidebar-widget h4 {
     margin-bottom: 5px;
-}
-
-.project-screens {
-    margin-bottom: 40px;
 }
 
 .project-screens img {
@@ -3662,4 +3658,11 @@ html.webkit header div.search-input .btn {
 /*Hyperlink effects*/
 #detail_content a {
     color: #f1412e;
+}
+
+.sharing_slider {
+    width: 60%;
+    height: auto;
+    float: right;
+    margin: 0 0 0 20px;
 }

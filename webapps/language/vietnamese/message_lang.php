@@ -12,7 +12,7 @@ $lang['ISSI_INTRO'] = 'Với nhiều năm kinh nghiệm và giáo viên tận t�
                         được khả năng của mình.';
 $lang['ISSI_ADDRESS_STREET'] = 'Lầu 5 (toà nhà mới), Trường CĐ Kỹ Nghệ II, 502 Đỗ Xuân Hợp, Quận 9, Tp. HCM';
 $lang['ISSI_EMAIL'] = 'kr-info@issiloo.edu.vn';
-$lang['ISSI_PHONE'] = '08 3517 1098 - 08 3517 1099';
+$lang['ISSI_PHONE'] = '028 3728 2259';
 
 
 //general

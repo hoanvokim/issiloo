@@ -17,7 +17,9 @@
                             <link href="<?php echo base_url(); ?>webresources/css/issiloo_reset.css" rel="stylesheet"
                                   type="text/css">
                             <div id="detail_content">
-                                <?php echo $detail['content']; ?>
+                                <div class="fr-view">
+                                    <?php echo $detail['content']; ?>
+                                </div>
                             </div>
                         </div>
                     <?php } ?>

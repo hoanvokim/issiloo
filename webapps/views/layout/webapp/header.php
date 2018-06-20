@@ -16,14 +16,14 @@
           content="<?php echo $title_header; ?>"/>
     <meta property="og:image" content="<?php
     if (empty($banner_bg)) {
-        echo base_url() . 'webresources/images/banner0.jpg';
+        echo base_url() . 'webresources/images/tuvanduhoc-issi.png';
     }
     else {
         echo base_url() . $banner_bg;
     }
     ?>"/>
-    <meta property="og:image:width" content="12"/>
-    <meta property="og:image:height" content="360"/>
+    <meta property="og:image:width" content="1580"/>
+    <meta property="og:image:height" content="927"/>
     <!--    End Facebook sharecode-->
 
     <title><?php echo $title_header; ?> | ISSILOO</title>
@@ -42,37 +42,25 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) {
-                return;
-            }
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) {
-                f._fbq = n;
-            }
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window,
-            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-        fbq('init', '126616871073518');
-        fbq('track', "PageView");</script>
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=126616871073518&ev=PageView&noscript=1"
-        /></noscript>
-    <!-- End Facebook Pixel Code -->
+   <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '1731223443846639'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=1731223443846639&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
 
     <!--    Google analytics-->
     <script>
