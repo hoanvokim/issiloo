@@ -543,6 +543,8 @@ $config['cat_duhoc'] = array(11, 58, 59);
 
 $config['gocchiase'] = 60;
 $config['studyabroad'] = 72;
+$config['univers'] = 71;
+$config['studyabroad'] = 72;
 //
 $config['daotaohanngu'] = 14;
 $config['chuongtrinhdaotao'] = 15;
