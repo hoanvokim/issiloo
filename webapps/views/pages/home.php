@@ -114,86 +114,61 @@
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
                             class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
                 <hr class="divider"/>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row service-box--main">
-                            <div class="col-md-12">
-                                <div class="img-responsive">
-                                    <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>">
-                                        <img class="img-curve img-fluid"
-                                             src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
-                                                 echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
-                                             } else {
-                                                 if (empty($last_news[0]['img_src'])) {
-                                                     echo base_url() . 'webresources/images/banner0.jpg';
-                                                 } else {
-                                                     echo base_url() . $last_news[0]['img_src'];
-                                                 }
-                                             }
-                                             ?>" width="100%">
-                                    </a>
-                                </div>
-                                <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"><h4>
-                                        <strong><?php echo $last_news[0]['title']; ?></strong></h4></a>
-                                <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
-                                    <i><?php echo date_format(new DateTime($last_news[0]['created_date']), "d/m/Y"); ?></i>
-                                </h6>
-                                <div class="simple-summary">
-                                    <?php echo $last_news[0]['summary']; ?>
-                                    <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"
-                                       data-toggle="tooltip"
-                                       data-placement="bottom"
-                                       data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông
-                                            tin chi tiết</i>
-                                    </a>
+                <div class="row mar-20">
+                    <div class="col-md-12 blog_news">
+                        <!-- blog content start -->
+                        <div class="col-md-12 blog_content">
+                            <!-- single news area start -->
+                            <div class="news col-md-8">
+                                <div class="banner-block">
+                                    <a href="<?php echo base_url() . 'news/' . $last_news[0]['slug']; ?>"> <img
+                                                src="<?php if (strripos($last_news[0]['img_src'], 'embed/') !== false || strripos($last_news[0]['img_src'], 'watch?v=') !== false) {
+                                                    echo getThumbnailFromYoutubeLink($last_news[0]['img_src']);
+                                                }
+                                                else {
+                                                    if (empty($last_news[0]['img_src'])) {
+                                                        echo base_url() . 'webresources/images/banner0.jpg';
+                                                    }
+                                                    else {
+                                                        echo base_url() . $last_news[0]['img_src'];
+                                                    }
+                                                }
+                                                ?>"></a>
+                                    <div class="text-des-container-news">
+                                        <h6><?php echo $last_news[0]['title']; ?></h6>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- single news area end -->
+                            <!-- single news area start -->
+                            <div class="news col-md-4">
+                                <?php for ($i = 1; $i < 4; $i++) { ?>
+                                    <?php if ($i > (count($last_news) - 1)) {
+                                        break;
+                                    } ?>
+                                    <div class="banner-block">
+                                        <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"> <img
+                                                    src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
+                                                        echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
+                                                    }
+                                                    else {
+                                                        if (empty($last_news[$i]['img_src'])) {
+                                                            echo base_url() . 'webresources/images/banner0.jpg';
+                                                        }
+                                                        else {
+                                                            echo base_url() . $last_news[$i]['img_src'];
+                                                        }
+                                                    }
+                                                    ?>"></a>
+                                        <div class="text-des-container-news">
+                                            <h6><?php echo $last_news[$i]['title']; ?></h6>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <!-- single news area end -->
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <?php for ($i = 1; $i < 4; $i++) { ?>
-                            <?php if ($i > (count($last_news) - 1)) {
-                                break;
-                            } ?>
-                            <div class="service-box" style="padding: 0px !important;">
-                                <div class="col-md-4">
-                                    <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>">
-                                        <img class="img-fluid"
-                                             src="<?php if (strripos($last_news[$i]['img_src'], 'embed/') !== false || strripos($last_news[$i]['img_src'], 'watch?v=') !== false) {
-                                                 echo getThumbnailFromYoutubeLink($last_news[$i]['img_src']);
-                                             } else {
-                                                 if (empty($last_news[$i]['img_src'])) {
-                                                     echo base_url() . 'webresources/images/banner0.jpg';
-                                                 } else {
-                                                     echo base_url() . $last_news[$i]['img_src'];
-                                                 }
-                                             }
-                                             ?>" width="100%">
-                                    </a>
-                                </div>
-                                <div class="col-md-8" style="margin-bottom: -14px;">
-                                    <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"><h4>
-                                            <strong><?php echo $last_news[$i]['title']; ?></strong></h4>
-                                    </a>
-                                    <h6 class="posted-date"><?php echo $this->lang->line('POST_DATE'); ?>:
-                                        <i><?php echo date_format(new DateTime($last_news[$i]['created_date']), "d/m/Y"); ?></i>
-                                    </h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><?php echo $last_news[$i]['summary']; ?></span>
-                                    <br/>
-                                    <a href="<?php echo base_url() . 'news/' . $last_news[$i]['slug']; ?>"
-                                       data-toggle="tooltip"
-                                       data-placement="bottom"
-                                       data-original-title="Xem chi tiết">
-                                        <i class="ion icon ion-forward" style="font-size: 15px; color:#f16f56;"> Thông
-                                            tin chi tiết</i>
-                                    </a>
-                                    <hr/>
-                                </div>
-                            </div>
-                        <?php } ?>
+                        <!-- blog content end -->
                     </div>
                 </div>
                 <div class="pull-right">

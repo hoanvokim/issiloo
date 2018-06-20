@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     padding: 0px;
     margin-bottom: 15px;
-    line-height: 170%;
+    line-height: 140%;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -655,7 +655,7 @@ nav ul > li > ul > li > a:hover {
     height: 200px;
     background-size: cover;
     position: relative;
-    background-repeat:   no-repeat;
+    background-repeat: no-repeat;
     background-position: center top;
 }
 
@@ -1027,7 +1027,7 @@ ul.list-group li:before {
 
 footer {
     background-color: #2e4c95;
-    color: #ffffff;
+    color: #fff;
     font-size: 16px;
     line-height: 21px;
 }
@@ -3034,6 +3034,7 @@ ol {
     border: solid 1px #fff;
     text-align: center;
 }
+
 hr.divider {
     margin-bottom: 30px;
     margin-top: -30px;
@@ -3052,6 +3053,7 @@ hr.divider {
 
 .posted-date {
     margin-top: -15px;
+    margin-bottom: 5px;
     font-size: 10px;
 }
 
@@ -3142,7 +3144,7 @@ hr.divider {
     display: none;
     padding: 5px;
     margin: 5px;
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     border-radius: 2px;
     background-color: white;
 }
@@ -3300,7 +3302,7 @@ body nav ul.nav-main {
 body .form-control.search {
     margin-top: 1px !important;
     height: 40px !important;
-    border: 1px solid #EBEBEB;
+    border: 1px solid #ebebeb;
 }
 
 /* Search */
@@ -3375,7 +3377,7 @@ header div.search input[type=text] {
 
 .v-arrow-inner {
     top: 15px;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #808080;
     height: 10px;
     width: 10px;
@@ -3441,7 +3443,7 @@ html.webkit header div.search-input .btn {
 
 /*Asidebar*/
 .asidebar {
-    border-left: solid 1px #EBEBEB;
+    border-left: solid 1px #ebebeb;
 }
 
 /* ---------- Feature CSS --------- */
@@ -3495,6 +3497,7 @@ html.webkit header div.search-input .btn {
 .feature_detail:hover h3:after {
     background: #0c4c7b;
 }
+
 /*-----------------------------
 
       [12. Section Six Styles]
@@ -3543,7 +3546,7 @@ html.webkit header div.search-input .btn {
 
 .news_img h3,
 .news_img h5 {
-    color: #FFF;
+    color: #fff;
     margin-bottom: -20px;
 }
 
@@ -3587,7 +3590,7 @@ html.webkit header div.search-input .btn {
 .news_img:hover .overlay_news .text h3,
 .news_img:hover .overlay_news .text h5,
 .news_img:hover .overlay_news .text a {
-    color: #FFF;
+    color: #fff;
 }
 
 .news_img:hover img {
@@ -3599,10 +3602,6 @@ html.webkit header div.search-input .btn {
     margin-bottom: 0;
 }
 
-.news {
-    margin-top: 20px;
-}
-
 .blog_title {
     display: block;
     margin: 0 0 0 15px;
@@ -3610,27 +3609,32 @@ html.webkit header div.search-input .btn {
 }
 
 .blog_title h1 {
-    color: #FFD33E;
+    color: #ffd33e;
     font-family: Unna;
     font-weight: 600;
     margin-left: 8px;
 }
+
 /*Banner*/
 .banner-block {
-    margin-top: 30px;
+    margin-top: 20px;
     overflow: hidden;
     position: relative;
 }
+
 .banner-block a {
 }
+
 .banner-block a img {
     transform: scale(1);
     transition-duration: 0.4s;
 }
+
 .banner-block:hover a img {
     opacity: 1;
     transform: scale(1.05);
 }
+
 .text-des-container {
     bottom: -60px;
     height: 120px;
@@ -3642,19 +3646,42 @@ html.webkit header div.search-input .btn {
     right: 0;
     width: 100%;
     z-index: 1;
-    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 70%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(21, 11, 155, 0.87) 70%) repeat scroll 0 0;
 }
+
+.text-des-container-news {
+    color: #fff;
+    font-size: 14px;
+    bottom: -5px;
+    left: 0;
+    padding: 0 15px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    background: rgba(21, 11, 155, 0.57);
+}
+
+.text-des-container-news h6 {
+    padding-top: 10px;
+    padding-bottom: -20px;
+}
+
 .text-des-container.pad-zero {
     padding: 0;
 }
+
 .text-des {
     padding: 25px 15px;
 }
+
 .text-des h3 {
     font-size: 16px;
     margin-bottom: 5px;
     color: #fff;
 }
+
 /*Hyperlink effects*/
 #detail_content a {
     color: #f1412e;
@@ -3665,4 +3692,37 @@ html.webkit header div.search-input .btn {
     height: auto;
     float: right;
     margin: 0 0 0 20px;
+}
+
+.round_titsub {
+    position: absolute;
+    background: rgba(51, 75, 159, 0.45);
+    bottom: 0px;
+    padding: 5px 0;
+    width: 100%;
+}
+
+.transition {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.font-white {
+    color: #fff;
+    margin: 0px;
+}
+
+.round_titsub-padding {
+    padding: 10px;
+}
+
+
+.service-box a img {
+    transform: scale(1);
+    transition-duration: 0.4s;
+}
+
+.service-box:hover a img {
+    opacity: 1;
+    transform: scale(1.05);
 }

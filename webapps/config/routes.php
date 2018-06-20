@@ -230,3 +230,12 @@ $route['update-feature-submit'] = 'dm/feature_controller/updateSubmit';
 
 $route['main-feature-manager'] = 'dm/mainfeature_controller/index';
 $route['update-mainfeature-submit'] = 'dm/mainfeature_controller/updateSubmit';
+
+$route['studyabroad-manager'] = 'dm/studyabroad_controller/index';
+$route['studyabroad-manager/create-studyabroad'] = 'dm/studyabroad_controller/create_studyabroad';
+$route['studyabroad-manager/update-studyabroad/:num'] = 'dm/studyabroad_controller/update_studyabroad';
+$route['studyabroad-manager/delete-studyabroad/:num'] = 'dm/studyabroad_controller/delete_studyabroad';
+$route['studyabroad-manager-create-studyabroad-submit'] = 'dm/studyabroad_controller/create_studyabroad_submit';
+$route['studyabroad-manager/create-studyabroad-cancel'] = 'dm/studyabroad_controller/create_studyabroad_cancel';
+$route['studyabroad-manager-update-studyabroad-submit'] = 'dm/studyabroad_controller/update_studyabroad_submit';
+$route['studyabroad-manager/update-studyabroad-cancel'] = 'dm/studyabroad_controller/update_studyabroad_cancel';

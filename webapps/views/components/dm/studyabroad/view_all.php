@@ -1,7 +1,7 @@
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title pull-left">Tất cả các bài viết của Sự kiện nổi bật</h3>
-        <a href="<?php echo base_url() . "news-manager/create-news" ?>"
+        <h3 class="panel-title pull-left">Tất cả các bài viết của Thông tin du học</h3>
+        <a href="<?php echo base_url() . "studyabroad-manager/create-studyabroad" ?>"
            class="btn btn-success pull-right btn-top-right btn-xs"><i class="fa fa-plus-square"></i> Thêm 1 bài mới</a>
     </div>
     <div class="panel-body">
@@ -25,16 +25,16 @@
                     <td><?php echo substr($program['created_date'],0,10); ?></td>
                     <td><?php echo substr($program['updated_date'],0,10); ?></td>
                     <td>
-                        <a href="<?php echo base_url() . "news-manager/update-news/" . $program['id']; ?>"
+                        <a href="<?php echo base_url() . "studyabroad-manager/update-studyabroad/" . $program['id']; ?>"
                            class="btn btn-default btn-xs"><i class="fa fa-pencil-square"></i> Sửa</a>
-                        <a href="<?php echo base_url() . "news-manager/delete-news/" . $program['id']; ?>"
+                        <a href="<?php echo base_url() . "studyabroad-manager/delete-studyabroad/" . $program['id']; ?>"
                            class="btn btn-danger btn-xs pull-right" onclick="return confirm('Bạn có muốn xoá không?');" ><i class="fa fa-close"></i> Xoá</a>
                     </td>
                 </tr>
             <?php } ?>
             </tbody>
         </table>
-        <a href="<?php echo base_url() . "news-manager/create-news" ?>"
+        <a href="<?php echo base_url() . "studyabroad-manager/create-studyabroad" ?>"
            class="btn btn-success pull-right btn-xs"><i class="fa fa-plus-square"></i> Thêm 1 bài mới</a>
     </div>
 </div>

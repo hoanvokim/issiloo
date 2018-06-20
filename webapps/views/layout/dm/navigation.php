@@ -163,7 +163,13 @@
                         <li>
                             <a href="<?php echo site_url('news-manager'); ?>">
                                 <i class="fa fa-newspaper-o"></i>
-                                <span class="menu-title">Tin Tức</span>
+                                <span class="menu-title">Sự kiện nổi bật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url('studyabroad-manager'); ?>">
+                                <i class="fa fa-newspaper-o"></i>
+                                <span class="menu-title">Thông tin du học</span>
                             </a>
                         </li>
                         <li>
