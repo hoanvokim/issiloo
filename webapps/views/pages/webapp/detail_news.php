@@ -7,7 +7,7 @@
 <div class="inner-container" style="margin-top: 30px;">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <!-- blog item start -->
 
                 <div class="single-post">
@@ -73,7 +73,7 @@
                      data-numposts="100"></div>
             </div>
 
-            <div class="col-md-4 sidebar">
+            <div class="col-md-3 sidebar">
 
                 <!-- widget start -->
                 <div class="widget-box">
