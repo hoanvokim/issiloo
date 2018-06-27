@@ -98,7 +98,7 @@ class News_Model extends CI_Model
     {
         //HARDCODE
         try{
-            $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($catId) order by created_date desc limit 0,4";
+            $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($catId) order by created_date desc limit 0,5";
             $aData = $this->db->query($sql)->result_array();
             $aResult = array();
             $cnt = 0;

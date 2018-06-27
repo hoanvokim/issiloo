@@ -3618,7 +3618,7 @@ html.webkit header div.search-input .btn {
 
 /*Banner*/
 .banner-block {
-    margin-top: 20px;
+    margin-top: 5px;
     overflow: hidden;
     position: relative;
 }
@@ -3661,7 +3661,7 @@ html.webkit header div.search-input .btn {
     right: 0;
     width: 100%;
     z-index: 1;
-    background: rgba(21, 11, 155, 0.57);
+    background: rgb(47, 75, 149, 0.9);
 }
 
 .text-des-container-news-no-stack {
@@ -3727,7 +3727,6 @@ html.webkit header div.search-input .btn {
 .round_titsub-padding {
     padding: 10px;
 }
-
 
 .service-box a img {
     transform: scale(1);
