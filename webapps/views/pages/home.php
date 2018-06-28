@@ -51,11 +51,6 @@
                                 <a href="<?php echo base_url() . $duhochanquoc['slug']; ?>"> <img
                                             src="<?php echo base_url() . $duhochanquoc['img'] ?>"
                                             alt="<?php echo $duhochanquoc['vi_name'] ?>"> </a>
-                                <div class="text-des-container">
-                                    <div class="text-des">
-                                        <h3><?php echo $duhochanquoc['vi_name'] ?></h3>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- single news area end -->
@@ -65,11 +60,6 @@
                                 <a href="<?php echo base_url() . $daotaohanngu['slug']; ?>"> <img
                                             src="<?php echo base_url() . $daotaohanngu['img'] ?>"
                                             alt="<?php echo $daotaohanngu['vi_name'] ?>"> </a>
-                                <div class="text-des-container">
-                                    <div class="text-des">
-                                        <h3><?php echo $daotaohanngu['vi_name'] ?></h3>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- single news area end -->
