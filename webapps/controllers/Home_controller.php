@@ -112,7 +112,7 @@ class Home_controller extends CI_Controller
 
         //get lastest news.
         $data['last_news'] = $this->News_model->getLastNewsByCatId($this->config->item('news_and_event') != 0 ? $this->config->item('news_and_event') : 0);
-        $data['studyabroad_news'] = $this->News_model->getLastNewsByCatId($this->config->item('studyabroad') != 0 ? $this->config->item('studyabroad') : 0);
+        $data['studyabroad_news'] = $this->News_model->getLastNewsByCatIds($this->config->item('studyabroad'),$this->config->item('hoc_bong'));
         $data['uni_news'] = $this->News_model->getLastNewsByCatId($this->config->item('univers') != 0 ? $this->config->item('univers') : 0);
         $data['learning_corner_news'] = $this->News_model->getLastNewsByCatId($this->config->item('gochoctap') != 0 ? $this->config->item('gochoctap') : 0);
 

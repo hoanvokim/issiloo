@@ -121,6 +121,33 @@ class News_Model extends CI_Model
             return false;
         }
     }
+    public function getLastNewsByCatIds($catId, $catId2)
+    {
+        //HARDCODE
+        try{
+            $sql = "select id, category_id, img_src, slug, $this->title as title, $this->summary as summary, created_date from news where category_id in ($catId, $catId2) order by created_date desc limit 0,4";
+            $aData = $this->db->query($sql)->result_array();
+            $aResult = array();
+            $cnt = 0;
+            if(count($aData)>0){
+
+                foreach ($aData as $item) {
+                    $aResult[$cnt]['id'] = $item['id'];
+                    $aResult[$cnt]['category_id'] = $item['category_id'];
+                    $aResult[$cnt]['title'] = $item['title'];
+                    $aResult[$cnt]['slug'] = $item['slug'];
+                    $aResult[$cnt]['img_src'] = $item['img_src'];
+                    $aResult[$cnt]['created_date'] = $item['created_date'];
+                    $aResult[$cnt]['summary'] = $item['summary'];
+                    $cnt++;
+                }
+            }
+            return $aResult;
+
+        }catch(Exception $e){
+            return false;
+        }
+    }
 
     public function getNewsByArrCat($aCat)
     {
