@@ -7,7 +7,7 @@
 <div class="inner-container" style="margin-top: 30px;">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!-- blog item start -->
 
                 <div class="single-post">
@@ -62,10 +62,12 @@
                 <div id="fb-root"></div>
                 <script>(function (d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
+                        if (d.getElementById(id)) {
+                            return;
+                        }
                         js = d.createElement(s);
                         js.id = id;
-                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697";
+                        js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1463519310579697';
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -73,44 +75,54 @@
                      data-numposts="100"></div>
             </div>
 
-            <div class="col-md-4 sidebar">
-
-                <!-- widget start -->
-                <div class="widget-box">
-
-                    <?php if ($relatednews && count($relatednews) > 0) { ?>
-                        <h4>Bài viết liên quan</h4>
-                    <?php } ?>
-                    <ul class="list">
-
-                        <?php $cnt = count($relatednews) >= 4 ? 4 : count($relatednews); ?>
-                        <?php for ($i = 0; $i < $cnt; $i++) { ?>
-                            <li>
-                                <a href="<?php echo base_url(); ?>news/<?php echo $relatednews[$i]['slug']; ?>"><img
-                                            src="
+            <div class="col-md-12" style="margin-bottom: 30px;">
+                <?php if ($relatednews && count($relatednews) > 0) { ?>
+                    <h3 class="col-header-color">Có thể bạn quan tâm</h3></a>
+                    <hr class="divider"/>
+                <?php } ?>
+                <?php $displayRow = 0; ?>
+                <?php for ($i = 0;
+                $i < count($relatednews);
+                $i++) { ?>
+                <?php if ($displayRow < 2) { ?>
+                <div class="row"> <?php } ?>
+                    <div class="col-md-6" <?php if ($i > 1) { ?> style="margin-top: 10px;" <?php } ?>>
+                        <a href="<?php echo base_url(); ?>news/<?php echo $relatednews[$i]['slug']; ?>">
+                            <div class="col-md-6">
+                                <img
+                                        src="
                                             <?php
-                                            if (empty($relatednews[$i]['img_src'])) {
-                                                echo base_url() . 'webresources/images/banner0.jpg';
-                                            } else {
-                                                echo base_url() . $relatednews[$i]['img_src'];
-                                            }
-                                            ?>
+                                        if (empty($relatednews[$i]['img_src'])) {
+                                            echo base_url() . 'webresources/images/banner0.jpg';
+                                        }
+                                        else {
+                                            echo base_url() . $relatednews[$i]['img_src'];
+                                        }
+                                        ?>
                                             "
-                                            alt=""/><?php echo $relatednews[$i]['title']; ?><br/>
-                                    <small><?php echo date_format(new DateTime($relatednews[$i]['created_date']), "F d, Y"); ?></small>
-                                </a></li>
-                        <?php } ?>
-
-
-                    </ul>
+                                        alt=""/>
+                            </div>
+                            <div class="col-md-6">
+                                <?php echo $relatednews[$i]['title']; ?>
+                                <br/>
+                                <small><?php echo date_format(new DateTime($relatednews[$i]['created_date']), "F d, Y"); ?></small>
+                            </div>
+                        </a>
+                    </div>
+                    <?php if ($displayRow < 2) {
+                        $displayRow++;
+                    }
+                    else if ($displayRow == 1) {
+                        $displayRow = 0;
+                        echo '</div';
+                    } ?>
+                    <?php } ?>
                 </div>
-                <!-- widget end -->
             </div>
+
         </div>
-
     </div>
-</div>
-<!-- inner container end -->
+    <!-- inner container end -->
 
 
-<?php $this->load->view('layout/webapp/footer'); ?>
+    <?php $this->load->view('layout/webapp/footer'); ?>
