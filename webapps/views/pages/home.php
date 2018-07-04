@@ -77,7 +77,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="margin_bottom">
-                            <h3><?php echo $featureslogan['value'] ?></h3>
+                            <h3><strong><?php echo $featureslogan['value'] ?></strong></h3>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><h3
-                            class="col-header-color"><?php echo $this->lang->line('LASTEST_NEWS'); ?></h3></a>
+                            class="col-header-color"><strong><?php echo $this->lang->line('LASTEST_NEWS'); ?></strong></h3></a>
                 <hr class="divider"/>
                 <div class="row mar-20">
                     <div class="col-md-12 blog_news">
@@ -190,7 +190,7 @@
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-default btn-xs"
-                       href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                       href="<?php echo base_url() . 'cat/tin-tuc-su-kien' ?>"><strong><?php echo $this->lang->line('READ_MORE_NEWS'); ?></strong>
                         <i class="ion ion-ios-arrow-thin-right"></i>
                     </a>
                 </div>
@@ -203,7 +203,7 @@
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/thong-tin-du-hoc' ?>"><h3
-                            class="col-header-color"><?php echo $this->lang->line('STUDYABROAD'); ?></h3></a>
+                            class="col-header-color"><strong><?php echo $this->lang->line('STUDYABROAD'); ?></strong></h3></a>
                 <hr class="divider"/>
                 <div class="row mar-20">
                     <div class="col-md-12 blog_news">
@@ -268,7 +268,7 @@
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-default btn-xs"
-                       href="<?php echo base_url() . 'cat/thong-tin-du-hoc' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                       href="<?php echo base_url() . 'cat/thong-tin-du-hoc' ?>"><strong><?php echo $this->lang->line('READ_MORE_NEWS'); ?></strong>
                         <i class="ion ion-ios-arrow-thin-right"></i>
                     </a>
                 </div>
@@ -281,7 +281,7 @@
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/cac-truong-dai-hoc' ?>"><h3
-                            class="col-header-color"><?php echo $this->lang->line('UNIVERSITY'); ?></h3></a>
+                            class="col-header-color"><strong><?php echo $this->lang->line('UNIVERSITY'); ?></strong></h3></a>
                 <hr class="divider"/>
                 <div class="row mar-20">
                     <div class="col-md-12 blog_news">
@@ -346,7 +346,7 @@
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-default btn-xs"
-                       href="<?php echo base_url() . 'cat/cac-truong-dai-hoc' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                       href="<?php echo base_url() . 'cat/cac-truong-dai-hoc' ?>"><strong><?php echo $this->lang->line('READ_MORE_NEWS'); ?></strong>
                         <i class="ion ion-ios-arrow-thin-right"></i>
                     </a>
                 </div>
@@ -359,7 +359,7 @@
         <div class="news-inner-container">
             <div class="container">
                 <a href="<?php echo base_url() . 'cat/goc-hoc-tap' ?>"><h3
-                            class="col-header-color"><?php echo $this->lang->line('STUDY'); ?></h3></a>
+                            class="col-header-color"><strong><?php echo $this->lang->line('STUDY'); ?></strong></h3></a>
                 <hr class="divider"/>
                 <div class="row mar-20">
                     <div class="col-md-12 blog_news">
@@ -424,7 +424,7 @@
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-default btn-xs"
-                       href="<?php echo base_url() . 'cat/goc-hoc-tap' ?>"><?php echo $this->lang->line('READ_MORE_NEWS'); ?>
+                       href="<?php echo base_url() . 'cat/goc-hoc-tap' ?>"><strong><?php echo $this->lang->line('READ_MORE_NEWS'); ?></strong>
                         <i class="ion ion-ios-arrow-thin-right"></i>
                     </a>
                 </div>
