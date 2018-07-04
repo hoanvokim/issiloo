@@ -79,8 +79,8 @@ class News_controller extends CI_Controller
         $data['description_header'] = $current['description_header'];
         $data['keyword_header'] = $current['keyword_header'];
         $data['vititle'] = $current['title'];
-        $data['content'] = $current['content'];
-        $data['summary'] = $current['summary'];
+        $data['vicontent'] = $current['content'];
+        $data['visummary'] = $current['summary'];
         $data['img_src'] = $current['img_src'];
 
         $data['title'] = 'Cập nhật bài viết:<strong>' . $current['title'] . '</strong>';
@@ -91,46 +91,68 @@ class News_controller extends CI_Controller
 
     public function update_study_news_submit()
     {
-        $this->load->library('upload', $this->get_config());
-        if ($this->upload->do_upload('userfile')) {
-            $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
+        if (isset($_POST["save"])) {
+            $this->load->library('upload', $this->get_config());
+            if ($this->upload->do_upload('userfile')) {
+                $upload_files = $this->upload->data();
+                $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $this->News_model->update_full(
-                $this->input->post('newsId'),
-                $this->input->post('catId'),
-                $file_path,
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('contenteditor'),
-                $this->input->post('summaryeditor')
-            );
-        } else {
-            $this->News_model->update_full(
-                $this->input->post('newsId'),
-                $this->input->post('catId'),
-                $this->input->post('img_src'),
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('contenteditor'),
-                $this->input->post('summaryeditor')
-            );
-        }
-
-        $this->Tag_model->deleteByNews($this->input->post('newsId'));
-        $tags = $this->input->post('tags');
-        if (count($tags) > 0) {
-            foreach ($tags as $tag) {
-                $this->Tag_model->saveReferenceNews($tag, $this->input->post('newsId'));
+                $this->News_model->update_full(
+                    $this->input->post('newsId'),
+                    $this->input->post('catId'),
+                    $file_path,
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
+                );
             }
+            else {
+                $this->News_model->update_full(
+                    $this->input->post('newsId'),
+                    $this->input->post('catId'),
+                    $this->input->post('img_src'),
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
+                );
+            }
+
+            $this->Tag_model->deleteByNews($this->input->post('newsId'));
+            $tags = $this->input->post('tags');
+            if (count($tags) > 0) {
+                foreach ($tags as $tag) {
+                    $this->Tag_model->saveReferenceNews($tag, $this->input->post('newsId'));
+                }
+            }
+            redirect('manage-study-news', 'refresh');
         }
-        redirect('manage-study-news', 'refresh');
+        if (isset($_POST["remove-current"])) {
+            $this->News_model->updateImage($this->input->post('newsId'));
+            if (strpos($this->input->post('img_src'), 'youtube') == false) {
+                unlink('./' . $this->input->post('img_src'));
+            }
+            $data['newsId'] = $this->input->post('newsId');
+            $data['img_src'] = '';
+            $data['slug'] = $this->input->post('slug');
+            $data['title_header'] = $this->input->post('title_header');
+            $data['description_header'] = $this->input->post('description_header');
+            $data['keyword_header'] = $this->input->post('keyword_header');
+            $data['vititle'] = $this->input->post('vititle');
+            $data['vicontent'] = $this->input->post('contenteditor');
+            $data['visummary'] = $this->input->post('summaryeditor');
+            $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
+            $data['tags'] = $this->Tag_model->findAll();
+            $data['selectedTags'] = $this->Tag_model->getTagByNewsId($this->input->post('newsId'));
+            $this->load->view('pages/dm/study/news_edit', $data);
+        }
     }
 
     public function update_study_news_cancel()
@@ -217,7 +239,8 @@ class News_controller extends CI_Controller
                 $this->input->post('contenteditor'),
                 $this->input->post('summaryeditor')
             );
-        } else {
+        }
+        else {
             $insertId = $this->News_model->insert_full(
                 $this->input->post('catId'),
                 $this->input->post('img_src'),
@@ -241,65 +264,66 @@ class News_controller extends CI_Controller
 
     public function add_news_into_category_add()
     {
-//        if (isset($_POST["save"])) {
+        if (isset($_POST["save"])) {
 
-        $insertId = -1;
-        $this->load->library('upload', $this->get_config());
-        if ($this->upload->do_upload('userfile')) {
-            $upload_files = $this->upload->data();
-            $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
+            $insertId = -1;
+            $this->load->library('upload', $this->get_config());
+            if ($this->upload->do_upload('userfile')) {
+                $upload_files = $this->upload->data();
+                $file_path = 'assets/upload/images/news/' . $upload_files['file_name'];
 
-            $insertId = $this->News_model->insert_full(
-                $this->input->post('catId'),
-                $file_path,
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('contenteditor'),
-                $this->input->post('summaryeditor')
-            );
-        } else {
-            $insertId = $this->News_model->insert_full(
-                $this->input->post('catId'),
-                $this->input->post('img_src'),
-                $this->input->post('slug'),
-                $this->input->post('title_header'),
-                $this->input->post('description_header'),
-                $this->input->post('keyword_header'),
-                $this->input->post('vititle'),
-                $this->input->post('contenteditor'),
-                $this->input->post('summaryeditor')
-            );
-        }
-        $tags = $this->input->post('tags');
-        if (count($tags) > 0) {
-            foreach ($tags as $tag) {
-                $this->Tag_model->saveReferenceNews($tag, $insertId);
+                $insertId = $this->News_model->insert_full(
+                    $this->input->post('catId'),
+                    $file_path,
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
+                );
             }
+            else {
+                $insertId = $this->News_model->insert_full(
+                    $this->input->post('catId'),
+                    $this->input->post('img_src'),
+                    $this->input->post('slug'),
+                    $this->input->post('title_header'),
+                    $this->input->post('description_header'),
+                    $this->input->post('keyword_header'),
+                    $this->input->post('vititle'),
+                    $this->input->post('contenteditor'),
+                    $this->input->post('summaryeditor')
+                );
+            }
+            $tags = $this->input->post('tags');
+            if (count($tags) > 0) {
+                foreach ($tags as $tag) {
+                    $this->Tag_model->saveReferenceNews($tag, $insertId);
+                }
+            }
+            redirect('manage-study-category', 'refresh');
         }
-        redirect('manage-study-category', 'refresh');
-//        }
-//        if (isset($_POST["remove-current"])) {
-//            $this->News_model->updateImage($this->input->post('newsId'));
-//            if (strpos($this->input->post('img_src'), 'youtube') == false) {
-//                unlink('./' . $this->input->post('img_src'));
-//            }
-//            $data['newsId'] = $this->input->post('newsId');
-//            $data['img_src'] = '';
-//            $data['slug'] = $this->input->post('slug');
-//            $data['title_header'] = $this->input->post('title_header');
-//            $data['description_header'] = $this->input->post('description_header');
-//            $data['keyword_header'] = $this->input->post('keyword_header');
-//            $data['vititle'] = $this->input->post('vititle');
-//            $data['contenteditor'] = $this->input->post('contenteditor');
-//            $data['summaryeditor'] = $this->input->post('summaryeditor');
-//            $data['currentCategory'] = $this->input->post('catId');
-//            $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
-//            $this->load->view('pages/dm/news/edit', $data);
-//
-//        }
+        if (isset($_POST["remove-current"])) {
+            $this->News_model->updateImage($this->input->post('newsId'));
+            if (strpos($this->input->post('img_src'), 'youtube') == false) {
+                unlink('./' . $this->input->post('img_src'));
+            }
+            $data['newsId'] = $this->input->post('newsId');
+            $data['img_src'] = '';
+            $data['slug'] = $this->input->post('slug');
+            $data['title_header'] = $this->input->post('title_header');
+            $data['description_header'] = $this->input->post('description_header');
+            $data['keyword_header'] = $this->input->post('keyword_header');
+            $data['vititle'] = $this->input->post('vititle');
+            $data['contenteditor'] = $this->input->post('contenteditor');
+            $data['summaryeditor'] = $this->input->post('summaryeditor');
+            $data['currentCategory'] = $this->input->post('catId');
+            $data['title'] = 'Cập nhật bài viết:<strong>' . $this->input->post('vititle') . '</strong>';
+            $this->load->view('pages/dm/news/edit', $data);
+
+        }
     }
 
     public function delete_news_category()

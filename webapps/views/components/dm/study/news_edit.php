@@ -100,7 +100,7 @@
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Tóm tắt</label>
                 <br/>
-                <textarea name="summaryeditor" class="form-control" style="min-height: 300px;"><?php echo $summary; ?></textarea>
+                <textarea name="summaryeditor" class="form-control" style="min-height: 300px;"><?php echo $visummary; ?></textarea>
             </div>
 
         </div>
@@ -113,7 +113,7 @@
 
             <div class="form-group">
                 <label for="demo-vs-definput" class="control-label">Nội dung bài viết</label>
-                <textarea name="contenteditor"><?php echo $content; ?></textarea>
+                <textarea name="contenteditor"><?php echo $vicontent; ?></textarea>
             </div>
         </div>
     </div>
