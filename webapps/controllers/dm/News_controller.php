@@ -140,6 +140,7 @@ class News_controller extends CI_Controller
                 unlink('./' . $this->input->post('img_src'));
             }
             $data['newsId'] = $this->input->post('newsId');
+            $data['catId'] = $this->input->post('catId');
             $data['img_src'] = '';
             $data['slug'] = $this->input->post('slug');
             $data['title_header'] = $this->input->post('title_header');
