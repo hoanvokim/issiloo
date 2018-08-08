@@ -35,3 +35,4 @@ failsafe-reports
 
 # browser version management exclude
 *BrowserVersionManagement.json
+assets/upload/images/
